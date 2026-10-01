@@ -417,6 +417,11 @@ children.push(p("This dominance is a property of the scale parameter and we say 
 
 children.push(p("Permutation control for the rank-normalised input. Because the crosslinking score is rank-normalised within each section, the fraction of edges below the IgG radius is partly fixed by construction. To separate model artefact from data signal, we permuted the crosslinking score 50 times within each of six representative sections (spanning both tumour types and both platform generations) and re-ran the variance decomposition on each permutation. The size-exclusion share of B_mAb variance is essentially unchanged: median 97.6% under the real crosslinking field versus 97.6% under permutation (95% null interval 96.8\u201398.4%); only 2 of 6 sections show a permutation p < 0.05, and in those the effect size is less than one percentage point. We therefore report the 97.5% figure explicitly as a property of the operator given \u03b2 = 3, not as an empirical measurement of crosslinking architecture \u2014 a framing already stated in Section 2.4 and confirmed here rather than softened after review."));
 
+children.push(pRuns([
+  new TextRun({ text: "Graph-radius sensitivity. ", font: FONT, size: SZ_BODY, bold: true }),
+  new TextRun({ text: "Because the spatial graph is constructed by a hard radius threshold, we tested whether the main conclusions depend on that choice. We re-graphed all 19 sections at four Visium radii (100, 150, 200, 250 \u00b5m) and three first-generation-ST radii (200, 300, 400 \u00b5m), re-defined source/sink/vessel sets at each radius, and recomputed both operators (65 configurations total). The median partial coupling between the B_cell field and B_mAb is +0.225 across configurations (96.9% positive, versus +0.217 at default). The median B_cell reduction after 30% stromal scaling is 59.6% and B_mAb reduction 49.5% (versus 60.8% and 49.5% at default). Both barriers fall simultaneously in 89.2% of configurations. The coupling, the stromal co-targeting prediction, and the direction of the size-exclusion result are therefore not artifacts of a single graph radius.", font: FONT, size: SZ_BODY }),
+]));
+
 // Fig 2
 children.push(...figImage("fig2_driver_decomposition", 6.0, 2.65,
   "Figure 2. The antibody barrier decomposes onto one axis \u2014 whose dominance is a modelling choice, not a measurement. (a) Three-channel share of B_mAb variance (log axis). (b) Crosslinking share as a function of \u03b2."));
@@ -485,6 +490,11 @@ children.push(buildTable3());
 children.push(emptyP());
 
 // ════ 4. Discussion ════
+children.push(pRuns([
+  new TextRun({ text: "Alignment with measured cell distributions. ", font: FONT, size: SZ_BODY, bold: true }),
+  new TextRun({ text: "Beyond internal consistency, we asked whether the per-spot barrier fields align with measured cell distributions in the same tissue. After residualising on vessel distance, the B_cell field shows a weak but directionally consistent negative partial correlation with the T/NK signature (median \u03c1 = \u22120.022, significant in 6/19 sections) and with the CD8 T-cell signature (median \u03c1 = \u22120.013, significant in 5/19): barrier-high spots tend to contain fewer T cells, though the effect is small because T-cell localisation is also driven by antigen availability and inflammatory cues not modelled here. The B_mAb field shows a weak positive partial correlation with proliferation (median \u03c1 = +0.046, significant in 7/19), consistent with antibody-blocked nests retaining proliferating cells. We do not overstate these alignments: they are weak, they point in the expected direction, and they provide an independent (if modest) check that the operators are not purely mathematical constructs.", font: FONT, size: SZ_BODY }),
+]));
+
 children.push(h1("4. Discussion"));
 
 children.push(pRuns([
