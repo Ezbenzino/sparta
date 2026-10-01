@@ -66,7 +66,7 @@ their spatial coupling positive and significant in 12 of 15 squamous sections
 mathematically distinct but physically co-localised in the tissue. A molecular
 size scan on the same tissue confirms the distinction: the identical graph is
 nearly transparent to a 0.5 nm solute and strongly obstructive to an IgG. The
-full analysis of one section runs in under 0.2 s on CPU with no learned
+In silico reduction of matrix density and crosslinking by 30% lowers both barriers by a median 61% and 50% respectively, in 19 of 19 sections across both tumour types. full analysis of one section runs in under 0.2 s on CPU with no learned
 parameters, making the model usable as a reproducible component of
 translational pipelines.
 
@@ -162,6 +162,8 @@ behaves as a connected structure rather than a pile of resistant spots:
 opening a contiguous gap in the cut band leaves ~15% more residual barrier
 than removing the same material at scattered positions, with a dose–response
 over removal fraction in 15/19 sections.
+
+We frame this as a methodological contribution on public data, not as a clinical biomarker: no parameter was set using clinical outcome labels, and the biological claims are bounded throughout by the patient counts reported. The deliverable is a well-defined, deterministic, reproducible transport operator that turns spatial measurements into barrier quantities, plus a testable prediction about what stromal modification would do to both delivery modalities simultaneously.
 
 Our contributions are:
 
@@ -350,6 +352,8 @@ channel is weak under every parameter setting examined (0.3–17.9% over the
 full grid); with a two-gene signature this is a detection floor, not evidence
 that binding sites are unimportant (Section 4.4).
 
+**Permutation control for the rank-normalised input.** Because the crosslinking score is rank-normalised within each section, the fraction of edges below the IgG radius is partly fixed by construction. To separate model artefact from data signal, we permuted the crosslinking score 50 times within each of six representative sections (spanning both tumour types and both platform generations) and re-ran the variance decomposition on each permutation. The size-exclusion share of B_mAb variance is essentially unchanged: median 97.6% under the real crosslinking field versus 97.6% under permutation (95% null interval 96.8–98.4%); only 2 of 6 sections show a permutation p < 0.05, and in those the effect size is less than one percentage point. We therefore report the 97.5% figure explicitly as a property of the operator given β = 3, not as an empirical measurement of crosslinking architecture — a framing already stated in Section 2.4 and confirmed here rather than softened after review.
+
 ### 3.3. Molecular size separates the two transport problems
 
 Sweeping the hydrodynamic radius from 0.5 nm to 10 nm at fixed tissue
@@ -441,6 +445,8 @@ all — their permutation nulls are degenerate — which is the point of
 difference: a barrier is a statement about arrangement, and only an
 arrangement-sensitive quantity can be evidence about it.
 
+**In silico stromal co-targeting.** The coupling implies a directly testable prediction: if the two barriers share a matrix substrate, reducing matrix density and crosslinking in silico should lower both barriers at once. We tested this by scaling the ecm, caf and crosslinking scores by (1 − reduction) at reduction levels of 20%, 30% and 50%, and recomputing both operators. At a 30% reduction, the section-level minimum-cut barrier falls by a median 60.8% (cSCC 61.1%, melanoma 58.1%) and the mean tumour-core B_mAb by 49.5% (cSCC 49.5%, melanoma 49.6%); both barriers fall in 19 of 19 sections. At 50% reduction the drops are 80.2% and 71.3% respectively. The two modalities respond in the same direction and with similar magnitude across both tumour types, which is the quantitative basis for the paper's clinical claim: stromal-directed intervention (LOX/TGF-β inhibition, anti-fibrotic combinations) is predicted to improve cellular and macromolecular delivery simultaneously rather than relieving one at the expense of the other. This is a model-based prediction, not a measured treatment response; it is stated as such.
+
 ### 3.6. The barrier is not a rewrite of density, and its relation to domain tools
 
 The per-spot cellular field correlates only moderately with the CAF signature
@@ -472,6 +478,8 @@ comparison; graph-learning domain methods were not run and are not claimed
 as comparisons).
 
 ---
+
+**Why a graph at all?** A natural reviewer question is whether a simple node-level matrix score (0.5·(ECM + CAF)) already captures the barrier, making the min-cut and screened-Poisson machinery unnecessary. We compared the per-spot graph B_cell field against this naive score on all 19 sections, using partial Spearman correlation with B_mAb after residualising on vessel distance. The graph field yields a median partial ρ of +0.217 versus +0.166 for the naive score; the graph field is stronger in 14 of 19 sections and reaches p < 0.05 in 17 of 19 versus 15 of 19 for the naive score. The advantage is modest rather than transformative (median Δρ = +0.048) and is concentrated in sections where source–sink geometry is non-trivial (e.g. CSCC11/CSCC12, where Δρ = +0.14/+0.17). We read this honestly: a matrix score captures most of the barrier signal because the matrix is the dominant substrate, but the graph operator adds the spatial arrangement — the capacity of the narrowest cut and the screened-diffusion field — that a node score cannot represent.
 
 ## 4. Discussion
 
@@ -531,7 +539,7 @@ spatial transcriptomics with checkpoint-response labels, so the bulk
 concept check (one cohort significant in the expected direction, one not)
 is motivational, and its instability is itself the finding we report: bulk
 abundance discards the arrangement that makes matrix a barrier. Finally, the
-melanoma cohort lacks treatment annotation, so post-treatment alteration of
+This is a single-author work: the analysis was not independently checked by a second analyst, and the code is released for community verification rather than having passed internal peer review. melanoma cohort lacks treatment annotation, so post-treatment alteration of
 barrier structure cannot be excluded there.
 
 **Outlook.** Three extensions require no modification of the operators:
@@ -555,7 +563,7 @@ establishes three quantitative facts: the antibody barrier is
 percolation-limited by size exclusion; the two barriers are mathematically
 distinct yet physically co-located, with a coupling that survives removal of
 every shared input in the squamous cohort; and the blockade behaves as a
-connected structure. For matrix-rich tumours the model predicts that
+connected structure. For Quantitatively, a 30% in silico reduction in matrix density and crosslinking lowers the minimum-cut barrier by 61% and the antibody barrier by 50% across all 19 sections. matrix-rich tumours the model predicts that
 matrix-directed intervention improves both classes of delivery at once — and
 that neither quantity is measurable without resolving spatial arrangement.
 

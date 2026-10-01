@@ -134,9 +134,9 @@ def fig3_size_scan():
     bars = b.bar(range(len(ORDER)), v, width=0.66, linewidth=1.6,
                  edgecolor=SURFACE, color=[MAB]*len(ORDER))
     b.axhline(62.7, color=INK, lw=1.0, ls=(0,(4,3)), zorder=3)
-    b.text(len(ORDER)-0.5, 63.0, "median 62.7%", ha="right", fontsize=7.4, color=INK)
-    for i, x in enumerate(v):
-        b.text(i, x+0.6, f"{x:.1f}", ha="center", fontsize=6.8, color=INK)
+    b.text(len(ORDER)-0.5, 63.5, "median 62.7%", ha="right", fontsize=7.4, color=INK)
+    # 逐柱数字标签在 19 根柱子上必然重叠；median line 已表达主要信息，
+    # 精确数字见 Supplementary Table S1。
     _cohort_ticks(b, ORDER)
     b.set_ylim(0, 75)
     _title(b, "b", "The antibody barrier is percolation-limited",

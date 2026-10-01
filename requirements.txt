@@ -1,0 +1,16 @@
+# Versions read directly from the project .venv on 2026-10-02.
+anndata==0.13.2
+matplotlib==3.11.1
+networkx==3.6.1
+numpy==2.5.2
+pandas==3.0.5
+Pillow==12.3.0
+PyYAML==6.0.3
+scanpy==1.12.3
+scikit-image==0.26.0
+scikit-learn==1.9.0
+scipy==1.18.1
+seaborn==0.13.2
+statsmodels==0.14.6
+squidpy==1.8.3
+tqdm==4.70.0

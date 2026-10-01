@@ -236,6 +236,79 @@ def test_empty_source_returns_nan():
 
 
 # ---------------------------------------------------------------------------
+def test_mincut_hand_computable_graphs():
+    """两节点链的容量为 0.5，因此 B_cell=2；只统计最大连通分量。"""
+    import scipy.sparse as sp
+
+    common = dict(a=0.0, b_ecm=0.0, c_caf=0.0)
+    ecm = np.zeros(5)
+    caf = np.zeros(5)
+
+    # Two-node graph: one edge has sigmoid(0)=0.5 capacity.
+    two_node = sp.csr_matrix([[0.0, 1.0], [1.0, 0.0]])
+    r = compute_b_cell(two_node, np.zeros(2), np.zeros(2), [0], [1], **common)
+    assert np.isclose(r["max_flow"], 0.5)
+    assert np.isclose(r["b_cell"], 2.0)
+
+    # Three-node chain: its single path has the same 0.5 bottleneck capacity.
+    chain = sp.csr_matrix([
+        [0.0, 1.0, 0.0],
+        [1.0, 0.0, 1.0],
+        [0.0, 1.0, 0.0],
+    ])
+    r = compute_b_cell(chain, np.zeros(3), np.zeros(3), [0], [2], **common)
+    assert np.isclose(r["max_flow"], 0.5)
+    assert np.isclose(r["b_cell"], 2.0)
+
+    # A smaller, separately connected source-sink pair must not add its flow.
+    # The three-node component remains the unique largest component: expected
+    # max_flow=0.5 and B_cell=2, not max_flow=1 and B_cell=1.
+    disconnected = sp.csr_matrix([
+        [0.0, 1.0, 0.0, 0.0, 0.0],
+        [1.0, 0.0, 1.0, 0.0, 0.0],
+        [0.0, 1.0, 0.0, 0.0, 0.0],
+        [0.0, 0.0, 0.0, 0.0, 1.0],
+        [0.0, 0.0, 0.0, 1.0, 0.0],
+    ])
+    r = compute_b_cell(disconnected, ecm, caf, [0, 3], [2, 4], **common)
+    assert np.isclose(r["max_flow"], 0.5)
+    assert np.isclose(r["b_cell"], 2.0)
+    assert all(u < 3 and v < 3 for u, v in r["cut_edges"])
+
+
+# ---------------------------------------------------------------------------
+def test_mab_hand_computable_open_vs_excluded_mesh():
+    """For a two-node graph, phi=g/(g+k+1e-9), so B_mAb=log1p((k+1e-9)/g)."""
+    import scipy.sparse as sp
+
+    A = sp.csr_matrix([[0.0, 1.0], [1.0, 0.0]])
+    ecm = np.zeros(2)
+    antigen = np.array([0.0, 1.0])
+    args = dict(r_nm=5.5, g0=1.0, lam=0.0, xi0_nm=20.0, beta=3.0,
+                kd_eff=0.5, kappa_w=1.0, g_floor=1e-6)
+    k = 1.0 / (1.0 + args["kd_eff"] + 1e-9)
+
+    # Open mesh: xi=20 nm, and size factor is (1-r/xi)^2.
+    xi_open = args["xi0_nm"]
+    g_open = (1.0 - args["r_nm"] / xi_open) ** 2 + args["g_floor"]
+    expected_open = np.log1p((k + 1e-9) / g_open)
+    open_result = compute_b_mab(
+        A, ecm, np.zeros(2), antigen, [0], **args
+    )["b_mab"][1]
+    assert np.isclose(open_result, expected_open, rtol=1e-8)
+
+    # Fully excluded mesh: xi=20*exp(-3)<5.5 nm, leaving only g_floor.
+    xi_excluded = args["xi0_nm"] * np.exp(-args["beta"])
+    assert xi_excluded < args["r_nm"]
+    expected_excluded = np.log1p((k + 1e-9) / args["g_floor"])
+    excluded_result = compute_b_mab(
+        A, ecm, np.ones(2), antigen, [0], **args
+    )["b_mab"][1]
+    assert np.isclose(excluded_result, expected_excluded, rtol=1e-8)
+    assert excluded_result > open_result
+
+
+# ---------------------------------------------------------------------------
 if __name__ == "__main__":
     tests = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     failed = 0

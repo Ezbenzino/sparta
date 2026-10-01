@@ -143,7 +143,21 @@ def compute_b_cell(
     if len(source) == 0 or len(sink) == 0:
         return dict(b_cell=np.nan, max_flow=np.nan, cut_edges=[], cut_nodes=np.array([], int))
 
+    # The manuscript defines the section-level barrier on the largest
+    # connected component.  Keep source/sink nodes and capacities on that
+    # component only; otherwise disconnected fragments with both endpoints
+    # contribute additional, independent flows to the section total.
+    n_comp, labels = connected_components(A, directed=False)
+    component_sizes = np.bincount(labels, minlength=n_comp)
+    largest_label = int(np.argmax(component_sizes))
+    component_nodes = np.flatnonzero(labels == largest_label)
+    source = source[labels[source] == largest_label]
+    sink = sink[labels[sink] == largest_label]
+    if len(source) == 0 or len(sink) == 0:
+        return dict(b_cell=np.nan, max_flow=np.nan, cut_edges=[], cut_nodes=np.array([], int))
+
     pairs = edge_pairs(A, upper_only=True)
+    pairs = pairs[labels[pairs[:, 0]] == largest_label]
     if len(pairs) == 0:
         return dict(b_cell=np.nan, max_flow=np.nan, cut_edges=[], cut_nodes=np.array([], int))
 
@@ -154,7 +168,7 @@ def compute_b_cell(
     # 建有向图：每条无向边加两个方向。
     # 这一步不能省 —— networkx 的流算法在无向图上的行为与预期不符。
     G = nx.DiGraph()
-    G.add_nodes_from(range(n))
+    G.add_nodes_from(component_nodes.tolist())
     for (u, v), c in zip(pairs, cap):
         c = float(c)
         G.add_edge(int(u), int(v), capacity=c)

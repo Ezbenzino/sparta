@@ -6,7 +6,7 @@
 
 Dear Editor,
 
-We are pleased to submit our manuscript, "**Two transport operators, one
+I am pleased to submit my manuscript, "**Two transport operators, one
 substrate: a graph model of T-cell migration and antibody penetration
 barriers in tumour tissue from spatial transcriptomics**", for consideration
 as a research article in *Computational Biology and Chemistry*.
@@ -35,33 +35,43 @@ NetworkX, run entirely on CPU, and analyse one section in under 0.2 s.
 Applied to 19 public sections from 7 patients across two cutaneous tumour
 types and two spatial-platform generations, the model establishes three
 quantitative facts. First, the antibody barrier is percolation-limited: the
-effective mesh falls below the IgG radius on 60–65% of edges, and size
-exclusion — not antigen availability or bulk matrix density — accounts for a
-median 97.5% of barrier variance. Second, the two barriers are mathematically
-distinct (the same graph is nearly transparent to a 0.5 nm solute and strongly
-obstructive to an IgG) yet physically co-localised: they remain positively
-correlated in 18/19 sections, and removing the matrix input shared by both
-operators leaves the coupling significant in 12/15 squamous sections with a
-median 81% of its magnitude. Third, the blockade behaves as a connected
-structure rather than a pile of resistant spots, with a dose–response over
-removal fraction. The practical corollary is that, in matrix-rich tumours,
-matrix-directed intervention is predicted to improve both classes of delivery
-at once, and that modality choice (antibody versus cell) cannot route around
-the matrix.
+effective mesh falls below the IgG radius on 60–65% of edges. Second, the two
+barriers are mathematically distinct (the same graph is nearly transparent
+to a 0.5 nm solute and strongly obstructive to an IgG) yet physically
+co-localised: they remain positively correlated in 18/19 sections, and
+removing the matrix input shared by both operators leaves the coupling
+significant in 12/15 squamous sections with a median 81% of its magnitude.
+Third — and this is the paper's testable prediction — an in silico 30%
+reduction in matrix density and crosslinking lowers the minimum-cut barrier
+by a median 61% and the antibody barrier by 50%, in 19 of 19 sections across
+both tumour types. The practical corollary is that stromal-directed
+intervention is predicted to improve both classes of delivery at once, rather
+than relieving one at the expense of the other.
 
-We believe this work fits *Computational Biology and Chemistry* specifically:
+Every analytical decision was fixed before looking at results: seven
+pre-declared admission criteria (one section, CSCC13, was rejected on a
+pre-set UMI threshold and its record retained), parameters are partitioned
+into physically anchored, qualitative scale, and sensitivity-scanned classes,
+and no parameter was fitted to any clinical outcome. The paper also reports
+its own negative results honestly: the 97.5% size-exclusion share is shown
+by a permutation control to be a property of the rank-normalised operator
+rather than an empirical measurement; the melanoma stratum is a single patient
+and is reported as unresolved rather than as a cross-tumour contrast; and the
+weak antigen channel is attributed to the detection floor of a two-gene
+signature.
+
+I believe this work fits *Computational Biology and Chemistry* specifically:
 its central object is a physicochemical transport model of biologic-drug
 delivery — diffusion–absorption, size exclusion, and mesh topology — anchored
 to measured tissue geometry rather than a purely statistical or clustering
-contribution. It is deterministic, parameter-honest (parameters are declared
-as physically anchored, qualitative scale, or sensitivity-scanned, and none is
-fitted to clinical outcomes), and reproducible: all data are public (GEO
-GSE250636, GSE144239; MSigDB HALLMARK_HYPOXIA), and the code is released
-under the MIT licence at https://github.com/Ezbenzino/sparta, archived at
-https://doi.org/10.5281/zenodo.23086431.
+contribution. It is deterministic, parameter-honest, and reproducible: all
+data are public (GEO GSE250636, GSE144239; MSigDB HALLMARK_HYPOXIA), and the
+code is released under the MIT licence at https://github.com/Ezbenzino/sparta,
+archived at https://doi.org/10.5281/zenodo.23086431.
 
 This manuscript is not under consideration elsewhere, and the author has
-approved the submission. The author declares no competing interests.
+approved the submission. The author declares no competing interests and
+received no specific funding for this work.
 
 Thank you for your consideration.
 
