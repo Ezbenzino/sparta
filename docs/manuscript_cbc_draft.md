@@ -577,7 +577,7 @@ All analysed data are publicly available: spatial transcriptomic cohorts from
 the Gene Expression Omnibus (accessions GSE144239 [2] and GSE250636 [3]); the
 hypoxia signature from MSigDB v7.1 [8]. The SPARTA implementation, all
 analysis scripts, configuration files and per-section artefacts are available
-at **[GitHub URL — 待 git 首次提交后回填]** and archived at
+at **https://github.com/Ezbenzino/sparta** and archived at
 **[Zenodo DOI — 待回填]**.
 
 ## Acknowledgements

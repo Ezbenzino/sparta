@@ -17,7 +17,7 @@ authors:
   - family-names: "Li"
     given-names: "Yize"
     affiliation: "Hangzhou Medical College"
-repository-code: "https://github.com/PLACEHOLDER_USER/sparta"  # 建库后替换为真实 URL
+repository-code: "https://github.com/Ezbenzino/sparta"  # 建库后替换为真实 URL
 keywords:
   - spatial transcriptomics
   - graph theory
