@@ -1,70 +1,72 @@
-# PROMPT — 交给 Codex / AI Coding Agent 优化 SPARTA 投稿项目
+# PROMPT — 交给 Codex / AI Coding Agent 完成 SPARTA 投稿前最后工程收尾
 
 > 用法：在项目根目录 `D:\sparta` 启动 Codex，把下面整段（从 `=== BEGIN ===` 到 `=== END ===`）粘给它。
 
 === BEGIN ===
 
 You are working in the git repo at the current working directory (`D:\sparta`).
-This is a **finished, already-submission-ready computational-biology manuscript** — NOT a greenfield project.
-Your job is to **polish it to the standards of a computational biology journal**, NOT to redesign the science, NOT to change any result number, and NOT to add new experiments.
+This is a **finished, submission-ready computational-biology manuscript** targeting *Computational Biology and Chemistry* (Elsevier, hybrid, subscription route = no APC). Do NOT redesign the science, do NOT change any result number, do NOT add new experiments. The paper prose is frozen in `docs/manuscript_cbc_draft.md`; your job is engineering reproducibility and Word export.
 
-## 1. Project identity (read this first, do not change these facts)
+## 1. Locked facts — do not change
 
-- **Project**: SPARTA — "Two transport operators, one substrate: a graph model of T-cell migration and antibody penetration barriers in tumour tissue from spatial transcriptomics".
-- **Target journal**: *Computational Biology and Chemistry* (Elsevier, subscription route, no APC; IF ≈ 2.6–2.9, Q3). The manuscript already exists at `docs/manuscript_cbc_draft.md` and a generated Word file `docs/manuscript_cbc_draft.docx`.
-- **Author**: single author, Yize Li, Hangzhou Medical College, `lllyz630031258@gmail.com`. No funding. No co-authors. Do NOT add any author affiliation, funding line, or consortium.
-- **Public code**: already on GitHub `https://github.com/Ezbenzino/sparta` (public, main branch, tag `v2.0.0`) and archived at Zenodo DOI `https://doi.org/10.5281/zenodo.23086431`. MIT license. `CITATION.cff` and `LICENSE` are filled.
+- Single author: **Yize Li**, Hangzhou Medical College, `lllyz630031258@gmail.com`. No funding, no co-authors.
+- GitHub: `https://github.com/Ezbenzino/sparta`; Zenodo DOI: `https://doi.org/10.5281/zenodo.23086431`; MIT license.
+- Cohort: 19 sections / 7 patients (15 cSCC / 6 patients from GSE144239 across two platform generations; 4 melanoma deposits / 1 patient PtB from GSE250636). CSCC13 rejected and stays rejected.
+- Locked numbers: partial ρ positive in 18/19 (median +0.217); size-exclusion channel median 97.5% of B_mAb variance at β=3; shared-input removal leaves coupling significant in 12/15 cSCC (median 81% retention); single section <0.2 s CPU.
+- **New results already in the manuscript** (do not re-run, do not "fix"):
+  - Null crosslink permutation: median real 97.6% vs null 97.6% (permutation confirms the 97.5% is a rank-normalisation property, not a data signal — the paper now reports this honestly).
+  - In silico stromal intervention: 30% reduction in ecm/crosslink/caf lowers B_cell by median 60.8% and B_mAb by 49.5%, in 19/19 sections; 50% reduction → 80.2% / 71.3%.
+  - Naive baseline: graph B_cell field partial ρ vs B_mAb median +0.217 vs naive 0.5·(ECM+CAF) at +0.166; graph stronger in 14/19.
+- Python: `.venv\Scripts\python.exe` (Windows). Node is available. Do not reinstall/upgrade packages.
 
-## 2. Hard constraints — you MUST NOT violate these
+## 2. Current state — what is already done (verify, do not redo)
 
-1. **Do not change any reported number or conclusion.** The following are locked results, already in the paper and in the code output; if a re-run disagrees, FIX THE CODE to reproduce them, do NOT "correct" the paper:
-   - 19 sections / 7 patients; cSCC 15 sections / 6 patients (GSE144239, two platform generations), metastatic melanoma 4 sections / 1 patient PtB (GSE250636). CSCC13 was rejected (UMI 289.5 < 300) and stays rejected.
-   - Partial Spearman ρ positive in 18/19 sections; median ≈ +0.217.
-   - Size-exclusion channel accounts for median 97.5% of B_mAb variance at β=3 (full β-sweep dependence already reported).
-   - After removing the shared matrix input: coupling stays significant in 12/15 cSCC sections, median retention 81%; melanoma 3/4 reported as unresolved (one patient).
-   - Single-section runtime < 0.2 s on CPU, no learned parameters.
-   - 60–65% of edges exclude IgG (median mesh 4.36–4.68 nm).
-2. **Do not invent data, datasets, or citations.** If a number in the paper cannot be reproduced from the existing `results/validation/*.json` and `data/ledger.csv`, flag it to me — do not fabricate a fix.
-3. **Do not touch the experimental conclusion.** The paper deliberately reports its own negative/weak results (melanoma stratum unresolved, rearrangement control confounded with depth, antigen channel at detection floor). Keep them.
-4. Python interpreter is `.venv\Scripts\python.exe` on Windows. `node` is available for `scripts/generate_docx.js`. Do not reinstall or upgrade packages in a way that breaks existing `results/` outputs.
-5. After every change, re-run what you changed and show the command + output. Keep git commits small and conventional.
+- `requirements.txt`, `environment.yml`, `README.md`, `scripts/run_all.py`, `tests/test_barrier.py` exist from a prior session. **First task**: run `pytest tests/ -v` and paste the output. If tests fail, fix them. If `run_all.py` does not call `run_22_null_crosslink.py`, `run_23_stromal_intervention.py`, `run_24_naive_baseline.py`, add them as optional tail stages (they are fast, read-only on the existing h5ad/graph artefacts).
+- Fig 3b bar labels were already de-overlapped (per-bar numbers removed; median dashed line kept). Do not re-add per-bar labels.
+- Manuscript markdown `docs/manuscript_cbc_draft.md` already contains the new paragraphs. Do not edit the prose.
 
-## 3. What I want you to actually do (in this priority order)
+## 3. Remaining work — do these in order
 
-### P0 — Reproducibility & engineering hygiene (journal reviewers will check this)
-- Add/verify `requirements.txt` (or `environment.yml`) that pins the exact versions used: numpy, scipy, networkx, pandas, matplotlib, scikit-learn, statsmodels, PIL/Pillow. Derive versions from the running `.venv`, do not guess.
-- Add a top-level `README.md` (English) with: what SPARTA does in 3 bullets, the locked result summary, one-command reproduction steps (`python scripts/run_all.py` if such an orchestrator exists — if not, write a thin `run_all.py` that calls the existing `run_01..run_16` scripts in order and is idempotent), expected runtime, and how to cite (the Zenodo DOI).
-- Audit every script under `scripts/` for: fixed random seeds (all permutation tests must use a fixed seed, e.g. `numpy.random.default_rng(20260828)`), hard-coded absolute paths (`d:\sparta` → use `pathlib` relative to repo root), and `plt.savefig` DPI/`bbox_inches`. Make figures regenerate at 300 DPI.
-- Verify the `.gitignore` actually excludes `node_modules/`, `.venv/`, large `docs/*.docx` (they are ~8 MB each), raw data caches, and `__pycache__`. The repo currently ships 119 files / ~1.1 MB — keep it that way.
+### P0 (highest priority): sync `scripts/generate_docx.js` with the current manuscript
+The Word export script `scripts/generate_docx.js` is hard-coded with an older version of the prose. It now lags `docs/manuscript_cbc_draft.md` in these specific places — update the hard-coded strings to match:
 
-### P1 — Correctness audit of the two core operators (this is the science reviewers will attack)
-- Read `scripts/` implementing (a) the source–sink minimum-cut cellular barrier and (b) the screened-Poisson diffusion–absorption antibody barrier with size exclusion.
-- Confirm against the equations stated in `docs/manuscript_cbc_draft.md` §2.4:
-  - min-cut: source = endothelial-rich nodes, sink = malignant/immune-poor nodes, capacity decreasing in matrix resistance, barrier = 1/max-flow, preflow-push on the largest connected component.
-  - screened Poisson: vessel nodes = unit concentration, edge conductance implements mesh ξ = ξ0·exp(−β·x), edge is size-excluded when ξ < r (r=5.5 nm) with a conductance floor, antigen as absorption sink, steady state solved as a linear Helmholtz system.
-- For each, add a **unit test** under `tests/` (pytest) that checks a tiny hand-computable graph: e.g. two-node graph, three-node chain, fully-excluded vs fully-open mesh. The test must pass and must document the expected value. This is what a reviewer means by "implementation correctness".
-- If you find a real discrepancy between code and paper, STOP and report it to me with file:line — do not silently patch the paper.
+1. **Abstract**: after "...no learned parameters," add the stromal-intervention sentence: "In silico reduction of matrix density and crosslinking by 30% lowers both barriers by a median 61% and 50% respectively, in 19 of 19 sections across both tumour types."
+2. **§1 Introduction**: before "Our contributions are:", add the positioning paragraph about methodological contribution (not clinical biomarker).
+3. **§3.2**: after the β-sweep paragraph, add the permutation control paragraph (null crosslink: median real 97.6% vs permuted 97.6%, 95% null interval 96.8–98.4%, 2/6 sections p<0.05).
+4. **§3.5**: after the spatial-rearrangement paragraph, add the "In silico stromal co-targeting" paragraph (30% reduction → B_cell −60.8%, B_mAb −49.5%; 50% → −80.2%/−71.3%; both barriers drop in 19/19).
+5. **§3.6**: before "## 4. Discussion", add the "Why a graph at all?" paragraph (naive 0.5·(ECM+CAF) baseline: median partial ρ +0.166 vs graph +0.217; graph stronger in 14/19).
+6. **§4 Limitations**: add the single-author sentence ("This is a single-author work: the analysis was not independently checked by a second analyst; the code is released for community verification.").
+7. **§5 Conclusions**: before "For matrix-rich tumours the model predicts", add the quantitative stromal-intervention sentence.
+8. **References**: verify refs [3] (Ospina/spatialGE), [4] (Singhal/BANKSY), [6] (Ren/SpaceFlow), [13] (Riaz), [14] (Jain) match the markdown.
+9. After editing, run `node scripts/generate_docx.js` and confirm `docs/manuscript_cbc_draft.docx` regenerates with no error. Open it mentally (or via `unzip -p word/document.xml | grep -c`) to confirm the new strings are present.
 
-### P2 — Figure & manuscript polish (visual/formatting, not science)
-- Fix the known cosmetic issue: in `results/figures/fig3_size_scan.png` panel (b), the per-section numeric labels above the bars overlap. Adjust rotation/offset/font size so they are legible; keep the same data. Regenerate via the existing figure script.
-- Unify figure style: font family, font size, axis/spine color, and the blue (B_cell) / orange (B_mAb) palette across fig1–fig5 so they look like one paper.
-- Confirm `results/figures/graphical_abstract_portrait.png` (1452×3432, vertical) is the one embedded; the old horizontal version must not be referenced anywhere.
-- Run `node scripts/generate_docx.js` after any figure change and confirm `docs/manuscript_cbc_draft.docx` regenerates without errors and still contains: 14 references, author "Yize Li", the GitHub URL and Zenodo DOI, "The author received no specific funding", and the portrait graphical abstract.
+### P1: Make the repo reviewer-proof
+- Run `pytest tests/ -v`. If `tests/test_barrier.py` only covers compute_b_cell/compute_b_mab on synthetic graphs, add a test that the size-exclusion floor is non-negative and that a two-node fully-excluded graph yields B_mAb = conductance-floor (hand-computable).
+- Add a short `tests/test_new_experiments.py` that loads `results/validation/null_crosslink_check.json`, `stromal_intervention.json`, `naive_baseline.json` and asserts: (a) all 19 slides appear in stromal_intervention, (b) median B_cell drop at 30% is between 50% and 70%, (c) naive_baseline n_slides == 19. These are smoke tests, not science.
+- Audit `scripts/run_22_null_crosslink.py`, `run_23_stromal_intervention.py`, `run_24_naive_baseline.py`: they must use fixed seeds (`numpy.random.default_rng(20261001)`), no hard-coded `d:\sparta` paths, and write only to `results/validation/`.
+- Update `README.md` to mention the three new scripts and the new result files.
 
-## 4. Workflow rules
+### P2: Final verification
+- Run `python scripts/run_all.py` (or at least `run_22`, `run_23`, `run_24`) and confirm they reproduce the JSON files without errors.
+- Confirm `.gitignore` excludes `docs/manuscript_cbc_draft.docx` (it is ~3.7 MB and must not be committed).
+- `git add -A && git commit -m "Sync docx generator with new experiments; add smoke tests" && git push origin main`.
 
-1. **First turn**: run a read-only audit — list the repo tree, read `docs/manuscript_cbc_draft.md`, `README*`, `requirements*`, and the core operator scripts. Then output a short plan (P0/P1/P2 checklist) and wait for my go-ahead before editing.
-2. Make changes in small commits; after each P0/P1 item, re-run the relevant script/test and paste the tail of the output as evidence.
-3. If something in the existing pipeline is already correct, say so and move on — do not refactor for the sake of it.
-4. At the end, give me: (a) a list of files changed, (b) test/run output proving reproduction, (c) any discrepancy you found but did not fix, and (d) the exact git commands I should run to push.
+## 4. Hard do-nots
 
-Do NOT touch: `docs/manuscript_cbc_draft_zh.md`, the Zenodo/GitHub releases, `data/` raw ledger values, or the manuscript's Results/Discussion prose. If you think prose must change, write the proposed edit as a suggestion and let me decide.
+- Do NOT edit `docs/manuscript_cbc_draft.md` prose (it is frozen).
+- Do NOT change any number in the paper, the JSON outputs, or the figure data.
+- Do NOT add new experiments, new citations beyond what is already in the markdown, or new figures.
+- Do NOT touch `data/ledger.csv`, the Zenodo DOI, the GitHub releases, or the LICENSE/CITATION.cff.
+- If you find a real bug where code output disagrees with the paper, STOP and report it with file:line — do not patch the paper.
+
+## 5. Deliverable
+
+At the end, paste: (a) list of files changed, (b) `pytest` summary output, (c) the `node scripts/generate_docx.js` output confirming the docx regenerated, (d) any discrepancy you found but did not fix, (e) the final git log one-liner.
 
 === END ===
 
 ## 给你（用户）的补充说明（不粘进 Codex）
 
-- 这个提示词把"能改什么/不能改什么"锁死了，防止 Codex 自作主张改实验数字或加实验——那是你最该防的。
-- P0（复现性/README/种子）是 CBC 审稿人最常挑、也最容易补的，优先让它做。
-- P1（两个算子的单元测试）是真正能提升论文可信度的部分：加几个手算小图的 pytest，审稿人会觉得实现严谨。
-- 如果 Codex 在 P1 报告"代码和论文公式对不上"，把它的 `file:line` 发给我，我帮你判断是改代码还是改论文——这一步不要让它自己拍板。
+- Codex 之前已经做了一部分 P0-C（requirements/README/tests 框架），这次主要是**同步 generate_docx.js**——这是机械但繁琐的活，让它干。
+- 三个新实验脚本（run_22/23/24）已经在本地跑过、结果 json 已生成、论文 markdown 已更新。Codex 不需要重跑科学实验，只需要：(1) 确认 JSON 能复现，(2) 把论文新段落同步进 Word 导出脚本，(3) 加冒烟测试。
+- 投稿前你只需要做：在 Editorial Manager 上传 docx + graphical abstract + cover letter + 3 个建议审稿人。
