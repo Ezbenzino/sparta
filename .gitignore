@@ -1,0 +1,48 @@
+# 数据：只读原始数据与中间产物都不进版本库
+data/raw/*
+data/interim/*
+data/external/*
+!data/*/.gitkeep
+
+# 下载缓存：GEO 的原始压缩包，几十 MB 起步，绝不进版本库
+# （2026-08-27 补：downloads/ 原来没被盖住，里面有一个 38MB 的 GSE250636_RAW.tar，
+#   `git add .` 会把它一起提交进去，之后再删也留在历史里洗不掉）
+downloads/
+
+# 结果：图件与表格按需归档到 Zenodo，不进 git
+results/*
+!results/.gitkeep
+
+# 备份文件
+*.bak
+*.bak_*
+*.orig
+data/_bak_*/
+
+# 运行日志
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+build/
+dist/
+
+# 环境与编辑器
+.venv/
+venv/
+.vscode/
+.idea/
+.DS_Store
+
+# Node（generate_docx.js 的依赖，不进版本库）
+node_modules/
+package-lock.json
+docs/_build/
+
+# Word 导出稿（markdown 是源，docx 为生成产物）
+docs/*.docx
+

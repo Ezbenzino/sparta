@@ -1,0 +1,9 @@
+slide_id,cohort,platform,C1,C2,C3,C4,C5,C6,C7,failed,forced,min_spots,min_median_umi,overridden
+MEL01,,visium,pass,pass,pass,pass,pass,pass,FAIL,C7,True,1000,1500,
+MEL02,,visium,pass,pass,pass,FAIL,pass,pass,FAIL,C4;C7,True,1000,1500,
+MEL03,,visium,pass,pass,pass,pass,pass,pass,FAIL,C7,True,1000,1500,
+MEL04,,visium,pass,pass,pass,pass,FAIL,pass,FAIL,C5;C7,True,1000,1500,
+CSCC01,cscc_gse144239,visium,pass,pass,pass,pass,pass,pass,pass,,False,500,500,decided_on;min_median_umi;min_spots_visium;reason
+CSCC02,cscc_gse144239,visium,pass,pass,pass,pass,pass,pass,pass,,False,500,500,decided_on;min_median_umi;min_spots_visium;reason
+CSCC03,cscc_gse144239,visium,pass,pass,pass,pass,pass,pass,pass,,False,500,500,decided_on;min_median_umi;min_spots_visium;reason
+CSCC04,cscc_gse144239,visium,pass,pass,pass,pass,pass,pass,pass,,False,500,500,decided_on;min_median_umi;min_spots_visium;reason

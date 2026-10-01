@@ -1,0 +1,65 @@
+# =============================================================================
+# SPARTA v2.0 运行环境
+# =============================================================================
+# 本方案全程 CPU 运行，不需要 GPU，也不需要任何深度学习框架。
+#
+# 创建环境：
+#     conda env create -f environment.yml
+#     conda activate sparta
+#     pip install -e .
+#
+# 验证安装：
+#     python scripts/run_00_demo.py --fast     # 在合成数据上跑通全流程
+#     pytest tests/ -v                          # 或 python tests/test_barrier.py
+# =============================================================================
+name: sparta
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.10
+
+  # ---- 核心：屏障算子只需要这三个 ----
+  - numpy>=1.24,<3
+  - scipy>=1.10
+  - networkx>=3.0
+
+  # ---- 数据处理与统计 ----
+  - pandas>=2.0
+  - scikit-learn>=1.3
+  - statsmodels>=0.14
+  - pyyaml>=6.0
+  - tqdm
+
+  # ---- 绘图 ----
+  - matplotlib>=3.7
+  - seaborn>=0.12
+
+  # ---- H&E 形态学验证（维度②）----
+  - scikit-image>=0.21
+
+  # ---- 中文字体（WSL/Linux 下 matplotlib 显示中文需要）----
+  - fonts-conda-ecosystem
+
+  # ---- 开发与交互 ----
+  - jupyterlab
+  - pytest>=7.0
+
+  - pip
+  - pip:
+      # ---- 空间转录组：只在处理真实数据时需要 ----
+      # 注意：barrier / graph / counterfactual / synthetic 四个核心模块
+      #       不依赖 scanpy，所以即使这两个装不上，单元测试与 run_00_demo 照常可跑
+      - scanpy>=1.9
+      - squidpy>=1.4
+      - anndata>=0.10
+      # ---- 生存分析（维度③）----
+      - lifelines>=0.27
+      # ---- opencv 是可选的；scikit-image 已能覆盖本项目的形态学需求 ----
+      # - opencv-python-headless>=4.8
+
+# =============================================================================
+# 明确不需要的东西（v2.0 相对 v1.0 的主要简化）：
+#   torch · torch-geometric · transformers · geneformer · CUDA 工具链
+# 如果你在某处看到需要安装它们的说明，那是 v1.0 的遗留文档。
+# =============================================================================

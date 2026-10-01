@@ -1,0 +1,27 @@
+# Zenodo 会读这个文件生成引用信息。**提交前必须把 <> 占位符全部填掉。**
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "SPARTA: graph-transport analysis of dual spatial barriers to immunotherapy in cutaneous tumours"
+abstract: >-
+  SPARTA poses T-cell migration and antibody mass transport as two transport
+  problems on the same spatial-transcriptomics graph, changing only the
+  edge-weight semantics and the operator: a source-sink minimum cut for the
+  cellular barrier and a screened Poisson diffusion-absorption field for the
+  macromolecular barrier. CPU-only; the core operators depend on NumPy, SciPy
+  and NetworkX alone.
+type: software
+license: MIT
+version: "2.0.0"
+date-released: "2026-08-27"
+authors:
+  - family-names: "Li"
+    given-names: "Yize"
+    affiliation: "Hangzhou Medical College"
+repository-code: "https://github.com/PLACEHOLDER_USER/sparta"  # 建库后替换为真实 URL
+keywords:
+  - spatial transcriptomics
+  - graph theory
+  - minimum cut
+  - immunotherapy resistance
+  - antibody transport
+  - tumour microenvironment

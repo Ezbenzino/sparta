@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sparta"
+version = "2.0.0"
+description = "SPARTA: 皮肤肿瘤免疫治疗抵抗的双重空间屏障分析框架（CPU-only）"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+
+# 只列核心依赖。scanpy/squidpy/lifelines 属于可选组，见 [project.optional-dependencies]。
+# 这样做的理由：barrier / graph / counterfactual / synthetic 四个核心模块不依赖
+# scanpy，单元测试也不依赖，安装应当尽可能轻。
+dependencies = [
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "networkx>=3.0",
+    "pandas>=2.0",
+    "pyyaml>=6.0",
+    "matplotlib>=3.7",
+]
+
+[project.optional-dependencies]
+spatial = ["scanpy>=1.9", "squidpy>=1.4", "anndata>=0.10"]
+validate = ["scikit-image>=0.21", "scikit-learn>=1.3", "statsmodels>=0.14", "lifelines>=0.27"]
+dev = ["pytest>=7.0", "jupyterlab"]
+all = [
+    "scanpy>=1.9", "squidpy>=1.4", "anndata>=0.10",
+    "scikit-image>=0.21", "scikit-learn>=1.3", "statsmodels>=0.14", "lifelines>=0.27",
+    "pytest>=7.0", "jupyterlab", "seaborn>=0.12", "tqdm",
+]
+
+[tool.setuptools.packages.find]
+include = ["sparta*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v"
