@@ -563,9 +563,9 @@ that neither quantity is measurable without resolving spatial arrangement.
 
 ## CRediT authorship contribution statement
 
-**[作者姓名]**: Conceptualisation, Methodology, Software, Validation, Formal
+**Yize Li**: Conceptualisation, Methodology, Software, Validation, Formal
 analysis, Investigation, Data curation, Writing — original draft,
-Visualisation. *(单作者声明；若导师或其他贡献者列名，按实际 CRediT 角色补)*
+Visualisation.
 
 ## Declaration of competing interest
 
@@ -582,7 +582,7 @@ at **https://github.com/Ezbenzino/sparta** and archived at
 
 ## Acknowledgements
 
-**[基金号/致谢待补]**
+The author received no specific funding for this work.
 
 ---
 
