@@ -654,7 +654,7 @@ The author received no specific funding for this work.
 | Fig 1 | 框架：空间图、两套边权语义、B_cell 与 B_mAb 算子 | `results/figures/fig1_framework.png/.pdf` | 已出 |
 | Fig 2 | 三通道份额（对数点图）+ 交联份额对 β 的依赖 | `results/figures/fig2_driver_decomposition.png/.pdf` | 已出 |
 | Fig 3 | 尺寸扫描（同一组织的 0.5–10 nm）+ 渗流/网格统计 | 由 `run_17_sensitivity.py` 产物重排 | 待重排 |
-| Fig 4 | 耦合与共享输入去除（分层森林图/散点） | 依 R3/R3b 产物 | 待出 |
+| Fig 4 | 耦合与共享输入去除（分层森林图/散点） | esults/figures/fig4_coupling_forest.png\ | 已出 |
 | Fig 5 | 反事实：S2 剂量反应 + S1 患者分层 | 依 `results/counterfactual/*.json` | 待出 |
 | Table 2 | R3b 分层耦合表（正文 3.4 已含，排版为正式表） | `shared_ecm_check.json` | 已有数据 |
 | Table 3 | 运行时对比（SPARTA/BANKSY式/Squidpy，19 张） | `runtime_benchmark.json`（run_19） | 已有数据 |
