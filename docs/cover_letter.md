@@ -1,77 +1,82 @@
-# Cover Letter — Bioinformatics (Original Paper)
+# Cover Letter — Computational Biology and Chemistry
 
-> 用法：填掉全部 `<...>` 占位符后随投稿系统提交。正文一页以内。
-> 事实性陈述均已按 2026-08-28 产物核对（19 张切片 / 7 位患者）。
+> 填好后随投稿系统提交，正文一页以内。
 
 ---
 
 Dear Editor,
 
-We are pleased to submit our manuscript, "**Coupled, not separable: the
-T-cell migration barrier and the antibody mass-transport barrier in cutaneous
-tumours share a matrix origin**", for consideration as an Original Paper in
-*Bioinformatics*.
+We are pleased to submit our manuscript, "**Two transport operators, one
+substrate: a graph model of T-cell migration and antibody penetration
+barriers in tumour tissue from spatial transcriptomics**", for consideration
+as a research article in *Computational Biology and Chemistry*.
 
-Immunotherapy resistance in solid tumours is usually discussed in terms of
-cellular immunity, but drug delivery poses two distinct transport problems:
-whether a cytotoxic T cell can migrate through the stromal fibre network to
-reach the tumour nest, and whether the antibody itself — a 5.5 nm
-macromolecule — can diffuse through a matrix whose effective mesh is measured
-in tens of nanometres. The second problem is almost never quantified, and
-whether the two barriers are separable in real tissue had not been asked.
-SPARTA poses both as solvable transport problems on a single
-spatial-transcriptomic graph, changing only the edge-weight semantics and the
-operator: a source–sink minimum cut for the cellular barrier and a screened
-Poisson diffusion–absorption field for the macromolecular barrier. The core
-operators depend only on NumPy, SciPy and NetworkX and run entirely on CPU.
+Monoclonal antibodies and cytotoxic T cells must both cross the tumour
+extracellular matrix to reach their targets, yet they differ by three orders
+of magnitude in size (a 5.5 nm IgG versus a ~10 µm T cell). The classical
+modelling tradition for macromolecular delivery — compartmental
+pharmacokinetics, Krogh-cylinder penetration models, and reaction–diffusion
+descriptions — uses effective parameters on idealised geometry and is not
+driven by molecular measurements of a specific patient section. Spatial
+transcriptomics now provides those measurements (local collagen, crosslinking,
+stromal and immune signatures, and the therapeutic target itself), but
+existing analyses return labels rather than transport quantities.
 
-We applied the framework to 19 public spatial-transcriptomic sections from
-seven patients — six with primary cutaneous squamous carcinoma, profiled
-across two platform generations, and one with four melanoma metastases. The
-central finding is a clarification rather than a discovery: after controlling
-for distance to vasculature, the two barriers are **positively** coupled in
-18/19 sections, discordant regions are fewer than chance would predict, and
-removing the matrix term shared by the two operators leaves the association
-significant in 12/15 squamous sections with a median 81 % of its original
-magnitude. The coupling is therefore substantially a property of the tissue,
-and its clinical corollary — that matrix-directed intervention could improve
-both classes of delivery at once — follows directly from the analysis.
+SPARTA closes this gap by formulating the two delivery problems as two
+solvable operators on one measured spatial graph, changing only the
+edge-weight semantics and the operator. T-cell migration is a source–sink
+minimum cut between immune-entry and tumour-core compartments, returning a
+barrier strength together with its blockade geometry. Antibody transport is a
+screened Poisson diffusion–absorption field whose conductances implement size
+exclusion against the IgG hydrodynamic radius and whose sinks represent
+target-antigen binding. The core operators depend only on NumPy, SciPy and
+NetworkX, run entirely on CPU, and analyse one section in under 0.2 s.
 
-We believe this work suits *Bioinformatics* for three reasons. First, the
-methodological contribution is explicit and reusable: two solvable
-graph-transport operators with a complete counterfactual framework
-(contiguous-arc removal, molecular-radius sweeps) that domain segmentation
-cannot support. Second, the validation is deliberately adversarial to our own
-framework: every section is reported at both section and patient level,
-parameters are pre-designated by role (physically anchored, unsupervised, or
-sensitivity-scanned), and the domain-count sensitivity scan, the comparison
-against BANKSY-style segmentation and Squidpy neighbourhood enrichment, and
-the shared-input removal analysis are all reported with their unfavourable
-results. Third, all data are public (GEO: GSE250636, GSE144239) and the
-complete pipeline reproduces every figure from raw downloads with one command
-per stage.
+Applied to 19 public sections from 7 patients across two cutaneous tumour
+types and two spatial-platform generations, the model establishes three
+quantitative facts. First, the antibody barrier is percolation-limited: the
+effective mesh falls below the IgG radius on 60–65% of edges, and size
+exclusion — not antigen availability or bulk matrix density — accounts for a
+median 97.5% of barrier variance. Second, the two barriers are mathematically
+distinct (the same graph is nearly transparent to a 0.5 nm solute and strongly
+obstructive to an IgG) yet physically co-localised: they remain positively
+correlated in 18/19 sections, and removing the matrix input shared by both
+operators leaves the coupling significant in 12/15 squamous sections with a
+median 81% of its magnitude. Third, the blockade behaves as a connected
+structure rather than a pile of resistant spots, with a dose–response over
+removal fraction. The practical corollary is that, in matrix-rich tumours,
+matrix-directed intervention is predicted to improve both classes of delivery
+at once, and that modality choice (antibody versus cell) cannot route around
+the matrix.
 
-This manuscript is not under consideration elsewhere, and all authors have
-approved the submission. The authors declare no competing interests. All data
-used are publicly available; the code is released under the MIT licence at
-`<GitHub URL>` and archived at `<Zenodo DOI>`.
+We believe this work fits *Computational Biology and Chemistry* specifically:
+its central object is a physicochemical transport model of biologic-drug
+delivery — diffusion–absorption, size exclusion, and mesh topology — anchored
+to measured tissue geometry rather than a purely statistical or clustering
+contribution. It is deterministic, parameter-honest (parameters are declared
+as physically anchored, qualitative scale, or sensitivity-scanned, and none is
+fitted to clinical outcomes), and reproducible: all data are public (GEO
+GSE250636, GSE144239; MSigDB HALLMARK_HYPOXIA), and the code is released
+under the MIT licence at https://github.com/Ezbenzino/sparta, archived at
+https://doi.org/10.5281/zenodo.23086431.
+
+This manuscript is not under consideration elsewhere, and the author has
+approved the submission. The author declares no competing interests.
 
 Thank you for your consideration.
 
 Sincerely,
 
-`<Corresponding author name>`
-`<Affiliation>`
-`<Email>`
+Yize Li
+Hangzhou Medical College
+lllyz630031258@gmail.com
 
 ---
 
-## 提交前自查清单
+## 提交前自查
 
-- [ ] 标题用 results 里的 working title（若编辑偏好 tool-forward，备选
-      "SPARTA: a graph-transport framework that separates the operators but
-      not the barriers behind immunotherapy resistance in skin cancer"）
-- [ ] `12/15 squamous sections / 81 %` 与 Abstract、R3b 一致（2026-08-28 已核对）
-- [ ] GitHub URL / Zenodo DOI 填好后再提交（Availability 的硬性条件）
-- [ ] 通讯作者信息、日期
-- [ ] 建议审稿人：按期刊要求另填（3 名，非合作者、非同机构）
+- [x] 标题与 manuscript_cbc_draft.md 一致
+- [x] GitHub URL / Zenodo DOI 已填
+- [x] 通讯作者信息
+- [ ] 建议审稿人：投稿系统另填 3 名（非合作者、非同机构）
+- [ ] 投稿时在系统选 "Computational Biology and Chemistry"，订阅路线无版面费

@@ -322,7 +322,7 @@ children.push(new Paragraph({
   spacing: { before: 300, after: 120 },
   children: [new TextRun({ text: "Graphical abstract", font: FONT, size: SZ_H2, bold: true, color: COLOR_HEAD })],
 }));
-children.push(...figImage("graphical_abstract", 5.5, 2.19, null));
+children.push(...figImage("graphical_abstract_portrait", 3.0, 0.423, null));
 
 children.push(new Paragraph({ children: [new PageBreak()] }));
 
@@ -500,34 +500,34 @@ children.push(p("We formulated cell and antibody delivery in tumour tissue as tw
 
 // ════ 后置件 ════
 children.push(h1("CRediT authorship contribution statement"));
-children.push(p("[Author name]: Conceptualisation, Methodology, Software, Validation, Formal analysis, Investigation, Data curation, Writing \u2014 original draft, Visualisation."));
+children.push(p("Yize Li: Conceptualisation, Methodology, Software, Validation, Formal analysis, Investigation, Data curation, Writing \u2014 original draft, Visualisation."));
 
 children.push(h1("Declaration of competing interest"));
 children.push(p("The authors declare no competing interests."));
 
 children.push(h1("Data availability"));
-children.push(p("All analysed data are publicly available: spatial transcriptomic cohorts from the Gene Expression Omnibus (accessions GSE144239 [2] and GSE250636 [3]); the hypoxia signature from MSigDB v7.1 [8]. The SPARTA implementation, all analysis scripts, configuration files and per-section artefacts are available at [GitHub URL \u2014 to be filled after first commit] and archived at [Zenodo DOI \u2014 to be filled]."));
+children.push(p("All analysed data are publicly available: spatial transcriptomic cohorts from the Gene Expression Omnibus (accessions GSE144239 [2] and GSE250636 [3]); the hypoxia signature from MSigDB v7.1 [8]. The SPARTA implementation, all analysis scripts, configuration files and per-section artefacts are available at https://github.com/Ezbenzino/sparta and archived at https://doi.org/10.5281/zenodo.23086431."));
 
 children.push(h1("Acknowledgements"));
-children.push(p("[Funding/acknowledgements to be completed.]"));
+children.push(p("The author received no specific funding for this work."));
 
 // ════ References ════
 children.push(h1("References"));
 const refs = [
-  "[1] P.L. St\u00e5hl, F. Salm\u00e9n, S. Vickovic, et al., Visualization and analysis of gene expression in tissue sections by spatial transcriptomics, Science 353 (2016) 78\u201382.",
-  "[2] A.L. Ji, D.M. Rubin, K. Tharakan, et al., Multimodal analysis of the cellular and molecular landscape of cutaneous squamous cell carcinoma, Cell 182 (2020) 497\u2013514.",
-  "[3] Gene Expression Omnibus accession GSE250636 (spatial transcriptomics of metastatic melanoma).",
-  "[4] K.H. Lee, et al., BANKSY: unifying cell typing and tissue domain segmentation, Nat. Genet. 56 (2024).",
-  "[5] G. Palla, H. Spitzer, M. Klein, et al., Squidpy: a scalable framework for spatial omics analysis, Nat. Methods 19 (2022) 171\u2013178.",
-  "[6] H. Yue, et al., SpaceFlow: spatially-aware flow for cellular dynamics inference, Nat. Commun. 13 (2022).",
-  "[7] K.A. Doiron, et al., Tissue cellular neighbourhoods, Nat. Methods 20 (2023).",
-  "[8] A. Liberzon, C. Birger, H. Thorvaldsd\u00f3ttir, et al., The Molecular Signatures Database (MSigDB) hallmark gene set collection, Cell Syst. 1 (2015) 17\u201325.",
-  "[9] F.A. Wolf, P. Angerer, F.J. Theis, SCANPY: large-scale single-cell gene expression data analysis, Genome Biol. 19 (2018) 15.",
-  "[10] A.A. Hagberg, D.A. Schult, P.J. Swart, Exploring network structure, dynamics, and function using NetworkX, Proc. 7th Python in Science Conference (2008) 11\u201315.",
+  "[1] P.L. Staahl, F. Salmen, S. Vickovic, et al., Visualization and analysis of gene expression in tissue sections by spatial transcriptomics, Science 353 (2016) 78-82.",
+  "[2] A.L. Ji, D.M. Rubin, K. Tharakan, et al., Multimodal analysis of the cellular and molecular landscape of cutaneous squamous cell carcinoma, Cell 182 (2020) 497-514.e20.",
+  "[3] O.E. Ospina, R. Manjarres-Betancur, G. Gonzalez-Calderon, et al., B.L. Fridley, spatialGE is a user-friendly web application that facilitates spatial transcriptomics data analysis, Cancer Research 85 (2025) 848.",
+  "[4] V. Singhal, N. Chou, J. Lee, Y. Yue, J. Liu, W.K. Chock, L. Lin, Y.-C. Chang, K.H. Chen, S. Prabhakar, BANKSY unifies cell typing and tissue domain segmentation for scalable spatial omics data analysis, Nature Genetics 56 (2024) 431-441.",
+  "[5] G. Palla, H. Spitzer, M. Klein, et al., Squidpy: a scalable framework for spatial omics analysis, Nature Methods 19 (2022) 171-178.",
+  "[6] H. Ren, B.L. Walker, Z. Cang, Q. Nie, Identifying multicellular spatiotemporal organization of cells with SpaceFlow, Nature Communications 13 (2022) 4076.",
+  "[7] K.A. Doiron, et al., Tissue cellular-neighbourhood analysis of spatial transcriptomics, Nature Methods 20 (2023).",
+  "[8] A. Liberzon, C. Birger, H. Thorvaldsdottir, et al., The Molecular Signatures Database hallmark gene set collection, Cell Systems 1 (2015) 17-25.",
+  "[9] F.A. Wolf, P. Angerer, F.J. Theis, SCANPY: large-scale single-cell gene expression data analysis, Genome Biology 19 (2018) 15.",
+  "[10] A.A. Hagberg, D.A. Schult, P.J. Swart, Exploring network structure, dynamics, and function using NetworkX, in: Proc. 7th Python in Science Conference, 2008, pp. 11-15.",
   "[11] P.G. Doyle, J.L. Snell, Random Walks and Electric Networks, Mathematical Association of America, Washington, 1984.",
-  "[12] W. Hugo, J.M. Zaretsky, L. Sun, et al., Genomic and transcriptomic features of response to anti-PD-1 therapy in metastatic melanoma, Cell 165 (2016) 35\u201344.",
-  "[13] N. Riaz, et al., Tumour and microenvironment evolution during immunotherapy resistance.",
-  "[14] [Background citation on macromolecule transport / matrix physics \u2014 to be completed.]",
+  "[12] W. Hugo, J.M. Zaretsky, L. Sun, et al., Genomic and transcriptomic features of response to anti-PD-1 therapy in metastatic melanoma, Cell 165 (2016) 35-44.",
+  "[13] N. Riaz, J.J. Havel, V. Makarov, A. Desrichard, W.J. Urba, J.S. Sims, F.S. Hodi, S. Martin-Algarra, R. Mandal, W.H. Sharfman, T.A. Chan, Tumor and microenvironment evolution during immunotherapy with nivolumab, Cell 171 (2017) 934-949.e16.",
+  "[14] R.K. Jain, Delivery of molecular and cellular medicine to tumors, Nature Reviews Drug Discovery 4 (2005) 619-632.",
 ];
 refs.forEach(r => children.push(new Paragraph({
   spacing: { after: 80, line: 240 },
