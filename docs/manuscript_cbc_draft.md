@@ -578,7 +578,7 @@ the Gene Expression Omnibus (accessions GSE144239 [2] and GSE250636 [3]); the
 hypoxia signature from MSigDB v7.1 [8]. The SPARTA implementation, all
 analysis scripts, configuration files and per-section artefacts are available
 at **https://github.com/Ezbenzino/sparta** and archived at
-**[Zenodo DOI — 待回填]**.
+**https://doi.org/10.5281/zenodo.23086431**.
 
 ## Acknowledgements
 
