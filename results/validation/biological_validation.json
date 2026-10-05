@@ -1,0 +1,309 @@
+{
+  "per_slide": {
+    "MEL01": {
+      "patient": "MEL_PtB",
+      "cohort": "MEL",
+      "cd8_field": "CD8T_n",
+      "bc_vs_tnk_rho": 0.04355697407492287,
+      "bc_vs_tnk_p": 0.07603813633332039,
+      "bc_vs_cd8_rho": 0.05547720743012742,
+      "bc_vs_cd8_p": 0.023799445522200084,
+      "bm_vs_prolif_rho": -0.0010954453872794605,
+      "bm_vs_prolif_p": 0.964427552141013,
+      "filled_keys": [
+        "efflux"
+      ],
+      "degraded": true
+    },
+    "MEL02": {
+      "patient": "MEL_PtB",
+      "cohort": "MEL",
+      "cd8_field": "CD8T_n",
+      "bc_vs_tnk_rho": -0.07443163604697696,
+      "bc_vs_tnk_p": 0.03518764812972819,
+      "bc_vs_cd8_rho": 0.06805751902386548,
+      "bc_vs_cd8_p": 0.05418123738830016,
+      "bm_vs_prolif_rho": 0.03864816363255607,
+      "bm_vs_prolif_p": 0.27460541979213043,
+      "filled_keys": [],
+      "degraded": false
+    },
+    "MEL03": {
+      "patient": "MEL_PtB",
+      "cohort": "MEL",
+      "cd8_field": "CD8T_n",
+      "bc_vs_tnk_rho": 0.010533574538896834,
+      "bc_vs_tnk_p": 0.6620676293119677,
+      "bc_vs_cd8_rho": 0.02340139457921529,
+      "bc_vs_cd8_p": 0.33150874677687947,
+      "bm_vs_prolif_rho": 0.045936510547509975,
+      "bm_vs_prolif_p": 0.0565261871040819,
+      "filled_keys": [],
+      "degraded": false
+    },
+    "MEL04": {
+      "patient": "MEL_PtB",
+      "cohort": "MEL",
+      "cd8_field": "CD8T_n",
+      "bc_vs_tnk_rho": 0.07833945436920288,
+      "bc_vs_tnk_p": 5.022642900730251e-05,
+      "bc_vs_cd8_rho": 0.06567796940685527,
+      "bc_vs_cd8_p": 0.0006795453965959402,
+      "bm_vs_prolif_rho": 0.00831744469910318,
+      "bm_vs_prolif_p": 0.6673214649298227,
+      "filled_keys": [],
+      "degraded": false
+    },
+    "CSCC01": {
+      "patient": "CSCC_P4",
+      "cohort": "CSCC",
+      "cd8_field": "CD8T_n",
+      "bc_vs_tnk_rho": -0.1317248954453436,
+      "bc_vs_tnk_p": 0.0004711841802882059,
+      "bc_vs_cd8_rho": -0.22663794509763274,
+      "bc_vs_cd8_p": 1.28715201542317e-09,
+      "bm_vs_prolif_rho": 0.1230979848022965,
+      "bm_vs_prolif_p": 0.0010915378148940184,
+      "filled_keys": [],
+      "degraded": false
+    },
+    "CSCC02": {
+      "patient": "CSCC_P4",
+      "cohort": "CSCC",
+      "cd8_field": "CD8T_n",
+      "bc_vs_tnk_rho": -0.28573278493783366,
+      "bc_vs_tnk_p": 1.0253629433585037e-13,
+      "bc_vs_cd8_rho": -0.2140464898053512,
+      "bc_vs_cd8_p": 3.4068609868882185e-08,
+      "bm_vs_prolif_rho": 0.13733886623038666,
+      "bm_vs_prolif_p": 0.00043678428359847284,
+      "filled_keys": [],
+      "degraded": false
+    },
+    "CSCC03": {
+      "patient": "CSCC_P6",
+      "cohort": "CSCC",
+      "cd8_field": "CD8T_n",
+      "bc_vs_tnk_rho": 0.02618802638758849,
+      "bc_vs_tnk_p": 0.17816290516181968,
+      "bc_vs_cd8_rho": 0.04879821507140151,
+      "bc_vs_cd8_p": 0.012073802848312278,
+      "bm_vs_prolif_rho": 0.02702174231258601,
+      "bm_vs_prolif_p": 0.16473753919416861,
+      "filled_keys": [],
+      "degraded": false
+    },
+    "CSCC04": {
+      "patient": "CSCC_P6",
+      "cohort": "CSCC",
+      "cd8_field": "CD8T_n",
+      "bc_vs_tnk_rho": 0.03729686721042589,
+      "bc_vs_tnk_p": 0.07198559916828155,
+      "bc_vs_cd8_rho": 0.03205167948874877,
+      "bc_vs_cd8_p": 0.12209505160688466,
+      "bm_vs_prolif_rho": 0.061785479316195116,
+      "bm_vs_prolif_p": 0.002860374846346743,
+      "filled_keys": [],
+      "degraded": false
+    },
+    "CSCC05": {
+      "patient": "CSCC_P2",
+      "cohort": "CSCC",
+      "cd8_field": "CD8T_n",
+      "bc_vs_tnk_rho": 0.06136194027683004,
+      "bc_vs_tnk_p": 0.11417645476847602,
+      "bc_vs_cd8_rho": 0.08053728710525752,
+      "bc_vs_cd8_p": 0.038008627555516754,
+      "bm_vs_prolif_rho": 0.021362647682850625,
+      "bm_vs_prolif_p": 0.5826606872608517,
+      "filled_keys": [],
+      "degraded": false
+    },
+    "CSCC06": {
+      "patient": "CSCC_P2",
+      "cohort": "CSCC",
+      "cd8_field": "CD8T_n",
+      "bc_vs_tnk_rho": 0.01694123187045991,
+      "bc_vs_tnk_p": 0.6680824232339351,
+      "bc_vs_cd8_rho": -0.06738126345065104,
+      "bc_vs_cd8_p": 0.08777880075098905,
+      "bm_vs_prolif_rho": 0.11124032575352354,
+      "bm_vs_prolif_p": 0.004742080077483665,
+      "filled_keys": [],
+      "degraded": false
+    },
+    "CSCC07": {
+      "patient": "CSCC_P2",
+      "cohort": "CSCC",
+      "cd8_field": "CD8T_n",
+      "bc_vs_tnk_rho": -0.00980863172715524,
+      "bc_vs_tnk_p": 0.8048475600984888,
+      "bc_vs_cd8_rho": -0.013157621427390014,
+      "bc_vs_cd8_p": 0.7403080353850127,
+      "bm_vs_prolif_rho": 0.01593285347306886,
+      "bm_vs_prolif_p": 0.6881531059121073,
+      "filled_keys": [],
+      "degraded": false
+    },
+    "CSCC09": {
+      "patient": "CSCC_P5",
+      "cohort": "CSCC",
+      "cd8_field": "CD8T_n",
+      "bc_vs_tnk_rho": -0.062224319281800076,
+      "bc_vs_tnk_p": 0.1601650791357568,
+      "bc_vs_cd8_rho": -0.0681337387288853,
+      "bc_vs_cd8_p": 0.12399965264641624,
+      "bm_vs_prolif_rho": 0.07460252532785823,
+      "bm_vs_prolif_p": 0.09205971164181784,
+      "filled_keys": [],
+      "degraded": false
+    },
+    "CSCC10": {
+      "patient": "CSCC_P5",
+      "cohort": "CSCC",
+      "cd8_field": "CD8T_n",
+      "bc_vs_tnk_rho": -0.021895430960507545,
+      "bc_vs_tnk_p": 0.6439381940844313,
+      "bc_vs_cd8_rho": -0.0996552181196706,
+      "bc_vs_cd8_p": 0.0349737600252557,
+      "bm_vs_prolif_rho": 0.0321314820058002,
+      "bm_vs_prolif_p": 0.49753684973324597,
+      "filled_keys": [
+        "ag_target"
+      ],
+      "degraded": true
+    },
+    "CSCC11": {
+      "patient": "CSCC_P9",
+      "cohort": "CSCC",
+      "cd8_field": "CD8T_n",
+      "bc_vs_tnk_rho": -0.16275087485212325,
+      "bc_vs_tnk_p": 2.240908573181923e-05,
+      "bc_vs_cd8_rho": -0.039063107094093746,
+      "bc_vs_cd8_p": 0.3119531651482819,
+      "bm_vs_prolif_rho": 0.030113613068359215,
+      "bm_vs_prolif_p": 0.43576914638268666,
+      "filled_keys": [],
+      "degraded": false
+    },
+    "CSCC12": {
+      "patient": "CSCC_P9",
+      "cohort": "CSCC",
+      "cd8_field": "T_NK_proxy",
+      "bc_vs_tnk_rho": -0.1420433360270102,
+      "bc_vs_tnk_p": 0.0005105505357469306,
+      "bc_vs_cd8_rho": -0.1420433360270102,
+      "bc_vs_cd8_p": 0.0005105505357469306,
+      "bm_vs_prolif_rho": 0.02872497536395704,
+      "bm_vs_prolif_p": 0.484334362710676,
+      "filled_keys": [],
+      "degraded": false
+    },
+    "CSCC14": {
+      "patient": "CSCC_P10",
+      "cohort": "CSCC",
+      "cd8_field": "CD8T_n",
+      "bc_vs_tnk_rho": 0.14764279620853477,
+      "bc_vs_tnk_p": 0.004427648292556105,
+      "bc_vs_cd8_rho": 0.04182968505090803,
+      "bc_vs_cd8_p": 0.42241487882371287,
+      "bm_vs_prolif_rho": 0.14719956538266232,
+      "bm_vs_prolif_p": 0.0045492424807455694,
+      "filled_keys": [
+        "ag_target",
+        "efflux"
+      ],
+      "degraded": true
+    },
+    "CSCC15": {
+      "patient": "CSCC_P10",
+      "cohort": "CSCC",
+      "cd8_field": "CD8T_n",
+      "bc_vs_tnk_rho": -0.12305937611026047,
+      "bc_vs_tnk_p": 0.0025958806472814425,
+      "bc_vs_cd8_rho": -0.09850407575993957,
+      "bc_vs_cd8_p": 0.01605683735593669,
+      "bm_vs_prolif_rho": 0.08436912158288433,
+      "bm_vs_prolif_p": 0.03932260367811549,
+      "filled_keys": [
+        "ag_target",
+        "efflux"
+      ],
+      "degraded": true
+    },
+    "CSCC16": {
+      "patient": "CSCC_P10",
+      "cohort": "CSCC",
+      "cd8_field": "CD8T_n",
+      "bc_vs_tnk_rho": -0.08973031200869944,
+      "bc_vs_tnk_p": 0.08064971311574608,
+      "bc_vs_cd8_rho": 0.05908519115540406,
+      "bc_vs_cd8_p": 0.2505592992651495,
+      "bm_vs_prolif_rho": 0.11367571364290385,
+      "bm_vs_prolif_p": 0.02670284944506058,
+      "filled_keys": [
+        "ag_target",
+        "efflux"
+      ],
+      "degraded": true
+    },
+    "CSCC08": {
+      "patient": "CSCC_P5",
+      "cohort": "CSCC",
+      "cd8_field": "CD8T_n",
+      "bc_vs_tnk_rho": -0.05681866023179768,
+      "bc_vs_tnk_p": 0.1770605499187677,
+      "bc_vs_cd8_rho": -0.04310648084651722,
+      "bc_vs_cd8_p": 0.3059560069033258,
+      "bm_vs_prolif_rho": 0.0525717505766005,
+      "bm_vs_prolif_p": 0.21173080753975485,
+      "filled_keys": [],
+      "degraded": false
+    }
+  },
+  "summary": {
+    "n_slides": 19,
+    "median_bc_vs_tnk": -0.021895430960507545,
+    "median_bc_vs_cd8": -0.013157621427390014,
+    "median_bm_vs_prolif": 0.045936510547509975,
+    "n_bc_tnk_neg_sig": 6,
+    "n_bc_cd8_neg_sig": 5,
+    "n_bc_cd8_neg_sig_true_cd8": 4,
+    "n_slides_true_cd8": 18,
+    "cd8_proxy_slides": [
+      "CSCC12"
+    ],
+    "n_bm_prolif_pos_sig": 7,
+    "n_degraded": 5,
+    "degraded_slides": {
+      "MEL01": [
+        "efflux"
+      ],
+      "CSCC10": [
+        "ag_target"
+      ],
+      "CSCC14": [
+        "ag_target",
+        "efflux"
+      ],
+      "CSCC15": [
+        "ag_target",
+        "efflux"
+      ],
+      "CSCC16": [
+        "ag_target",
+        "efflux"
+      ]
+    }
+  },
+  "meta": {
+    "timestamp": "2026-10-03T09:40:01+00:00",
+    "config_path": "D:\\sparta\\configs\\default.yaml",
+    "seed": 0,
+    "python": "3.13.13",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "networkx": "3.6.1",
+    "module": "M25-biological-validation"
+  }
+}

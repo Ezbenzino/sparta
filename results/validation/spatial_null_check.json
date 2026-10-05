@@ -1,0 +1,385 @@
+{
+  "per_slide": {
+    "MEL01": {
+      "patient": "MEL_PtB",
+      "cohort": "MEL",
+      "n_nodes": 1660,
+      "real_rho_partial": 0.2192428306725159,
+      "null_mean": -0.00013970324160436984,
+      "null_std": 0.06205774227723327,
+      "null_ci95": [
+        -0.11815192749797848,
+        0.12015589247915645
+      ],
+      "empirical_p_one_sided": 0.001996007984031936,
+      "n_perm": 500,
+      "filled_keys": [
+        "efflux"
+      ],
+      "degraded": true,
+      "bh_padj": 0.0037924151696606782
+    },
+    "MEL02": {
+      "patient": "MEL_PtB",
+      "cohort": "MEL",
+      "n_nodes": 801,
+      "real_rho_partial": 0.05540353257541708,
+      "null_mean": -0.002676663166626397,
+      "null_std": 0.06654601007497596,
+      "null_ci95": [
+        -0.12139854832240947,
+        0.13179871226792877
+      ],
+      "empirical_p_one_sided": 0.20958083832335328,
+      "n_perm": 500,
+      "filled_keys": [],
+      "degraded": false,
+      "bh_padj": 0.22122421823020624
+    },
+    "MEL03": {
+      "patient": "MEL_PtB",
+      "cohort": "MEL",
+      "n_nodes": 1724,
+      "real_rho_partial": 0.14941310208390987,
+      "null_mean": 0.0005224770543890392,
+      "null_std": 0.06441429873587529,
+      "null_ci95": [
+        -0.11697241152240277,
+        0.12131226063048318
+      ],
+      "empirical_p_one_sided": 0.007984031936127744,
+      "n_perm": 500,
+      "filled_keys": [],
+      "degraded": false,
+      "bh_padj": 0.011668969752802088
+    },
+    "MEL04": {
+      "patient": "MEL_PtB",
+      "cohort": "MEL",
+      "n_nodes": 2673,
+      "real_rho_partial": 0.14316679795921725,
+      "null_mean": -0.0012259525969580125,
+      "null_std": 0.03904957012963126,
+      "null_ci95": [
+        -0.07129367057618703,
+        0.08029598903795129
+      ],
+      "empirical_p_one_sided": 0.001996007984031936,
+      "n_perm": 500,
+      "filled_keys": [],
+      "degraded": false,
+      "bh_padj": 0.0037924151696606782
+    },
+    "CSCC01": {
+      "patient": "CSCC_P4",
+      "cohort": "CSCC",
+      "n_nodes": 701,
+      "real_rho_partial": 0.3847893496906938,
+      "null_mean": -0.0009203133932738931,
+      "null_std": 0.09620636763183413,
+      "null_ci95": [
+        -0.18769063173737502,
+        0.18618284475830077
+      ],
+      "empirical_p_one_sided": 0.001996007984031936,
+      "n_perm": 500,
+      "filled_keys": [],
+      "degraded": false,
+      "bh_padj": 0.0037924151696606782
+    },
+    "CSCC02": {
+      "patient": "CSCC_P4",
+      "cohort": "CSCC",
+      "n_nodes": 652,
+      "real_rho_partial": 0.2616618695714037,
+      "null_mean": -0.0037302430490763106,
+      "null_std": 0.06812822600669227,
+      "null_ci95": [
+        -0.13670653305956443,
+        0.12998327538044105
+      ],
+      "empirical_p_one_sided": 0.001996007984031936,
+      "n_perm": 500,
+      "filled_keys": [],
+      "degraded": false,
+      "bh_padj": 0.0037924151696606782
+    },
+    "CSCC03": {
+      "patient": "CSCC_P6",
+      "cohort": "CSCC",
+      "n_nodes": 2645,
+      "real_rho_partial": 0.2793263800417826,
+      "null_mean": 0.002146449449237623,
+      "null_std": 0.08101711977558651,
+      "null_ci95": [
+        -0.15696658877582204,
+        0.1553633213619386
+      ],
+      "empirical_p_one_sided": 0.001996007984031936,
+      "n_perm": 500,
+      "filled_keys": [],
+      "degraded": false,
+      "bh_padj": 0.0037924151696606782
+    },
+    "CSCC04": {
+      "patient": "CSCC_P6",
+      "cohort": "CSCC",
+      "n_nodes": 2328,
+      "real_rho_partial": 0.21698516161224798,
+      "null_mean": 0.0048288890778165105,
+      "null_std": 0.07086966147151656,
+      "null_ci95": [
+        -0.13634483566984767,
+        0.12078938844827598
+      ],
+      "empirical_p_one_sided": 0.001996007984031936,
+      "n_perm": 500,
+      "filled_keys": [],
+      "degraded": false,
+      "bh_padj": 0.0037924151696606782
+    },
+    "CSCC05": {
+      "patient": "CSCC_P2",
+      "cohort": "CSCC",
+      "n_nodes": 664,
+      "real_rho_partial": 0.28029543101073734,
+      "null_mean": 0.0034819115639916805,
+      "null_std": 0.10327781994360134,
+      "null_ci95": [
+        -0.20091011657995925,
+        0.19524345639954943
+      ],
+      "empirical_p_one_sided": 0.001996007984031936,
+      "n_perm": 500,
+      "filled_keys": [],
+      "degraded": false,
+      "bh_padj": 0.0037924151696606782
+    },
+    "CSCC06": {
+      "patient": "CSCC_P2",
+      "cohort": "CSCC",
+      "n_nodes": 643,
+      "real_rho_partial": 0.20672596922572775,
+      "null_mean": -0.0036834053453593473,
+      "null_std": 0.07846239490700971,
+      "null_ci95": [
+        -0.1514968335408045,
+        0.13595756614826005
+      ],
+      "empirical_p_one_sided": 0.003992015968063872,
+      "n_perm": 500,
+      "filled_keys": [],
+      "degraded": false,
+      "bh_padj": 0.006895300308473961
+    },
+    "CSCC07": {
+      "patient": "CSCC_P2",
+      "cohort": "CSCC",
+      "n_nodes": 637,
+      "real_rho_partial": 0.28388884556333716,
+      "null_mean": -0.003501059951188477,
+      "null_std": 0.06585959047981861,
+      "null_ci95": [
+        -0.12449668360347593,
+        0.11617215545394793
+      ],
+      "empirical_p_one_sided": 0.001996007984031936,
+      "n_perm": 500,
+      "filled_keys": [],
+      "degraded": false,
+      "bh_padj": 0.0037924151696606782
+    },
+    "CSCC09": {
+      "patient": "CSCC_P5",
+      "cohort": "CSCC",
+      "n_nodes": 511,
+      "real_rho_partial": 0.20134439473668836,
+      "null_mean": 0.00031551722863000763,
+      "null_std": 0.07791499145815156,
+      "null_ci95": [
+        -0.160269236006755,
+        0.1426006097995714
+      ],
+      "empirical_p_one_sided": 0.001996007984031936,
+      "n_perm": 500,
+      "filled_keys": [],
+      "degraded": false,
+      "bh_padj": 0.0037924151696606782
+    },
+    "CSCC10": {
+      "patient": "CSCC_P5",
+      "cohort": "CSCC",
+      "n_nodes": 448,
+      "real_rho_partial": 0.14068739329849367,
+      "null_mean": -0.002666486984304692,
+      "null_std": 0.07710189257956113,
+      "null_ci95": [
+        -0.14374334139296224,
+        0.15063451572434755
+      ],
+      "empirical_p_one_sided": 0.04790419161676647,
+      "n_perm": 500,
+      "filled_keys": [
+        "ag_target"
+      ],
+      "degraded": true,
+      "bh_padj": 0.060678642714570866
+    },
+    "CSCC11": {
+      "patient": "CSCC_P9",
+      "cohort": "CSCC",
+      "n_nodes": 672,
+      "real_rho_partial": 0.19337259347313349,
+      "null_mean": 0.001343629820952155,
+      "null_std": 0.07341804245794945,
+      "null_ci95": [
+        -0.14168197608762068,
+        0.13691018763073542
+      ],
+      "empirical_p_one_sided": 0.001996007984031936,
+      "n_perm": 500,
+      "filled_keys": [],
+      "degraded": false,
+      "bh_padj": 0.0037924151696606782
+    },
+    "CSCC12": {
+      "patient": "CSCC_P9",
+      "cohort": "CSCC",
+      "n_nodes": 595,
+      "real_rho_partial": 0.2245319385407277,
+      "null_mean": -0.0013883435949655078,
+      "null_std": 0.09517263059232188,
+      "null_ci95": [
+        -0.18482196778096366,
+        0.18422277875132273
+      ],
+      "empirical_p_one_sided": 0.007984031936127744,
+      "n_perm": 500,
+      "filled_keys": [],
+      "degraded": false,
+      "bh_padj": 0.011668969752802088
+    },
+    "CSCC14": {
+      "patient": "CSCC_P10",
+      "cohort": "CSCC",
+      "n_nodes": 370,
+      "real_rho_partial": 0.29495647654983637,
+      "null_mean": 0.010135698245248513,
+      "null_std": 0.2588317470198934,
+      "null_ci95": [
+        -0.3563411783948045,
+        0.3779320968721368
+      ],
+      "empirical_p_one_sided": 0.15568862275449102,
+      "n_perm": 500,
+      "filled_keys": [
+        "ag_target",
+        "efflux"
+      ],
+      "degraded": true,
+      "bh_padj": 0.1740049313138429
+    },
+    "CSCC15": {
+      "patient": "CSCC_P10",
+      "cohort": "CSCC",
+      "n_nodes": 597,
+      "real_rho_partial": -0.00040111430907287525,
+      "null_mean": -0.0038907327621085183,
+      "null_std": 0.12942117926846847,
+      "null_ci95": [
+        -0.242574973670011,
+        0.22124967999643588
+      ],
+      "empirical_p_one_sided": 0.49700598802395207,
+      "n_perm": 500,
+      "filled_keys": [
+        "ag_target",
+        "efflux"
+      ],
+      "degraded": true,
+      "bh_padj": 0.497005988023952
+    },
+    "CSCC16": {
+      "patient": "CSCC_P10",
+      "cohort": "CSCC",
+      "n_nodes": 380,
+      "real_rho_partial": 0.2388969915982062,
+      "null_mean": 0.0007060641486336703,
+      "null_std": 0.12804739867725898,
+      "null_ci95": [
+        -0.23103793018435073,
+        0.24303788359421946
+      ],
+      "empirical_p_one_sided": 0.029940119760479042,
+      "n_perm": 500,
+      "filled_keys": [
+        "ag_target",
+        "efflux"
+      ],
+      "degraded": true,
+      "bh_padj": 0.04063301967493584
+    },
+    "CSCC08": {
+      "patient": "CSCC_P5",
+      "cohort": "CSCC",
+      "n_nodes": 566,
+      "real_rho_partial": 0.11388887316217428,
+      "null_mean": 0.003308344116662025,
+      "null_std": 0.07534824689887984,
+      "null_ci95": [
+        -0.13342204116226858,
+        0.14574446033643343
+      ],
+      "empirical_p_one_sided": 0.0718562874251497,
+      "n_perm": 500,
+      "filled_keys": [],
+      "degraded": false,
+      "bh_padj": 0.08532934131736526
+    }
+  },
+  "summary": {
+    "median_real": 0.21698516161224798,
+    "median_null": -0.00013970324160436984,
+    "median_empirical_p": 0.001996007984031936,
+    "n_slides": 19,
+    "n_per_significant": 15,
+    "n_patients": 7,
+    "p_correction": "(k+1)/(N+1) finite-sample",
+    "n_degraded": 5,
+    "degraded_slides": {
+      "MEL01": [
+        "efflux"
+      ],
+      "CSCC10": [
+        "ag_target"
+      ],
+      "CSCC14": [
+        "ag_target",
+        "efflux"
+      ],
+      "CSCC15": [
+        "ag_target",
+        "efflux"
+      ],
+      "CSCC16": [
+        "ag_target",
+        "efflux"
+      ]
+    },
+    "n_sig_raw_p05": 15,
+    "n_sig_bh_p05": 14,
+    "bh_note": "Raw p<0.05: 15/19; BH-FDR adjusted p<0.05: 14/19. CSCC10 (raw p=0.048) is not BH-significant (adj=0.061); it is also ag_target-degraded."
+  },
+  "seed": 20261003,
+  "n_perm": 500,
+  "meta": {
+    "timestamp": "2026-10-03T12:11:34+00:00",
+    "config_path": "D:\\sparta\\configs\\default.yaml",
+    "seed": 0,
+    "python": "3.13.13",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "networkx": "3.6.1",
+    "module": "M27-spatial-null"
+  }
+}

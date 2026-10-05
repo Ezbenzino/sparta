@@ -1,0 +1,63 @@
+{
+ "slide": "LN01",
+ "status": "ingested",
+ "checks": {
+  "C1": {
+   "pass": true,
+   "detail": "4035 spot × 36601 基因"
+  },
+  "C2": {
+   "pass": true,
+   "detail": "有坐标"
+  },
+  "C3": {
+   "pass": true,
+   "detail": "有配对 H&E"
+  },
+  "C4": {
+   "pass": true,
+   "detail": "4035 spot（阈值 500）"
+  },
+  "C5": {
+   "pass": true,
+   "detail": "中位 UMI 20239（阈值 500）"
+  },
+  "C6": {
+   "pass": true,
+   "detail": "4006 个 spot 有内皮信号（阈值 20，匹配到 6/6 个标记基因）"
+  },
+  "C7": {
+   "pass": false,
+   "detail": "未知——治疗后切片的屏障结构已改变"
+  }
+ },
+ "failed": [
+  "C7"
+ ],
+ "admitted": true,
+ "forced": true,
+ "force_reason": "队列级豁免登记（2026-10-03（外部独立验证补强登记））：10x Genomics 公开 Visium 人淋巴结切片（1.1.0 spaceranger 输出）。 外部独立验证第二样本：治疗状态公开页面未标注，按队列豁免登记 C7； 早期 Visium 化学，阈值套用 cscc_gse144239 的 500/500。",
+ "cohort": "ln_10x_vis",
+ "thresholds_applied": {
+  "min_spots_visium": 500,
+  "min_spots_legacy_st": 300,
+  "min_median_umi": 500,
+  "min_endothelial_spots": 20
+ },
+ "thresholds_overridden": [
+  "min_spots_visium",
+  "min_median_umi"
+ ],
+ "reconstructed": true,
+ "meta": {
+  "timestamp": "2026-10-03T13:52:04+00:00",
+  "config_path": "D:\\sparta\\configs\\default.yaml",
+  "seed": 0,
+  "python": "3.13.13",
+  "numpy": "2.5.2",
+  "scipy": "1.18.1",
+  "networkx": "3.6.1",
+  "module": "M0c-admission-audit",
+  "slide": "LN01"
+ }
+}

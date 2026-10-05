@@ -50,7 +50,7 @@ def main():
     ap = argparse.ArgumentParser(description="M2 签名打分",
                                  formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     ap.add_argument("--slide", required=True)
-    ap.add_argument("--tumor-type", default=None, choices=["melanoma", "cscc", "bcc"],
+    ap.add_argument("--tumor-type", default=None, choices=["melanoma", "cscc", "bcc", "brca"],
                     help="不传则用 config 里的 signatures.tumor_type")
     ap.add_argument("--hypoxia-gmt", default=None,
                     help="MSigDB HALLMARK_HYPOXIA 的 gmt 文件。不传则用代码内的占位集合")

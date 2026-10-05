@@ -70,8 +70,12 @@ def main():
         t_nk = np.asarray(adata.obs["T_NK_n"].values, float)
         if "CD8T_n" in adata.obs.columns:
             cd8 = np.asarray(adata.obs["CD8T_n"].values, float)
+            cd8_field = "CD8T_n"
         else:
-            cd8 = t_nk  # fallback: use T_NK as proxy
+            # fallback: use T_NK as proxy. Flagged explicitly so downstream
+            # summaries can separate true CD8 measurements from proxies.
+            cd8 = t_nk
+            cd8_field = "T_NK_proxy"
         prolif = np.asarray(adata.obs["Proliferation_n"].values, float)
 
         # partial Spearman (control = vessel distance)
@@ -82,6 +86,7 @@ def main():
         rows[sid] = dict(
             patient=pmap.get(sid, "?"),
             cohort="CSCC" if sid.startswith("CSCC") else "MEL",
+            cd8_field=cd8_field,
             bc_vs_tnk_rho=r_bc_tnk["rho_partial"],
             bc_vs_tnk_p=r_bc_tnk["p_partial"],
             bc_vs_cd8_rho=r_bc_cd8["rho_partial"],
@@ -102,6 +107,13 @@ def main():
     def n_pos(key, pkey):
         return int(sum(1 for r in rows.values() if r[key] > 0 and r[pkey] < 0.05))
 
+    # CD8 counts split by whether the slide actually has a CD8T_n field
+    cd8_true = {k: v for k, v in rows.items() if v["cd8_field"] == "CD8T_n"}
+    cd8_proxy_slides = sorted(k for k, v in rows.items() if v["cd8_field"] == "T_NK_proxy")
+
+    def n_neg_subset(subset, key, pkey):
+        return int(sum(1 for r in subset.values() if r[key] < 0 and r[pkey] < 0.05))
+
     summary = dict(
         n_slides=len(rows),
         median_bc_vs_tnk=med("bc_vs_tnk_rho"),
@@ -109,6 +121,9 @@ def main():
         median_bm_vs_prolif=med("bm_vs_prolif_rho"),
         n_bc_tnk_neg_sig=n_neg("bc_vs_tnk_rho", "bc_vs_tnk_p"),
         n_bc_cd8_neg_sig=n_neg("bc_vs_cd8_rho", "bc_vs_cd8_p"),
+        n_bc_cd8_neg_sig_true_cd8=n_neg_subset(cd8_true, "bc_vs_cd8_rho", "bc_vs_cd8_p"),
+        n_slides_true_cd8=len(cd8_true),
+        cd8_proxy_slides=cd8_proxy_slides,
         n_bm_prolif_pos_sig=n_pos("bm_vs_prolif_rho", "bm_vs_prolif_p"),
     )
 
@@ -116,7 +131,11 @@ def main():
     print(f"B_cell field vs T_NK signature: median rho = {summary['median_bc_vs_tnk']:+.3f}"
           f" (neg sig in {summary['n_bc_tnk_neg_sig']}/{summary['n_slides']})")
     print(f"B_cell field vs CD8T: median rho = {summary['median_bc_vs_cd8']:+.3f}"
-          f" (neg sig in {summary['n_bc_cd8_neg_sig']}/{summary['n_slides']})")
+          f" (neg sig in {summary['n_bc_cd8_neg_sig']}/{summary['n_slides']} total;"
+          f" {summary['n_bc_cd8_neg_sig_true_cd8']}/{summary['n_slides_true_cd8']} with true CD8T_n field)")
+    if cd8_proxy_slides:
+        print(f"  [note: slides using T_NK as CD8 proxy (no CD8T_n field): "
+              f"{', '.join(cd8_proxy_slides)}]")
     print(f"B_mAb vs Proliferation: median rho = {summary['median_bm_vs_prolif']:+.3f}"
           f" (pos sig in {summary['n_bm_prolif_pos_sig']}/{summary['n_slides']})")
     print("\nInterpretation:")

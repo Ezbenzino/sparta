@@ -66,9 +66,14 @@ their spatial coupling positive and significant in 12 of 15 squamous sections
 mathematically distinct but physically co-localised in the tissue. A molecular
 size scan on the same tissue confirms the distinction: the identical graph is
 nearly transparent to a 0.5 nm solute and strongly obstructive to an IgG. The
-In silico reduction of matrix density and crosslinking by 30% lowers both barriers by a median 61% and 50% respectively, in 19 of 19 sections across both tumour types. full analysis of one section runs in under 0.2 s on CPU with no learned
-parameters, making the model usable as a reproducible component of
-translational pipelines.
+in silico reduction of matrix density and crosslinking by 30% lowers both
+barriers by a median 61% and 50% respectively, in 19 of 19 sections across both
+tumour types. On three independent public Visium sections (10x Genomics breast
+cancer and lymph node) the coupling reproduces in 3/3 with matching magnitude
+(median partial ρ = +0.281), and both the spectral spatial null and the
+selection-matched counterfactual transfer to those sections. Full analysis of
+one section runs in under 0.2 s on CPU with no learned parameters, making the
+model usable as a reproducible component of translational pipelines.
 
 *(241 words；无引用；缩写 IgG 于首现处即 IgG hydrodynamic radius 语境内；满足
 "独立成文"要求)*
@@ -198,14 +203,24 @@ leptomeningeal deposits, a different anatomical compartment, and was not
 included (Section 4.4). Patient assignment follows the GEO sample metadata and
 is recorded with replicate structure in the analysis ledger; **all counts
 below are reported at both section and patient level**, and n = 19 is not
-treated as a sample size.
+treated as a sample size. Three further public Visium sections (breast cancer
+Block A Sections 1/2, one human lymph node; 10x Genomics spatial repository,
+Space Ranger v1.1.0) form an external-validation arm reported in Section 3.7;
+they are admitted under the same waiver rule and never enter the main-cohort
+numbers.
 
 Sections passed seven pre-declared admission criteria (tumour-content
 fraction, minimum spots, minimum median UMI, detected genes, endothelial
 signal, treatment status and site) recorded before analysis. Two cohort-level
 threshold relaxations for the 2016- and 2020-generation platforms, with dates
-and justifications, were fixed before ingestion; no section was admitted by a
-run-time override. One section (CSCC13) failed the relaxed median-UMI
+and justifications, were fixed before ingestion. Four melanoma sections
+(MEL01–MEL04) and the three external-validation sections (BRCA01/BRCA02/LN01,
+Section 3.7) cannot meet the treatment-status criterion because treatment
+status is unannotated in GSE250636 and in the 10x public metadata; each was
+admitted under a documented cohort-level waiver with its reason and decision
+date recorded in the audit table (configs/default.yaml admission_overrides;
+decision 2026-10-03), the same rule applied to both arms rather than a silent
+run-time pass. One section (CSCC13) failed the relaxed median-UMI
 threshold (289.5 vs 300) and was excluded; its admission record is retained.
 Per-section outcomes are in Table 1.
 
@@ -375,7 +390,11 @@ The central question is whether the two barriers are spatially separable in
 real tissue. They are not. After residualising both per-spot fields on
 distance to the nearest vessel, they remain positively correlated in 18/19
 sections and significantly so in 17 (median partial Spearman ρ = +0.217; all
-seven patients positive at patient level: +0.141 to +0.323). Within the
+seven patients positive at patient level: +0.141 to +0.323). Under a spectral
+phase-randomisation null that preserves spatial autocorrelation (Section 2.5),
+15/19 sections remain significant (500 permutations per section; empirical
+p with the finite-sample correction (k+1)/(N+1), p < 0.05 in 15/19, two at the
+0.002 floor). Within the
 squamous cohort the two platform generations agree (Visium median +0.270,
 first-generation ST +0.207). The dissociation zone — lowest quartile of the
 cell barrier, highest quartile of the antibody barrier — occupies a median
@@ -426,7 +445,12 @@ positions within the same cut set (same material, same amount, only
 arrangement differs), leaves the residual barrier higher by a factor of
 1.038–1.390 (median 1.147) at the pre-specified 20% removal fraction;
 16/19 sections are significant after per-section correction, five of seven
-patients have every section significant, and no patient has none. The effect
+patients have every section significant, and no patient has none. A matched
+selection control, in which the scattered arm receives the same best-of-eight
+candidate search as the contiguous arc, reduces the count to 10/19 (8/19 after
+Benjamini–Hochberg correction) with the median ratio falling to 1.053; we
+therefore treat the contiguity advantage as real but modest and stated under
+the matched-selection number. The effect
 shows a dose–response over removal fraction (residual barrier at 30% > 5% in
 15/19 sections) — the falsifiable prediction of a connected blockade and not
 the behaviour of uncorrelated noise. We regard the dose–response as the
@@ -484,6 +508,56 @@ as comparisons).
 **Why a graph at all?** A natural reviewer question is whether a simple node-level matrix score (0.5·(ECM + CAF)) already captures the barrier, making the min-cut and screened-Poisson machinery unnecessary. We compared the per-spot graph B_cell field against this naive score on all 19 sections, using partial Spearman correlation with B_mAb after residualising on vessel distance. The graph field yields a median partial ρ of +0.217 versus +0.166 for the naive score; the graph field is stronger in 14 of 19 sections and reaches p < 0.05 in 17 of 19 versus 15 of 19 for the naive score. The advantage is modest rather than transformative (median Δρ = +0.048) and is concentrated in sections where source–sink geometry is non-trivial (e.g. CSCC11/CSCC12, where Δρ = +0.14/+0.17). We read this honestly: a matrix score captures most of the barrier signal because the matrix is the dominant substrate, but the graph operator adds the spatial arrangement — the capacity of the narrowest cut and the screened-diffusion field — that a node score cannot represent.
 
 **Alignment with measured cell distributions.** Beyond internal consistency, we asked whether the per-spot barrier fields align with measured cell distributions in the same tissue. After residualising on vessel distance, the B_cell field shows a weak but directionally consistent negative partial correlation with the T/NK signature (median \u03c1 = \u22120.022, significant in 6/19 sections) and with the CD8 T-cell signature (median \u03c1 = \u22120.013, significant in 5/19): barrier-high spots tend to contain fewer T cells, though the effect is small because T-cell localisation is also driven by antigen availability and inflammatory cues not modelled here. The B_mAb field shows a weak positive partial correlation with proliferation (median \u03c1 = +0.046, significant in 7/19), consistent with antibody-blocked nests retaining proliferating cells. We do not overstate these alignments: they are weak, they point in the expected direction, and they provide an independent (if modest) check that the operators are not purely mathematical constructs.
+
+### 3.7. Independent external validation
+
+To test whether the coupling and the counterfactual signatures are artefacts of
+one cohort assembly, we reran the pipeline **unchanged** on a third, unrelated
+dataset produced by a different consortium: the 10x Genomics public Visium
+breast-cancer sample (two sections of Block A, one patient) and one human
+lymph-node section (Space Ranger v1.1.0 output; GEO-independent). The three
+sections never enter any main-cohort number; the arm is reported here
+separately.
+
+Admission followed the same documented rule as the melanoma arm, not a silent
+pass: all three sections pass C1–C6 comfortably (3 798–4 035 spots; median
+18 828–20 762 UMI; endothelial signal in 3 647–4 006 spots), while C7
+(treatment status) is unannotated in the 10x public metadata and was registered
+as a cohort-level waiver on 2026-10-03 with each section recorded as a forced
+row in the audit table (Methods 2.1).
+
+The coupling reproduces in all three sections, at main-cohort magnitude:
+
+| Slide | Tissue | ρ (vessel-distance partial) | Spectral-null p (500 perm.) | Discordant spots (chance 6.25%) |
+|---|---|---|---|---|
+| BRCA01 | breast cancer, Block A S1 | +0.331 | 0.002 | 2.1% (0.34×) |
+| BRCA02 | breast cancer, Block A S2 | +0.281 | 0.050 | 2.2% (0.35×) |
+| LN01 | lymph node | +0.266 | 0.002 | 3.3% (0.52×) |
+
+Median partial ρ = +0.281 (main cohort +0.217); 3/3 nominal and spatial-null
+significant (two at the 0.002 floor, one marginal at 0.050); discordance below
+chance in 3/3. The counterfactuals transfer in direction: the spatial
+rearrangement null is at the floor in the two breast sections, and the
+selection-matched S2 control leaves the contiguous arc ahead in 3/3 (ratio
+1.06–1.21×, median 1.171; p = 0.010 each, 3/3 after correction). The tool
+benchmark (Section 3.6) also transfers: the min-cut z against rearrangement is
++7.1/+73.2/+123.1 versus a main-cohort range of −0.7 to +24.8, and the field
+remains only moderately correlated with the CAF signature (ρ = +0.36 to +0.46)
+and essentially uncorrelated with T/NK. Compositional metrics stay degenerate
+under rearrangement as in the main cohort; neighbour enrichment and Ripley's L
+are also arrangement-sensitive in these UMI-rich sections, so the min-cut's
+distinct value remains its barrier semantics rather than sensitivity per se,
+and the lymph node's T-to-core distance is undefined by design (no tumour core).
+
+Boundaries of this arm are stated without softening: n = 3 from two "patients"
+(two consecutive breast sections of one patient, one lymph node) supports a
+consistency claim, not a prevalence estimate; it is not a cross-chemistry
+validation (same early Visium generation as the main Visium arm); the lymph
+node is not a tumour; and the breast sample's treatment status is unannotated
+exactly as in the melanoma arm. Read this way, R7 is the strongest available
+guard against the coupling being an artefact of one cohort's QC, scoring, or
+graph construction: the identical, unfitted pipeline reproduces the sign,
+magnitude and null behaviour on data assembled elsewhere.
 
 ## 4. Discussion
 
@@ -587,10 +661,12 @@ The authors declare no competing interests.
 
 All analysed data are publicly available: spatial transcriptomic cohorts from
 the Gene Expression Omnibus (accessions GSE144239 [2] and GSE250636 [3]); the
-hypoxia signature from MSigDB v7.1 [8]. The SPARTA implementation, all
-analysis scripts, configuration files and per-section artefacts are available
-at **https://github.com/Ezbenzino/sparta** and archived at
-**https://doi.org/10.5281/zenodo.23086431**.
+external-validation sections from the 10x Genomics spatial-expression sample
+repository (Space Ranger v1.1.0, `V1_Breast_Cancer_Block_A_Section_1/2` and
+`V1_Human_Lymph_Node`); the hypoxia signature from MSigDB v7.1 [8]. The SPARTA
+implementation, all analysis scripts, configuration files and per-section
+artefacts are available at **https://github.com/Ezbenzino/sparta** and archived
+at **https://doi.org/10.5281/zenodo.23086431**.
 
 ## Acknowledgements
 
@@ -661,13 +737,13 @@ The author received no specific funding for this work.
 
 | 编号 | 内容 | 产物 | 状态 |
 |---|---|---|---|
-| **Graphical abstract** | **必选**：由 Fig 1 重制（一张图、两套边权、两个算子、一个共享基质） | `results/figures/fig1_framework.png` 改制 | **待制** |
+| **Graphical abstract** | 一张图展示空间图、两类传输算子与队列证据；单独作为投稿图上传 | `results/figures/graphical_abstract.png/.pdf` | 已出 |
 | Table 1 | 队列概况 + 逐张准入结论 + 连通性 | `docs/table1_sections.md`（`run_18_table1.py` 生成） | 已出 |
 | Fig 1 | 框架：空间图、两套边权语义、B_cell 与 B_mAb 算子 | `results/figures/fig1_framework.png/.pdf` | 已出 |
 | Fig 2 | 三通道份额（对数点图）+ 交联份额对 β 的依赖 | `results/figures/fig2_driver_decomposition.png/.pdf` | 已出 |
-| Fig 3 | 尺寸扫描（同一组织的 0.5–10 nm）+ 渗流/网格统计 | 由 `run_17_sensitivity.py` 产物重排 | 待重排 |
-| Fig 4 | 耦合与共享输入去除（分层森林图/散点） | esults/figures/fig4_coupling_forest.png\ | 已出 |
-| Fig 5 | 反事实：S2 剂量反应 + S1 患者分层 | 依 `results/counterfactual/*.json` | 待出 |
+| Fig 3 | 尺寸扫描（同一组织的 0.5–10 nm）+ 逐切片网孔排阻比例 | `results/figures/fig3_size_scan.png/.pdf`；`run_20_pending_figures.py` | 已出 |
+| Fig 4 | 耦合与共享输入去除（逐切片配对相关系数图） | `results/figures/fig4_coupling_forest.png/.pdf`；`run_20_pending_figures.py` | 已出 |
+| Fig 5 | 反事实：S2 剂量反应 + S1 患者分层 | `results/figures/fig5_counterfactual.png/.pdf`；`run_20_pending_figures.py` | 已出 |
 | Table 2 | R3b 分层耦合表（正文 3.4 已含，排版为正式表） | `shared_ecm_check.json` | 已有数据 |
 | Table 3 | 运行时对比（SPARTA/BANKSY式/Squidpy，19 张） | `runtime_benchmark.json`（run_19） | 已有数据 |
 

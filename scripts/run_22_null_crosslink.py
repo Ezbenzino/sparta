@@ -16,6 +16,7 @@ run_22_null_crosslink.py —— Size-exclusion channel 的 null model 检验
 """
 from __future__ import annotations
 
+import csv
 import sys
 from pathlib import Path
 
@@ -28,8 +29,6 @@ from sparta.io_ import (Paths, load_config, load_graph, patient_map,  # noqa: E4
 from sparta.barrier import scores_from_adata  # noqa: E402
 from sparta.validate import dissociation_drivers  # noqa: E402
 
-# 6 张代表切片：覆盖 cSCC Visium / cSCC 1st-gen ST / melanoma
-SLIDES = ["CSCC01", "CSCC04", "CSCC08", "CSCC14", "MEL01", "MEL02"]
 N_PERM = 50
 SEED = 20261001
 
@@ -45,6 +44,12 @@ def main():
     cfg_cell = cfg["barrier"]["b_cell"]
     cfg_mab = {k: v for k, v in cfg["barrier"]["b_mab"].items() if k != "r_nm"}
     r_nm = cfg["barrier"]["b_mab"]["r_nm"]
+
+    # all ingested slides (mirrors run_25)
+    ledger = Path(__file__).resolve().parents[1] / "data" / "ledger.csv"
+    with open(ledger, encoding="utf-8") as f:
+        SLIDES = [r["slide_id"] for r in csv.DictReader(f)
+                  if r.get("status") == "ingested"]
 
     print(f"Null crosslink permutation test  (N={N_PERM} per slide, seed={SEED})")
     print(f"Slides: {SLIDES}\n")

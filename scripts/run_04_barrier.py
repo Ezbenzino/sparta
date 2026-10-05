@@ -57,7 +57,8 @@ def main():
 
     adata = sc.read_h5ad(P.scored(args.slide))
     A, D, source, sink, vessel, gmeta = load_graph(P.graph(args.slide))
-    S = scores_from_adata(adata)
+    filled: list[str] = []
+    S = scores_from_adata(adata, missing_out=filled)
     bcfg = cfg["barrier"]
 
     print(f"[M4] {args.slide}：{A.shape[0]} 节点｜源 {len(source)}｜汇 {len(sink)}｜"
@@ -97,7 +98,8 @@ def main():
               stamp_run(cfg, {"module": "M4", "slide": args.slide,
                               "b_cell": bc["b_cell"], "max_flow": bc["max_flow"],
                               "r_nm": mab_cfg["r_nm"], "n_unreachable": n_unreach,
-                              "d_vessel_mode": bt["d_vessel_mode"]}))
+                              "d_vessel_mode": bt["d_vessel_mode"],
+                              "filled_keys": filled, "degraded": bool(filled)}))
     print(f"[M4] 已写出 {P.barrier(args.slide)}")
 
     if not args.no_plot:

@@ -1,0 +1,235 @@
+{
+ "n_slides": 19,
+ "r_nm": 5.5,
+ "xi0_nm": 20.0,
+ "beta": 3.0,
+ "frac_excluded_median": 0.6265,
+ "frac_excluded_min": 0.6001,
+ "frac_excluded_max": 0.6515,
+ "frac_excluded_median_pct": 62.6,
+ "frac_excluded_range_pct": [
+  60.0,
+  65.1
+ ],
+ "per_slide": {
+  "CSCC01": {
+   "n_edges": 1888,
+   "r_nm": 5.5,
+   "xi0_nm": 20.0,
+   "beta": 3.0,
+   "xi_median_nm": 4.579,
+   "xi_min_nm": 1.024,
+   "xi_max_nm": 19.829,
+   "frac_size_excluded": 0.6001,
+   "frac_size_excluded_pct": 60.0
+  },
+  "CSCC02": {
+   "n_edges": 1772,
+   "r_nm": 5.5,
+   "xi0_nm": 20.0,
+   "beta": 3.0,
+   "xi_median_nm": 4.556,
+   "xi_min_nm": 1.036,
+   "xi_max_nm": 19.771,
+   "frac_size_excluded": 0.6236,
+   "frac_size_excluded_pct": 62.4
+  },
+  "CSCC03": {
+   "n_edges": 6998,
+   "r_nm": 5.5,
+   "xi0_nm": 20.0,
+   "beta": 3.0,
+   "xi_median_nm": 4.498,
+   "xi_min_nm": 1.024,
+   "xi_max_nm": 19.898,
+   "frac_size_excluded": 0.6265,
+   "frac_size_excluded_pct": 62.6
+  },
+  "CSCC04": {
+   "n_edges": 5726,
+   "r_nm": 5.5,
+   "xi0_nm": 20.0,
+   "beta": 3.0,
+   "xi_median_nm": 4.469,
+   "xi_min_nm": 1.018,
+   "xi_max_nm": 19.936,
+   "frac_size_excluded": 0.6277,
+   "frac_size_excluded_pct": 62.8
+  },
+  "CSCC05": {
+   "n_edges": 2489,
+   "r_nm": 5.5,
+   "xi0_nm": 20.0,
+   "beta": 3.0,
+   "xi_median_nm": 4.442,
+   "xi_min_nm": 1.058,
+   "xi_max_nm": 19.508,
+   "frac_size_excluded": 0.6071,
+   "frac_size_excluded_pct": 60.7
+  },
+  "CSCC06": {
+   "n_edges": 2399,
+   "r_nm": 5.5,
+   "xi0_nm": 20.0,
+   "beta": 3.0,
+   "xi_median_nm": 4.473,
+   "xi_min_nm": 1.066,
+   "xi_max_nm": 19.63,
+   "frac_size_excluded": 0.6107,
+   "frac_size_excluded_pct": 61.1
+  },
+  "CSCC07": {
+   "n_edges": 2376,
+   "r_nm": 5.5,
+   "xi0_nm": 20.0,
+   "beta": 3.0,
+   "xi_median_nm": 4.569,
+   "xi_min_nm": 1.029,
+   "xi_max_nm": 19.673,
+   "frac_size_excluded": 0.601,
+   "frac_size_excluded_pct": 60.1
+  },
+  "CSCC08": {
+   "n_edges": 2042,
+   "r_nm": 5.5,
+   "xi0_nm": 20.0,
+   "beta": 3.0,
+   "xi_median_nm": 4.433,
+   "xi_min_nm": 1.023,
+   "xi_max_nm": 19.219,
+   "frac_size_excluded": 0.6469,
+   "frac_size_excluded_pct": 64.7
+  },
+  "CSCC09": {
+   "n_edges": 1839,
+   "r_nm": 5.5,
+   "xi0_nm": 20.0,
+   "beta": 3.0,
+   "xi_median_nm": 4.489,
+   "xi_min_nm": 1.041,
+   "xi_max_nm": 19.535,
+   "frac_size_excluded": 0.6482,
+   "frac_size_excluded_pct": 64.8
+  },
+  "CSCC10": {
+   "n_edges": 1538,
+   "r_nm": 5.5,
+   "xi0_nm": 20.0,
+   "beta": 3.0,
+   "xi_median_nm": 4.388,
+   "xi_min_nm": 1.023,
+   "xi_max_nm": 19.405,
+   "frac_size_excluded": 0.645,
+   "frac_size_excluded_pct": 64.5
+  },
+  "CSCC11": {
+   "n_edges": 2100,
+   "r_nm": 5.5,
+   "xi0_nm": 20.0,
+   "beta": 3.0,
+   "xi_median_nm": 4.682,
+   "xi_min_nm": 1.067,
+   "xi_max_nm": 18.745,
+   "frac_size_excluded": 0.6019,
+   "frac_size_excluded_pct": 60.2
+  },
+  "CSCC12": {
+   "n_edges": 1873,
+   "r_nm": 5.5,
+   "xi0_nm": 20.0,
+   "beta": 3.0,
+   "xi_median_nm": 4.429,
+   "xi_min_nm": 1.013,
+   "xi_max_nm": 19.305,
+   "frac_size_excluded": 0.6188,
+   "frac_size_excluded_pct": 61.9
+  },
+  "CSCC14": {
+   "n_edges": 1099,
+   "r_nm": 5.5,
+   "xi0_nm": 20.0,
+   "beta": 3.0,
+   "xi_median_nm": 4.463,
+   "xi_min_nm": 1.054,
+   "xi_max_nm": 19.677,
+   "frac_size_excluded": 0.6515,
+   "frac_size_excluded_pct": 65.2
+  },
+  "CSCC15": {
+   "n_edges": 2161,
+   "r_nm": 5.5,
+   "xi0_nm": 20.0,
+   "beta": 3.0,
+   "xi_median_nm": 4.451,
+   "xi_min_nm": 1.006,
+   "xi_max_nm": 19.114,
+   "frac_size_excluded": 0.6428,
+   "frac_size_excluded_pct": 64.3
+  },
+  "CSCC16": {
+   "n_edges": 1283,
+   "r_nm": 5.5,
+   "xi0_nm": 20.0,
+   "beta": 3.0,
+   "xi_median_nm": 4.358,
+   "xi_min_nm": 1.074,
+   "xi_max_nm": 19.608,
+   "frac_size_excluded": 0.65,
+   "frac_size_excluded_pct": 65.0
+  },
+  "MEL01": {
+   "n_edges": 4767,
+   "r_nm": 5.5,
+   "xi0_nm": 20.0,
+   "beta": 3.0,
+   "xi_median_nm": 4.414,
+   "xi_min_nm": 0.998,
+   "xi_max_nm": 19.82,
+   "frac_size_excluded": 0.6348,
+   "frac_size_excluded_pct": 63.5
+  },
+  "MEL02": {
+   "n_edges": 2141,
+   "r_nm": 5.5,
+   "xi0_nm": 20.0,
+   "beta": 3.0,
+   "xi_median_nm": 4.547,
+   "xi_min_nm": 1.009,
+   "xi_max_nm": 18.906,
+   "frac_size_excluded": 0.6329,
+   "frac_size_excluded_pct": 63.3
+  },
+  "MEL03": {
+   "n_edges": 4653,
+   "r_nm": 5.5,
+   "xi0_nm": 20.0,
+   "beta": 3.0,
+   "xi_median_nm": 4.573,
+   "xi_min_nm": 1.012,
+   "xi_max_nm": 19.467,
+   "frac_size_excluded": 0.6119,
+   "frac_size_excluded_pct": 61.2
+  },
+  "MEL04": {
+   "n_edges": 7230,
+   "r_nm": 5.5,
+   "xi0_nm": 20.0,
+   "beta": 3.0,
+   "xi_median_nm": 4.424,
+   "xi_min_nm": 1.027,
+   "xi_max_nm": 19.843,
+   "frac_size_excluded": 0.6077,
+   "frac_size_excluded_pct": 60.8
+  }
+ },
+ "meta": {
+  "timestamp": "2026-08-29T05:00:25+00:00",
+  "config_path": "D:\\sparta\\configs\\default.yaml",
+  "seed": 0,
+  "python": "3.13.13",
+  "numpy": "2.5.2",
+  "scipy": "1.18.1",
+  "networkx": "3.6.1",
+  "module": "M21-mesh-stats"
+ }
+}

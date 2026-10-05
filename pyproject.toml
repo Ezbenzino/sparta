@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "sparta"
-version = "2.0.0"
+version = "2.2.0"
 description = "SPARTA: 皮肤肿瘤免疫治疗抵抗的双重空间屏障分析框架（CPU-only）"
 readme = "README.md"
 requires-python = ">=3.9"

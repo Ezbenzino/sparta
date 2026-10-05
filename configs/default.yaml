@@ -51,6 +51,66 @@ admission_overrides:
     reason: "GSE144239 (Ji et al. 2020 Cell) 为早期 Visium 平台，spot 数与测序深度与 2024 年数据不可比"
     decided_on: "2026-08-26"
 
+  # GSE250636（MEL01–04）队列级豁免登记。
+  # 背景：原始建库时 `_pipeline_3samples.py` 对 MEL 切片带 --force 放行
+  # （见 docs/review_for_journal.md §R8），当时 --force 分支不写 admission.json。
+  # 2026-08-26 起用 run_00c_admission_audit.py 回溯重建台账，
+  # 2026-10-03 审查后在此正式登记队列级豁免，使"保留这 4 张"成为可审计的规则而非静默放行。
+  # 注意：本段**不含任何阈值键**，因此 check_admission 不会放宽 C4/C5 的默认阈值——
+  # MEL02（840 spots < 1000）与 MEL04（中位 1488 UMI < 1500）的未通过项照实记录，
+  # 与本队列一并按同一决定保留。C7（治疗状态）是布尔准入项，无法用阈值覆盖，
+  # 豁免 = 登记决定 + 在稿件 Limitations 披露局限。
+  mel_gse250636:
+    reason: "GSE250636 为 2024 年 Visium 的黑色素瘤颅外转移灶切片（单患者 MEL_PtB，4 片）。
+             队列级豁免：C7 治疗状态在 GEO 无标注，按队列登记豁免并保留在分析中，
+             局限已写入稿件 Limitations（治疗状态未知，屏障结构可能已改变）。
+             MEL02（840 spots < 默认 1000）与 MEL04（中位 1488 UMI < 默认 1500）
+             同时未过 C4/C5 默认阈值，按同一队列级决定保留；
+             逐片记录见 data/admission_audit.csv。"
+    decided_on: "2026-08-26（回溯登记）；2026-10-03 审查后正式对账"
+
+  # 10x Genomics 公开 Visium 人乳腺癌数据（外部独立验证队列，2026-10-03 补强登记）。
+  # 背景：主队列为 GSE144239（cSCC）与 GSE250636（黑色素瘤）。为给"双屏障耦合"
+  # 提供跨数据集、跨肿瘤类型的独立复现，接入 10x 公开 Visium 人乳腺癌
+  # （V1_Breast_Cancer_Block_A_Section_1/2，同一患者的两张相邻切片，1.1.0 spaceranger）。
+  # 注意：Block C 的两张切片未纳入（初始计划 4 张 2 患者，实际只跑了 Block A 2 张 1 患者）。
+  # C7（治疗状态）在 10x 公开页面未标注，按队列豁免登记并保留，局限同 MEL 处理。
+  # 2026-10-03 审查：run_batch 曾把 cancer_type=other 静默回退到 melanoma，导致这两张
+  # 切片用黑色素瘤标记打 Malignant_n（MLANA/PMEL/TYR...）。R3 逐点场相关不依赖 sink，
+  # rho_partial 结果有效；但 B_cell 标量与 S1/S2 反事实依赖 sink，已在 manuscript
+  # 中降级为探索性。如需正式外部验证，应以 brca 类型重跑 run_02-05。
+  brca_10x_vis:
+    min_spots_visium: 500
+    min_median_umi: 500
+    reason: "10x Genomics 公开 Visium 人乳腺癌 Block A Section 1/2（同一患者 2 张相邻切片）。
+             外部独立验证：治疗状态公开页面未标注，按队列豁免登记 C7；早期 Visium 化学，
+             阈值套用 cscc_gse144239 的 500/500。仅 1 位患者 2 张切片，不是独立肿瘤重复。"
+    decided_on: "2026-10-03（外部独立验证补强登记；2026-10-03 审查后修正为 Block A 2 张 1 患者）"
+
+  # 10x 公开 Visium 人淋巴结（外部独立验证第二样本，2026-10-03）。
+  # 与 brca_10x_vis 同一 1.1.0 spaceranger 输出、同一公开数据批次；
+  # 治疗状态未标注 → C7 按队列豁免登记；阈值套用 500/500。
+  ln_10x_vis:
+    min_spots_visium: 500
+    min_median_umi: 500
+    reason: "10x Genomics 公开 Visium 人淋巴结切片（1.1.0 spaceranger 输出）。
+             外部独立验证第二样本：治疗状态公开页面未标注，按队列豁免登记 C7；
+             早期 Visium 化学，阈值套用 cscc_gse144239 的 500/500。"
+    decided_on: "2026-10-03（外部独立验证补强登记）"
+
+  # Thrane et al. 2018 黑色素瘤淋巴结转移灶（独立复现队列，2026-10-05 登记，任何屏障/关联计算之前）。
+  # 2016 年第一代 ST 阵列只有 1,007 个点（主队列 GSE144239 用的是 1,933 点阵列），
+  # 原文报告平均每张切片 286 个组织点，因此 C4 的点数阈值按平台降到 200。
+  # C3（无配对 H&E）与 C7（取样前治疗状态未报告）按队列豁免登记；两者都不进入任何计算。
+  # 该队列单独成族报告，绝不并入主队列的数字。
+  mel_thrane2018:
+    min_spots_legacy_st: 200
+    waived_criteria: ["C3", "C7"]
+    reason: "Thrane et al. 2018 Cancer Res 78:5970（4 位 III 期黑色素瘤患者淋巴结转移灶，各 2 张连续切片）。
+             1,007 点的 2016 年 ST 阵列，组织覆盖 212–383 点；点数阈值按平台降为 200。
+             公开计数表不含配对 H&E（C3），原文未报告取样前治疗（C7），按队列豁免并在稿件中披露。"
+    decided_on: "2026-10-05（复现队列登记；在计算任何图、屏障或关联之前）"
+
 admission:
   min_spots_visium: 1000    # Visium 平台的最小 spot 数
   min_spots_legacy_st: 300  # 第一代 ST 平台的最小 spot 数

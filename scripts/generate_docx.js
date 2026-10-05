@@ -12,7 +12,9 @@ const {
   WidthType, ShadingType, VerticalAlign, PageNumber, PageBreak,
 } = require("docx");
 
-const ROOT = "d:\\sparta";
+const ROOT = process.env.SPARTA_ROOT
+  ? path.resolve(process.env.SPARTA_ROOT)
+  : path.resolve(__dirname, "..");
 const FIG = path.join(ROOT, "results", "figures");
 const VAL = path.join(ROOT, "results", "validation");
 
@@ -289,6 +291,41 @@ function buildTable3() {
   });
 }
 
+// ── 外部验证表（R7 / 3.7）──
+function buildExtTable() {
+  const d = loadJSON(path.join(VAL, "ext_validation.json"));
+  const per = d.per_slide;
+  const rows = [
+    { s: "BRCA01", tissue: "Breast cancer, Block A S1", r: per.BRCA01.decoupling.rho_partial, p: per.BRCA01.spatial_null.empirical_p_one_sided, disc: per.BRCA01.decoupling.frac_discordant_r },
+    { s: "BRCA02", tissue: "Breast cancer, Block A S2", r: per.BRCA02.decoupling.rho_partial, p: per.BRCA02.spatial_null.empirical_p_one_sided, disc: per.BRCA02.decoupling.frac_discordant_r },
+    { s: "LN01", tissue: "Lymph node", r: per.LN01.decoupling.rho_partial, p: per.LN01.spatial_null.empirical_p_one_sided, disc: per.LN01.decoupling.frac_discordant_r },
+  ];
+  const cols = [
+    { w: 800, label: "Slide" },
+    { w: 1900, label: "Tissue" },
+    { w: 1400, label: "\u03c1 (vessel-distance partial)" },
+    { w: 1400, label: "Spectral-null p (500 perm.)" },
+    { w: 1500, label: "Discordant spots (chance 6.25%)" },
+  ];
+  return new Table({
+    width: { size: 100, type: WidthType.PERCENTAGE },
+    columnWidths: cols.map(c => c.w),
+    rows: [
+      new TableRow({ cantSplit: true, children: cols.map(c => headerCell(c.label, c.w)) }),
+      ...rows.map(x => new TableRow({
+        cantSplit: true,
+        children: [
+          cell(x.s, { w: 800, size: 18, align: AlignmentType.CENTER }),
+          cell(x.tissue, { w: 1900, size: 18 }),
+          cell("+" + x.r.toFixed(3), { w: 1400, size: 18, align: AlignmentType.CENTER }),
+          cell(x.p.toFixed(3), { w: 1400, size: 18, align: AlignmentType.CENTER }),
+          cell((x.disc * 100).toFixed(1) + "%", { w: 1500, size: 18, align: AlignmentType.CENTER }),
+        ],
+      })),
+    ],
+  });
+}
+
 // ════════════════════════════════════════════════════════════════
 // 主文档构建
 const children = [];
@@ -322,7 +359,7 @@ children.push(new Paragraph({
   spacing: { before: 300, after: 120 },
   children: [new TextRun({ text: "Graphical abstract", font: FONT, size: SZ_H2, bold: true, color: COLOR_HEAD })],
 }));
-children.push(...figImage("graphical_abstract_portrait", 3.0, 0.423, null));
+children.push(...figImage("graphical_abstract", 6.1, 2.5, null));
 
 children.push(new Paragraph({ children: [new PageBreak()] }));
 
@@ -331,7 +368,7 @@ children.push(new Paragraph({
   spacing: { before: 200, after: 120 },
   children: [new TextRun({ text: "Abstract", font: FONT, size: SZ_H2, bold: true, color: COLOR_HEAD })],
 }));
-children.push(p("Monoclonal antibodies and cytotoxic T cells must both cross the tumour extracellular matrix to reach their targets, yet they differ by three orders of magnitude in size, and the analytical tools of spatial transcriptomics return labels rather than transport quantities. We introduce two deterministic graph operators that share one spatial graph and differ only in edge-weight semantics. T-cell migration is modelled as a source\u2013sink minimum cut between immune-entry and tumour-core compartments, returning a barrier strength together with its blockade geometry. Antibody transport is modelled as a screened Poisson diffusion\u2013absorption field whose conductances implement size exclusion against the IgG hydrodynamic radius (5.5 nm) and whose sinks represent target-antigen binding. Applied to 19 sections from 7 patients spanning two cutaneous tumour types and two spatial-platform generations, the model shows that the antibody barrier is percolation-limited \u2014 the effective mesh size falls below 5.5 nm on 60\u201365% of edges \u2014 and that size exclusion, not antigen availability or bulk matrix density, accounts for a median 97.5% of barrier variance (at the default scale parameter \u03b2 = 3; full dependence on \u03b2 in Section 3.2). Ablating the matrix channel shared by both operators leaves their spatial coupling positive and significant in 12 of 15 squamous sections (median retention 81%), indicating that the two delivery problems are mathematically distinct but physically co-localised in the tissue. A molecular size scan on the same tissue confirms the distinction: the identical graph is nearly transparent to a 0.5 nm solute and strongly obstructive to an IgG. In silico reduction of matrix density and crosslinking by 30% lowers both barriers by a median 61% and 50% respectively, in 19 of 19 sections across both tumour types. The full analysis of one section runs in under 0.2 s on CPU with no learned parameters, making the model usable as a reproducible component of translational pipelines."));
+children.push(p("Monoclonal antibodies and cytotoxic T cells must both cross the tumour extracellular matrix to reach their targets, yet they differ by three orders of magnitude in size, and the analytical tools of spatial transcriptomics return labels rather than transport quantities. We introduce two deterministic graph operators that share one spatial graph and differ only in edge-weight semantics. T-cell migration is modelled as a source\u2013sink minimum cut between immune-entry and tumour-core compartments, returning a barrier strength together with its blockade geometry. Antibody transport is modelled as a screened Poisson diffusion\u2013absorption field whose conductances implement size exclusion against the IgG hydrodynamic radius (5.5 nm) and whose sinks represent target-antigen binding. Applied to 19 sections from 7 patients spanning two cutaneous tumour types and two spatial-platform generations, the model shows that the antibody barrier is percolation-limited \u2014 the effective mesh size falls below 5.5 nm on 60\u201365% of edges \u2014 and that size exclusion, not antigen availability or bulk matrix density, accounts for a median 97.5% of barrier variance (at the default scale parameter \u03b2 = 3; full dependence on \u03b2 in Section 3.2). Ablating the matrix channel shared by both operators leaves their spatial coupling positive and significant in 12 of 15 squamous sections (median retention 81%), indicating that the two delivery problems are mathematically distinct but physically co-localised in the tissue. A molecular size scan on the same tissue confirms the distinction: the identical graph is nearly transparent to a 0.5 nm solute and strongly obstructive to an IgG. In silico reduction of matrix density and crosslinking by 30% lowers both barriers by a median 61% and 50% respectively, in 19 of 19 sections across both tumour types. On three independent public Visium sections (10x Genomics breast cancer and lymph node) the coupling reproduces in 3/3 with matching magnitude (median partial \u03c1 = +0.281), and both the spectral spatial null and the selection-matched counterfactual transfer to those sections. The full analysis of one section runs in under 0.2 s on CPU with no learned parameters, making the model usable as a reproducible component of translational pipelines."));
 
 children.push(pRuns([
   new TextRun({ text: "Keywords: ", font: FONT, size: SZ_BODY, bold: true }),
@@ -365,8 +402,8 @@ children.push(numItem("A reference implementation that analyses a full section i
 children.push(h1("2. Materials and methods"));
 
 children.push(h2("2.1. Data and admission"));
-children.push(p("Nineteen sections from two public cohorts were analysed: fifteen treatment-naive primary cutaneous squamous cell carcinomas (CSCC01\u2013CSCC16 minus CSCC13) from GSE144239 [2] and four extracranial metastatic deposits of cutaneous melanoma (MEL01\u2013MEL04) from GSE250636 [3]. The four melanoma sections are separate deposits (sternum, cecal nodule, chest wall, ribcage) of a single patient; the second patient in GSE250636 contributes only leptomeningeal deposits, a different anatomical compartment, and was not included (Section 4.4). Patient assignment follows the GEO sample metadata and is recorded with replicate structure in the analysis ledger; all counts below are reported at both section and patient level, and n = 19 is not treated as a sample size."));
-children.push(p("Sections passed seven pre-declared admission criteria (tumour-content fraction, minimum spots, minimum median UMI, detected genes, endothelial signal, treatment status and site) recorded before analysis. Two cohort-level threshold relaxations for the 2016- and 2020-generation platforms, with dates and justifications, were fixed before ingestion; no section was admitted by a run-time override. One section (CSCC13) failed the relaxed median-UMI threshold (289.5 vs 300) and was excluded; its admission record is retained. Per-section outcomes are in Table 1."));
+children.push(p("Nineteen sections from two public cohorts were analysed: fifteen treatment-naive primary cutaneous squamous cell carcinomas (CSCC01\u2013CSCC16 minus CSCC13) from GSE144239 [2] and four extracranial metastatic deposits of cutaneous melanoma (MEL01\u2013MEL04) from GSE250636 [3]. The four melanoma sections are separate deposits (sternum, cecal nodule, chest wall, ribcage) of a single patient; the second patient in GSE250636 contributes only leptomeningeal deposits, a different anatomical compartment, and was not included (Section 4.4). Patient assignment follows the GEO sample metadata and is recorded with replicate structure in the analysis ledger; all counts below are reported at both section and patient level, and n = 19 is not treated as a sample size. Three further public Visium sections (breast cancer Block A Sections 1/2, one human lymph node; 10x Genomics spatial repository, Space Ranger v1.1.0) form an external-validation arm reported in Section 3.7; they are admitted under the same waiver rule and never enter the main-cohort numbers."));
+children.push(p("Sections passed seven pre-declared admission criteria (tumour-content fraction, minimum spots, minimum median UMI, detected genes, endothelial signal, treatment status and site) recorded before analysis. Two cohort-level threshold relaxations for the 2016- and 2020-generation platforms, with dates and justifications, were fixed before ingestion. Four melanoma sections (MEL01\u2013MEL04) and the three external-validation sections (BRCA01/BRCA02/LN01) cannot meet the treatment-status criterion because treatment status is unannotated in GSE250636 and in the 10x public metadata; each was admitted under a documented cohort-level waiver with its reason and decision date recorded in the audit table (configs/default.yaml admission_overrides; decision 2026-10-03), the same rule applied to both arms rather than a silent run-time pass. One section (CSCC13) failed the relaxed median-UMI threshold (289.5 vs 300) and was excluded; its admission record is retained. Per-section outcomes are in Table 1."));
 children.push(p("The squamous cohort deliberately spans two platform generations: four 2020-generation Visium sections (2 patients) and eleven 2016-generation first-generation ST sections on a staggered 200 \u00b5m array (4 patients, three technical replicates each). Agreement across that platform shift is used as a robustness argument throughout."));
 
 children.push(h2("2.2. Spatial graphs"));
@@ -401,7 +438,7 @@ children.push(p("Table 1 summarises the cohort: 19 sections, 7 patients, 2 tumou
 // Table 1
 children.push(new Paragraph({
   spacing: { before: 200, after: 80 },
-  children: [new TextRun({ text: "Table 1. Sections analysed.", font: FONT, size: SZ_CAP, bold: true, color: COLOR_MUTED })],
+  children: [new TextRun({ text: "Table 1. Sections analysed (23 rows: 19 main-cohort admitted, 3 external-validation, 1 rejected).", font: FONT, size: SZ_CAP, bold: true, color: COLOR_MUTED })],
 }));
 children.push(buildTable1());
 children.push(emptyP());
@@ -434,7 +471,7 @@ children.push(...figImage("fig3_size_scan", 6.0, 2.48,
   "Figure 3. Molecular size scan and percolation statistics. (a) Mean B_mAb in tumour core vs hydrodynamic radius for all 19 sections. (b) Percentage of edges with mesh size below IgG radius."));
 
 children.push(h2("3.4. The two barriers do not dissociate"));
-children.push(p("The central question is whether the two barriers are spatially separable in real tissue. They are not. After residualising both per-spot fields on distance to the nearest vessel, they remain positively correlated in 18/19 sections and significantly so in 17 (median partial Spearman \u03c1 = +0.217; all seven patients positive at patient level: +0.141 to +0.323). Within the squamous cohort the two platform generations agree (Visium median +0.270, first-generation ST +0.207). The dissociation zone \u2014 lowest quartile of the cell barrier, highest quartile of the antibody barrier \u2014 occupies a median 3.7% of spots against a 6.25% chance expectation, below chance in 18/19 sections: discordance is rarer than random, a second independent expression of the coupling."));
+children.push(p("The central question is whether the two barriers are spatially separable in real tissue. They are not. After residualising both per-spot fields on distance to the nearest vessel, they remain positively correlated in 18/19 sections and significantly so in 17 (median partial Spearman \u03c1 = +0.217; all seven patients positive at patient level: +0.141 to +0.323). Under a spectral phase-randomisation null that preserves spatial autocorrelation (Section 2.5), 15/19 sections remain significant (500 permutations per section; empirical p with the finite-sample correction (k+1)/(N+1), p < 0.05 in 15/19, two at the 0.002 floor). Within the squamous cohort the two platform generations agree (Visium median +0.270, first-generation ST +0.207). The dissociation zone \u2014 lowest quartile of the cell barrier, highest quartile of the antibody barrier \u2014 occupies a median 3.7% of spots against a 6.25% chance expectation, below chance in 18/19 sections: discordance is rarer than random, a second independent expression of the coupling."));
 
 children.push(p("Part of this association is guaranteed by construction \u2014 the core-matrisome score enters both edge-capacity and conductance \u2014 so the decisive experiment removes the shared input entirely, recomputing the cellular barrier from the fibroblast signature alone and the antibody barrier from crosslinking and antigen alone, such that the two operators share no input variable. Across 19 sections the median partial correlation falls from +0.217 to +0.152; 17/19 remain positive, 15/19 significantly. Stratified:"));
 
@@ -451,12 +488,12 @@ children.push(p("The negative half of the conclusion is robust to everything tes
 
 // Fig 4
 children.push(...figImage("fig4_coupling_forest", 6.0, 2.88,
-  "Figure 4. The two barriers do not dissociate. (a) Partial \u03c1 per section. (b) Forest plot: before vs after shared-input removal. (c) Dissociation zone vs chance."));
+  "Figure 4. The two barriers do not dissociate. (a) Partial \u03c1 per section. (b) Paired partial correlations before and after shared-input removal. (c) Dissociation zone vs chance."));
 
 children.push(h2("3.5. Counterfactual experiments"));
 children.push(pRuns([
   new TextRun({ text: "Blockade continuity. ", font: FONT, size: SZ_BODY, bold: true }),
-  new TextRun({ text: "Removing resistance material from a contiguous arc of the min-cut band, compared with removing the same material from scattered positions within the same cut set (same material, same amount, only arrangement differs), leaves the residual barrier higher by a factor of 1.038\u20131.390 (median 1.147) at the pre-specified 20% removal fraction; 16/19 sections are significant after per-section correction, five of seven patients have every section significant, and no patient has none. The effect shows a dose\u2013response over removal fraction (residual barrier at 30% > 5% in 15/19 sections) \u2014 the falsifiable prediction of a connected blockade and not the behaviour of uncorrelated noise. We regard the dose\u2013response as the stronger evidence and the single-level significances as secondary. The effect is real but modest (real bands are thick and redundant; a synthetic one-spot-wide ring gives 7.45\u00d7 under the same experiment), and we do not rest the central argument on it.", font: FONT, size: SZ_BODY }),
+  new TextRun({ text: "Removing resistance material from a contiguous arc of the min-cut band, compared with removing the same material from scattered positions within the same cut set (same material, same amount, only arrangement differs), leaves the residual barrier higher by a factor of 1.038\u20131.390 (median 1.147) at the pre-specified 20% removal fraction; 16/19 sections are significant after per-section correction, five of seven patients have every section significant, and no patient has none. A matched selection control, in which the scattered arm receives the same best-of-eight candidate search as the contiguous arc, reduces the count to 10/19 (8/19 after Benjamini\u2013Hochberg correction) with the median ratio falling to 1.053; we therefore treat the contiguity advantage as real but modest and state it under the matched-selection number. The effect shows a dose\u2013response over removal fraction (residual barrier at 30% > 5% in 15/19 sections) \u2014 the falsifiable prediction of a connected blockade and not the behaviour of uncorrelated noise. We regard the dose\u2013response as the stronger evidence and the single-level significances as secondary. The effect is real but modest (real bands are thick and redundant; a synthetic one-spot-wide ring gives 7.45\u00d7 under the same experiment), and we do not rest the central argument on it.", font: FONT, size: SZ_BODY }),
 ]));
 children.push(pRuns([
   new TextRun({ text: "Spatial rearrangement. ", font: FONT, size: SZ_BODY, bold: true }),
@@ -488,6 +525,18 @@ children.push(new Paragraph({
 }));
 children.push(buildTable3());
 children.push(emptyP());
+
+children.push(h2("3.7. Independent external validation"));
+children.push(p("To test whether the coupling and the counterfactual signatures are artefacts of one cohort assembly, we reran the pipeline unchanged on a third, unrelated dataset produced by a different consortium: the 10x Genomics public Visium breast-cancer sample (two sections of Block A, one patient) and one human lymph-node section (Space Ranger v1.1.0 output). The three sections never enter any main-cohort number; the arm is reported here separately."));
+children.push(p("Admission followed the same documented rule as the melanoma arm, not a silent pass: all three sections pass C1\u2013C6 comfortably (3 798\u20134 035 spots; median 18 828\u201320 762 UMI; endothelial signal in 3 647\u20134 006 spots), while C7 (treatment status) is unannotated in the 10x public metadata and was registered as a cohort-level waiver on 2026-10-03, with each section recorded as a forced row in the audit table (Section 2.1)."));
+children.push(new Paragraph({
+  spacing: { before: 200, after: 80 },
+  children: [new TextRun({ text: "Table 4. External validation: coupling on three independent 10x Visium sections.", font: FONT, size: SZ_CAP, bold: true, color: COLOR_MUTED })],
+}));
+children.push(buildExtTable());
+children.push(emptyP());
+children.push(p("Median partial \u03c1 = +0.281 (main cohort +0.217); 3/3 nominal and spatial-null significant (two at the 0.002 floor, one marginal at 0.050); discordance below chance in 3/3. The counterfactuals transfer in direction: the spatial-rearrangement null is at the floor in the two breast sections, and the selection-matched S2 control leaves the contiguous arc ahead in 3/3 (ratio 1.06\u20131.21\u00d7, median 1.171; p = 0.010 each, 3/3 after correction). The tool benchmark (Section 3.6) also transfers: the min-cut z against rearrangement is +7.1/+73.2/+123.1 versus a main-cohort range of \u22120.7 to +24.8, and the field remains only moderately correlated with the CAF signature (\u03c1 = +0.36 to +0.46) and essentially uncorrelated with T/NK; compositional metrics stay degenerate under rearrangement, while neighbour enrichment and Ripley\u2019s L are also arrangement-sensitive in these UMI-rich sections, so the min-cut\u2019s distinct value remains its barrier semantics rather than sensitivity per se."));
+children.push(p("Boundaries of this arm are stated without softening: n = 3 from two \u201cpatients\u201d (two consecutive breast sections of one patient, one lymph node) supports a consistency claim, not a prevalence estimate; it is not a cross-chemistry validation (same early Visium generation as the main Visium arm); the lymph node is not a tumour; and the breast sample\u2019s treatment status is unannotated exactly as in the melanoma arm. Read this way, R7 is the strongest available guard against the coupling being an artefact of one cohort\u2019s QC, scoring, or graph construction: the identical, unfitted pipeline reproduces the sign, magnitude and null behaviour on data assembled elsewhere."));
 
 // ════ 4. Discussion ════
 children.push(pRuns([

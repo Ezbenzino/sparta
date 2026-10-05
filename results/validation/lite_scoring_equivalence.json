@@ -1,0 +1,280 @@
+{
+ "sections": {
+  "CSCC05": {
+   "n_spots": 664,
+   "n_genes": 14809,
+   "archived": {
+    "n_obs": 664,
+    "n_vars": 14809
+   },
+   "same_spot_order": true,
+   "signatures": {
+    "CAF": {
+     "max_abs_diff_raw": 1.7854902467639988e-07,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "myCAF": {
+     "max_abs_diff_raw": 9.079774210274394e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "iCAF": {
+     "max_abs_diff_raw": 1.0101670722129086e-07,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "Endothelial": {
+     "max_abs_diff_raw": 9.239916820558136e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "T_NK": {
+     "max_abs_diff_raw": 6.431624999247987e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "CD8T": {
+     "max_abs_diff_raw": 4.768371575369912e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 0.9999999999999999
+    },
+    "Myeloid": {
+     "max_abs_diff_raw": 1.0347366341534325e-07,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "B_Plasma": {
+     "max_abs_diff_raw": 1.829862594782128e-07,
+     "max_abs_diff_rank": null,
+     "spearman": 1.0
+    },
+    "ECM_core": {
+     "max_abs_diff_raw": 1.1920928955078125e-07,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "ECM_crosslink": {
+     "max_abs_diff_raw": 6.01723080251304e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "Proliferation": {
+     "max_abs_diff_raw": 5.279952464132265e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "Efflux": {
+     "max_abs_diff_raw": 5.960464477539063e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "Ag_target": {
+     "max_abs_diff_raw": 1.0490417479136482e-07,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "Malignant": {
+     "max_abs_diff_raw": 2.384185791015625e-07,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "TSK": {
+     "max_abs_diff_raw": 6.938219743179985e-08,
+     "max_abs_diff_rank": null,
+     "spearman": 1.0
+    },
+    "Hypoxia": {
+     "max_abs_diff_raw": 1.5544491749341915e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    }
+   }
+  },
+  "CSCC08": {
+   "n_spots": 566,
+   "n_genes": 12681,
+   "archived": {
+    "n_obs": 566,
+    "n_vars": 12681
+   },
+   "same_spot_order": true,
+   "signatures": {
+    "CAF": {
+     "max_abs_diff_raw": 1.1825178514168755e-07,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "myCAF": {
+     "max_abs_diff_raw": 8.773803716888295e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "iCAF": {
+     "max_abs_diff_raw": 4.672621145562772e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "Endothelial": {
+     "max_abs_diff_raw": 6.671467489560712e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "T_NK": {
+     "max_abs_diff_raw": 5.934834190757243e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 0.9999999999999998
+    },
+    "CD8T": {
+     "max_abs_diff_raw": 5.7208478176917765e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 0.9999999999999998
+    },
+    "Myeloid": {
+     "max_abs_diff_raw": 8.919958305320108e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "B_Plasma": {
+     "max_abs_diff_raw": 9.524762323298575e-08,
+     "max_abs_diff_rank": null,
+     "spearman": 1.0
+    },
+    "ECM_core": {
+     "max_abs_diff_raw": 6.811959396557654e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "ECM_crosslink": {
+     "max_abs_diff_raw": 5.923867274493233e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "Proliferation": {
+     "max_abs_diff_raw": 4.471060310873298e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "Efflux": {
+     "max_abs_diff_raw": 1.1920928955078125e-07,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "Ag_target": {
+     "max_abs_diff_raw": 1.1680102107725077e-07,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "Malignant": {
+     "max_abs_diff_raw": 2.2107904618096086e-07,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "TSK": {
+     "max_abs_diff_raw": 1.1270008404284937e-07,
+     "max_abs_diff_rank": null,
+     "spearman": 1.0
+    },
+    "Hypoxia": {
+     "max_abs_diff_raw": 2.4826198319338744e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    }
+   }
+  },
+  "CSCC12": {
+   "n_spots": 595,
+   "n_genes": 13731,
+   "archived": {
+    "n_obs": 595,
+    "n_vars": 13731
+   },
+   "same_spot_order": true,
+   "signatures": {
+    "CAF": {
+     "max_abs_diff_raw": 9.107589715728892e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "myCAF": {
+     "max_abs_diff_raw": 5.91278075390278e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 0.9999999999999999
+    },
+    "iCAF": {
+     "max_abs_diff_raw": 5.7220459037665705e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "Endothelial": {
+     "max_abs_diff_raw": 4.3869018528930326e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 0.9999999999999999
+    },
+    "T_NK": {
+     "max_abs_diff_raw": 7.788340250503012e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "Myeloid": {
+     "max_abs_diff_raw": 5.245208739568241e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "ECM_core": {
+     "max_abs_diff_raw": 7.147241443128394e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "ECM_crosslink": {
+     "max_abs_diff_raw": 4.0078395768805564e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "Proliferation": {
+     "max_abs_diff_raw": 5.3522538234762607e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 0.9999999999999999
+    },
+    "Efflux": {
+     "max_abs_diff_raw": 7.627261022769005e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 0.9999999999999999
+    },
+    "Ag_target": {
+     "max_abs_diff_raw": 5.960464477539063e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "Malignant": {
+     "max_abs_diff_raw": 2.7338663732834334e-07,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    },
+    "TSK": {
+     "max_abs_diff_raw": 6.107142569433677e-08,
+     "max_abs_diff_rank": null,
+     "spearman": 1.0
+    },
+    "Hypoxia": {
+     "max_abs_diff_raw": 2.8013799002746254e-08,
+     "max_abs_diff_rank": 0.0,
+     "spearman": 1.0
+    }
+   }
+  }
+ },
+ "max_abs_diff_raw": 2.7338663732834334e-07,
+ "max_abs_diff_rank": 0.0,
+ "semantics": "sparta/lite.py (no Scanpy) re-scores primary first-generation sections from their raw tables; differences are float32 rounding of the normalised matrix.",
+ "meta": {
+  "timestamp": "2026-10-04T16:19:48+00:00",
+  "config_path": "/home/claude/sparta/configs/cscc_legacy_st.yaml",
+  "seed": 0,
+  "python": "3.13.16",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "networkx": "3.6.1",
+  "module": "M48-lite-equivalence"
+ }
+}

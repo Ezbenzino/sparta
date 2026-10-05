@@ -1,0 +1,265 @@
+{
+ "slides": {
+  "MEL01": {
+   "file": "MEL01.nodes.npz",
+   "sha256": "817dc06204a3da1af10a7ad9add864e409d820a4b7cc26b01daec5ca3ca736b0",
+   "n_obs": 1660,
+   "n_numeric_obs": 39,
+   "n_genes": 66,
+   "tumor_type": "melanoma"
+  },
+  "MEL02": {
+   "file": "MEL02.nodes.npz",
+   "sha256": "58a140ef8a5a946ccc1435eb093eb768cd1008714edf5e500bc042703e87686f",
+   "n_obs": 801,
+   "n_numeric_obs": 40,
+   "n_genes": 50,
+   "tumor_type": "melanoma"
+  },
+  "MEL03": {
+   "file": "MEL03.nodes.npz",
+   "sha256": "b5c902a8b13dcd29886526a38adce389f83d183c6f1e6866f06c9b77e918ef8c",
+   "n_obs": 1724,
+   "n_numeric_obs": 41,
+   "n_genes": 58,
+   "tumor_type": "melanoma"
+  },
+  "MEL04": {
+   "file": "MEL04.nodes.npz",
+   "sha256": "2453bd4b5367500bdae5205e1339e55d855fc132fd56a5c2573193885dc8571a",
+   "n_obs": 2673,
+   "n_numeric_obs": 41,
+   "n_genes": 64,
+   "tumor_type": "melanoma"
+  },
+  "CSCC01": {
+   "file": "CSCC01.nodes.npz",
+   "sha256": "b83d46675e557328a194e2b2dd612a11ab76a01f367effac97e1bae1e838d864",
+   "n_obs": 701,
+   "n_numeric_obs": 39,
+   "n_genes": 73,
+   "tumor_type": "cscc"
+  },
+  "CSCC02": {
+   "file": "CSCC02.nodes.npz",
+   "sha256": "6c03cee799743f35bb02bda569da21456ff106d18a83e5eaeec967aafaaad2f1",
+   "n_obs": 652,
+   "n_numeric_obs": 39,
+   "n_genes": 73,
+   "tumor_type": "cscc"
+  },
+  "CSCC03": {
+   "file": "CSCC03.nodes.npz",
+   "sha256": "d557a3cfd96499594d140d19ed4cc17514b361091ded241c84488fbc122bb34b",
+   "n_obs": 2645,
+   "n_numeric_obs": 39,
+   "n_genes": 73,
+   "tumor_type": "cscc"
+  },
+  "CSCC04": {
+   "file": "CSCC04.nodes.npz",
+   "sha256": "53c37bfeeb1045e397758e1636e81ee1d9d5e06f9e755a205ec79357dc6ed179",
+   "n_obs": 2328,
+   "n_numeric_obs": 39,
+   "n_genes": 73,
+   "tumor_type": "cscc"
+  },
+  "CSCC05": {
+   "file": "CSCC05.nodes.npz",
+   "sha256": "3a227491018c924b0cb2dc1c05975e7e0741b82f6ef9915c256c76ca80d2e18f",
+   "n_obs": 664,
+   "n_numeric_obs": 39,
+   "n_genes": 71,
+   "tumor_type": "cscc"
+  },
+  "CSCC06": {
+   "file": "CSCC06.nodes.npz",
+   "sha256": "09ae18a60167609838c47040f9262083c06dc89e61eb98cae2123d281928d95f",
+   "n_obs": 643,
+   "n_numeric_obs": 39,
+   "n_genes": 70,
+   "tumor_type": "cscc"
+  },
+  "CSCC07": {
+   "file": "CSCC07.nodes.npz",
+   "sha256": "38302019197fac2f9ce4de91de943addd94432484228e6a3699569460bea9592",
+   "n_obs": 637,
+   "n_numeric_obs": 39,
+   "n_genes": 70,
+   "tumor_type": "cscc"
+  },
+  "CSCC09": {
+   "file": "CSCC09.nodes.npz",
+   "sha256": "7443ca2620fce36c6700faff7699c7d2bb623e1010625996a7d0b536b5b3e344",
+   "n_obs": 511,
+   "n_numeric_obs": 39,
+   "n_genes": 66,
+   "tumor_type": "cscc"
+  },
+  "CSCC10": {
+   "file": "CSCC10.nodes.npz",
+   "sha256": "4695394e8beafe72148527dfe21404dd13c45f01ff95ac4e9333fc30bf847eb5",
+   "n_obs": 448,
+   "n_numeric_obs": 37,
+   "n_genes": 63,
+   "tumor_type": "cscc"
+  },
+  "CSCC11": {
+   "file": "CSCC11.nodes.npz",
+   "sha256": "7e61ef5f1fa605124540f7a47b14c8b9eb964b412b776abcc68a37c6127019df",
+   "n_obs": 672,
+   "n_numeric_obs": 38,
+   "n_genes": 57,
+   "tumor_type": "cscc"
+  },
+  "CSCC12": {
+   "file": "CSCC12.nodes.npz",
+   "sha256": "93cac5c59f0379eed884744556cc4d93a06bee046e7ae6a4e5c5c7172480c376",
+   "n_obs": 595,
+   "n_numeric_obs": 36,
+   "n_genes": 51,
+   "tumor_type": "cscc"
+  },
+  "CSCC14": {
+   "file": "CSCC14.nodes.npz",
+   "sha256": "1a07ffc804fa1feca9e63caa474b1e6b4289950d028a77f1d8aaa3d0a8d39eeb",
+   "n_obs": 370,
+   "n_numeric_obs": 35,
+   "n_genes": 57,
+   "tumor_type": "cscc"
+  },
+  "CSCC15": {
+   "file": "CSCC15.nodes.npz",
+   "sha256": "e7d2ce1fdcda97f9101f8d4baa1ef1497a961c15657415b5d24dc55e6269cc68",
+   "n_obs": 597,
+   "n_numeric_obs": 35,
+   "n_genes": 60,
+   "tumor_type": "cscc"
+  },
+  "CSCC16": {
+   "file": "CSCC16.nodes.npz",
+   "sha256": "cdae82086c5138b57272d1b682d6903a8438b52ef78dcec1790cf6ea16253712",
+   "n_obs": 380,
+   "n_numeric_obs": 35,
+   "n_genes": 55,
+   "tumor_type": "cscc"
+  },
+  "CSCC08": {
+   "file": "CSCC08.nodes.npz",
+   "sha256": "ba8939020f1afc190e33ccf0f290cd50e21ff10e50e82209b2199f372a0ca4f0",
+   "n_obs": 566,
+   "n_numeric_obs": 39,
+   "n_genes": 64,
+   "tumor_type": "cscc"
+  },
+  "BRCA01": {
+   "file": "BRCA01.nodes.npz",
+   "sha256": "438ab8edb10c067ea6f05b4f1604707c01fcb6756f619a6f11348f81cf66a1b5",
+   "n_obs": 3798,
+   "n_numeric_obs": 38,
+   "n_genes": 71,
+   "tumor_type": "brca"
+  },
+  "BRCA02": {
+   "file": "BRCA02.nodes.npz",
+   "sha256": "8da5d1bc7fd9c7d54823bc6cd4c33df37deefdea91bb1448952ad7dabd582465",
+   "n_obs": 3985,
+   "n_numeric_obs": 38,
+   "n_genes": 71,
+   "tumor_type": "brca"
+  },
+  "LN01": {
+   "file": "LN01.nodes.npz",
+   "sha256": "bf715a17083defb0281515e40f18f39506583c1713f853f6c42cff81e4c2dac6",
+   "n_obs": 4025,
+   "n_numeric_obs": 38,
+   "n_genes": 69,
+   "tumor_type": "brca"
+  }
+ },
+ "genes": [
+  "PTPRC",
+  "CD3D",
+  "CD3E",
+  "CD2",
+  "CD8A",
+  "CD8B",
+  "CD4",
+  "GZMB",
+  "GZMK",
+  "PRF1",
+  "NKG7",
+  "IFNG",
+  "CXCL9",
+  "CXCL10",
+  "CXCL13",
+  "CCL19",
+  "CCL21",
+  "CCL5",
+  "PDCD1",
+  "CD274",
+  "PDCD1LG2",
+  "CTLA4",
+  "LAG3",
+  "HAVCR2",
+  "TIGIT",
+  "CD68",
+  "CD163",
+  "LYZ",
+  "MS4A1",
+  "CD79A",
+  "JCHAIN",
+  "PECAM1",
+  "VWF",
+  "CDH5",
+  "PLVAP",
+  "ACKR1",
+  "COL1A1",
+  "COL1A2",
+  "COL3A1",
+  "FN1",
+  "FAP",
+  "ACTA2",
+  "PDGFRB",
+  "POSTN",
+  "LOX",
+  "LOXL1",
+  "LOXL2",
+  "PLOD2",
+  "TGM2",
+  "TGFB1",
+  "TGFBI",
+  "MMP2",
+  "MMP9",
+  "KRT5",
+  "KRT14",
+  "KRT6A",
+  "KRT17",
+  "PMEL",
+  "MLANA",
+  "TYR",
+  "SOX10",
+  "EPCAM",
+  "KRT8",
+  "KRT18",
+  "MUC1",
+  "MKI67",
+  "TOP2A",
+  "HIF1A",
+  "VEGFA",
+  "CA9",
+  "ABCB1",
+  "ABCG2",
+  "FCGRT"
+ ],
+ "meta": {
+  "timestamp": "2026-10-04T04:50:39+00:00",
+  "config_path": "D:\\sparta\\configs\\default.yaml",
+  "seed": 0,
+  "python": "3.13.13",
+  "numpy": "2.5.2",
+  "scipy": "1.18.1",
+  "networkx": "3.6.1",
+  "module": "M35-export-node-tables"
+ }
+}

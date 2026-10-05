@@ -1,11 +1,13 @@
 ---
-title: "Coupled, not separable: the T-cell migration barrier and the antibody mass-transport barrier in cutaneous tumours share a matrix origin"
+title: "Coupled, not separable: the T-cell and antibody transport barriers co-localise in cutaneous tumours"
 ---
 
 **Working draft, assembled 2026-08-28 from the verified artefacts.**
 Author list, affiliations and the alternative tool-forward title are still open.
 Every numeric claim carries its source artefact in `monospace brackets`; **strip
 those before submission** — they are provenance for the authors, not manuscript text.
+*2026-10-03 审查对账：准入口径、空间空模型、S2 选择偏差与机制措辞已按
+docs/review_for_journal.md 与外部审查意见修订，修订点以 2026-10-03 标注。*
 
 # Abstract
 
@@ -16,9 +18,10 @@ malignancy, and spatial transcriptomics has made the microenvironmental
 contribution to that failure directly measurable. The field's analytical
 vocabulary, however, addresses only one of the two transport problems involved.
 Whether a cytotoxic T cell can reach the tumour nest is a cell-migration problem
-through a fibre network; whether the anti-PD-1 antibody itself can reach it is a
-mass-transport problem for a 5.5 nm macromolecule through a matrix whose
-effective mesh is measured in tens of nanometres. The second is almost never
+through a fibre network; whether an IgG-sized therapeutic can reach it is a
+mass-transport problem for a 5.5 nm macromolecule through interstitial matrix.
+Effective mesh sizes have been estimated in the literature, but they are not
+measured in the spatial-transcriptomic data analysed here. The second is almost never
 quantified, and whether the two barriers are separable in real tissue has not
 been asked.
 
@@ -34,42 +37,72 @@ patients** — six primary cutaneous squamous carcinomas profiled across two
 platform generations (four Visium, eleven first-generation ST) and one melanoma
 patient contributing four extracranial metastatic deposits.
 
-The two barriers prove **not** to be separable. After residualising both on the
-weighted graph distance to vasculature the partial correlation is positive in
-18/19 sections and significant in 17 (ρ = −0.000 to +0.385, median +0.217), every
-one of the seven patients has a positive median, and regions where one barrier is
-high while the other is low occupy 1.1–6.9 % of spots against a 6.25 % chance
-expectation — fewer discordant spots than independence predicts, in 18/19
-sections. The result reproduces across platform generations within the squamous
-cohort (median ρ = +0.270 on Visium, +0.207 on first-generation ST), which
-separates assay generation from the tumour-type and disease-stage covariates that
-were confounded with it in a smaller design.
+The two model-defined fields are positively associated in this dataset. After
+residualising both on weighted graph distance to vasculature, the partial
+correlation is positive in 18/19 sections. Seventeen sections pass the nominal
+point-level test; 15 pass the spectral phase-randomisation test before
+correction, and 14 pass after Benjamini–Hochberg correction across the
+19-section family (Methods M3; ρ = −0.000 to +0.385, median +0.217). The
+phase-randomisation null preserves the graph-spectral power spectrum; it is a
+spatial surrogate, not proof that every spatial statistic is preserved. Every one
+of the seven patients has a positive median (a descriptive summary; with 1–4
+sections per patient we do not attach patient-level inference), and regions
+where one barrier is high while the other is low occupy 1.1–6.9 % of spots
+against a 6.25 % chance expectation — fewer discordant spots than independence
+predicts, in 18/19 sections. The result reproduces across platform generations
+within the squamous cohort (median ρ = +0.270 on Visium, +0.207 on
+first-generation ST), which separates assay generation from the tumour-type and
+disease-stage covariates that were confounded with it in a smaller design.
 
 Removing the matrix term shared by the two operators leaves the association
-significant in 15/19 sections — 12/15 squamous sections (a majority in five of
-the six squamous patients) with a median 81 % of its original magnitude, and
+significant in 15/19 sections by the nominal point-level test — 12/15 squamous
+sections (a majority in five of the six squamous patients) with a median 81 % of
+its original magnitude, and
 3/4 melanoma sections with a median 38 % — unchanged whether the geometric control
 is a weighted path or a hop count. The single melanoma patient is the one stratum
 whose classification depends on that choice, and we report it as unresolved
 rather than as a cohort contrast.
 
-Counterfactual experiments support the topological reading: a contiguous gap in
-the blockade leaves 1.04–1.39× more residual barrier than removing the same
-material scattered within it (16/19 sections, five of seven patients with every
-section significant, at a
-pre-specified 20 % removal fraction; the effect is larger at 30 % than at 5 % in
-15/19), and sweeping molecular radius on fixed tissue raises the tumour-core
-barrier monotonically across an order of magnitude. Relative to a spatial-domain
-segmentation, just 4–22 % of domain boundaries lie on the cut on either platform
-— the transport formulation selects and quantifies the one boundary that limits
-flux rather than detecting boundaries.
+Counterfactual experiments give in-model support to a topology-dependent
+reading: removing a contiguous arc of the minimum-cut band leaves less residual
+barrier than removing the same amount at scattered positions in most sections.
+At the pre-specified 20% removal fraction, 10/19 sections pass the nominal test
+and 8/19 pass BH correction when the scattered control receives the same
+best-of-eight candidate search as the contiguous arc (median ratio
+1.147× → 1.053× at the pre-specified 20 % removal fraction), and sweeping
+molecular radius on fixed tissue raises the tumour-core barrier monotonically
+across an order of magnitude. Relative to a spatial-domain segmentation, just
+4–22 % of domain boundaries lie on the cut on either platform — the transport
+formulation selects and quantifies the one boundary that limits flux rather than
+detecting boundaries.
+
+**External reproduction of model-field coupling (R7).** We held out the two primary cohorts
+from a third, unrelated dataset — the 10x Genomics public Visium breast-cancer
+sample (two sections from one patient) and one human lymph node — and reran the
+same barrier pipeline unchanged. The vessel-distance-adjusted partial
+correlation is positive in 3/3 sections (median ρ = +0.281, matching the
+main-cohort +0.217); two of three survive the spectral phase-randomisation null
+at p ≤ 0.05 (BRCA01 and LN01 at the 0.002 floor of 500 permutations; BRCA02 is
+marginal at p = 0.050 after BH across the three external tests), and discordant
+regions remain below the 6.25 % chance expectation in 3/3 (2.1–3.3 % of spots).
+The contiguous-gap counterfactual reproduces under matched selection in the two
+tumour sections (ratio > 1, p = 0.010 each) but not in the non-tumour lymph node
+(ratio 1.016×, p = 0.119), consistent with the lymph node lacking a tumour-core
+barrier. The external sections never enter any main-cohort number; they are
+reported separately as an exploratory arm (R7, Methods M1). Because the two
+breast sections come from one patient and the lymph node is non-tumour, this arm
+supports cross-dataset reproduction of model-field coupling, not independent
+patient-level validation of a tumour barrier.
 
 ## Availability and implementation
 
 SPARTA is implemented in Python and runs on CPU; the barrier operators depend
 only on NumPy, SciPy and NetworkX. Source code, the analysis pipeline and the
 scripts reproducing every figure are available at <GitHub URL> and archived at
-<Zenodo DOI>. All data are public (GEO: GSE250636, GSE144239).
+<Zenodo DOI>. All data are public (GEO: GSE250636, GSE144239; external
+validation: 10x Genomics spatial-expression sample repository, Space Ranger
+v1.1.0, `V1_Breast_Cancer_Block_A_Section_1/2` and `V1_Human_Lymph_Node`,
+downloaded to `data/external/brca_vis/`).
 
 ---
 
@@ -97,11 +130,12 @@ blocks passage, whereas the same number of fibroblasts scattered through the
 tissue does not. Connectivity is a topological property, and a local statistic
 cannot see it.
 
-A second barrier has received far less attention. An anti-PD-1 antibody is not a
+A second barrier has received far less attention. An IgG-sized therapeutic is not a
 cell: it is a ~150 kDa macromolecule with a hydrodynamic radius near 5.5 nm that
-must leave the vasculature and diffuse through interstitial matrix whose
-effective mesh size in tumours is measured in tens of nanometres, and that can
-be consumed en route by binding to its target. Whether the antibody itself
+must leave the vasculature and diffuse through interstitial matrix. Effective
+mesh sizes in tumours have been estimated in the literature, but they are not
+measured in the spatial-transcriptomic data analysed here. An antibody can also
+be retained through binding to its target. Whether an IgG-sized molecule
 reaches the tumour nest is a mass-transport problem with different physics from
 cell migration — different length scale, different obstruction mechanism,
 different dependence on matrix crosslinking — and it is almost never quantified
@@ -123,13 +157,14 @@ the antibody barrier into its shared and modality-specific components, and test
 directly whether the two barriers dissociate.
 
 They do not. After controlling for distance from the vasculature, the two
-barriers remain positively associated in every section, and regions where one
-barrier is high while the other is low are *rarer* than chance. The dominant
-axis of the antibody barrier is a matrix property — size exclusion set by
-crosslinking — rather than an antigen property. We therefore report a coupling
-rather than a dissociation, and we argue that the coupling is the more
-actionable finding: it predicts that matrix-directed intervention should relieve
-both modalities at once, whereas modality-specific intervention should not.
+barriers remain positively associated in 18 of 19 sections, and regions where one
+barrier is high while the other is low are *rarer* than chance. Under a
+size-exclusion model with the default steepness (β = 3; Methods M2), the dominant
+axis of the antibody barrier is matrix size exclusion rather than antigen
+availability. We therefore report a coupling rather than a dissociation, and we
+argue that the coupling motivates a testable hypothesis: matrix-directed
+intervention would relieve both modalities at once, whereas modality-specific
+intervention would not.
 
 ---
 
@@ -139,9 +174,12 @@ both modalities at once, whereas modality-specific intervention should not.
 
 We assembled 19 spatial transcriptomic sections from two independent, publicly
 available cohorts of cutaneous malignancy: four extracranial metastases of
-cutaneous melanoma (MEL01–MEL04, GSE250636) and fifteen treatment-naive primary
-cutaneous squamous cell carcinomas (CSCC01–CSCC16 minus CSCC13, GSE144239;
-Ji et al., 2020).
+cutaneous melanoma (MEL01–MEL04, GSE250636; treatment status is not annotated in
+this cohort and is disclosed as a limitation, below) and fifteen treatment-naive
+primary cutaneous squamous cell carcinomas (CSCC01–CSCC16 minus CSCC13,
+GSE144239; Ji et al., 2020). A third, external cohort of three sections (10x
+public Visium breast cancer and lymph node) was assembled later for
+reproducibility and is analysed only in R7; it never enters the counts in R1–R6.
 
 **These 19 sections come from seven patients, and every count in this paper is
 reported at both levels.** Sections from one patient are not independent
@@ -343,18 +381,34 @@ before correlating them. That distance is a weighted shortest path along the
 graph, in micrometres — not a hop count (Methods M4).
 
 **After controlling for vessel distance, the two barriers remain positively
-correlated in 18 of 19 sections and significantly so in 17** (Spearman ρ_partial
-= −0.000 to +0.385, median **+0.217**). The two exceptions are CSCC15
-(ρ_partial = −0.0004, p = 0.99) and MEL02 (+0.055, p = 0.12); neither is
-negative. Uncontrolled correlations are positive in all 19 (ρ = +0.052 to +0.429,
-median +0.246).
+correlated in 18 of 19 sections and significantly so in 17 by the nominal
+point-level test** (Spearman ρ_partial = −0.000 to +0.385, median **+0.217**).
+The two exceptions are CSCC15 (ρ_partial = −0.0004, p = 0.99) and MEL02
+(+0.055, p = 0.12); neither is negative. Uncontrolled correlations are positive
+in all 19 (ρ = +0.052 to +0.429, median +0.246).
 `[results/validation/decoupling.json and results/validation/shared_ecm_check.json,
 per-section ρ_partial and p_partial]`
 
-**The result holds at the patient level.** All seven patients have a positive
-median ρ_partial: +0.323 (P4), +0.280 (P2), +0.248 (P6), +0.239 (P10), +0.209
-(P9), +0.146 (Patient B, melanoma), +0.141 (P5). No patient contributes a
-cohort-level exception.
+**Those nominal p-values treat each spot as an independent observation and are
+therefore optimistic, because spots are spatially autocorrelated.** We repeated
+the per-section test under a spectral phase-randomisation null that preserves
+each section's spatial autocorrelation (sign-flipping the coefficients of the
+normalised-graph-Laplacian expansion of `B_mAb`, which preserves its power
+spectrum; 500 permutations per section, finite-sample corrected as
+(k+1)/(N+1); Methods M3). Under this null **15 of 19 sections remain
+significant**; the four that drop out are MEL02 (empirical p = 0.210), CSCC08
+(0.072), CSCC14 (0.156) and CSCC15 (0.497). The median one-sided empirical p is
+0.002, and the sections that remain significant span both platform generations
+and both tumour types, so the direction of the result does not change, but the
+count used for "significant" should be 15, not 17.
+`[results/validation/spatial_null_check.json, run_27_spatial_null.py]`
+
+**The result holds at the patient level — descriptively.** All seven patients
+have a positive median ρ_partial: +0.323 (P4), +0.280 (P2), +0.248 (P6), +0.239
+(P10), +0.209 (P9), +0.146 (Patient B, melanoma), +0.141 (P5). No patient
+contributes a cohort-level exception. With 1–4 sections per patient and no
+within-patient replicate variance model, these are descriptive summaries; we do
+not attach patient-level confidence intervals or tests.
 `[results/validation/paper_stats.json, field patients]`
 
 **And it holds across platform generations.** Within the squamous cohort the four
@@ -403,7 +457,10 @@ control was computed from the main configuration in both arms, so the same
 quantity is being adjusted for.
 
 Across all 19 sections the median partial correlation falls from **+0.217 to
-+0.152**; 17/19 remain positive and 15/19 remain significantly positive.
++0.152**; 17/19 remain positive and 15/19 remain significantly positive
+(nominal point-level test; the spatial-null count for the decoupled operator
+pair is reported in `results/validation/shared_ecm_check.json` and is not
+re-derived here).
 
 **This section reports a stratified result and deliberately issues no single
 verdict.** The decision rule used in earlier drafts required *every* section in a
@@ -594,14 +651,41 @@ measures the removal fraction rather than any property of the tissue. We
 therefore define `k` as a fraction of the cut set and **pre-specify 20 % as the
 primary test**, reporting 5 %, 10 % and 30 % as a dose–response.
 
-At the pre-specified 20 % level the contiguous gap leaves a residual barrier
-**1.038–1.390× higher** than scattered removal of the same material (median
-**1.147×**), and **16 of 19 sections are significant** after per-section BH
-correction. The three that are not are marginal (CSCC08 p_FDR = 0.055, CSCC15
-0.063, CSCC09 0.119). At the patient level: melanoma Patient B 4/4, P4 2/2,
+At the pre-specified 20 % level the matched scattered-removal arm leaves a
+residual barrier **1.038–1.390× higher** than the contiguous-gap arm (median
+**1.147×**); equivalently, the contiguous removal leaves a lower model barrier.
+**16 of 19 sections are significant** after per-section BH
+correction by the nominal comparison. The three that are not are marginal
+(CSCC08 p_FDR = 0.055, CSCC15
+0.063, CSCC09 0.119). At the patient level (nominal comparison): melanoma
+Patient B 4/4, P4 2/2,
 P6 2/2, P2 3/3, P9 2/2 — **five of seven patients have every section
 significant**; P10 2/3 and P5 1/3, and **no patient has zero significant
 sections**.
+
+**Selection procedure, and its price — the numbers above carry an upward
+selection bias.** The contiguous arc was chosen per section as the most
+effective of up to eight candidate arcs (eight seed positions drawn from the cut
+set; the arc with the lowest residual barrier is reported — the "weakest arc").
+The scattered controls in the analysis above did not undergo the same candidate
+search, so the comparison rewards the contiguous arm for search effort as well
+as for contiguity. To quantify that price we repeated the 20 % comparison with a
+**selection-matched control**: each scattered-control draw is itself the best of
+eight scattered draws, so both arms carry the same search pressure. Under this
+matched control the ratio falls to **0.939–1.217× (median 1.053×)**, the effect
+disappears in two sections (CSCC14, MEL02, both below 1×), and **10/19 sections
+remain significant at raw p < 0.05, 8/19 after per-section BH correction**
+(q = 0.05). The surviving sections span both cohorts and both platform
+generations, so the direction of the result does not change, but the size and
+the prevalence of the effect are materially smaller than the uncorrected
+numbers suggest.
+`[scripts/run_28_s2_matched.py; results/validation/s2_matched_selection.json,
+100 groups × 8 candidates, k_frac = 0.20]`
+
+We therefore read S2 as an **in-model counterfactual** — in a subset of sections,
+removing a contiguous arc lowers the model barrier more than an equally sized
+scattered removal after matching the candidate search. This is not a measurement
+of tissue permeability or of what an intervention would do in vivo.
 
 | removal fraction | 5 % | 10 % | **20 %** | 30 % |
 |---|---|---|---|---|
@@ -639,9 +723,10 @@ both platform generations of the squamous cohort (Visium 4/4, first-generation S
 8/11) and in the melanoma cohort (4/4). It is the counterfactual we are willing
 to carry.
 
-**Honest framing.** The effect is real and consistent but modest: removing a
-fifth of the blockade as a contiguous arc leaves roughly 15 % more barrier than
-removing the same fifth at random positions within it. On synthetic sections with
+**Honest framing.** The matched effect is modest: at the median ratio of 1.053,
+the scattered arm leaves about 5 % more model barrier than the contiguous-gap
+arm; 10/19 sections have raw p < 0.05 and 8/19 remain below q = 0.05 after
+per-section BH. On synthetic sections with
 a designed, thin ring the same experiment gives 7.45×. The gap between the two is
 itself informative — real blockade bands are thick and redundant, so no single
 arc is load-bearing in the way a one-spot-wide synthetic ring is. S2 therefore
@@ -839,6 +924,109 @@ compared against trajectory- or flow-based spatial methods.
 
 ---
 
+## R7. External reproduction of model-field coupling on a third, unrelated public cohort
+
+The main cohort (R1) comprises two GEO deposits of cutaneous malignancy. To test
+whether the barrier coupling and the counterfactual signatures are an artefact
+of that particular assembly, we reran the pipeline **unchanged** on a third
+dataset produced by a different consortium: the 10x Genomics public Visium
+human breast-cancer sample (two sections of Block A, one patient) and one human
+lymph-node section, downloaded from the 10x Genomics spatial-expression sample
+repository (Space Ranger v1.1.0 output; `data/external/brca_vis/`,
+`data/ledger.csv`). The three sections never enter any main-cohort number; the
+whole external arm is reported here separately and in the Abstract.
+
+**Admission was handled under the same rule as the melanoma arm, not silently.**
+All three sections pass C1–C6 comfortably (3 798–4 035 spots against the
+500 threshold; median 18 828–20 762 UMI against 500; endothelial signal in
+3 647–4 006 spots). C7 cannot be met because the 10x public page carries no
+treatment annotation; as with MEL01–MEL04 this is a documented cohort-level
+waiver — `admission_overrides.brca_10x_vis` / `ln_10x_vis` in
+`configs/default.yaml`, decision dated 2026-10-03 — and the audit table records
+each section with `forced = true` and its reason (`data/admission_audit.csv`,
+now 23 rows: 22 admitted of which 7 waiver rows, 1 rejected).
+
+**The coupling reproduces in all three sections, at main-cohort magnitude.**
+
+| Slide | Tissue | ρ (vessel-distance partial) | nominal p | spectral-null p (500 perm.) | discordant spots (chance 6.25 %) |
+|---|---|---|---|---|---|
+| BRCA01 | breast cancer, Block A S1 | +0.331 | 5.9×10⁻⁹⁸ | 0.002 | 2.1 % (0.34×) |
+| BRCA02 | breast cancer, Block A S2 | +0.281 | 2.1×10⁻⁷³ | 0.050 | 2.2 % (0.35×) |
+| LN01 | lymph node | +0.266 | 6.4×10⁻⁶⁶ | 0.002 | 3.3 % (0.52×) |
+
+`[results/validation/ext_validation.json; run_29_ext_validation.py]`
+
+Three positives in three sections (median ρ = +0.281 versus +0.217 in the main
+cohort), all three nominally significant, and all three above the
+phase-randomised null (two at the 0.002 floor of 500 permutations; BRCA02 is
+marginal at 0.050). The discordant fraction sits below the 6.25 % chance
+expectation in 3/3 — fewer regions where one barrier is high and the other low
+than independence predicts, the same sign as 18/19 in the main cohort. Note that
+the external sections are more UMI-rich and larger than most main-cohort
+sections, and the breast-cancer pair is two consecutive sections of one patient;
+we report section-level agreement only (n = 3) and make no patient-level claim.
+
+**The counterfactuals reproduce in direction in the tumour sections, not in the lymph node.** S1 (spatial rearrangement,
+500 permutations) is at the 0.002 floor in BRCA01 and BRCA02 in both modes; the
+lymph node shows a smaller effect with a significant fixed-mode null
+(p = 0.002) but a non-significant follow-mode null (p = 0.152), consistent with
+its much smaller barrier magnitude (real residual 0.0081 versus 0.0387/0.0797 in
+the breast sections). S2 with matched selection (same best-of-eight candidate
+pressure on the scattered control, 100 groups) leaves the contiguous arc ahead
+in the two tumour sections (ratio 1.107–1.207×, p = 0.010 each) but not in the
+lymph node (ratio 1.016×, p = 0.119) — the non-tumour control behaves as
+expected, with no tumour-core barrier to disrupt.
+`[results/counterfactual/{BRCA01,BRCA02,LN01}.json and *.s2matched.json;
+results/validation/s2_matched_ext.json; run_30_s2_matched_ext.py]`
+
+**Scoring note.** The external sections were initially scored under a silent
+fallback to melanoma markers (MLANA/PMEL/TYR…), which are not expressed in
+breast epithelium or lymph node and would have placed the sink (tumour core) on
+random spots. This was corrected on 2026-10-03: the external slides are now
+scored with an epithelial-malignant signature (EPCAM/KRT8/KRT18/KRT19/MUC1),
+and the whole M2→M5 chain was rerun. The spot-level partial correlation is
+essentially unchanged (≤0.004 shift), confirming that it does not depend on the
+sink; the slice-level B_cell and S1/S2 numbers are those reported above. The
+epithelial-malignant markers have not been histopathologically confirmed, so
+"tumour core" here means the model-defined epithelial-high region, not a
+pathologist-verified region.
+
+**The tool benchmark transfers too.** The R5 comparison (min-cut versus
+compositional and local statistics) was rerun unchanged on the external
+sections (run_31, 50 spatial rearrangements, same degeneracy criterion as
+run_10). `B_cell` remains strongly arrangement-sensitive in 3/3 — z = +7.1,
++73.2, +123.1 versus a main-cohort range of −0.7 to +24.8 — and remains only
+moderately correlated with the CAF signature (ρ = +0.36 to +0.46, main cohort
++0.31 to +0.55, median +0.458) and essentially uncorrelated with T/NK (ρ =
+−0.11 to −0.26, main cohort −0.28 to +0.14). Compositional metrics (CAF
+density, T-infiltration fraction) are, as in the main cohort, invariant to
+rearrangement and return NaN under the degeneracy rule. Two caveats are
+reported honestly: neighbour enrichment and Ripley's L are also
+arrangement-sensitive in these UMI-rich sections, so `B_cell` is not the only
+metric that moves — its distinct value remains the barrier semantics (capacity,
+direction, counterfactual manipulation) argued in R5/R6, not sensitivity per
+se; and the lymph node's T-to-core distance is meaningless (z = −1.4) because
+there is no tumour core, which is expected rather than a failure.
+`[results/validation/benchmark_ext_external.json; run_31_benchmark_ext_slides.py]`
+
+**What this does and does not establish.** The reproduction is across datasets
+and tissue systems (breast carcinoma, lymph node versus cSCC, melanoma) but not
+across sequencing chemistry — the external sections are the same early Visium
+generation as the main Visium arm, so the platform-confounder argument that R1
+used internally does not extend to them. The lymph node is not a tumour and its
+S2 effect is null, as expected; the breast pair is one patient; treatment status
+is unknown as in the melanoma arm; and n = 3 supports a consistency claim, not a
+prevalence estimate. The epithelial-malignant markers used to define the sink
+have not been histopathologically confirmed. Read this way, R7 is a guard
+against the coupling being an artefact of one cohort's QC, scoring, or graph
+construction: the identical pipeline, unfitted to the new data, produced the
+same sign and magnitude of spot-level field coupling. It does **not** provide
+independent patient-level validation of a tumour barrier, and the mechanistic
+and therapeutic language elsewhere in this manuscript remains hypothesis-level,
+supported by in-model counterfactuals rather than direct functional measurement.
+
+---
+
 ## Dimension ③ — bulk ICB cohorts (Introduction / Discussion material, not a main result)
 
 No public dataset combines Visium-format spatial transcriptomics with ICB
@@ -896,21 +1084,29 @@ spatial arrangement that makes them a barrier.
 ## What the coupling means biologically
 
 The finding that the cellular and macromolecular barriers travel together has a
-straightforward tissue correlate. A desmoplastic band is not merely dense; it is
+plausible tissue correlate. A desmoplastic band is not merely dense; it is
 crosslinked, and crosslinking simultaneously stiffens the network against cell
 migration and contracts the mesh below the size of an IgG. The two obstructions
 are mechanistically distinct — one is a matter of a 10 µm cell negotiating a
-fibre network, the other of a 5.5 nm molecule negotiating a mesh — but they are
-produced by the same remodelling programme, so in tissue they co-localise.
+fibre network, the other of a 5.5 nm molecule negotiating a mesh. If they are
+produced by the same remodelling programme, they would co-localise in tissue;
+our data are consistent with that reading but do not establish the shared
+programme — CAF abundance, crosslinking and spatial arrangement co-vary, and we
+cannot separate them observationally.
 
-The therapeutic reading follows directly and is the most useful output of this
-work. Strategies that normalise the matrix — LOX/LOXL inhibition, TGF-β
-blockade, hyaluronidase, or physical modulation of interstitial pressure — are
-predicted to improve both T-cell access and antibody exposure in the same
-regions. Conversely, interventions aimed at only one modality (for example, a
-chemokine-based strategy to increase T-cell recruitment) would not be expected
-to improve antibody delivery, and combination designs that assume otherwise may
-be over-optimistic about the achievable intratumoural drug concentration.
+A therapeutic reading follows if the matrix axis is causal, and confirming it
+would be the most useful output of this work. Strategies that normalise the
+matrix — LOX/LOXL inhibition, TGF-β blockade, hyaluronidase, or physical
+modulation of interstitial pressure — are predicted to improve both T-cell
+access and antibody exposure in the same regions. Conversely, interventions
+aimed at only one modality (for example, a chemokine-based strategy to increase
+T-cell recruitment) would not be expected to improve antibody delivery, and
+combination designs that assume otherwise may be over-optimistic about the
+achievable intratumoural drug concentration. We state this as a hypothesis to be
+tested with intervention or paired-response data: the present analyses are
+model-based counterfactuals on expression proxies, not drug-intervention or
+patient-response measurements, and the framework's `B_mAb` has no independent
+calibration against measured antibody concentration or delivery resistance.
 
 ## Is the coupling a property of the tissue or of the model?
 
@@ -921,16 +1117,17 @@ recomputing the cellular barrier from the fibroblast signature alone and the
 antibody barrier from crosslinking and antigen alone, so that the two operators
 share no input variable (Results R3b).
 
-**In the squamous cohort the coupling is tissue-borne.** Across 15 sections from
-six patients the partial correlation survives the removal with a median 81 % of
-its magnitude and remains significant in 12/15 sections and in five of the six
-patients (median ρ_partial after removal = +0.183). It survives on both platform
-generations — four Visium sections from two patients (+0.214, 4/4) and eleven
-first-generation ST sections from four patients (+0.137, 8/11) — and it survives
-whether the geometric control is a weighted graph distance or the older hop
-approximation (5/6 patients either way). Neither sequencing depth nor section
-size explains it: across all 19 sections the partial correlation is essentially
-uncorrelated with both (ρ = +0.19 and +0.03).
+**In the squamous cohort the coupling survives removal of the shared input.**
+Across 15 sections from six patients the partial correlation survives the
+removal with a median 81 % of its magnitude and remains significant in 12/15
+sections and in five of the six patients (median ρ_partial after removal =
++0.183). It survives on both platform generations — four Visium sections from two
+patients (+0.214, 4/4) and eleven first-generation ST sections from four
+patients (+0.137, 8/11) — and it survives whether the geometric control is a
+weighted graph distance or the older hop approximation (5/6 patients either
+way). Neither sequencing depth nor section size explains it: across all 19
+sections the partial correlation is essentially uncorrelated with both (ρ =
++0.19 and +0.03).
 
 We read this as an organised obstruction. A primary squamous carcinoma builds a
 desmoplastic front at the tumour margin in which the fibroblast band, the
@@ -940,7 +1137,13 @@ because they *are* the same wall, and removing the shared molecular term does no
 dissolve the association. This interpretation is consistent with our cut-band
 analysis, in which every squamous section with a continuous CAF band (7
 sections, 1.39–1.74× enrichment, both platforms) is also one whose barrier is
-sensitive to arrangement, but it is not established by it.
+sensitive to arrangement, but it is not established by it. The external arm
+(R7) independently reproduces the association with the same sign and magnitude
+on three sections assembled by a different consortium, which argues against the
+association being an artefact of one cohort's scoring or graph construction;
+it does not by itself establish the tissue mechanism, and the biological
+reading above remains a hypothesis consistent with the data rather than a
+conclusion derived from it.
 
 **In the melanoma cohort the question cannot be answered by this design, and we
 say so rather than presenting a contrast.** All four melanoma sections are
@@ -1016,9 +1219,13 @@ leptomeningeal deposits exclusively). Every cross-cohort statement in this paper
 is therefore a statement about six patients versus one, and we make none that
 depends on the comparison. The conclusions that survive at patient level are the
 absence of dissociation (7/7 patients with a positive median partial
-correlation), the contiguity effect (6/7 patients significant at the
-pre-specified removal fraction) and the tissue-borne character of the coupling in
-the squamous cohort (5/6 patients). The spatial-rearrangement effect does not:
+correlation) and the survival of the coupling after removal of the shared input
+in the squamous cohort (5/6 patients). The contiguity effect is patient-level
+heterogeneous: by the nominal comparison all seven patients have at least one
+significant section, but under the selection-matched control the count falls to
+five of seven patients (raw p < 0.05; four of seven after BH), with both P5 and
+P10 losing significance in all of their sections. The spatial-rearrangement
+effect does not survive at patient level:
 it is significant in 4/7 patients and tracks sequencing depth (Results R4/S1),
 and we present it as a positive control rather than as evidence.
 
@@ -1031,6 +1238,22 @@ partly confounded, and any result that correlates with depth — S1 does, at
 ρ = +0.72 — cannot be cleanly attributed to biology in this design. Quality
 control also fragments the shallow sections' graphs (largest connected component
 90.0–100 % of nodes), which we report per section in Table 1.
+
+**The R7 external-validation arm is small, same-platform, and partly
+non-tumour.** Three sections from two "patients" (two consecutive breast-cancer
+sections of one patient, one lymph node) can support a consistency claim but
+not a prevalence estimate; there is no patient-level replication in the
+external arm at all. It is not a cross-chemistry validation: the 10x public
+sections are the same early Visium generation as the main Visium arm, so the
+platform-separation argument that R1 exploits internally does not transfer.
+The lymph node is not a tumour, its barrier magnitude is much smaller than the
+tumour sections' (and its S1 follow-mode null is non-significant), and the
+breast sample's treatment status is unannotated exactly as in the melanoma
+arm — the same C7 waiver applies. One of the three null p-values is marginal
+(BRCA02, 0.050). What R7 is allowed to mean, and what we claim it means, is
+limited to this: an identical, unfitted pipeline reproduces the sign, magnitude
+and null behaviour of the central result on data assembled by a different
+consortium.
 
 **External validation.** No publicly available dataset combines Visium-format
 spatial data with ICB response labels; our bulk concept check is therefore
@@ -1058,9 +1281,14 @@ it.
 takes a within-section rank-normalised crosslinking score as input. This fixes
 the nominal mesh-size range and the exclusion threshold identically in every
 section, so ξ₀ and β govern how sharply the model separates permeable from
-impermeable tissue rather than measuring mesh size. Every conclusion that
-depends on their values is reported with that dependence, and the full
-sensitivity grid is provided.
+impermeable tissue rather than measuring mesh size. `B_mAb` is consequently a
+model score, not a calibrated measurement of antibody concentration or of
+delivery resistance — the project has no direct measurements of local mesh size,
+crosslink density, antibody tissue concentration or diffusion coefficient —
+and every quantitative statement about the *amount* of exclusion is comparative
+within the model, not a tissue measurement. Every conclusion that depends on the
+scale parameters is reported with that dependence, and the full sensitivity grid
+is provided.
 
 **The per-spot cellular field.** Section-level topological claims use the
 minimum cut. The per-spot cellular field used for the correlation analyses is a
@@ -1111,16 +1339,45 @@ generations:
 | `cscc_legacy_gse144239` (1st-gen ST) | ≥ 300 instead of ≥ 1 000 | ≥ 300 instead of ≥ 1 500 | 2016-generation ST chemistry; 1 933-position staggered array, on-tissue coverage 461–1 181 spots |
 
 Both relaxations, with their dates and justifications, are recorded in
-`configs/default.yaml` under `admission_overrides`; **no section was admitted by
-a command-line `--force` override.** The per-section outcome — which criteria a
-section failed and under which thresholds it was nevertheless admitted — is
-written to `data/interim/{slide}.admission.json`.
+`configs/default.yaml` under `admission_overrides`.
+
+**The melanoma cohort was retained under a documented cohort-level waiver, not
+by silent passage of C1–C7.** All four MEL sections fail C7: GSE250636 carries
+no treatment annotation, so treatment status is unknown (the implication is
+discussed in Limitations). MEL02 (840 spots) and MEL04 (median 1 488 UMI)
+additionally fall below the default C4 and C5 thresholds. During the original
+build these sections were force-admitted at the command line (recorded in
+`docs/review_for_journal.md`); the reconstructed audit
+(`run_00c_admission_audit.py`) now records each of MEL01–MEL04 with
+`forced = true`, its failed criteria, and the cohort-level reason, which is also
+registered in `configs/default.yaml` under `admission_overrides.mel_gse250636`
+(decision dated 2026-08-26, reconciled 2026-10-03). The melanoma arm is
+reported throughout as exploratory and, on patient-level questions, unresolved
+(R3b, Limitations).
+
+The per-section outcome — which criteria a section failed and under which
+thresholds it was nevertheless admitted — is written to
+`data/interim/{slide}.admission.json` and summarised in `data/admission_audit.csv`
+(23 sections: 15 pass all of C1–C7 under their cohort thresholds, 7 are waiver
+rows — MEL01–MEL04 (melanoma) and BRCA01/BRCA02/LN01 (external validation) —
+and 1 is rejected).
+
+**External-validation sections (R7) were admitted under the same waiver rule,**
+not by silent passage. BRCA01, BRCA02 and LN01 pass C1–C6 (C4: 3 798–4 035
+spots; C5: median 18 828–20 762 UMI; C6: 3 647–4 006 endothelial spots) but cannot
+pass C7 because the 10x Genomics public sample page carries no treatment
+annotation. As with MEL01–MEL04, this is a documented cohort-level waiver
+registered in `configs/default.yaml` (`admission_overrides.brca_10x_vis` and
+`ln_10x_vis`, decision dated 2026-10-03), and the audit records each section
+with `forced = true` and its reason. The waiver is disclosed in R7 and in
+Limitations; the three external sections enter no main-cohort analysis.
 
 **One section was rejected.** CSCC13 failed C5 (median 289.5 UMI against the
 relaxed threshold of 300) and is recorded as `status = rejected` in the ledger;
 it appears in Table 1 with its failure reason and is excluded from every
 downstream analysis. The batch driver skips non-`ingested` ledger rows by
-default, so the exclusion cannot silently reverse itself.
+default, so the exclusion cannot silently reverse itself; in the audit table
+CSCC13 is the single row with `admitted = false`.
 
 Section-level characteristics, including the per-section admission outcome, are
 given in **Table 1** (`docs/table1_sections.md`, regenerated from the artefacts
@@ -1172,11 +1429,34 @@ p-values are comparable across cohorts and platform generations; this was
 verified directly from the stored `n_perm` field rather than assumed.
 `[results/counterfactual/*.json, field s1.{fixed,follow}.n_perm = 500 in 19/19]`
 
+**Point-level partial correlations are tested twice.** Because spots are
+spatially autocorrelated, the nominal Spearman p-value (which treats each spot
+as an independent observation) overstates significance. We therefore repeat
+every per-section partial-correlation test under a spectral phase-randomisation
+null: the normalised graph Laplacian of each section is eigendecomposed, `B_mAb`
+is expanded in its eigenvectors, and 500 null fields are generated by sign-
+flipping the expansion coefficients (preserving the power spectrum and hence the
+spatial autocorrelation, while breaking the alignment with `B_cell`), with the
+geometric control recomputed in each null field. Empirical p-values use the
+finite-sample correction (k+1)/(N+1), so a reported 0.002 means "stronger than
+every one of 500 null fields", never exactly zero.
+`[scripts/run_27_spatial_null.py; results/validation/spatial_null_check.json]`
+
 Multiple testing is controlled by Benjamini–Hochberg **within each test family,
 where a family is one test per section**. The `fixed` and `follow` permutation
 modes form separate families because they test different null hypotheses; for S2,
 the four removal sizes on one section are nested subsets of the same cut set and
 are represented by a single test per section rather than four independent ones.
+The 19 spectral phase-randomisation tests in R3 form one family; after BH-FDR
+across them, 14/19 sections are significant at 0.05 (the nominal count is 15/19;
+CSCC10, an ag-target-degraded section, drops from raw p = 0.048 to BH = 0.061).
+The three external sections in R7 form a separate family; BRCA02 is marginal
+(raw p = 0.050, BH = 0.050) and is reported as a sensitive result. Null-model
+calibration was performed on CSCC01 by phase-randomising both `B_cell` and
+`B_mAb` independently (200 calibration runs × 100 permutations): the empirical
+FPR at α = 0.05 is 0.050 and at α = 0.01 is 0.010, with mean p = 0.481,
+confirming the family-wise error rate is within Monte Carlo error of the nominal
+level `[results/validation/null_calibration.json; scripts/scratch/_null_calibration.py]`.
 
 Effect sizes are reported as ratios (observed / null mean for S1; residual
 barrier of scattered removal / residual barrier of contiguous removal for S2)
@@ -1221,10 +1501,10 @@ unresolved.
 
 | Section | Patient | Site / replicate | Cohort · platform | GEO | Spots (raw) | Median UMI | Admission |
 |---|---|---|---|---|---|---|---|
-| MEL01 | MEL_PtB | sternum | Melanoma · Visium | GSM7983359 | 1,667 | 5,514 | admitted |
-| MEL02 | MEL_PtB | cecal-nodule | Melanoma · Visium | GSM7983364 | 840 | 3,098 | admitted |
-| MEL03 | MEL_PtB | chest-wall | Melanoma · Visium | GSM7983365 | 1,789 | 3,577 | admitted |
-| MEL04 | MEL_PtB | ribcage | Melanoma · Visium | GSM7983366 | 3,263 | 1,488 | admitted |
+| MEL01 | MEL_PtB | sternum | Melanoma · Visium | GSM7983359 | 1,667 | 5,514 | admitted — waiver (C7) |
+| MEL02 | MEL_PtB | cecal-nodule | Melanoma · Visium | GSM7983364 | 840 | 3,098 | admitted — waiver (C4, C7) |
+| MEL03 | MEL_PtB | chest-wall | Melanoma · Visium | GSM7983365 | 1,789 | 3,577 | admitted — waiver (C7) |
+| MEL04 | MEL_PtB | ribcage | Melanoma · Visium | GSM7983366 | 3,263 | 1,488 | admitted — waiver (C5, C7) |
 | CSCC01 | CSCC_P4 | rep1 | cSCC · Visium | GSM4565823 | 744 | 15,714 | admitted |
 | CSCC02 | CSCC_P4 | rep2 | cSCC · Visium | GSM4565824 | 696 | 16,686 | admitted |
 | CSCC03 | CSCC_P6 | rep1 | cSCC · Visium | GSM4565825 | 3,650 | 982 | admitted |
@@ -1322,8 +1602,10 @@ metastatic melanoma deposits (1 patient, 4 deposits); the dashed vertical rule
 separates the cohorts throughout.
 (**a**) Partial Spearman correlation between the per-spot `B_cell` field and
 `B_mAb`, adjusted for weighted graph distance to the nearest vessel:
-positive in 18/19 sections and significant in 17/19 (ρ = −0.000 to +0.385,
-median +0.217). Sections not reaching p < 0.05 are marked *n.s.*
+positive in 18/19 sections and significant in 17/19 by the nominal point-level
+test (15/19 under the spectral phase-randomisation null; Methods M3)
+(ρ = −0.000 to +0.385, median +0.217). Sections not reaching p < 0.05 are
+marked *n.s.*
 (**b**) The same partial correlation before and after removing every input the
 two operators share (`b_ecm` = 0 and λ = 0). Solid blue = still significantly
 positive; grey = collapses. Squamous 12/15 and melanoma 3/4 survive; median
@@ -1349,12 +1631,15 @@ correlation is not positive.
 blue = significant after Benjamini–Hochberg correction across sections (12/19),
 grey = not. Ratios span 0.89–4.49. Direct labels are shown for the significant
 sections only.
-(**b**) S2 — blockade continuity. Residual barrier after removing a contiguous
-arc of the min cut, divided by the residual barrier after removing the same
-amount of material at scattered positions within the same cut set, at four
-removal fractions. The pre-specified primary test is 20 % (orange dashed line):
-16/19 sections significant after BH, ratios 1.038–1.390 (median 1.147); the
-effect is larger at 30 % than at 5 % in 15/19 sections.
+(**b**) S2 — blockade continuity. Residual barrier after equally sized scattered
+removal divided by the residual barrier after removing a contiguous arc of the
+minimum cut, at four removal fractions. Values above 1 mean the contiguous-gap
+arm has the lower model barrier. The pre-specified primary test is 20 % (orange dashed line):
+16/19 sections significant after BH by the nominal comparison (ratios
+1.038–1.390, median 1.147); once the scattered control is given the same
+best-of-eight candidate search as the contiguous arc, the count falls to 8/19
+after BH and the median ratio to 1.053 (0.939–1.217); the effect is larger at
+30 % than at 5 % in 15/19 sections under the nominal comparison.
 (**c**) S3 — molecular size scan on fixed tissue. Mean `B_mAb` in the tumour
 core rises monotonically with hydrodynamic radius in every section, with no
 ceiling in the range examined; the dashed line marks IgG at 5.5 nm.

@@ -1,0 +1,325 @@
+{
+  "section_6_decoupling_robustness": {
+    "all_19": {
+      "n": 19,
+      "median_rho": 0.21698516161224798,
+      "n_positive": 18,
+      "n_negative": 1,
+      "range": [
+        -0.00040111430907287525,
+        0.3847893496906938
+      ]
+    },
+    "ag_target_available_15": {
+      "n": 15,
+      "median_rho": 0.21698516161224798,
+      "n_positive": 15,
+      "n_negative": 0,
+      "range": [
+        0.05540353257541708,
+        0.3847893496906938
+      ]
+    },
+    "spatial_null_ag_target_available_15": {
+      "n": 15,
+      "n_empirical_p_lt_0_05": 13,
+      "n_bh_q_lt_0_05": 13,
+      "note": "Same 500 per-section graph-spectral surrogate tests; BH recalculated within the Ag_target-available family."
+    },
+    "s2_matched_all_19": {
+      "n": 19,
+      "n_sig_raw": 10,
+      "n_sig_bh": 8,
+      "median_ratio": 1.0528358757506597,
+      "note": "S2 depends on ECM/CAF and source/sink only; no missing-input exclusion applied."
+    },
+    "input_missingness_by_metric": {
+      "ag_target_missing": [
+        "CSCC10",
+        "CSCC14",
+        "CSCC15",
+        "CSCC16"
+      ],
+      "efflux_missing": [
+        "CSCC14",
+        "CSCC15",
+        "CSCC16",
+        "MEL01"
+      ]
+    }
+  },
+  "section_bulk_icb_exploratory": {
+    "status": "exploratory; pre-outcome protocol not documented",
+    "tested_direction": "barrier score higher in non-responders than responders",
+    "cohorts": [
+      {
+        "cohort": "GSE78220",
+        "barrier_R_median": -0.188,
+        "barrier_NR_median": 0.271,
+        "AUC_NR_over_R": 0.759,
+        "p_value": 0.021,
+        "direction_consistent_with_H1": true
+      },
+      {
+        "cohort": "GSE91061",
+        "barrier_R_median": 0.184,
+        "barrier_NR_median": -0.026,
+        "AUC_NR_over_R": 0.428,
+        "p_value": 0.495,
+        "direction_consistent_with_H1": false
+      },
+      {
+        "cohort": "GSE91061_strict",
+        "barrier_R_median": 0.184,
+        "barrier_NR_median": -0.173,
+        "AUC_NR_over_R": 0.426,
+        "p_value": 0.518,
+        "direction_consistent_with_H1": false
+      }
+    ]
+  },
+  "section_8_unreachable_nodes": [
+    {
+      "slide": "MEL01",
+      "n_nodes": 1660,
+      "n_components": 1,
+      "lcc_size": 1660,
+      "n_source": 133,
+      "n_sink": 466,
+      "source_unreachable": 0,
+      "sink_unreachable": 0,
+      "frac_unreachable": 0.0
+    },
+    {
+      "slide": "MEL02",
+      "n_nodes": 801,
+      "n_components": 8,
+      "lcc_size": 729,
+      "n_source": 65,
+      "n_sink": 232,
+      "source_unreachable": 10,
+      "sink_unreachable": 17,
+      "frac_unreachable": 0.091
+    },
+    {
+      "slide": "MEL03",
+      "n_nodes": 1724,
+      "n_components": 10,
+      "lcc_size": 1662,
+      "n_source": 138,
+      "n_sink": 486,
+      "source_unreachable": 10,
+      "sink_unreachable": 4,
+      "frac_unreachable": 0.022
+    },
+    {
+      "slide": "MEL04",
+      "n_nodes": 2673,
+      "n_components": 15,
+      "lcc_size": 2644,
+      "n_source": 214,
+      "n_sink": 762,
+      "source_unreachable": 8,
+      "sink_unreachable": 4,
+      "frac_unreachable": 0.012
+    },
+    {
+      "slide": "CSCC01",
+      "n_nodes": 701,
+      "n_components": 3,
+      "lcc_size": 697,
+      "n_source": 57,
+      "n_sink": 201,
+      "source_unreachable": 0,
+      "sink_unreachable": 0,
+      "frac_unreachable": 0.0
+    },
+    {
+      "slide": "CSCC02",
+      "n_nodes": 652,
+      "n_components": 5,
+      "lcc_size": 644,
+      "n_source": 53,
+      "n_sink": 182,
+      "source_unreachable": 0,
+      "sink_unreachable": 0,
+      "frac_unreachable": 0.0
+    },
+    {
+      "slide": "CSCC03",
+      "n_nodes": 2645,
+      "n_components": 50,
+      "lcc_size": 2492,
+      "n_source": 212,
+      "n_sink": 481,
+      "source_unreachable": 16,
+      "sink_unreachable": 1,
+      "frac_unreachable": 0.025
+    },
+    {
+      "slide": "CSCC04",
+      "n_nodes": 2328,
+      "n_components": 54,
+      "lcc_size": 2096,
+      "n_source": 187,
+      "n_sink": 358,
+      "source_unreachable": 23,
+      "sink_unreachable": 2,
+      "frac_unreachable": 0.046
+    },
+    {
+      "slide": "CSCC05",
+      "n_nodes": 664,
+      "n_components": 1,
+      "lcc_size": 664,
+      "n_source": 53,
+      "n_sink": 197,
+      "source_unreachable": 0,
+      "sink_unreachable": 0,
+      "frac_unreachable": 0.0
+    },
+    {
+      "slide": "CSCC06",
+      "n_nodes": 643,
+      "n_components": 1,
+      "lcc_size": 643,
+      "n_source": 52,
+      "n_sink": 190,
+      "source_unreachable": 0,
+      "sink_unreachable": 0,
+      "frac_unreachable": 0.0
+    },
+    {
+      "slide": "CSCC07",
+      "n_nodes": 637,
+      "n_components": 1,
+      "lcc_size": 637,
+      "n_source": 51,
+      "n_sink": 187,
+      "source_unreachable": 0,
+      "sink_unreachable": 0,
+      "frac_unreachable": 0.0
+    },
+    {
+      "slide": "CSCC09",
+      "n_nodes": 511,
+      "n_components": 1,
+      "lcc_size": 511,
+      "n_source": 41,
+      "n_sink": 142,
+      "source_unreachable": 0,
+      "sink_unreachable": 0,
+      "frac_unreachable": 0.0
+    },
+    {
+      "slide": "CSCC10",
+      "n_nodes": 448,
+      "n_components": 1,
+      "lcc_size": 448,
+      "n_source": 36,
+      "n_sink": 128,
+      "source_unreachable": 0,
+      "sink_unreachable": 0,
+      "frac_unreachable": 0.0
+    },
+    {
+      "slide": "CSCC11",
+      "n_nodes": 672,
+      "n_components": 15,
+      "lcc_size": 635,
+      "n_source": 54,
+      "n_sink": 185,
+      "source_unreachable": 1,
+      "sink_unreachable": 5,
+      "frac_unreachable": 0.025
+    },
+    {
+      "slide": "CSCC12",
+      "n_nodes": 595,
+      "n_components": 16,
+      "lcc_size": 566,
+      "n_source": 48,
+      "n_sink": 161,
+      "source_unreachable": 2,
+      "sink_unreachable": 5,
+      "frac_unreachable": 0.033
+    },
+    {
+      "slide": "CSCC14",
+      "n_nodes": 370,
+      "n_components": 3,
+      "lcc_size": 365,
+      "n_source": 30,
+      "n_sink": 106,
+      "source_unreachable": 0,
+      "sink_unreachable": 2,
+      "frac_unreachable": 0.015
+    },
+    {
+      "slide": "CSCC15",
+      "n_nodes": 597,
+      "n_components": 1,
+      "lcc_size": 597,
+      "n_source": 48,
+      "n_sink": 166,
+      "source_unreachable": 0,
+      "sink_unreachable": 0,
+      "frac_unreachable": 0.0
+    },
+    {
+      "slide": "CSCC16",
+      "n_nodes": 380,
+      "n_components": 2,
+      "lcc_size": 379,
+      "n_source": 31,
+      "n_sink": 103,
+      "source_unreachable": 0,
+      "sink_unreachable": 0,
+      "frac_unreachable": 0.0
+    },
+    {
+      "slide": "CSCC08",
+      "n_nodes": 566,
+      "n_components": 2,
+      "lcc_size": 564,
+      "n_source": 46,
+      "n_sink": 156,
+      "source_unreachable": 0,
+      "sink_unreachable": 0,
+      "frac_unreachable": 0.0
+    },
+    {
+      "slide": "BRCA01",
+      "n_nodes": 3798,
+      "n_components": 1,
+      "lcc_size": 3798,
+      "n_source": 304,
+      "n_sink": 1092,
+      "source_unreachable": 0,
+      "sink_unreachable": 0,
+      "frac_unreachable": 0.0
+    },
+    {
+      "slide": "BRCA02",
+      "n_nodes": 3985,
+      "n_components": 1,
+      "lcc_size": 3985,
+      "n_source": 319,
+      "n_sink": 1143,
+      "source_unreachable": 0,
+      "sink_unreachable": 0,
+      "frac_unreachable": 0.0
+    },
+    {
+      "slide": "LN01",
+      "n_nodes": 4025,
+      "n_components": 7,
+      "lcc_size": 4013,
+      "n_source": 322,
+      "n_sink": 1096,
+      "source_unreachable": 1,
+      "sink_unreachable": 1,
+      "frac_unreachable": 0.001
+    }
+  ]
+}

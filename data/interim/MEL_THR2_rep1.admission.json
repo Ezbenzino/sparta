@@ -1,0 +1,63 @@
+{
+ "slide": "MEL_THR2_rep1",
+ "checks": {
+  "C1": {
+   "pass": true,
+   "detail": "383 spots x 16831 genes"
+  },
+  "C2": {
+   "pass": true,
+   "detail": "coordinates in spot names"
+  },
+  "C3": {
+   "pass": false,
+   "detail": "no paired H&E in the public count release; waived at cohort level (see config)"
+  },
+  "C4": {
+   "pass": true,
+   "detail": "383 spots (threshold 200, 1,007-spot array)"
+  },
+  "C5": {
+   "pass": true,
+   "detail": "median UMI 2722 (threshold 1500)"
+  },
+  "C6": {
+   "pass": true,
+   "detail": "304 spots with endothelial signal (threshold 20; 6/6 markers matched)"
+  },
+  "C7": {
+   "pass": false,
+   "detail": "treatment before sampling not reported; waived at cohort level (see config)"
+  }
+ },
+ "failed": [],
+ "waived": [
+  "C3",
+  "C7"
+ ],
+ "admitted": true,
+ "forced": false,
+ "force_reason": null,
+ "cohort": "mel_thrane2018",
+ "gene_name_note": "gene names 'SYMBOL ENSG...' -> SYMBOL (16831/16831)",
+ "thresholds_applied": {
+  "min_spots_visium": 1000,
+  "min_spots_legacy_st": 200,
+  "min_median_umi": 1500,
+  "min_endothelial_spots": 20
+ },
+ "thresholds_overridden": [
+  "min_spots_legacy_st"
+ ],
+ "meta": {
+  "timestamp": "2026-10-04T16:19:55+00:00",
+  "config_path": "/home/claude/sparta/configs/cscc_legacy_st.yaml",
+  "seed": 0,
+  "python": "3.13.16",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "networkx": "3.6.1",
+  "module": "M48-admission",
+  "slide": "MEL_THR2_rep1"
+ }
+}

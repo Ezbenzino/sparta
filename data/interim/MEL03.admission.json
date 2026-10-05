@@ -1,0 +1,60 @@
+{
+ "slide": "MEL03",
+ "status": "ingested",
+ "checks": {
+  "C1": {
+   "pass": true,
+   "detail": "1789 spot × 36601 基因"
+  },
+  "C2": {
+   "pass": true,
+   "detail": "有坐标"
+  },
+  "C3": {
+   "pass": true,
+   "detail": "有配对 H&E"
+  },
+  "C4": {
+   "pass": true,
+   "detail": "1789 spot（阈值 1000）"
+  },
+  "C5": {
+   "pass": true,
+   "detail": "中位 UMI 3577（阈值 1500）"
+  },
+  "C6": {
+   "pass": true,
+   "detail": "1209 个 spot 有内皮信号（阈值 20，匹配到 6/6 个标记基因）"
+  },
+  "C7": {
+   "pass": false,
+   "detail": "未知——治疗后切片的屏障结构已改变"
+  }
+ },
+ "failed": [
+  "C7"
+ ],
+ "admitted": true,
+ "forced": true,
+ "force_reason": "队列级豁免登记（2026-08-26（回溯登记）；2026-10-03 审查后正式对账）：GSE250636 为 2024 年 Visium 的黑色素瘤颅外转移灶切片（单患者 MEL_PtB，4 片）。 队列级豁免：C7 治疗状态在 GEO 无标注，按队列登记豁免并保留在分析中， 局限已写入稿件 Limitations（治疗状态未知，屏障结构可能已改变）。 MEL02（840 spots < 默认 1000）与 MEL04（中位 1488 UMI < 默认 1500） 同时未过 C4/C5 默认阈值，按同一队列级决定保留； 逐片记录见 data/admission_audit.csv。",
+ "cohort": "mel_gse250636",
+ "thresholds_applied": {
+  "min_spots_visium": 1000,
+  "min_spots_legacy_st": 300,
+  "min_median_umi": 1500,
+  "min_endothelial_spots": 20
+ },
+ "thresholds_overridden": [],
+ "reconstructed": true,
+ "meta": {
+  "timestamp": "2026-10-03T13:52:01+00:00",
+  "config_path": "D:\\sparta\\configs\\default.yaml",
+  "seed": 0,
+  "python": "3.13.13",
+  "numpy": "2.5.2",
+  "scipy": "1.18.1",
+  "networkx": "3.6.1",
+  "module": "M0c-admission-audit",
+  "slide": "MEL03"
+ }
+}

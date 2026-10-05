@@ -1,0 +1,965 @@
+{
+ "protocol": {
+  "path": "docs/replication_melanoma_protocol.md",
+  "sha256": "3e28b94fa5e4e932c68c61e3b1df020126842f45788928b8bdf10e4317941bf6"
+ },
+ "data": {
+  "source": "Thrane et al. 2018 Cancer Res 78:5970-5979",
+  "doi": "10.1158/0008-5472.CAN-18-0747",
+  "sections": [
+   "MEL_THR1_rep1",
+   "MEL_THR1_rep2",
+   "MEL_THR2_rep1",
+   "MEL_THR2_rep2",
+   "MEL_THR3_rep1",
+   "MEL_THR3_rep2",
+   "MEL_THR4_rep1",
+   "MEL_THR4_rep2"
+  ]
+ },
+ "per_slide": {
+  "MEL_THR1_rep1": {
+   "patient": "MEL_THR1",
+   "n_nodes": 271,
+   "filled_keys": [],
+   "n_source": 22,
+   "n_sink": 79,
+   "n_vessel": 55,
+   "real_rho_partial": 0.322980349617315,
+   "null_mean": -0.0024366832993091593,
+   "null_std": 0.09549154453085044,
+   "null_ci95": [
+    -0.18785833024658768,
+    0.1749778005478624
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.07876104617775091,
+   "geometry_null_sd": 0.13161297566612734,
+   "geometry_null_ci95": [
+    -0.19102663993442104,
+    0.3091003274995679
+   ],
+   "p_vs_geometry_null": 0.024875621890547265,
+   "construction_null_mean": 0.16010420415681226,
+   "construction_null_sd": 0.12614634137125147,
+   "construction_null_ci95": [
+    -0.09866685513654683,
+    0.37962355011905896
+   ],
+   "p_vs_construction_null": 0.1044776119402985,
+   "excess_over_construction_null": 0.16287614546050272,
+   "share_reproduced_by_construction": 0.49570880812567264,
+   "ablated_rho": 0.1917369824224724,
+   "ablated_p": 0.03992015968063872,
+   "ablated_null_sd": 0.11021961380907183,
+   "discordant_low_bcell_high_bmab": 0.02214022140221402,
+   "input_correlations": {
+    "ecm_caf": 0.9096356992981695,
+    "ecm_crosslink": 0.27239225333429806
+   },
+   "bh_padj": 0.007984031936127744,
+   "bh_padj_nscore": 0.007984031936127744,
+   "bh_padj_construction": 0.1044776119402985,
+   "bh_padj_ablated": 0.06387225548902195
+  },
+  "MEL_THR1_rep2": {
+   "patient": "MEL_THR1",
+   "n_nodes": 292,
+   "filled_keys": [],
+   "n_source": 24,
+   "n_sink": 87,
+   "n_vessel": 59,
+   "real_rho_partial": 0.36748187554135286,
+   "null_mean": 0.0036919884089135126,
+   "null_std": 0.1187103891194433,
+   "null_ci95": [
+    -0.2125962158833294,
+    0.22033462135521664
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.05565049205443317,
+   "geometry_null_sd": 0.11388309120282523,
+   "geometry_null_ci95": [
+    -0.16847666128976937,
+    0.2601189868597057
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.1205537952047668,
+   "construction_null_sd": 0.11069152303066485,
+   "construction_null_ci95": [
+    -0.08356177013962543,
+    0.3062337050855827
+   ],
+   "p_vs_construction_null": 0.004975124378109453,
+   "excess_over_construction_null": 0.24692808033658606,
+   "share_reproduced_by_construction": 0.32805371700896535,
+   "ablated_rho": 0.34988547192150943,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.11691579480308956,
+   "discordant_low_bcell_high_bmab": 0.017123287671232876,
+   "input_correlations": {
+    "ecm_caf": 0.8914202454002514,
+    "ecm_crosslink": 0.38634850845867874
+   },
+   "bh_padj": 0.007984031936127744,
+   "bh_padj_nscore": 0.007984031936127744,
+   "bh_padj_construction": 0.01990049751243781,
+   "bh_padj_ablated": 0.015968063872255488
+  },
+  "MEL_THR2_rep1": {
+   "patient": "MEL_THR2",
+   "n_nodes": 382,
+   "filled_keys": [],
+   "n_source": 31,
+   "n_sink": 115,
+   "n_vessel": 77,
+   "real_rho_partial": 0.32642843224582296,
+   "null_mean": 0.011819604982134344,
+   "null_std": 0.1613961362443773,
+   "null_ci95": [
+    -0.2670537332098679,
+    0.28539335473372907
+   ],
+   "empirical_p_one_sided": 0.011976047904191617,
+   "empirical_p_nscore": 0.005988023952095809,
+   "geometry_null_mean": 0.08713947661957148,
+   "geometry_null_sd": 0.1013815452626489,
+   "geometry_null_ci95": [
+    -0.09660444941043604,
+    0.2697827436317344
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.11390159669763116,
+   "construction_null_sd": 0.10461146148966255,
+   "construction_null_ci95": [
+    -0.08493214452369101,
+    0.3111526867786453
+   ],
+   "p_vs_construction_null": 0.014925373134328358,
+   "excess_over_construction_null": 0.2125268355481918,
+   "share_reproduced_by_construction": 0.34893283012754067,
+   "ablated_rho": 0.275718214893582,
+   "ablated_p": 0.021956087824351298,
+   "ablated_null_sd": 0.1455284781584055,
+   "discordant_low_bcell_high_bmab": 0.02356020942408377,
+   "input_correlations": {
+    "ecm_caf": 0.8499940422570277,
+    "ecm_crosslink": 0.18560096942757554
+   },
+   "bh_padj": 0.02395209580838323,
+   "bh_padj_nscore": 0.015968063872255488,
+   "bh_padj_construction": 0.03980099502487562,
+   "bh_padj_ablated": 0.043912175648702596
+  },
+  "MEL_THR2_rep2": {
+   "patient": "MEL_THR2",
+   "n_nodes": 375,
+   "filled_keys": [],
+   "n_source": 30,
+   "n_sink": 113,
+   "n_vessel": 75,
+   "real_rho_partial": 0.2995045221080371,
+   "null_mean": -0.003465460873752605,
+   "null_std": 0.1565380231678279,
+   "null_ci95": [
+    -0.2857781907642116,
+    0.272563131639867
+   ],
+   "empirical_p_one_sided": 0.013972055888223553,
+   "empirical_p_nscore": 0.017964071856287425,
+   "geometry_null_mean": 0.10013377955378008,
+   "geometry_null_sd": 0.07891453917401782,
+   "geometry_null_ci95": [
+    -0.07542183444260031,
+    0.243540501645387
+   ],
+   "p_vs_geometry_null": 0.009950248756218905,
+   "construction_null_mean": 0.1644621563874275,
+   "construction_null_sd": 0.07275289677141757,
+   "construction_null_ci95": [
+    0.01135038434670459,
+    0.285732792669288
+   ],
+   "p_vs_construction_null": 0.024875621890547265,
+   "excess_over_construction_null": 0.13504236572060957,
+   "share_reproduced_by_construction": 0.5491141009487089,
+   "ablated_rho": 0.27630472128133776,
+   "ablated_p": 0.005988023952095809,
+   "ablated_null_sd": 0.11423559199087169,
+   "discordant_low_bcell_high_bmab": 0.0,
+   "input_correlations": {
+    "ecm_caf": 0.8502043463420185,
+    "ecm_crosslink": 0.2692176584366822
+   },
+   "bh_padj": 0.02395209580838323,
+   "bh_padj_nscore": 0.02395209580838323,
+   "bh_padj_construction": 0.04975124378109453,
+   "bh_padj_ablated": 0.023952095808383235
+  },
+  "MEL_THR3_rep1": {
+   "patient": "MEL_THR3",
+   "n_nodes": 255,
+   "filled_keys": [
+    "ag_target",
+    "efflux"
+   ],
+   "n_source": 21,
+   "n_sink": 71,
+   "n_vessel": 51,
+   "real_rho_partial": 0.2303266101499301,
+   "null_mean": -0.0007462971507853334,
+   "null_std": 0.12156661839380006,
+   "null_ci95": [
+    -0.2253756083259773,
+    0.23583487223092542
+   ],
+   "empirical_p_one_sided": 0.029940119760479042,
+   "empirical_p_nscore": 0.03592814371257485,
+   "geometry_null_mean": 0.0356386295637999,
+   "geometry_null_sd": 0.10254735463097889,
+   "geometry_null_ci95": [
+    -0.16212138559645034,
+    0.2294689118124389
+   ],
+   "p_vs_geometry_null": 0.029850746268656716,
+   "construction_null_mean": 0.09562130528662204,
+   "construction_null_sd": 0.1031507137584659,
+   "construction_null_ci95": [
+    -0.09275244551003606,
+    0.3036215073146115
+   ],
+   "p_vs_construction_null": 0.09950248756218906,
+   "excess_over_construction_null": 0.13470530486330806,
+   "share_reproduced_by_construction": 0.41515526679430464,
+   "ablated_rho": 0.14478258462783172,
+   "ablated_p": 0.1277445109780439,
+   "ablated_null_sd": 0.12146625997475702,
+   "discordant_low_bcell_high_bmab": 0.03529411764705882,
+   "input_correlations": {
+    "ecm_caf": 0.8606299212598425,
+    "ecm_crosslink": 0.1613659390921723
+   },
+   "bh_padj": 0.03421727972626176,
+   "bh_padj_nscore": 0.041060735671514116,
+   "bh_padj_construction": 0.1044776119402985,
+   "bh_padj_ablated": 0.17032601463739186
+  },
+  "MEL_THR3_rep2": {
+   "patient": "MEL_THR3",
+   "n_nodes": 282,
+   "filled_keys": [
+    "ag_target",
+    "efflux"
+   ],
+   "n_source": 23,
+   "n_sink": 79,
+   "n_vessel": 57,
+   "real_rho_partial": 0.12788888441213783,
+   "null_mean": 0.00292733692357136,
+   "null_std": 0.07199416110450628,
+   "null_ci95": [
+    -0.1405188474392354,
+    0.14717159516360892
+   ],
+   "empirical_p_one_sided": 0.043912175648702596,
+   "empirical_p_nscore": 0.06187624750499002,
+   "geometry_null_mean": -0.02823494244318143,
+   "geometry_null_sd": 0.07234621652263333,
+   "geometry_null_ci95": [
+    -0.16944515987637757,
+    0.1118761487627026
+   ],
+   "p_vs_geometry_null": 0.024875621890547265,
+   "construction_null_mean": 0.008077865974666653,
+   "construction_null_sd": 0.07910286655843701,
+   "construction_null_ci95": [
+    -0.15526862212292816,
+    0.15522626920411034
+   ],
+   "p_vs_construction_null": 0.06965174129353234,
+   "excess_over_construction_null": 0.11981101843747118,
+   "share_reproduced_by_construction": 0.06316315926749916,
+   "ablated_rho": 0.06639384371981358,
+   "ablated_p": 0.15768463073852296,
+   "ablated_null_sd": 0.06196426970946466,
+   "discordant_low_bcell_high_bmab": 0.04609929078014184,
+   "input_correlations": {
+    "ecm_caf": 0.8254475287625873,
+    "ecm_crosslink": 0.1694082348984544
+   },
+   "bh_padj": 0.043912175648702596,
+   "bh_padj_nscore": 0.06187624750499002,
+   "bh_padj_construction": 0.1044776119402985,
+   "bh_padj_ablated": 0.18021100655831196
+  },
+  "MEL_THR4_rep1": {
+   "patient": "MEL_THR4",
+   "n_nodes": 212,
+   "filled_keys": [
+    "ag_target"
+   ],
+   "n_source": 17,
+   "n_sink": 64,
+   "n_vessel": 43,
+   "real_rho_partial": 0.3499980066257377,
+   "null_mean": 0.018989154858888392,
+   "null_std": 0.18453038247292683,
+   "null_ci95": [
+    -0.30313248703217144,
+    0.32165955167859084
+   ],
+   "empirical_p_one_sided": 0.015968063872255488,
+   "empirical_p_nscore": 0.007984031936127744,
+   "geometry_null_mean": 0.016737578691610126,
+   "geometry_null_sd": 0.09432095186204503,
+   "geometry_null_ci95": [
+    -0.15367219479116118,
+    0.19353344313906962
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.07587525490603803,
+   "construction_null_sd": 0.09786186056647689,
+   "construction_null_ci95": [
+    -0.10863311956665782,
+    0.2615639837821228
+   ],
+   "p_vs_construction_null": 0.004975124378109453,
+   "excess_over_construction_null": 0.2741227517196997,
+   "share_reproduced_by_construction": 0.21678767727146936,
+   "ablated_rho": 0.31338568765429586,
+   "ablated_p": 0.00998003992015968,
+   "ablated_null_sd": 0.1679918624879491,
+   "discordant_low_bcell_high_bmab": 0.02830188679245283,
+   "input_correlations": {
+    "ecm_caf": 0.8464747170315103,
+    "ecm_crosslink": 0.27146209097561314
+   },
+   "bh_padj": 0.02395209580838323,
+   "bh_padj_nscore": 0.015968063872255488,
+   "bh_padj_construction": 0.01990049751243781,
+   "bh_padj_ablated": 0.02661343978709248
+  },
+  "MEL_THR4_rep2": {
+   "patient": "MEL_THR4",
+   "n_nodes": 248,
+   "filled_keys": [],
+   "n_source": 20,
+   "n_sink": 73,
+   "n_vessel": 50,
+   "real_rho_partial": 0.22845230294057473,
+   "null_mean": 0.0061047097687891485,
+   "null_std": 0.12161774293799388,
+   "null_ci95": [
+    -0.20993792276857545,
+    0.21585295168421356
+   ],
+   "empirical_p_one_sided": 0.017964071856287425,
+   "empirical_p_nscore": 0.00998003992015968,
+   "geometry_null_mean": 0.010559793403405461,
+   "geometry_null_sd": 0.10188310437008946,
+   "geometry_null_ci95": [
+    -0.17412561652944497,
+    0.20566252547969172
+   ],
+   "p_vs_geometry_null": 0.024875621890547265,
+   "construction_null_mean": 0.07483803783829916,
+   "construction_null_sd": 0.1098567739033608,
+   "construction_null_ci95": [
+    -0.1268537366673261,
+    0.2740043725224071
+   ],
+   "p_vs_construction_null": 0.09950248756218906,
+   "excess_over_construction_null": 0.15361426510227555,
+   "share_reproduced_by_construction": 0.32758714565362085,
+   "ablated_rho": 0.09375242995638625,
+   "ablated_p": 0.25149700598802394,
+   "ablated_null_sd": 0.12204035912187025,
+   "discordant_low_bcell_high_bmab": 0.04838709677419355,
+   "input_correlations": {
+    "ecm_caf": 0.8799767438567119,
+    "ecm_crosslink": 0.25243379158530427
+   },
+   "bh_padj": 0.02395209580838323,
+   "bh_padj_nscore": 0.015968063872255488,
+   "bh_padj_construction": 0.1044776119402985,
+   "bh_padj_ablated": 0.25149700598802394
+  }
+ },
+ "patient_level": {
+  "association": {
+   "label": "replication: partial rho",
+   "n_sections": 8,
+   "n_patients": 4,
+   "sections": [
+    "MEL_THR1_rep1",
+    "MEL_THR1_rep2",
+    "MEL_THR2_rep1",
+    "MEL_THR2_rep2",
+    "MEL_THR3_rep1",
+    "MEL_THR3_rep2",
+    "MEL_THR4_rep1",
+    "MEL_THR4_rep2"
+   ],
+   "patient_means": {
+    "MEL_THR1": 0.3452311125793339,
+    "MEL_THR2": 0.31296647717693005,
+    "MEL_THR3": 0.17910774728103396,
+    "MEL_THR4": 0.28922515478315625
+   },
+   "section_n_positive": 8,
+   "sign_flip": {
+    "J": 4,
+    "mean_of_patient_means": 0.28163262295511354,
+    "n_positive": 4,
+    "p_one_sided": 0.0625,
+    "p_two_sided": 0.125,
+    "min_attainable_p": 0.0625
+   },
+   "nested_model": {
+    "beta": [
+     0.2556631320363847
+    ],
+    "cov_beta": [
+     [
+      0.0027158664291651786
+     ]
+    ],
+    "tau2_patient": 0.00384247489956395,
+    "tau2_section": 2.8964200480761647e-11,
+    "neg_reml": -11.22215735228949,
+    "n": 8,
+    "J": 4,
+    "patient_blup": {
+     "MEL_THR1": 0.03474265420621949,
+     "MEL_THR2": 0.013273886666490969,
+     "MEL_THR3": -0.05062178093483835,
+     "MEL_THR4": 0.002605240062127828
+    },
+    "label": "replication: partial rho",
+    "mean": 0.2556631320363847,
+    "se": 0.05211397537288034,
+    "df": 3,
+    "t": 4.905845892720546,
+    "ci95": [
+     0.08981320365731552,
+     0.4215130604154539
+    ],
+    "p_two_sided": 0.016214443213971263,
+    "p_one_sided_positive": 0.008107221606985631,
+    "between_patient_share": 0.9999999924620978
+   },
+   "leave_one_patient_out": {
+    "MEL_THR1": {
+     "mean": 0.21290064993197097,
+     "ci95": [
+      -0.012725906443621343,
+      0.43852720630756326
+     ],
+     "p_two_sided": 0.05565120194010575,
+     "n_sections": 6,
+     "n_patients": 3
+    },
+    "MEL_THR2": {
+     "mean": 0.2459333810977074,
+     "ci95": [
+      -0.02078676777825611,
+      0.512653529973671
+     ],
+     "p_two_sided": 0.05805605502121636,
+     "n_sections": 6,
+     "n_patients": 3
+    },
+    "MEL_THR3": {
+     "mean": 0.3138287089443856,
+     "ci95": [
+      0.08604410875708074,
+      0.5416133091316904
+     ],
+     "p_two_sided": 0.027297281587351417,
+     "n_sections": 6,
+     "n_patients": 3
+    },
+    "MEL_THR4": {
+     "mean": 0.25694703415596015,
+     "ci95": [
+      -0.028894137225206173,
+      0.5427882055371265
+     ],
+     "p_two_sided": 0.060813991850270296,
+     "n_sections": 6,
+     "n_patients": 3
+    }
+   },
+   "lopo_min_mean": 0.21290064993197097,
+   "lopo_max_p_two_sided": 0.060813991850270296
+  },
+  "excess": {
+   "label": "replication: excess over construction null",
+   "n_sections": 8,
+   "n_patients": 4,
+   "sections": [
+    "MEL_THR1_rep1",
+    "MEL_THR1_rep2",
+    "MEL_THR2_rep1",
+    "MEL_THR2_rep2",
+    "MEL_THR3_rep1",
+    "MEL_THR3_rep2",
+    "MEL_THR4_rep1",
+    "MEL_THR4_rep2"
+   ],
+   "patient_means": {
+    "MEL_THR1": 0.20490211289854438,
+    "MEL_THR2": 0.17378460063440068,
+    "MEL_THR3": 0.1272581616503896,
+    "MEL_THR4": 0.21386850841098762
+   },
+   "section_n_positive": 8,
+   "sign_flip": {
+    "J": 4,
+    "mean_of_patient_means": 0.17995334589858056,
+    "n_positive": 4,
+    "p_one_sided": 0.0625,
+    "p_two_sided": 0.125,
+    "min_attainable_p": 0.0625
+   },
+   "nested_model": {
+    "beta": [
+     0.17148850072491842
+    ],
+    "cov_beta": [
+     [
+      0.0011549536443034004
+     ]
+    ],
+    "tau2_patient": 1.4523063834098563e-08,
+    "tau2_section": 2.3117629883630706e-08,
+    "neg_reml": -13.831829340136029,
+    "n": 8,
+    "J": 4,
+    "patient_blup": {
+     "MEL_THR1": 8.155830920139957e-08,
+     "MEL_THR2": -4.5540118942671465e-08,
+     "MEL_THR3": -1.7014876715141222e-07,
+     "MEL_THR4": 1.3413057689268365e-07
+    },
+    "label": "replication: excess over construction null",
+    "mean": 0.17148850072491842,
+    "se": 0.0339846089326242,
+    "df": 3,
+    "t": 5.046063677381164,
+    "ci95": [
+     0.06333430759077685,
+     0.27964269385906
+    ],
+    "p_two_sided": 0.015010030516389704,
+    "p_one_sided_positive": 0.007505015258194852,
+    "between_patient_share": 0.38583411727233935
+   },
+   "leave_one_patient_out": {
+    "MEL_THR1": {
+     "mean": 0.16370374504474722,
+     "ci95": [
+      0.003506061547782102,
+      0.32390142854171233
+     ],
+     "p_two_sided": 0.04803138086164135,
+     "n_sections": 6,
+     "n_patients": 3
+    },
+    "MEL_THR2": {
+     "mean": 0.17684390396222457,
+     "ci95": [
+      -0.0009689869844989873,
+      0.35465679490894814
+     ],
+     "p_two_sided": 0.050508505273505706,
+     "n_sections": 6,
+     "n_patients": 3
+    },
+    "MEL_THR3": {
+     "mean": 0.19063072347341015,
+     "ci95": [
+      0.016711537191575476,
+      0.3645499097552448
+     ],
+     "p_two_sided": 0.04213950076192665,
+     "n_sections": 6,
+     "n_patients": 3
+    },
+    "MEL_THR4": {
+     "mean": 0.157877762506353,
+     "ci95": [
+      -0.0072968653122643945,
+      0.32305239032497035
+     ],
+     "p_two_sided": 0.05434985497214222,
+     "n_sections": 6,
+     "n_patients": 3
+    }
+   },
+   "lopo_min_mean": 0.157877762506353,
+   "lopo_max_p_two_sided": 0.05434985497214222
+  },
+  "ablated": {
+   "label": "replication: shared ECM term ablated",
+   "n_sections": 8,
+   "n_patients": 4,
+   "sections": [
+    "MEL_THR1_rep1",
+    "MEL_THR1_rep2",
+    "MEL_THR2_rep1",
+    "MEL_THR2_rep2",
+    "MEL_THR3_rep1",
+    "MEL_THR3_rep2",
+    "MEL_THR4_rep1",
+    "MEL_THR4_rep2"
+   ],
+   "patient_means": {
+    "MEL_THR1": 0.2708112271719909,
+    "MEL_THR2": 0.2760114680874599,
+    "MEL_THR3": 0.10558821417382265,
+    "MEL_THR4": 0.20356905880534104
+   },
+   "section_n_positive": 8,
+   "sign_flip": {
+    "J": 4,
+    "mean_of_patient_means": 0.21399499205965364,
+    "n_positive": 4,
+    "p_one_sided": 0.0625,
+    "p_two_sided": 0.125,
+    "min_attainable_p": 0.0625
+   },
+   "nested_model": {
+    "beta": [
+     0.18587337256692993
+    ],
+    "cov_beta": [
+     [
+      0.002817034308590583
+     ]
+    ],
+    "tau2_patient": 0.005031452844466442,
+    "tau2_section": 1.3255262334697592e-09,
+    "neg_reml": -10.592336641880392,
+    "n": 8,
+    "J": 4,
+    "patient_blup": {
+     "MEL_THR1": 0.03523563529911189,
+     "MEL_THR2": 0.03463139239964921,
+     "MEL_THR3": -0.0643352731651926,
+     "MEL_THR4": -0.005531754533568546
+    },
+    "label": "replication: shared ECM term ablated",
+    "mean": 0.18587337256692993,
+    "se": 0.05307574124391089,
+    "df": 3,
+    "t": 3.502040069732502,
+    "ci95": [
+     0.01696267594505163,
+     0.3547840691888082
+    ],
+    "p_two_sided": 0.039423055944882046,
+    "p_one_sided_positive": 0.019711527972441023,
+    "between_patient_share": 0.9999997365520606
+   },
+   "leave_one_patient_out": {
+    "MEL_THR1": {
+     "mean": 0.15960272968888808,
+     "ci95": [
+      -0.10250125637449989,
+      0.42170671575227603
+     ],
+     "p_two_sided": 0.12001149169251062,
+     "n_sections": 6,
+     "n_patients": 3
+    },
+    "MEL_THR2": {
+     "mean": 0.1611035944944818,
+     "ci95": [
+      -0.09594920199156465,
+      0.41815639098052826
+     ],
+     "p_two_sided": 0.11439807160447987,
+     "n_sections": 6,
+     "n_patients": 3
+    },
+    "MEL_THR3": {
+     "mean": 0.24344499256462448,
+     "ci95": [
+      0.023270794461845934,
+      0.46361919066740304
+     ],
+     "p_two_sided": 0.041455277594767734,
+     "n_sections": 6,
+     "n_patients": 3
+    },
+    "MEL_THR4": {
+     "mean": 0.1946674591034666,
+     "ci95": [
+      -0.0998964316330328,
+      0.489231349839966
+     ],
+     "p_two_sided": 0.10462684162783015,
+     "n_sections": 6,
+     "n_patients": 3
+    }
+   },
+   "lopo_min_mean": 0.15960272968888808,
+   "lopo_max_p_two_sided": 0.12001149169251062
+  },
+  "pooled_primary_plus_replication": {
+   "label": "primary (7 patients) + replication (4 patients)",
+   "n_sections": 27,
+   "n_patients": 11,
+   "sections": [
+    "MEL01",
+    "MEL02",
+    "MEL03",
+    "MEL04",
+    "CSCC01",
+    "CSCC02",
+    "CSCC03",
+    "CSCC04",
+    "CSCC05",
+    "CSCC06",
+    "CSCC07",
+    "CSCC09",
+    "CSCC10",
+    "CSCC11",
+    "CSCC12",
+    "CSCC14",
+    "CSCC15",
+    "CSCC16",
+    "CSCC08",
+    "MEL_THR1_rep1",
+    "MEL_THR1_rep2",
+    "MEL_THR2_rep1",
+    "MEL_THR2_rep2",
+    "MEL_THR3_rep1",
+    "MEL_THR3_rep2",
+    "MEL_THR4_rep1",
+    "MEL_THR4_rep2"
+   ],
+   "patient_means": {
+    "CSCC_P10": 0.17781745127965656,
+    "CSCC_P2": 0.2569700819332674,
+    "CSCC_P4": 0.32322560963104874,
+    "CSCC_P5": 0.1519735537324521,
+    "CSCC_P6": 0.2481557708270153,
+    "CSCC_P9": 0.2089522660069306,
+    "MEL_PtB": 0.14180656582276505,
+    "MEL_THR1": 0.3452311125793339,
+    "MEL_THR2": 0.31296647717693005,
+    "MEL_THR3": 0.17910774728103396,
+    "MEL_THR4": 0.28922515478315625
+   },
+   "section_n_positive": 26,
+   "sign_flip": {
+    "J": 11,
+    "mean_of_patient_means": 0.23958470827759906,
+    "n_positive": 11,
+    "p_one_sided": 0.00048828125,
+    "p_two_sided": 0.0009765625,
+    "min_attainable_p": 0.00048828125
+   },
+   "nested_model": {
+    "beta": [
+     0.21491019212731152
+    ],
+    "cov_beta": [
+     [
+      0.0005169528921167999
+     ]
+    ],
+    "tau2_patient": 0.0021900573559849447,
+    "tau2_section": 1.3887943864964021e-11,
+    "neg_reml": -48.305792855240824,
+    "n": 27,
+    "J": 11,
+    "patient_blup": {
+     "CSCC_P10": -0.017217603148921633,
+     "CSCC_P2": 0.02194700740419604,
+     "CSCC_P4": 0.03643979363714023,
+     "CSCC_P5": -0.03366910460786818,
+     "CSCC_P6": 0.012656210399823765,
+     "CSCC_P9": -0.0038980804895504205,
+     "MEL_PtB": -0.053145377989836415,
+     "MEL_THR1": 0.03558850979220959,
+     "MEL_THR2": 0.014433128516358952,
+     "MEL_THR3": -0.02195468803864558,
+     "MEL_THR4": 0.008820204525093873
+    },
+    "label": "primary (7 patients) + replication (4 patients)",
+    "mean": 0.21491019212731152,
+    "se": 0.0227365980770387,
+    "df": 10,
+    "t": 9.452170082750667,
+    "ci95": [
+     0.1642498945898652,
+     0.2655704896647578
+    ],
+    "p_two_sided": 2.657456059138729e-06,
+    "p_one_sided_positive": 1.3287280295693645e-06,
+    "between_patient_share": 0.9999999936586393
+   },
+   "leave_one_patient_out": {
+    "CSCC_P10": {
+     "mean": 0.2199386229988356,
+     "ci95": [
+      0.16577795196816097,
+      0.2740992940295102
+     ],
+     "p_two_sided": 7.218332835678414e-06,
+     "n_sections": 24,
+     "n_patients": 10
+    },
+    "CSCC_P2": {
+     "mean": 0.20951455622162854,
+     "ci95": [
+      0.15374737655725718,
+      0.2652817358859999
+     ],
+     "p_two_sided": 1.3609439502820959e-05,
+     "n_sections": 24,
+     "n_patients": 10
+    },
+    "CSCC_P4": {
+     "mean": 0.20348449124746104,
+     "ci95": [
+      0.15281220594196981,
+      0.25415677655295227
+     ],
+     "p_two_sided": 7.911751536630789e-06,
+     "n_sections": 25,
+     "n_patients": 10
+    },
+    "CSCC_P5": {
+     "mean": 0.22436135104555752,
+     "ci95": [
+      0.16862294195475605,
+      0.28009976013635896
+     ],
+     "p_two_sided": 7.759058836653026e-06,
+     "n_sections": 24,
+     "n_patients": 10
+    },
+    "CSCC_P6": {
+     "mean": 0.21256508808841013,
+     "ci95": [
+      0.15629961751521254,
+      0.2688305586616077
+     ],
+     "p_two_sided": 1.3010431121195412e-05,
+     "n_sections": 25,
+     "n_patients": 10
+    },
+    "CSCC_P9": {
+     "mean": 0.21729601313487104,
+     "ci95": [
+      0.16051022616736144,
+      0.27408180010238065
+     ],
+     "p_two_sided": 1.1726721888064123e-05,
+     "n_sections": 25,
+     "n_patients": 10
+    },
+    "MEL_PtB": {
+     "mean": 0.22901574098991168,
+     "ci95": [
+      0.17837839447672843,
+      0.2796530875030949
+     ],
+     "p_two_sided": 2.957900696915732e-06,
+     "n_sections": 23,
+     "n_patients": 10
+    },
+    "MEL_THR1": {
+     "mean": 0.20453303923307195,
+     "ci95": [
+      0.15453714006988206,
+      0.25452893839626184
+     ],
+     "p_two_sided": 6.79284041842768e-06,
+     "n_sections": 25,
+     "n_patients": 10
+    },
+    "MEL_THR2": {
+     "mean": 0.21134498019403863,
+     "ci95": [
+      0.1590745218118415,
+      0.26361543857623576
+     ],
+     "p_two_sided": 7.479655970090147e-06,
+     "n_sections": 25,
+     "n_patients": 10
+    },
+    "MEL_THR3": {
+     "mean": 0.2214899944887345,
+     "ci95": [
+      0.16601719731722928,
+      0.27696279166023974
+     ],
+     "p_two_sided": 8.29162153541963e-06,
+     "n_sections": 25,
+     "n_patients": 10
+    },
+    "MEL_THR4": {
+     "mean": 0.21303294697139047,
+     "ci95": [
+      0.1598402164291319,
+      0.26622567751364906
+     ],
+     "p_two_sided": 8.08774703550268e-06,
+     "n_sections": 25,
+     "n_patients": 10
+    }
+   },
+   "lopo_min_mean": 0.20348449124746104,
+   "lopo_max_p_two_sided": 1.3609439502820959e-05
+  }
+ },
+ "summary": {
+  "n_sections": 8,
+  "n_patients": 4,
+  "n_pos": 8,
+  "median_rho": 0.311242435862676,
+  "min_rho": 0.12788888441213783,
+  "max_rho": 0.36748187554135286,
+  "n_p05": 8,
+  "n_q05": 8,
+  "n_q05_nscore": 7,
+  "median_construction_null": 0.1047614509921266,
+  "median_geometry_null": 0.04564456080911654,
+  "median_share_construction": 0.338493273568253,
+  "median_excess": 0.15824520528138913,
+  "n_excess_pos": 8,
+  "n_q05_construction": 4,
+  "median_ablated": 0.2337275986580272,
+  "n_ablated_pos": 8,
+  "n_ablated_q05": 4,
+  "median_r_ecm_caf": 0.8554171338009304,
+  "n_discordant_below_chance": 8,
+  "replication_declared": true
+ },
+ "settings": {
+  "n_sur": 500,
+  "n_null": 200,
+  "seed": 20261005,
+  "config": "configs/cscc_legacy_st.yaml",
+  "cohort_override": "mel_thrane2018"
+ },
+ "semantics": "Independent replication family: never pooled into the primary-cohort numbers except in the explicitly labelled 'pooled_primary_plus_replication' patient-level analysis.",
+ "meta": {
+  "timestamp": "2026-10-04T16:20:19+00:00",
+  "config_path": "/home/claude/sparta/configs/cscc_legacy_st.yaml",
+  "seed": 0,
+  "python": "3.13.16",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "networkx": "3.6.1",
+  "module": "M48-replication",
+  "seconds": 25.6
+ }
+}

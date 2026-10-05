@@ -51,9 +51,16 @@ def build_cmd(step, row, P):
         return cmd
     if step == "02":
         ct = str(row.get("cancer_type", "melanoma"))
+        if ct not in ("melanoma", "cscc", "bcc", "brca"):
+            # 不要静默回退到 melanoma——2026-10-03 实测外部 BRCA/LN 样本被静默
+            # 用黑色素瘤标记（MLANA/PMEL/TYR...）打 Malignant_n，而这些基因在乳腺癌
+            # 和淋巴结里不表达，导致 sink（瘤巢核心）选在随机位置。R3 逐点场不依赖
+            # sink 所以没崩，但 B_cell 标量和 S2 反事实全部基于错误的 sink。
+            sys.exit(f"[batch] slide {sid}: cancer_type='{ct}' 不受 run_02_score 支持。"
+                     f"\n        请在 signatures.py 的 _TUMOR_SPECIFIC 里加该瘤种的恶性标记，"
+                     f"或显式指定 --tumor-type。不要静默回退到 melanoma。")
         return [py, str(SCRIPTS / NAMES[step]), "--slide", sid,
-                "--tumor-type", ct if ct in ("melanoma", "cscc", "bcc") else "melanoma",
-                "--plot"]
+                "--tumor-type", ct, "--plot"]
     return [py, str(SCRIPTS / NAMES[step]), "--slide", sid]
 
 

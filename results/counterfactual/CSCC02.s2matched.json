@@ -1,0 +1,55 @@
+{
+ "slide": "CSCC02",
+ "s2_matched": {
+  "b0": 0.13844406039961898,
+  "n_cut_nodes": 160,
+  "n_cut_pool": 63,
+  "k_mode": "frac",
+  "k_frac": [
+   0.2
+  ],
+  "contiguous": true,
+  "per_k": {
+   "13": {
+    "k_over_cut": 0.20634920634920634,
+    "targeted": 0.09113245578073055,
+    "drop_targeted": 0.34173805999319634,
+    "rand_global_mean": 0.1340370789130258,
+    "drop_rand_global": 0.03183221782025603,
+    "rand_in_cut_mean": 0.10131634868017882,
+    "drop_rand_in_cut": 0.26817843692248544,
+    "ratio_vs_global": 1.4707941069211963,
+    "ratio_vs_in_cut": 1.1117482549009705,
+    "p_vs_in_cut": 0.019801980198019802,
+    "n_rand_in_cut": 100,
+    "match_selection": true,
+    "nodes": [
+     225,
+     311,
+     156,
+     141,
+     443,
+     577,
+     481,
+     417,
+     49,
+     436,
+     409,
+     569,
+     394
+    ]
+   }
+  }
+ },
+ "meta": {
+  "timestamp": "2026-10-04T16:44:11+00:00",
+  "config_path": "/home/claude/sparta/configs/default.yaml",
+  "seed": 0,
+  "python": "3.13.16",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "networkx": "3.6.1",
+  "module": "M28-s2-matched",
+  "slide": "CSCC02"
+ }
+}

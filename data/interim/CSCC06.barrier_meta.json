@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-08-27T14:10:35+00:00",
+  "config_path": "configs\\cscc_legacy_st.yaml",
+  "seed": 0,
+  "python": "3.13.13",
+  "numpy": "2.5.2",
+  "scipy": "1.18.1",
+  "networkx": "3.6.1",
+  "module": "M4",
+  "slide": "CSCC06",
+  "b_cell": 0.11855192940457689,
+  "max_flow": 8.435122101377132,
+  "r_nm": 5.5,
+  "n_unreachable": 0,
+  "d_vessel_mode": "weighted",
+  "filled_keys": [],
+  "degraded": false
+}

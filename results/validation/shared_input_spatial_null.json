@@ -1,0 +1,336 @@
+{
+  "per_slide": {
+    "CSCC01": {
+      "patient": "CSCC_P4",
+      "n_nodes": 701,
+      "filled_keys": [],
+      "rho_partial_full_model": 0.38510368758088914,
+      "real_rho_partial": 0.3130227357542849,
+      "retained_fraction": 0.8128271575912552,
+      "null_mean": 0.001939047473520938,
+      "null_std": 0.0841501377185843,
+      "empirical_p_one_sided": 0.001996007984031936,
+      "n_perm": 500,
+      "bh_padj": 0.0075848303393213565
+    },
+    "CSCC02": {
+      "patient": "CSCC_P4",
+      "n_nodes": 652,
+      "filled_keys": [],
+      "rho_partial_full_model": 0.26166186957140364,
+      "real_rho_partial": 0.21862437106810226,
+      "retained_fraction": 0.8355224680852589,
+      "null_mean": -0.00027905580222443375,
+      "null_std": 0.06947466518283445,
+      "empirical_p_one_sided": 0.001996007984031936,
+      "n_perm": 500,
+      "bh_padj": 0.0075848303393213565
+    },
+    "CSCC03": {
+      "patient": "CSCC_P6",
+      "n_nodes": 2645,
+      "filled_keys": [],
+      "rho_partial_full_model": 0.2791487518976953,
+      "real_rho_partial": 0.20975932304834818,
+      "retained_fraction": 0.7514249002453807,
+      "null_mean": 0.001783379517532096,
+      "null_std": 0.07961291563382042,
+      "empirical_p_one_sided": 0.003992015968063872,
+      "n_perm": 500,
+      "bh_padj": 0.012641383898868928
+    },
+    "CSCC04": {
+      "patient": "CSCC_P6",
+      "n_nodes": 2328,
+      "filled_keys": [],
+      "rho_partial_full_model": 0.21698516161224804,
+      "real_rho_partial": 0.20789015173960435,
+      "retained_fraction": 0.9580846459496781,
+      "null_mean": -0.002821816054705286,
+      "null_std": 0.07468965041517292,
+      "empirical_p_one_sided": 0.001996007984031936,
+      "n_perm": 500,
+      "bh_padj": 0.0075848303393213565
+    },
+    "CSCC05": {
+      "patient": "CSCC_P2",
+      "n_nodes": 664,
+      "filled_keys": [],
+      "rho_partial_full_model": 0.2802954310107374,
+      "real_rho_partial": 0.16798816594775298,
+      "retained_fraction": 0.5993253808740029,
+      "null_mean": 0.0016403914447477527,
+      "null_std": 0.0900781745261336,
+      "empirical_p_one_sided": 0.027944111776447105,
+      "n_perm": 500,
+      "bh_padj": 0.06636726546906188
+    },
+    "CSCC06": {
+      "patient": "CSCC_P2",
+      "n_nodes": 643,
+      "filled_keys": [],
+      "rho_partial_full_model": 0.20762072152427122,
+      "real_rho_partial": 0.10570562246083412,
+      "retained_fraction": 0.5091284804560172,
+      "null_mean": -0.0016688573678003593,
+      "null_std": 0.07811806874323801,
+      "empirical_p_one_sided": 0.08383233532934131,
+      "n_perm": 500,
+      "bh_padj": 0.12252418240442192
+    },
+    "CSCC07": {
+      "patient": "CSCC_P2",
+      "n_nodes": 637,
+      "filled_keys": [],
+      "rho_partial_full_model": 0.28388884556333716,
+      "real_rho_partial": 0.22283688404085006,
+      "retained_fraction": 0.7849441340277454,
+      "null_mean": -0.00033780526627963603,
+      "null_std": 0.05944133439809805,
+      "empirical_p_one_sided": 0.001996007984031936,
+      "n_perm": 500,
+      "bh_padj": 0.0075848303393213565
+    },
+    "CSCC08": {
+      "patient": "CSCC_P5",
+      "n_nodes": 566,
+      "filled_keys": [],
+      "rho_partial_full_model": 0.11388887316217428,
+      "real_rho_partial": 0.12808774828461433,
+      "retained_fraction": 1.124673067071454,
+      "null_mean": -0.0013120849913781242,
+      "null_std": 0.07578538241655448,
+      "empirical_p_one_sided": 0.04590818363273453,
+      "n_perm": 500,
+      "bh_padj": 0.07929595354745055
+    },
+    "CSCC09": {
+      "patient": "CSCC_P5",
+      "n_nodes": 511,
+      "filled_keys": [],
+      "rho_partial_full_model": 0.20134439473668833,
+      "real_rho_partial": 0.0612269669246275,
+      "retained_fraction": 0.3040907446402873,
+      "null_mean": -0.00663710119998531,
+      "null_std": 0.08711025689004732,
+      "empirical_p_one_sided": 0.24151696606786427,
+      "n_perm": 500,
+      "bh_padj": 0.2699307267817307
+    },
+    "CSCC10": {
+      "patient": "CSCC_P5",
+      "n_nodes": 448,
+      "filled_keys": [
+        "ag_target"
+      ],
+      "rho_partial_full_model": 0.1406873932984936,
+      "real_rho_partial": 0.057128876273143094,
+      "retained_fraction": 0.4060696195566998,
+      "null_mean": 0.002041160428443949,
+      "null_std": 0.06755709522889652,
+      "empirical_p_one_sided": 0.20359281437125748,
+      "n_perm": 500,
+      "bh_padj": 0.25788423153692613
+    },
+    "CSCC11": {
+      "patient": "CSCC_P9",
+      "n_nodes": 672,
+      "filled_keys": [],
+      "rho_partial_full_model": 0.1933725934731335,
+      "real_rho_partial": 0.13699873307593913,
+      "retained_fraction": 0.7084702677630128,
+      "null_mean": 0.0002577506793666503,
+      "null_std": 0.057780500420390145,
+      "empirical_p_one_sided": 0.013972055888223553,
+      "n_perm": 500,
+      "bh_padj": 0.03792415169660679
+    },
+    "CSCC12": {
+      "patient": "CSCC_P9",
+      "n_nodes": 595,
+      "filled_keys": [],
+      "rho_partial_full_model": 0.22453193854072773,
+      "real_rho_partial": 0.18272800758119856,
+      "retained_fraction": 0.8138174407114631,
+      "null_mean": -0.0013067213077250512,
+      "null_std": 0.1062389191442659,
+      "empirical_p_one_sided": 0.03592814371257485,
+      "n_perm": 500,
+      "bh_padj": 0.07584830339321356
+    },
+    "CSCC14": {
+      "patient": "CSCC_P10",
+      "n_nodes": 370,
+      "filled_keys": [
+        "ag_target",
+        "efflux"
+      ],
+      "rho_partial_full_model": 0.2949564765498363,
+      "real_rho_partial": 0.2533609941820698,
+      "retained_fraction": 0.8589775588103132,
+      "null_mean": -0.018745649897293146,
+      "null_std": 0.21058857884351972,
+      "empirical_p_one_sided": 0.11177644710578842,
+      "n_perm": 500,
+      "bh_padj": 0.15169660678642716
+    },
+    "CSCC15": {
+      "patient": "CSCC_P10",
+      "n_nodes": 597,
+      "filled_keys": [
+        "ag_target",
+        "efflux"
+      ],
+      "rho_partial_full_model": -0.00040111430907287666,
+      "real_rho_partial": -0.03185048173641736,
+      "retained_fraction": 79.4050000610439,
+      "null_mean": -0.0028810749599804406,
+      "null_std": 0.11838363783812378,
+      "empirical_p_one_sided": 0.6007984031936128,
+      "n_perm": 500,
+      "bh_padj": 0.6341760922599247
+    },
+    "CSCC16": {
+      "patient": "CSCC_P10",
+      "n_nodes": 380,
+      "filled_keys": [
+        "ag_target",
+        "efflux"
+      ],
+      "rho_partial_full_model": 0.23889699159820624,
+      "real_rho_partial": 0.21046894169844735,
+      "retained_fraction": 0.8810028970663173,
+      "null_mean": -0.0031080859393481,
+      "null_std": 0.12124619587683148,
+      "empirical_p_one_sided": 0.04590818363273453,
+      "n_perm": 500,
+      "bh_padj": 0.07929595354745055
+    },
+    "MEL01": {
+      "patient": "MEL_PtB",
+      "n_nodes": 1660,
+      "filled_keys": [
+        "efflux"
+      ],
+      "rho_partial_full_model": 0.2192428306725159,
+      "real_rho_partial": 0.15159100723041843,
+      "retained_fraction": 0.6914297118196338,
+      "null_mean": 0.002955484894769658,
+      "null_std": 0.05542308663674952,
+      "empirical_p_one_sided": 0.001996007984031936,
+      "n_perm": 500,
+      "bh_padj": 0.0075848303393213565
+    },
+    "MEL02": {
+      "patient": "MEL_PtB",
+      "n_nodes": 801,
+      "filled_keys": [],
+      "rho_partial_full_model": 0.05540353257541708,
+      "real_rho_partial": -0.03678927897800144,
+      "retained_fraction": -0.6640240661174932,
+      "null_mean": -0.0025968600168004246,
+      "null_std": 0.0812371539308492,
+      "empirical_p_one_sided": 0.6646706586826348,
+      "n_perm": 500,
+      "bh_padj": 0.6646706586826348
+    },
+    "MEL03": {
+      "patient": "MEL_PtB",
+      "n_nodes": 1724,
+      "filled_keys": [],
+      "rho_partial_full_model": 0.14945050257352122,
+      "real_rho_partial": 0.057962536453759816,
+      "retained_fraction": 0.3878376817451351,
+      "null_mean": 0.002803370087679407,
+      "null_std": 0.06581194396687397,
+      "empirical_p_one_sided": 0.22954091816367264,
+      "n_perm": 500,
+      "bh_padj": 0.2699307267817307
+    },
+    "MEL04": {
+      "patient": "MEL_PtB",
+      "n_nodes": 2673,
+      "filled_keys": [],
+      "rho_partial_full_model": 0.14316679795921722,
+      "real_rho_partial": 0.05345994133652351,
+      "retained_fraction": 0.3734101907605157,
+      "null_mean": -4.799140697549709e-05,
+      "null_std": 0.03546988857069391,
+      "empirical_p_one_sided": 0.06786427145708583,
+      "n_perm": 500,
+      "bh_padj": 0.1074517631403859
+    },
+    "BRCA01": {
+      "patient": "BRCA_P1",
+      "n_nodes": 3798,
+      "filled_keys": [],
+      "rho_partial_full_model": 0.3312877509350365,
+      "real_rho_partial": 0.3139009008744953,
+      "retained_fraction": 0.947517377230314,
+      "null_mean": -0.0065559430414609265,
+      "null_std": 0.12481069196957996,
+      "empirical_p_one_sided": 0.001996007984031936,
+      "n_perm": 500
+    },
+    "BRCA02": {
+      "patient": "BRCA_P1",
+      "n_nodes": 3985,
+      "filled_keys": [],
+      "rho_partial_full_model": 0.28134783058330287,
+      "real_rho_partial": 0.2982429720807234,
+      "retained_fraction": 1.0600507260439607,
+      "null_mean": 0.010543492605902188,
+      "null_std": 0.17133404162795962,
+      "empirical_p_one_sided": 0.04590818363273453,
+      "n_perm": 500
+    },
+    "LN01": {
+      "patient": "LN_P1",
+      "n_nodes": 4025,
+      "filled_keys": [],
+      "rho_partial_full_model": 0.2653892859576762,
+      "real_rho_partial": 0.20595297655995867,
+      "retained_fraction": 0.7760410365353019,
+      "null_mean": -0.0013424901748443263,
+      "null_std": 0.049328180786952044,
+      "empirical_p_one_sided": 0.001996007984031936,
+      "n_perm": 500
+    }
+  },
+  "summary": {
+    "n_slides": 19,
+    "median_full": 0.21698516161224804,
+    "median_ablated": 0.15159100723041843,
+    "n_positive": 17,
+    "n_p_lt_05": 11,
+    "n_bh_lt_05": 7,
+    "median_retained_fraction": 0.7514249002453807,
+    "config": {
+      "b_cell": {
+        "a": 3.0,
+        "b_ecm": 0.0,
+        "c_caf": 12.0
+      },
+      "b_mab": {
+        "r_nm": 5.5,
+        "g0": 1.0,
+        "lam": 0.0,
+        "xi0_nm": 20.0,
+        "beta": 3.0,
+        "kd_eff": 0.5,
+        "kappa_w": 1.0,
+        "g_floor": 1e-06
+      }
+    }
+  },
+  "meta": {
+    "timestamp": "2026-10-04T05:15:07+00:00",
+    "config_path": "configs/default.yaml",
+    "seed": 20261005,
+    "python": "3.13.16",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "networkx": "3.6.1",
+    "module": "M39-coupling-decomposition"
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "summary": {
+    "n_slides": 3,
+    "n_decoupling_positive": 3,
+    "n_decoupling_significant": 3,
+    "n_null_significant": 3,
+    "median_rho_partial": 0.2813478305833029,
+    "median_null_p": 0.001996007984031936,
+    "n_degraded": 0,
+    "degraded_slides": {},
+    "p_correction": "(k+1)/(N+1) finite-sample",
+    "note": "外部独立验证：10x 公开 Visium（人乳腺癌 Block A S1/S2 + 人淋巴结），decoupling 与空间空模型口径分别与 run_06/run_27 主队列一致",
+    "caveat": "External slides re-scored with tumor_type=brca (EPCAM/KRT8/KRT18/KRT19/MUC1) on 2026-10-03, after fixing run_batch's silent fallback to melanoma. Sink (tumor core) is now defined on epithelial-malignant markers. Limitations: (1) BRCA01 and BRCA02 are two adjacent sections from the SAME patient (BRCA_P1), not independent tumor replicates; (2) LN01 is a non-tumor lymph node, included as a negative control — its S2 ratio is near 1.0 (1.016x, p=0.12), consistent with no tumor-core barrier; (3) BRCA02 null p=0.050 is borderline after BH adjustment (adj=0.050), treat as sensitive; (4) epithelial-malignant markers have not been histopathologically confirmed, so 'tumor core' is a model-defined epithelial region, not a pathologist-verified region. These data support cross-dataset reproduction of model-field coupling, not independent biological validation of a tumor barrier.",
+    "n_null_sig_bh": 3
+  },
+  "per_slide": {
+    "BRCA01": {
+      "patient": "BRCA_P1",
+      "filled_keys": [],
+      "degraded": false,
+      "decoupling": {
+        "rho": 0.21779685986640174,
+        "p": 5.170239606098988e-42,
+        "n": 3798,
+        "degenerate": false,
+        "frac_discordant": 0.02422327540810953,
+        "frac_both_high": 0.0784623486045287,
+        "frac_both_low": 0.10373880989994734,
+        "chance_discordant": 0.0625,
+        "enrichment_vs_chance": 0.3875724065297525,
+        "controlled": true,
+        "rho_partial": 0.3312790202986877,
+        "p_partial": 5.871822981556075e-98,
+        "frac_discordant_r": 0.021063717746182202,
+        "enrichment_vs_chance_r": 0.33701948393891523,
+        "frac_both_high_r": 0.11743022643496577,
+        "frac_both_low_r": 0.08030542390731964
+      },
+      "spatial_null": {
+        "n_nodes": 3798,
+        "real_rho_partial": 0.3312790202986877,
+        "null_mean": -0.007825446380751775,
+        "null_std": 0.11273569824525345,
+        "null_ci95": [
+          -0.2208759482068599,
+          0.20791856101906842
+        ],
+        "empirical_p_one_sided": 0.001996007984031936,
+        "n_perm": 500,
+        "bh_padj": 0.002994011976047904
+      }
+    },
+    "BRCA02": {
+      "patient": "BRCA_P1",
+      "filled_keys": [],
+      "degraded": false,
+      "decoupling": {
+        "rho": 0.18810858109797884,
+        "p": 4.6305780444009514e-33,
+        "n": 3985,
+        "degenerate": false,
+        "frac_discordant": 0.036888331242158096,
+        "frac_both_high": 0.05796737766624843,
+        "frac_both_low": 0.10163111668757842,
+        "chance_discordant": 0.0625,
+        "enrichment_vs_chance": 0.5902132998745295,
+        "controlled": true,
+        "rho_partial": 0.2813478305833029,
+        "p_partial": 2.124633425698172e-73,
+        "frac_discordant_r": 0.021580928481806774,
+        "enrichment_vs_chance_r": 0.3452948557089084,
+        "frac_both_high_r": 0.09385194479297365,
+        "frac_both_low_r": 0.07628607277289837
+      },
+      "spatial_null": {
+        "n_nodes": 3985,
+        "real_rho_partial": 0.2813478305833029,
+        "null_mean": -0.0023082003107149094,
+        "null_std": 0.1640839736487241,
+        "null_ci95": [
+          -0.3087676230993087,
+          0.29871361783287953
+        ],
+        "empirical_p_one_sided": 0.0499001996007984,
+        "n_perm": 500,
+        "bh_padj": 0.04990019960079841
+      }
+    },
+    "LN01": {
+      "patient": "LN_P1",
+      "filled_keys": [],
+      "degraded": false,
+      "decoupling": {
+        "rho": 0.22702417747738624,
+        "p": 3.276287201809864e-48,
+        "n": 4025,
+        "degenerate": false,
+        "frac_discordant": 0.031801242236024846,
+        "frac_both_high": 0.08770186335403726,
+        "frac_both_low": 0.1115527950310559,
+        "chance_discordant": 0.0625,
+        "enrichment_vs_chance": 0.5088198757763975,
+        "controlled": true,
+        "rho_partial": 0.2655163586983657,
+        "p_partial": 6.438595930065151e-66,
+        "frac_discordant_r": 0.032546583850931676,
+        "enrichment_vs_chance_r": 0.5207453416149068,
+        "frac_both_high_r": 0.09416149068322982,
+        "frac_both_low_r": 0.07701863354037267
+      },
+      "spatial_null": {
+        "n_nodes": 4025,
+        "real_rho_partial": 0.2655163586983657,
+        "null_mean": 0.0030570107389732183,
+        "null_std": 0.05402157645210546,
+        "null_ci95": [
+          -0.09720604038719019,
+          0.10146952845320541
+        ],
+        "empirical_p_one_sided": 0.001996007984031936,
+        "n_perm": 500,
+        "bh_padj": 0.002994011976047904
+      }
+    }
+  },
+  "run": {
+    "timestamp": "2026-10-03T15:40:18+00:00",
+    "config_path": "D:\\sparta\\configs\\default.yaml",
+    "seed": 0,
+    "python": "3.13.13",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "networkx": "3.6.1",
+    "module": "M29-ext-validation"
+  }
+}

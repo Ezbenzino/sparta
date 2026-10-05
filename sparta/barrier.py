@@ -40,6 +40,7 @@ from scipy.sparse.linalg import cg, spsolve
 
 __all__ = [
     "edge_pairs",
+    "exact_min_cut",
     "compute_b_cell",
     "compute_b_cell_field",
     "compute_b_mab",
@@ -89,6 +90,47 @@ def _as_idx(x: Iterable[int] | np.ndarray) -> np.ndarray:
 # --------------------------------------------------------------------------
 # B_cell —— T 细胞迁移屏障（源汇最小割）
 # --------------------------------------------------------------------------
+# 2026-10-05：最小割改用整数容量求解。
+# networkx 的 preflow-push 在浮点容量上给出的最大流数值是对的（与精确值相对误差 < 1e-12），
+# 但它用残量图可达性导出的"源侧集合"在浮点舍入下并不可靠：实测 22 张切片里有 12 张
+# 返回的割边总容量与最大流相差 0.03%–5.4%（有的割边缺失，有的多出），也就是说
+# 返回的 cut_edges 并不是真正的最小割。networkx 文档也提示浮点容量可能出问题，
+# 建议乘一个常数换成整数。这里把容量取到 2^-40 的整数倍后用 Python 整数精确求解：
+# 最大流与原实现的差 < 1e-12（相对），而割边集的容量严格等于最大流。
+_CUT_SCALE = 2 ** 40
+
+
+def exact_min_cut(nodes, pairs: np.ndarray, cap: np.ndarray, source, sink):
+    """在无向图（每条边拆成两个方向）上求多源多汇最大流与一个精确的最小割。
+
+    参数
+    ----
+    nodes  : 参与计算的节点编号（可迭代）
+    pairs  : (m, 2) 无向边端点
+    cap    : (m,) 边容量（浮点，>= 0）
+    source, sink : 源 / 汇节点编号
+
+    返回
+    ----
+    (max_flow, reach, unreach)：max_flow 为浮点；reach / unreach 是最小割两侧的节点集合
+    （含超级源 "s" / 超级汇 "t"）。割边 = reach -> unreach 的有限容量边，其容量和等于 max_flow
+    （在 2^-40 的取整精度内）。
+    """
+    ci = np.rint(np.asarray(cap, float) * _CUT_SCALE).astype(np.int64).tolist()
+    G = nx.DiGraph()
+    G.add_nodes_from(int(u) for u in nodes)
+    for (u, v), c in zip(np.asarray(pairs, int).tolist(), ci):
+        G.add_edge(u, v, capacity=c)
+        G.add_edge(v, u, capacity=c)
+    big = int(sum(ci)) * 10 + 1
+    for i in source:
+        G.add_edge("s", int(i), capacity=big)
+    for i in sink:
+        G.add_edge(int(i), "t", capacity=big)
+    f, (reach, unreach) = nx.minimum_cut(G, "s", "t", capacity="capacity")
+    return float(f) / _CUT_SCALE, reach, unreach, G
+
+
 def compute_b_cell(
     A: sp.spmatrix,
     ecm: np.ndarray,
@@ -165,27 +207,12 @@ def compute_b_cell(
     z = a - b_ecm * _pair_mean(ecm, pairs) - c_caf * _pair_mean(caf, pairs)
     cap = _sigmoid(z)  # 值域 (0, 1)
 
-    # 建有向图：每条无向边加两个方向。
-    # 这一步不能省 —— networkx 的流算法在无向图上的行为与预期不符。
-    G = nx.DiGraph()
-    G.add_nodes_from(component_nodes.tolist())
-    for (u, v), c in zip(pairs, cap):
-        c = float(c)
-        G.add_edge(int(u), int(v), capacity=c)
-        G.add_edge(int(v), int(u), capacity=c)
-
-    # 超级源 "s" 与超级汇 "t"，容量设为无穷大，把多源多汇化归为标准单源单汇问题
-    BIG = float(cap.sum() * 10 + 1e6)
-    for i in source:
-        G.add_edge("s", int(i), capacity=BIG)
-    for i in sink:
-        G.add_edge(int(i), "t", capacity=BIG)
-
     # 源汇重叠时无解（会得到无穷大流），这是源汇定义写错的信号
     if set(source.tolist()) & set(sink.tolist()):
         raise ValueError("源集与汇集有重叠节点，请检查 graph.define_source_sink 的分位数阈值")
 
-    max_flow, (reach, unreach) = nx.minimum_cut(G, "s", "t", capacity="capacity")
+    # 有向化（每条无向边两个方向）+ 超级源汇，用整数容量精确求最大流 / 最小割（见 exact_min_cut）
+    max_flow, reach, unreach, G = exact_min_cut(component_nodes, pairs, cap, source, sink)
 
     # 最小割边集：从可达侧指向不可达侧的边，排除超级源汇
     cut_edges = [
@@ -330,8 +357,9 @@ def compute_b_mab(
     A         : (n, n) 稀疏对称邻接矩阵
     ecm       : (n,) core matrisome 分数，[0, 1]
     crosslink : (n,) 交联酶（LOX 家族等）分数，[0, 1]，用于估计局部网孔尺寸
-    ag_target : (n,) 靶抗原分数，[0, 1]。ICB 场景用 CD274/PDCD1LG2；
-                ADC 场景换成 ERBB2 / TACSTD2 等即可，公式不变
+    ag_target : (n,) 模型吸收项的表达代理，[0, 1]。当前取 CD274/PDCD1LG2
+                （PD-L1/PD-L2 配体），并非 PD-1 受体或抗 PD-1 药物特异性靶点。
+                此代理及 kd_eff 未经蛋白浓度/结合动力学标定。
     vessel    : 血管节点索引（源）
     r_nm      : 分子流体力学半径（纳米）
     g0        : 基线电导
@@ -592,11 +620,19 @@ _SCORE_KEYS = {
 }
 
 
-def scores_from_adata(adata, keys: dict | None = None) -> dict:
+def scores_from_adata(adata, keys: dict | None = None,
+                      missing_out: list | None = None) -> dict:
     """从 adata.obs 中取出秩标准化后的签名分数，转成核心函数需要的数组字典。
 
     缺失的键会用 0.5（中性值）填充并打印告警——不要静默失败，那会让你在
     分析阶段拿到一堆看似合理其实无意义的数字。
+
+    参数
+    ----
+    missing_out : 可选 list。若传入，被中性填充的键名（如 ``"ag_target"``）会被
+                  append 进去，供下游脚本写进结果 JSON，使"这张切片的某个屏障
+                  分量是常数 0.5"这件事在产物里可追溯。仅打印 warning 不够——
+                  事后没人会回查日志，而 0.5 常数填充在结果里长得跟生物学阴性一模一样。
     """
     keys = keys or _SCORE_KEYS
     out = {}
@@ -606,4 +642,6 @@ def scores_from_adata(adata, keys: dict | None = None) -> dict:
         else:
             print(f"[warn] adata.obs 缺少 '{col}'，用中性值 0.5 填充。请检查 M2 打分是否完成。")
             out[k] = np.full(adata.n_obs, 0.5)
+            if missing_out is not None:
+                missing_out.append(k)
     return out

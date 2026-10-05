@@ -1,113 +1,29 @@
-# 代码发布清单（git → GitHub → Zenodo）
+# CMPB analysis archive and software release checklist
 
-> **代码可公开获取是 Bioinformatics 与 BIB 的硬性投稿条件**，不是加分项。
-> 这一步和数据无关，现在就能做完。
+Use this checklist to make the submitted manuscript traceable to one immutable software-and-results snapshot. A DOI must identify the actual deposited artifact; never copy a draft DOI or mint one before the archive exists.
 
----
+## Freeze contents
 
-## 0. 先清掉我留下的东西（一条命令）
+- [ ] Confirm the exact source commit/tag and record the working-tree diff used for that release.
+- [ ] Include package source, `pyproject.toml`, dependency specification, configs, analysis scripts, plotting scripts, tests, README/run instructions, and citation metadata.
+- [ ] Include the per-section JSON outputs and figures needed to reproduce every manuscript number and panel. Keep raw GEO data and private credentials out of the archive; document public accessions and download steps.
+- [ ] Include the validation outputs `s2_matched_selection.json`, `spatial_null_check.json`, `metric_connectivity_sensitivity.json`, `benchmark_tools.json`, and the figure inputs used by the CMPB draft.
+- [ ] Include a manifest with file checksums, software/runtime versions, config paths, random seeds, and generation commands.
+- [ ] Run the documented workflow from a clean environment as far as public inputs and available compute permit; list any expensive analyses not rerun and identify the archived outputs they depend on.
+- [ ] Verify the archive opens, required files are present, and no raw/private data or local absolute paths are included unintentionally.
 
-我试着从 Cowork 的桥接侧初始化 git，失败了，原因值得记一笔：
+## Publish and cite
 
-> git 每次写索引都要**先创建 `.git/index.lock`、写完再删掉它**。
-> 而挂载到桥接侧的目录**禁止删除文件**（`rm` 一律 Operation not permitted）。
-> 于是每条 git 命令都成功地创建了锁、却删不掉，给下一条命令留了个绊子。
-> **结论：这个仓库的 git 操作必须在 Windows 本地做，不能走桥接。**
+- [ ] Review all staged files before creating or pushing a public release. The working tree currently contains many pre-existing uncommitted project changes; do not bulk-stage them without reviewing the diff.
+- [ ] Create a versioned GitHub release that matches the archived source and results.
+- [ ] Deposit the exact release archive in Zenodo (or an equivalent public repository), verify the landing page and files, then record the minted DOI in `CITATION.cff`, the manuscript data-availability statement, and README.
+- [ ] Validate `CITATION.cff` and ensure package version, tag, release date, repository URL and DOI refer to the same snapshot.
+- [ ] Rebuild the manuscript DOCX, figures and Highlights from the frozen source. Record checksums so the uploaded files can be matched to the archive.
 
-`.git/` 目前是空仓库（**没有任何 commit**），里面留了两个改名后的锁和一个临时文件。
-最干净的处理是整个删掉重来：
+## Final CMPB submission checks
 
-```powershell
-cd D:\sparta
-Remove-Item -Recurse -Force .git
-```
-
-另外 `downloads\_sparta_src_for_check.tgz` 是我做校验用的打包，可以删（已被 gitignore 覆盖，不删也不会进仓库）。
-
----
-
-## 1. 填掉三处占位符（提交前必须做）
-
-| 文件 | 要填什么 |
-|---|---|
-| `LICENSE` | `<YOUR NAME OR INSTITUTION>` — 版权行 |
-| `CITATION.cff` | `<SURNAME>` / `<GIVEN NAME>`，可选 ORCID 与单位；`repository-code` 等建库后回填 |
-| `README.md` | 末尾无占位符；`docs/manuscript_abstract.md` 的 Availability 段有 `<GitHub URL>` 与 `<Zenodo DOI>`，拿到后回填 |
-
----
-
-## 2. 建库并首次提交
-
-```powershell
-cd D:\sparta
-git init
-git add -A
-git status --short          # 核对下面那张表
-git commit -m "SPARTA v2.0: dual spatial barrier framework"
-git branch -M main
-```
-
-### 提交前的核对表（我已在隔离环境验证过）
-
-我把源码树复制到一个可删除的环境里跑了一遍 `git add -A`，结果应当是：
-
-| 项 | 期望值 |
-|---|---|
-| 文件数 | **95** |
-| 体积合计 | **0.67 MB** |
-| 最大的文件 | `docs/manuscript_results.md`（33 KB） |
-| `data/` 下 | 只有 `ledger.csv` 与 `admission_audit.csv`（都是元数据，应当入库） |
-| `results/` 下 | 只有 `.gitkeep` |
-| 原始数据 / 中间产物 / 图件 | **一个都没有** |
-
-**如果 `git status --short` 显示的文件数量级不对（比如上千个、或几百 MB），
-先停下来**，多半是 `.gitignore` 没生效或者在错误的目录里 init 了。
-
-我在 `.gitignore` 里补了两条：`downloads/`（原来没盖住，里面有个 38 MB 的
-`GSE250636_RAW.tar`，`git add .` 会把它提交进历史，之后再删也洗不掉）和 `*.bak_*`。
-
----
-
-## 3. 推到 GitHub（公开）
-
-```powershell
-gh repo create sparta --public --source=. --remote=origin --push
-# 没装 gh 的话：在网页上建空仓库，然后
-#   git remote add origin https://github.com/<USER>/sparta.git
-#   git push -u origin main
-```
-
-推完把 URL 填回 `CITATION.cff` 的 `repository-code`。
-
----
-
-## 4. 打 tag 并归档到 Zenodo
-
-```powershell
-git tag -a v2.0.0 -m "SPARTA v2.0.0"
-git push origin v2.0.0
-```
-
-然后：
-
-1. 登录 https://zenodo.org，用 GitHub 账号授权
-2. 在 **Settings → GitHub** 里把 `sparta` 仓库的开关打开
-3. 回到 GitHub，基于 `v2.0.0` 建一个 **Release**（Zenodo 只在建 Release 时归档，
-   光打 tag 不触发）
-4. Zenodo 会自动生成 DOI，把它填回 `CITATION.cff` 与摘要的 Availability 段
-
-**顺序很重要**：必须先在 Zenodo 里打开开关，再建 Release。反了的话第一个 Release
-不会被归档，得再发一版。
-
----
-
-## 5. 投稿前最后核对
-
-- [ ] `LICENSE` 与 `CITATION.cff` 里没有 `<>` 占位符
-- [ ] 仓库是 **public**（很多人建成 private 然后忘了改）
-- [ ] README 的 Data availability 段列全了 GEO accession
-- [ ] Zenodo DOI 已填进摘要的 Availability 段
-- [ ] `git log` 里没有任何数据文件（`git log --stat | Select-String "\.h5ad|\.tar|\.npz"` 应当为空）
-
-最后一条尤其重要：数据一旦进了 git 历史，**删掉文件不会让它从历史里消失**，
-只能 rewrite history。投稿前查一次，比投完被编辑问起来强。
+- [ ] Verify live CMPB Guide for Authors instructions and Editorial Manager file fields on the submission date.
+- [ ] Confirm author names, affiliations, corresponding-author details, CRediT roles, ethics statement, funding, competing interests, data statement and AI declaration.
+- [ ] Ensure all results in the manuscript agree with the archived JSON; check all figure legends, citations and references.
+- [ ] Upload the manuscript, separate Highlights and figure/supplement files in the requested editable formats and resolutions.
+- [ ] Confirm the manuscript is not under consideration elsewhere and that all authors approved the submitted version.

@@ -1,0 +1,21 @@
+{
+ "timestamp": "2026-10-04T16:19:58+00:00",
+ "config_path": "/home/claude/sparta/configs/cscc_legacy_st.yaml",
+ "seed": 0,
+ "python": "3.13.16",
+ "numpy": "2.5.3",
+ "scipy": "1.18.1",
+ "networkx": "3.6.1",
+ "module": "M48-barrier",
+ "slide": "MEL_THR3_rep2",
+ "b_cell": 0.25808952171249494,
+ "max_flow": 3.8746245609145054,
+ "r_nm": 5.5,
+ "n_unreachable": 0,
+ "d_vessel_mode": "weighted",
+ "filled_keys": [
+  "ag_target",
+  "efflux"
+ ],
+ "degraded": true
+}

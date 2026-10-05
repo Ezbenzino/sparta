@@ -114,17 +114,20 @@ def main():
             adata = sc.read_h5ad(P.scored(s))
             A, D, source, sink, vessel, _ = load_graph(P.graph(s))
             b = load_b(s)
-            S = scores_from_adata(adata)
+            filled: list[str] = []
+            S = scores_from_adata(adata, missing_out=filled)
             bcf = compute_b_cell_field(A, S["ecm"], S["caf"], source,
                                        **cfg["barrier"]["b_cell"])["b_cell_field"]
             d = decoupling_stats(bcf, b["b_mab"], q=cfg["validate"]["decouple_q"],
                                  control=np.asarray(b["d_vessel_um"], float))
+            tag = f"  [DEGRADED: {','.join(filled)}]" if filled else ""
             print(f"[解耦] {s}: ρ={d['rho']:+.3f}｜偏相关 {d['rho_partial']:+.3f} "
                   f"(p={d['p_partial']:.2e})｜解离区 {d['frac_discordant_r']*100:.1f}%"
                   f"（随机期望 {d['chance_discordant']*100:.2f}%，"
-                  f"富集 {d['enrichment_vs_chance_r']:.2f}x）")
-            rows[s] = {k: v for k, v in d.items()
-                       if k not in ("idx_discordant", "idx_discordant_r")}
+                  f"富集 {d['enrichment_vs_chance_r']:.2f}x）{tag}")
+            rows[s] = {**{k: v for k, v in d.items()
+                          if k not in ("idx_discordant", "idx_discordant_r")},
+                       "filled_keys": filled, "degraded": bool(filled)}
         save_json(P.validation("decoupling.json"), merge_into("decoupling.json", rows))
         print("    读法：偏相关为正 = 控制几何后两屏障仍同向，即耦合而非解离；")
         print("          解离区富集 <= 1.0x = 解离区比随机还少，不能称为解离。")

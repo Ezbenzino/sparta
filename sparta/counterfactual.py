@@ -140,6 +140,8 @@ def s2_ring_breaking(
     n_rand: int = 200,
     seed: int = 0,
     low_q: float = 0.05,
+    match_selection: bool = False,
+    n_match_groups: int | None = None,
 ) -> dict:
     """S2：在最小割上开一个**连续缺口** vs 移除同样多的、但分散的屏障物质。
 
@@ -167,6 +169,13 @@ def s2_ring_breaking(
     k_list : 移除的节点数（绝对值）。**只建议用于合成图与复现旧结果。**
     k_frac : 移除的节点数占割集的比例，如 (0.05, 0.10, 0.20, 0.30)。
              给了它就忽略 k_list。**真实切片一律用这个。**
+    match_selection : 2026-10-03 审查（P4）补的匹配选择模式。
+            定向弧每片从 ≤8 个候选取"最有效"一段（argmin 剩余屏障），
+            而旧版对照 B 是均匀随机抽分散集，两者候选搜索力度不对等，
+            会把"连续优势"系统性夸大。match_selection=True 时，对照 B 也
+            每组抽 8 个分散候选、取剩余屏障最小者，使两个臂承受相同的
+            选择压力，得到选择匹配后的效应量与 p。
+    n_match_groups : 匹配选择模式的组数。None 时取 max(n_rand//2, 20)。
 
     ⚠ k 必须随割集规模缩放（2026-08-26 审查发现）
     ---------------------------------------------
@@ -181,8 +190,10 @@ def s2_ring_breaking(
     效应量的读法
     ------------
     ratio_vs_in_cut = 分散移除后剩余屏障 / 连续缺口后剩余屏障。
-    大于 1 表示"同样的材料，连起来比散开更能挡"。
-    p_vs_in_cut 是更稳健的统计量：连续缺口比多大比例的等量分散移除更有效。
+    大于 1 表示连续缺口后的剩余屏障更低，即在本模型中，连续移除比
+    等量分散移除更有效地降低了屏障分数。它不表示实测组织通透性改变。
+    p_vs_in_cut 是更稳健的统计量：有多少比例的等量分散移除保留了不高于
+    连续缺口处理的屏障分数。
 
     一个必须知道的依赖关系
     ----------------------
@@ -243,8 +254,25 @@ def s2_ring_breaking(
         b_ra = np.array([_b(rng.choice(pool_all, size=k, replace=False))
                          for _ in range(n_rand)])
         # 对照 B：屏障内分散（关键对照）
-        b_rc = np.array([_b(rng.choice(cut_pool, size=k, replace=False))
-                         for _ in range(max(n_rand // 2, 20))])
+        if match_selection:
+            # 匹配选择（2026-10-03 审查 P4）：定向弧从 ≤8 个候选取最有效一段，
+            # 对照 B 若均匀随机抽分散集，两臂候选搜索力度不对等，会把"连续优势"
+            # 系统性夸大。这里对照 B 每轮也抽 8 个分散候选、保留剩余屏障最小者，
+            # 两个臂承受相同的选择压力，得到选择匹配后的保守效应量。
+            n_groups = n_match_groups or max(n_rand // 2, 20)
+            best_vals = []
+            for _ in range(n_groups):
+                cands = [rng.choice(cut_pool, size=k, replace=False) for _ in range(8)]
+                vals = [_b(c) for c in cands]
+                best_vals.append(min(vals))
+            b_rc = np.array(best_vals)
+            n_rc = n_groups
+            matched_flag = True
+        else:
+            b_rc = np.array([_b(rng.choice(cut_pool, size=k, replace=False))
+                             for _ in range(max(n_rand // 2, 20))])
+            n_rc = len(b_rc)
+            matched_flag = False
 
         drop = lambda b: float((b0 - b) / (b0 + 1e-12))
         out["per_k"][int(k)] = dict(
@@ -261,6 +289,8 @@ def s2_ring_breaking(
             ratio_vs_global=float(b_ra.mean() / (b_t + 1e-12)),
             ratio_vs_in_cut=float(b_rc.mean() / (b_t + 1e-12)),
             p_vs_in_cut=float((np.sum(b_rc <= b_t) + 1) / (len(b_rc) + 1)),
+            n_rand_in_cut=int(n_rc),
+            match_selection=matched_flag,
             nodes=[int(x) for x in tgt],
         )
     return out

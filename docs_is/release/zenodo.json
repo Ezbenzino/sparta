@@ -1,0 +1,23 @@
+{
+  "title": "SPARTA v2.2.0: graph transport operators and structural null models for spatial omics (code, node tables and results)",
+  "upload_type": "software",
+  "description": "<p>SPARTA poses two transport problems on one spatial graph: a source–sink minimum cut for migrating immune cells and a screened diffusion–absorption equation for an IgG-sized molecule. Release v2.2.0 accompanies the manuscript submitted to <i>Interdisciplinary Sciences: Computational Life Sciences</i> and contains the complete source code, configuration files, unit tests, per-spot node tables and graph files for 30 public sections (GEO GSE144239, GSE250636; 10x Genomics public Visium datasets; the melanoma lymph-node data of Thrane et al. 2018), every per-section and per-core result file (including the validation against CODEX images of Schürch et al. 2020) and the scripts that regenerate all figures and manuscript numbers. Raw expression matrices and images are not redistributed; they are available from their original sources.</p><p>Outputs are model-defined summaries, not measurements of antibody exposure, T-cell migration or treatment response.</p>",
+  "creators": [
+    {
+      "name": "Li, Yize",
+      "affiliation": "Hangzhou Medical College"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "spatial transcriptomics",
+    "multiplexed imaging",
+    "minimum cut",
+    "graph Laplacian",
+    "diffusion-absorption",
+    "spatial null model",
+    "tumour microenvironment"
+  ],
+  "version": "2.2.0",
+  "language": "eng"
+}

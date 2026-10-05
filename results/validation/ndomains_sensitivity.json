@@ -1,0 +1,894 @@
+{
+ "params": {
+  "grid": [
+   4,
+   6,
+   8,
+   10,
+   12
+  ],
+  "lam": 0.3,
+  "n_pcs": 20,
+  "scale_rule": "clip(round(n_nodes/200), 4, 16)",
+  "seed": 0,
+  "cut": "exact minimum cut (v2.2, barrier.exact_min_cut)"
+ },
+ "per_slide": {
+  "CSCC01": {
+   "n_nodes": 701,
+   "scaled_n_domains": 4,
+   "runs": {
+    "4": {
+     "n_domains": 4,
+     "frac_boundary_edges": 0.2738347457627119,
+     "frac_boundary_within_cut": 0.4306930693069307,
+     "enrichment": 1.5728211118984237,
+     "precision_of_boundary_for_cut": 0.16827852998065765
+    },
+    "6": {
+     "n_domains": 6,
+     "frac_boundary_edges": 0.3628177966101695,
+     "frac_boundary_within_cut": 0.48514851485148514,
+     "enrichment": 1.3371684613716845,
+     "precision_of_boundary_for_cut": 0.14306569343065692
+    },
+    "8": {
+     "n_domains": 8,
+     "frac_boundary_edges": 0.3675847457627119,
+     "frac_boundary_within_cut": 0.5544554455445545,
+     "enrichment": 1.5083744685707765,
+     "precision_of_boundary_for_cut": 0.16138328530259366
+    },
+    "10": {
+     "n_domains": 10,
+     "frac_boundary_edges": 0.4014830508474576,
+     "frac_boundary_within_cut": 0.49504950495049505,
+     "enrichment": 1.2330520651009693,
+     "precision_of_boundary_for_cut": 0.13192612137203166
+    },
+    "12": {
+     "n_domains": 12,
+     "frac_boundary_edges": 0.4316737288135593,
+     "frac_boundary_within_cut": 0.5594059405940595,
+     "enrichment": 1.2958998967381403,
+     "precision_of_boundary_for_cut": 0.13865030674846626
+    }
+   }
+  },
+  "CSCC02": {
+   "n_nodes": 652,
+   "scaled_n_domains": 4,
+   "runs": {
+    "4": {
+     "n_domains": 4,
+     "frac_boundary_edges": 0.22742663656884876,
+     "frac_boundary_within_cut": 0.4011627906976744,
+     "enrichment": 1.7639217496681863,
+     "precision_of_boundary_for_cut": 0.17121588089330025
+    },
+    "6": {
+     "n_domains": 6,
+     "frac_boundary_edges": 0.286117381489842,
+     "frac_boundary_within_cut": 0.4941860465116279,
+     "enrichment": 1.7272143479656894,
+     "precision_of_boundary_for_cut": 0.16765285996055226
+    },
+    "8": {
+     "n_domains": 8,
+     "frac_boundary_edges": 0.30869074492099324,
+     "frac_boundary_within_cut": 0.4941860465116279,
+     "enrichment": 1.6009098252625313,
+     "precision_of_boundary_for_cut": 0.15539305301645337
+    },
+    "10": {
+     "n_domains": 10,
+     "frac_boundary_edges": 0.3227990970654628,
+     "frac_boundary_within_cut": 0.5581395348837209,
+     "enrichment": 1.7290616360383801,
+     "precision_of_boundary_for_cut": 0.16783216783216784
+    },
+    "12": {
+     "n_domains": 12,
+     "frac_boundary_edges": 0.30248306997742663,
+     "frac_boundary_within_cut": 0.45348837209302323,
+     "enrichment": 1.4992190211732037,
+     "precision_of_boundary_for_cut": 0.1455223880597015
+    }
+   }
+  },
+  "CSCC03": {
+   "n_nodes": 2645,
+   "scaled_n_domains": 13,
+   "runs": {
+    "4": {
+     "n_domains": 4,
+     "frac_boundary_edges": 0.15747356387539296,
+     "frac_boundary_within_cut": 0.22727272727272727,
+     "enrichment": 1.4432436891602045,
+     "precision_of_boundary_for_cut": 0.0499092558983666
+    },
+    "6": {
+     "n_domains": 6,
+     "frac_boundary_edges": 0.2203486710488711,
+     "frac_boundary_within_cut": 0.22727272727272727,
+     "enrichment": 1.0314231812286287,
+     "precision_of_boundary_for_cut": 0.035667963683527884
+    },
+    "8": {
+     "n_domains": 8,
+     "frac_boundary_edges": 0.3068019434124035,
+     "frac_boundary_within_cut": 0.3760330578512397,
+     "enrichment": 1.2256540935458666,
+     "precision_of_boundary_for_cut": 0.0423847228691197
+    },
+    "10": {
+     "n_domains": 10,
+     "frac_boundary_edges": 0.35981709059731354,
+     "frac_boundary_within_cut": 0.4380165289256198,
+     "enrichment": 1.2173310839640537,
+     "precision_of_boundary_for_cut": 0.04209690230341541
+    },
+    "12": {
+     "n_domains": 12,
+     "frac_boundary_edges": 0.40240068591026007,
+     "frac_boundary_within_cut": 0.5743801652892562,
+     "enrichment": 1.4273836635987978,
+     "precision_of_boundary_for_cut": 0.049360795454545456
+    },
+    "13": {
+     "n_domains": 13,
+     "frac_boundary_edges": 0.40397256358959704,
+     "frac_boundary_within_cut": 0.5289256198347108,
+     "enrichment": 1.3093107490637799,
+     "precision_of_boundary_for_cut": 0.045277679518924654
+    }
+   }
+  },
+  "CSCC04": {
+   "n_nodes": 2328,
+   "scaled_n_domains": 12,
+   "runs": {
+    "4": {
+     "n_domains": 4,
+     "frac_boundary_edges": 0.1840726510653161,
+     "frac_boundary_within_cut": 0.26277372262773724,
+     "enrichment": 1.4275543982603638,
+     "precision_of_boundary_for_cut": 0.03415559772296015
+    },
+    "6": {
+     "n_domains": 6,
+     "frac_boundary_edges": 0.21271393643031786,
+     "frac_boundary_within_cut": 0.2773722627737226,
+     "enrichment": 1.3039684537293397,
+     "precision_of_boundary_for_cut": 0.031198686371100164
+    },
+    "8": {
+     "n_domains": 8,
+     "frac_boundary_edges": 0.27366398882291304,
+     "frac_boundary_within_cut": 0.46715328467153283,
+     "enrichment": 1.707032359942053,
+     "precision_of_boundary_for_cut": 0.0408423739629866
+    },
+    "10": {
+     "n_domains": 10,
+     "frac_boundary_edges": 0.31662591687041564,
+     "frac_boundary_within_cut": 0.48175182481751827,
+     "enrichment": 1.5215173463348648,
+     "precision_of_boundary_for_cut": 0.03640375068946498
+    },
+    "12": {
+     "n_domains": 12,
+     "frac_boundary_edges": 0.37443241355221796,
+     "frac_boundary_within_cut": 0.5474452554744526,
+     "enrichment": 1.4620669462904456,
+     "precision_of_boundary_for_cut": 0.034981343283582086
+    }
+   }
+  },
+  "CSCC05": {
+   "n_nodes": 664,
+   "scaled_n_domains": 4,
+   "runs": {
+    "4": {
+     "n_domains": 4,
+     "frac_boundary_edges": 0.26195259140216953,
+     "frac_boundary_within_cut": 0.2871287128712871,
+     "enrichment": 1.096109457571524,
+     "precision_of_boundary_for_cut": 0.1334355828220859
+    },
+    "6": {
+     "n_domains": 6,
+     "frac_boundary_edges": 0.3828846926476497,
+     "frac_boundary_within_cut": 0.42574257425742573,
+     "enrichment": 1.111934173480307,
+     "precision_of_boundary_for_cut": 0.1353620146904512
+    },
+    "8": {
+     "n_domains": 8,
+     "frac_boundary_edges": 0.4435516271595018,
+     "frac_boundary_within_cut": 0.5181518151815182,
+     "enrichment": 1.1681882862199264,
+     "precision_of_boundary_for_cut": 0.14221014492753623
+    },
+    "10": {
+     "n_domains": 10,
+     "frac_boundary_edges": 0.433105664925673,
+     "frac_boundary_within_cut": 0.4521452145214521,
+     "enrichment": 1.0439605185008296,
+     "precision_of_boundary_for_cut": 0.12708719851576994
+    },
+    "12": {
+     "n_domains": 12,
+     "frac_boundary_edges": 0.4877460827641623,
+     "frac_boundary_within_cut": 0.5478547854785478,
+     "enrichment": 1.1232376944448974,
+     "precision_of_boundary_for_cut": 0.13673805601317957
+    }
+   }
+  },
+  "CSCC06": {
+   "n_nodes": 643,
+   "scaled_n_domains": 4,
+   "runs": {
+    "4": {
+     "n_domains": 4,
+     "frac_boundary_edges": 0.275531471446436,
+     "frac_boundary_within_cut": 0.3132075471698113,
+     "enrichment": 1.1367396454771215,
+     "precision_of_boundary_for_cut": 0.12556732223903178
+    },
+    "6": {
+     "n_domains": 6,
+     "frac_boundary_edges": 0.4001667361400584,
+     "frac_boundary_within_cut": 0.4981132075471698,
+     "enrichment": 1.2447641509433962,
+     "precision_of_boundary_for_cut": 0.1375
+    },
+    "8": {
+     "n_domains": 8,
+     "frac_boundary_edges": 0.4531054606085869,
+     "frac_boundary_within_cut": 0.5169811320754717,
+     "enrichment": 1.1409730780580096,
+     "precision_of_boundary_for_cut": 0.12603495860165592
+    },
+    "10": {
+     "n_domains": 10,
+     "frac_boundary_edges": 0.436848686952897,
+     "frac_boundary_within_cut": 0.5433962264150943,
+     "enrichment": 1.2439003312689039,
+     "precision_of_boundary_for_cut": 0.13740458015267176
+    },
+    "12": {
+     "n_domains": 12,
+     "frac_boundary_edges": 0.42809503959983325,
+     "frac_boundary_within_cut": 0.4641509433962264,
+     "enrichment": 1.08422406349323,
+     "precision_of_boundary_for_cut": 0.11976630963972736
+    }
+   }
+  },
+  "CSCC07": {
+   "n_nodes": 637,
+   "scaled_n_domains": 4,
+   "runs": {
+    "4": {
+     "n_domains": 4,
+     "frac_boundary_edges": 0.24621212121212122,
+     "frac_boundary_within_cut": 0.2704626334519573,
+     "enrichment": 1.0984943881741036,
+     "precision_of_boundary_for_cut": 0.12991452991452992
+    },
+    "6": {
+     "n_domains": 6,
+     "frac_boundary_edges": 0.42803030303030304,
+     "frac_boundary_within_cut": 0.4306049822064057,
+     "enrichment": 1.0060151796680628,
+     "precision_of_boundary_for_cut": 0.11897738446411013
+    },
+    "8": {
+     "n_domains": 8,
+     "frac_boundary_edges": 0.42845117845117847,
+     "frac_boundary_within_cut": 0.4412811387900356,
+     "enrichment": 1.029944976193639,
+     "precision_of_boundary_for_cut": 0.12180746561886051
+    },
+    "10": {
+     "n_domains": 10,
+     "frac_boundary_edges": 0.4553872053872054,
+     "frac_boundary_within_cut": 0.47330960854092524,
+     "enrichment": 1.0393564047072443,
+     "precision_of_boundary_for_cut": 0.12292051756007394
+    },
+    "12": {
+     "n_domains": 12,
+     "frac_boundary_edges": 0.5138888888888888,
+     "frac_boundary_within_cut": 0.5266903914590747,
+     "enrichment": 1.0249110320284698,
+     "precision_of_boundary_for_cut": 0.12121212121212122
+    }
+   }
+  },
+  "CSCC08": {
+   "n_nodes": 566,
+   "scaled_n_domains": 4,
+   "runs": {
+    "4": {
+     "n_domains": 4,
+     "frac_boundary_edges": 0.32223310479921646,
+     "frac_boundary_within_cut": 0.3614457831325301,
+     "enrichment": 1.1216904090526238,
+     "precision_of_boundary_for_cut": 0.182370820668693
+    },
+    "6": {
+     "n_domains": 6,
+     "frac_boundary_edges": 0.3281096963761019,
+     "frac_boundary_within_cut": 0.3704819277108434,
+     "enrichment": 1.1291404423664808,
+     "precision_of_boundary_for_cut": 0.18358208955223881
+    },
+    "8": {
+     "n_domains": 8,
+     "frac_boundary_edges": 0.3325171400587659,
+     "frac_boundary_within_cut": 0.3493975903614458,
+     "enrichment": 1.0507656546657913,
+     "precision_of_boundary_for_cut": 0.17083946980854198
+    },
+    "10": {
+     "n_domains": 10,
+     "frac_boundary_edges": 0.33202742409402547,
+     "frac_boundary_within_cut": 0.3614457831325301,
+     "enrichment": 1.0886021963962043,
+     "precision_of_boundary_for_cut": 0.17699115044247787
+    },
+    "12": {
+     "n_domains": 12,
+     "frac_boundary_edges": 0.4495592556317336,
+     "frac_boundary_within_cut": 0.5120481927710844,
+     "enrichment": 1.139000446229362,
+     "precision_of_boundary_for_cut": 0.18518518518518517
+    }
+   }
+  },
+  "CSCC09": {
+   "n_nodes": 511,
+   "scaled_n_domains": 4,
+   "runs": {
+    "4": {
+     "n_domains": 4,
+     "frac_boundary_edges": 0.188689505165851,
+     "frac_boundary_within_cut": 0.22562674094707522,
+     "enrichment": 1.195756704903952,
+     "precision_of_boundary_for_cut": 0.2334293948126801
+    },
+    "6": {
+     "n_domains": 6,
+     "frac_boundary_edges": 0.17455138662316477,
+     "frac_boundary_within_cut": 0.20612813370473537,
+     "enrichment": 1.1809022987009605,
+     "precision_of_boundary_for_cut": 0.23052959501557632
+    },
+    "8": {
+     "n_domains": 8,
+     "frac_boundary_edges": 0.19303969548667754,
+     "frac_boundary_within_cut": 0.2200557103064067,
+     "enrichment": 1.1399505669112167,
+     "precision_of_boundary_for_cut": 0.22253521126760564
+    },
+    "10": {
+     "n_domains": 10,
+     "frac_boundary_edges": 0.3518216421968461,
+     "frac_boundary_within_cut": 0.3593314763231198,
+     "enrichment": 1.021345571805591,
+     "precision_of_boundary_for_cut": 0.19938176197836166
+    },
+    "12": {
+     "n_domains": 12,
+     "frac_boundary_edges": 0.3425774877650897,
+     "frac_boundary_within_cut": 0.34818941504178275,
+     "enrichment": 1.016381482955299,
+     "precision_of_boundary_for_cut": 0.1984126984126984
+    }
+   }
+  },
+  "CSCC10": {
+   "n_nodes": 448,
+   "scaled_n_domains": 4,
+   "runs": {
+    "4": {
+     "n_domains": 4,
+     "frac_boundary_edges": 0.22561768530559168,
+     "frac_boundary_within_cut": 0.21120689655172414,
+     "enrichment": 0.9361273973964027,
+     "precision_of_boundary_for_cut": 0.14121037463976946
+    },
+    "6": {
+     "n_domains": 6,
+     "frac_boundary_edges": 0.40507152145643693,
+     "frac_boundary_within_cut": 0.5,
+     "enrichment": 1.2343499197431782,
+     "precision_of_boundary_for_cut": 0.18619582664526485
+    },
+    "8": {
+     "n_domains": 8,
+     "frac_boundary_edges": 0.34525357607282187,
+     "frac_boundary_within_cut": 0.3275862068965517,
+     "enrichment": 0.9488278459640236,
+     "precision_of_boundary_for_cut": 0.1431261770244821
+    },
+    "10": {
+     "n_domains": 10,
+     "frac_boundary_edges": 0.3920676202860858,
+     "frac_boundary_within_cut": 0.4525862068965517,
+     "enrichment": 1.1543575227311718,
+     "precision_of_boundary_for_cut": 0.17412935323383086
+    },
+    "12": {
+     "n_domains": 12,
+     "frac_boundary_edges": 0.3602080624187256,
+     "frac_boundary_within_cut": 0.3577586206896552,
+     "enrichment": 0.9931999253081042,
+     "precision_of_boundary_for_cut": 0.14981949458483754
+    }
+   }
+  },
+  "CSCC11": {
+   "n_nodes": 672,
+   "scaled_n_domains": 4,
+   "runs": {
+    "4": {
+     "n_domains": 4,
+     "frac_boundary_edges": 0.36428571428571427,
+     "frac_boundary_within_cut": 0.367601246105919,
+     "enrichment": 1.0091014598986012,
+     "precision_of_boundary_for_cut": 0.1542483660130719
+    },
+    "6": {
+     "n_domains": 6,
+     "frac_boundary_edges": 0.46904761904761905,
+     "frac_boundary_within_cut": 0.48286604361370716,
+     "enrichment": 1.0294606005977514,
+     "precision_of_boundary_for_cut": 0.15736040609137056
+    },
+    "8": {
+     "n_domains": 8,
+     "frac_boundary_edges": 0.4876190476190476,
+     "frac_boundary_within_cut": 0.5077881619937694,
+     "enrichment": 1.041362441588785,
+     "precision_of_boundary_for_cut": 0.1591796875
+    },
+    "10": {
+     "n_domains": 10,
+     "frac_boundary_edges": 0.4880952380952381,
+     "frac_boundary_within_cut": 0.4953271028037383,
+     "enrichment": 1.0148165033052199,
+     "precision_of_boundary_for_cut": 0.1551219512195122
+    },
+    "12": {
+     "n_domains": 12,
+     "frac_boundary_edges": 0.5471428571428572,
+     "frac_boundary_within_cut": 0.5358255451713395,
+     "enrichment": 0.9793156178066257,
+     "precision_of_boundary_for_cut": 0.1496953872932985
+    }
+   }
+  },
+  "CSCC12": {
+   "n_nodes": 595,
+   "scaled_n_domains": 4,
+   "runs": {
+    "4": {
+     "n_domains": 4,
+     "frac_boundary_edges": 0.42498665242925787,
+     "frac_boundary_within_cut": 0.3511705685618729,
+     "enrichment": 0.8263096418547587,
+     "precision_of_boundary_for_cut": 0.13190954773869346
+    },
+    "6": {
+     "n_domains": 6,
+     "frac_boundary_edges": 0.5018686599038975,
+     "frac_boundary_within_cut": 0.5083612040133779,
+     "enrichment": 1.0129367394862308,
+     "precision_of_boundary_for_cut": 0.16170212765957448
+    },
+    "8": {
+     "n_domains": 8,
+     "frac_boundary_edges": 0.42979177789642287,
+     "frac_boundary_within_cut": 0.3779264214046823,
+     "enrichment": 0.8793244562620744,
+     "precision_of_boundary_for_cut": 0.14037267080745341
+    },
+    "10": {
+     "n_domains": 10,
+     "frac_boundary_edges": 0.4228510411105179,
+     "frac_boundary_within_cut": 0.3411371237458194,
+     "enrichment": 0.806754839363535,
+     "precision_of_boundary_for_cut": 0.12878787878787878
+    },
+    "12": {
+     "n_domains": 12,
+     "frac_boundary_edges": 0.5232247730912973,
+     "frac_boundary_within_cut": 0.4916387959866221,
+     "enrichment": 0.9396321070234115,
+     "precision_of_boundary_for_cut": 0.15
+    }
+   }
+  },
+  "CSCC14": {
+   "n_nodes": 370,
+   "scaled_n_domains": 4,
+   "runs": {
+    "4": {
+     "n_domains": 4,
+     "frac_boundary_edges": 0.36760691537761603,
+     "frac_boundary_within_cut": 0.4405594405594406,
+     "enrichment": 1.1984525375614485,
+     "precision_of_boundary_for_cut": 0.15594059405940594
+    },
+    "6": {
+     "n_domains": 6,
+     "frac_boundary_edges": 0.36396724294813465,
+     "frac_boundary_within_cut": 0.3916083916083916,
+     "enrichment": 1.075944055944056,
+     "precision_of_boundary_for_cut": 0.14
+    },
+    "8": {
+     "n_domains": 8,
+     "frac_boundary_edges": 0.42311191992720654,
+     "frac_boundary_within_cut": 0.4825174825174825,
+     "enrichment": 1.140401533949921,
+     "precision_of_boundary_for_cut": 0.14838709677419354
+    },
+    "10": {
+     "n_domains": 10,
+     "frac_boundary_edges": 0.43039126478616924,
+     "frac_boundary_within_cut": 0.5034965034965035,
+     "enrichment": 1.169857626517246,
+     "precision_of_boundary_for_cut": 0.1522198731501057
+    },
+    "12": {
+     "n_domains": 12,
+     "frac_boundary_edges": 0.4012738853503185,
+     "frac_boundary_within_cut": 0.45454545454545453,
+     "enrichment": 1.1327561327561326,
+     "precision_of_boundary_for_cut": 0.1473922902494331
+    }
+   }
+  },
+  "CSCC15": {
+   "n_nodes": 597,
+   "scaled_n_domains": 4,
+   "runs": {
+    "4": {
+     "n_domains": 4,
+     "frac_boundary_edges": 0.3026376677464137,
+     "frac_boundary_within_cut": 0.17777777777777778,
+     "enrichment": 0.5874277947672443,
+     "precision_of_boundary_for_cut": 0.0856269113149847
+    },
+    "6": {
+     "n_domains": 6,
+     "frac_boundary_edges": 0.3151318833873207,
+     "frac_boundary_within_cut": 0.17142857142857143,
+     "enrichment": 0.5439899307740718,
+     "precision_of_boundary_for_cut": 0.07929515418502203
+    },
+    "8": {
+     "n_domains": 8,
+     "frac_boundary_edges": 0.36973623322535865,
+     "frac_boundary_within_cut": 0.2507936507936508,
+     "enrichment": 0.6783042294932157,
+     "precision_of_boundary_for_cut": 0.09887359198998748
+    },
+    "10": {
+     "n_domains": 10,
+     "frac_boundary_edges": 0.3988894030541416,
+     "frac_boundary_within_cut": 0.3523809523809524,
+     "enrichment": 0.8834051486023644,
+     "precision_of_boundary_for_cut": 0.12877030162412992
+    },
+    "12": {
+     "n_domains": 12,
+     "frac_boundary_edges": 0.3461360481258677,
+     "frac_boundary_within_cut": 0.24444444444444444,
+     "enrichment": 0.7062091503267973,
+     "precision_of_boundary_for_cut": 0.10294117647058823
+    }
+   }
+  },
+  "CSCC16": {
+   "n_nodes": 380,
+   "scaled_n_domains": 4,
+   "runs": {
+    "4": {
+     "n_domains": 4,
+     "frac_boundary_edges": 0.2657833203429462,
+     "frac_boundary_within_cut": 0.1952662721893491,
+     "enrichment": 0.7346821912578736,
+     "precision_of_boundary_for_cut": 0.0967741935483871
+    },
+    "6": {
+     "n_domains": 6,
+     "frac_boundary_edges": 0.2805923616523772,
+     "frac_boundary_within_cut": 0.20710059171597633,
+     "enrichment": 0.7380834976988824,
+     "precision_of_boundary_for_cut": 0.09722222222222222
+    },
+    "8": {
+     "n_domains": 8,
+     "frac_boundary_edges": 0.406858924395947,
+     "frac_boundary_within_cut": 0.40236686390532544,
+     "enrichment": 0.9889591693305221,
+     "precision_of_boundary_for_cut": 0.13026819923371646
+    },
+    "10": {
+     "n_domains": 10,
+     "frac_boundary_edges": 0.3897116134060795,
+     "frac_boundary_within_cut": 0.35502958579881655,
+     "enrichment": 0.9110059171597632,
+     "precision_of_boundary_for_cut": 0.12
+    },
+    "12": {
+     "n_domains": 12,
+     "frac_boundary_edges": 0.3975058456742011,
+     "frac_boundary_within_cut": 0.3905325443786982,
+     "enrichment": 0.982457361642882,
+     "precision_of_boundary_for_cut": 0.12941176470588237
+    }
+   }
+  },
+  "MEL01": {
+   "n_nodes": 1660,
+   "scaled_n_domains": 8,
+   "runs": {
+    "4": {
+     "n_domains": 4,
+     "frac_boundary_edges": 0.11684497587581288,
+     "frac_boundary_within_cut": 0.14710485133020346,
+     "enrichment": 1.258974553484883,
+     "precision_of_boundary_for_cut": 0.1687612208258528
+    },
+    "6": {
+     "n_domains": 6,
+     "frac_boundary_edges": 0.28529473463394167,
+     "frac_boundary_within_cut": 0.3599374021909233,
+     "enrichment": 1.2616335266500966,
+     "precision_of_boundary_for_cut": 0.16911764705882354
+    },
+    "8": {
+     "n_domains": 8,
+     "frac_boundary_edges": 0.35494021397105097,
+     "frac_boundary_within_cut": 0.39123630672926446,
+     "enrichment": 1.102259736512059,
+     "precision_of_boundary_for_cut": 0.14775413711583923
+    },
+    "10": {
+     "n_domains": 10,
+     "frac_boundary_edges": 0.4226977134466121,
+     "frac_boundary_within_cut": 0.4757433489827856,
+     "enrichment": 1.1254930742436422,
+     "precision_of_boundary_for_cut": 0.15086848635235733
+    },
+    "12": {
+     "n_domains": 12,
+     "frac_boundary_edges": 0.42143906020558003,
+     "frac_boundary_within_cut": 0.48200312989045385,
+     "enrichment": 1.1437077751059201,
+     "precision_of_boundary_for_cut": 0.15331010452961671
+    }
+   }
+  },
+  "MEL02": {
+   "n_nodes": 801,
+   "scaled_n_domains": 4,
+   "runs": {
+    "4": {
+     "n_domains": 4,
+     "frac_boundary_edges": 0.14479215319943953,
+     "frac_boundary_within_cut": 0.17511520737327188,
+     "enrichment": 1.2094247064070163,
+     "precision_of_boundary_for_cut": 0.12258064516129032
+    },
+    "6": {
+     "n_domains": 6,
+     "frac_boundary_edges": 0.2167211583372256,
+     "frac_boundary_within_cut": 0.30414746543778803,
+     "enrichment": 1.4034045765135865,
+     "precision_of_boundary_for_cut": 0.14224137931034483
+    },
+    "8": {
+     "n_domains": 8,
+     "frac_boundary_edges": 0.1994395142456796,
+     "frac_boundary_within_cut": 0.2857142857142857,
+     "enrichment": 1.4325861492137837,
+     "precision_of_boundary_for_cut": 0.1451990632318501
+    },
+    "10": {
+     "n_domains": 10,
+     "frac_boundary_edges": 0.18916394208313872,
+     "frac_boundary_within_cut": 0.25806451612903225,
+     "enrichment": 1.364237355635205,
+     "precision_of_boundary_for_cut": 0.1382716049382716
+    },
+    "12": {
+     "n_domains": 12,
+     "frac_boundary_edges": 0.4119570294255021,
+     "frac_boundary_within_cut": 0.46543778801843316,
+     "enrichment": 1.1298212065164006,
+     "precision_of_boundary_for_cut": 0.1145124716553288
+    }
+   }
+  },
+  "MEL03": {
+   "n_nodes": 1724,
+   "scaled_n_domains": 9,
+   "runs": {
+    "4": {
+     "n_domains": 4,
+     "frac_boundary_edges": 0.13217279174725982,
+     "frac_boundary_within_cut": 0.2837209302325581,
+     "enrichment": 2.1465910380034035,
+     "precision_of_boundary_for_cut": 0.1983739837398374
+    },
+    "6": {
+     "n_domains": 6,
+     "frac_boundary_edges": 0.17816462497313562,
+     "frac_boundary_within_cut": 0.3767441860465116,
+     "enrichment": 2.114584677532471,
+     "precision_of_boundary_for_cut": 0.195416164053076
+    },
+    "8": {
+     "n_domains": 8,
+     "frac_boundary_edges": 0.1794541156243284,
+     "frac_boundary_within_cut": 0.32558139534883723,
+     "enrichment": 1.8142877036624427,
+     "precision_of_boundary_for_cut": 0.16766467065868262
+    },
+    "9": {
+     "n_domains": 9,
+     "frac_boundary_edges": 0.21534493874919408,
+     "frac_boundary_within_cut": 0.3930232558139535,
+     "enrichment": 1.8250870352318618,
+     "precision_of_boundary_for_cut": 0.1686626746506986
+    },
+    "10": {
+     "n_domains": 10,
+     "frac_boundary_edges": 0.17988394584139264,
+     "frac_boundary_within_cut": 0.34418604651162793,
+     "enrichment": 1.9133783445861468,
+     "precision_of_boundary_for_cut": 0.1768219832735962
+    },
+    "12": {
+     "n_domains": 12,
+     "frac_boundary_edges": 0.18267784225231035,
+     "frac_boundary_within_cut": 0.32325581395348835,
+     "enrichment": 1.7695403556771543,
+     "precision_of_boundary_for_cut": 0.1635294117647059
+    }
+   }
+  },
+  "MEL04": {
+   "n_nodes": 2673,
+   "scaled_n_domains": 13,
+   "runs": {
+    "4": {
+     "n_domains": 4,
+     "frac_boundary_edges": 0.14260027662517288,
+     "frac_boundary_within_cut": 0.1697841726618705,
+     "enrichment": 1.1906300371923606,
+     "precision_of_boundary_for_cut": 0.11445198836081474
+    },
+    "6": {
+     "n_domains": 6,
+     "frac_boundary_edges": 0.20567081604426002,
+     "frac_boundary_within_cut": 0.27913669064748203,
+     "enrichment": 1.3572012598394723,
+     "precision_of_boundary_for_cut": 0.1304640215198386
+    },
+    "8": {
+     "n_domains": 8,
+     "frac_boundary_edges": 0.32710926694329184,
+     "frac_boundary_within_cut": 0.38705035971223023,
+     "enrichment": 1.1832448628834775,
+     "precision_of_boundary_for_cut": 0.11374207188160676
+    },
+    "10": {
+     "n_domains": 10,
+     "frac_boundary_edges": 0.35809128630705395,
+     "frac_boundary_within_cut": 0.437410071942446,
+     "enrichment": 1.22150437240011,
+     "precision_of_boundary_for_cut": 0.11741985322518347
+    },
+    "12": {
+     "n_domains": 12,
+     "frac_boundary_edges": 0.3702627939142462,
+     "frac_boundary_within_cut": 0.4302158273381295,
+     "enrichment": 1.161920221014074,
+     "precision_of_boundary_for_cut": 0.11169219275308181
+    },
+    "13": {
+     "n_domains": 13,
+     "frac_boundary_edges": 0.3746887966804979,
+     "frac_boundary_within_cut": 0.46474820143884893,
+     "enrichment": 1.2403578798091095,
+     "precision_of_boundary_for_cut": 0.11923218899963087
+    }
+   }
+  }
+ },
+ "summary": {
+  "fixed_k4_visium": {
+   "median_enrichment": 1.4353990437102842,
+   "median_precision": 0.145429587570974,
+   "n": 8
+  },
+  "fixed_k4_legacy_st": {
+   "median_enrichment": 1.096109457571524,
+   "median_precision": 0.1334355828220859,
+   "n": 11
+  },
+  "fixed_k6_visium": {
+   "median_enrichment": 1.3471848606055783,
+   "median_precision": 0.14265353637050088,
+   "n": 8
+  },
+  "fixed_k6_legacy_st": {
+   "median_enrichment": 1.075944055944056,
+   "median_precision": 0.14,
+   "n": 11
+  },
+  "fixed_k8_visium": {
+   "median_enrichment": 1.47048030889228,
+   "median_precision": 0.14647660017384467,
+   "n": 8
+  },
+  "fixed_k8_legacy_st": {
+   "median_enrichment": 1.041362441588785,
+   "median_precision": 0.14221014492753623,
+   "n": 11
+  },
+  "fixed_k10_visium": {
+   "median_enrichment": 1.2986447103680872,
+   "median_precision": 0.13509886315515163,
+   "n": 8
+  },
+  "fixed_k10_legacy_st": {
+   "median_enrichment": 1.0393564047072443,
+   "median_precision": 0.13740458015267176,
+   "n": 11
+  },
+  "fixed_k12_visium": {
+   "median_enrichment": 1.361641780168469,
+   "median_precision": 0.12658138920189754,
+   "n": 8
+  },
+  "fixed_k12_legacy_st": {
+   "median_enrichment": 1.016381482955299,
+   "median_precision": 0.1473922902494331,
+   "n": 11
+  },
+  "scaled_visium": {
+   "median_enrichment": 1.3856888476771128,
+   "median_precision": 0.13516739113856477,
+   "n": 8
+  },
+  "scaled_legacy_st": {
+   "median_enrichment": 1.096109457571524,
+   "median_precision": 0.1334355828220859,
+   "n": 11
+  }
+ },
+ "meta": {
+  "timestamp": "2026-10-04T17:19:08+00:00",
+  "config_path": "/home/claude/sparta/configs/default.yaml",
+  "seed": 0,
+  "python": "3.13.16",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "networkx": "3.6.1",
+  "module": "M51-domain-comparison-exact-cut",
+  "seconds": 278.0,
+  "pcs_from": [
+   "lite"
+  ]
+ }
+}

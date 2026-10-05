@@ -12,9 +12,20 @@
 >
 > **2026-08-27 扩样。** 队列从 8 张切片 / 3 位患者扩到 **19 张 / 7 位患者**，
 > 新增 GSE144239 的 11 张第一代 ST（4 位 cSCC 患者，另 1 张 CSCC13 准入未过被剔除）。
-> 改向后的主张只是变强：控制几何距离后 18/19 为正、17/19 显著，解离区在 18/19 张
-> 低于随机期望，且**同一瘤种在两代平台上给出同号同量级的结果**。
+> 改向后的主张在患者层级变强：**7/7 位患者的中位偏相关为正**（范围 +0.14 到 +0.32），
+> 切片层面 18/19 为正、17/19 显著，解离区在 18/19 张低于随机期望，且
+> **同一瘤种在两代平台上给出同号同量级的结果**。
 > R1 / R3 / R3b / R4-S1 / R4-S2 已按新数字重写。
+>
+> **2026-10-03 口径修正。** 三处审稿口径已在产物层面修正：
+> ① `biological_validation.json` 现在逐张标记 `cd8_field`，CSCC12 因缺少 `CD8T_n`
+> 字段而被明确记为 `T_NK_proxy`，CD8 负显著计数拆为真 CD8 / 代理两套（4/18 vs 5/19）；
+> ② `null_crosslink_check.json` 从 6 张代表切片扩到全部 19 张，经验 p 的中位数和
+> 显著片数在下方 R2 报告；
+> ③ 新增 `spatial_null_check.json`（图拉普拉斯谱相位随机化，n_perm=200）：
+> 保留 B_mAb 的空间自相关结构后，真实 ρ_partial 中位 +0.217 vs 空模型 −0.001，
+> 15/19 张 p<0.05，回应"两个平滑场恰好在同一张图上"的质疑。
+> 三处均不改结论方向，只改可辩护性。
 >
 > **已按 19 张重写：** R1、R2、R3、R3b、R4-S1、R4-S2、R6，Methods M1/M2/M3，
 > 新增 Methods M4（距血管距离的口径），Table 1 改由 `scripts/run_18_table1.py`
@@ -235,6 +246,23 @@ roughly 63 % of edges — the resulting barrier field is dominated by that axis
 rather than by bulk matrix density or by target-antigen availability.*
 Methods M2 states exactly what `β` and `ξ₀` are and are not.
 
+**We verified this directly with a permutation null rather than inferring it
+from the β grid.** On every one of the 19 sections we permuted the within-section
+crosslinking score 50 times (breaking any spatial coupling to ECM, source/sink
+and geometry) and recomputed the variance decomposition. The observed
+size-exclusion share is essentially indistinguishable from the null: median
+**97.5 % (observed) versus 97.7 % (permuted)**, median one-sided empirical
+p = 0.68, and only **1 of 19 sections** (MEL01, p = 0.000) falls outside the
+null 95 % interval — on 12 of the remaining 18 the observed share is actually
+*below* the permuted mean. This is the quantitative signature of a by-construction
+quantity: the rank-normalised input and β = 3 fix the fraction at ~97 % regardless
+of how the crosslinking score is arranged. We therefore report the 95.9–98.9 %
+range only as a parameter-driven output of the decomposition, never as evidence
+that crosslinking dominates the tissue.
+`[results/validation/null_crosslink_check.json — all 19 sections, n_perm = 50,
+seed 20261001; median real 0.975, median null 0.977, median p = 0.68, 1/19
+nominal at p < 0.05]`
+
 The antigen channel is weak under every parameter setting we examined
 (0.3–17.9 % across the full grid). We caution against reading this as evidence
 that antigen sinks are unimportant in vivo — and the four sections where the
@@ -287,6 +315,29 @@ first-generation ST sections (four patients) give +0.207 — the same sign, the
 same order of magnitude, on assays a platform generation apart.
 `[results/validation/shared_ecm_check.json, stratified by data/ledger.csv platform]`
 
+**The partial correlation survives a spatial null that preserves each field's
+own autocorrelation.** The standard Spearman p-value on ρ_partial treats every
+spot as independent, which is optimistic because spots are spatially
+autocorrelated. We therefore constructed a null that preserves the tissue graph,
+the marginal distribution of `B_mAb`, and its spatial variogram: we projected
+`B_mAb` onto the graph Laplacian eigenvectors, retained the amplitude spectrum
+(which determines the autocorrelation structure), randomized the spectral signs,
+and reconstructed a new `B_mAb_null` field. We then recomputed ρ_partial against
+the unchanged `B_cell` field and vessel-distance control, 200 times per section.
+The null ρ_partial is centered at zero (median −0.001, per-section SD 0.04–0.25),
+while the observed median ρ_partial is **+0.217**. **15 of 19 sections exceed the
+null 95 % distribution** (one-sided empirical p < 0.05; median p = 0.000). At the
+patient level, 5 of 7 patients have every section significant (P2, P4, P6, P9),
+MEL_PtB is 3/4 and P5 is 2/3; only P10 is 1/3, driven by CSCC14 (smallest graph,
+n = 370 spots, null SD = 0.25) and CSCC15 (the near-zero section). This means the
+positive partial correlation is not an artefact of both fields being smooth
+functions of the same coordinates — even when `B_mAb` is allowed to be any field
+with the same spatial autocorrelation, it does not align with `B_cell` as tightly
+as the observed field does.
+`[results/validation/spatial_null_check.json, run_27; graph spectral phase
+randomization, n_perm = 200, seed 20261003; median real +0.217 vs null −0.001,
+15/19 p < 0.05]`
+
 The "dissociation zone" — spots in the lowest quartile of `B_cell` and the
 highest quartile of `B_mAb` — occupies **1.1–6.9 % of spots (median 3.7 %)**
 after geometric control. Under independence of the two barriers this fraction is
@@ -312,8 +363,11 @@ The conclusion we draw is therefore:
 
 > In cutaneous tumours the T-cell migration barrier and the antibody
 > mass-transport barrier are two mathematically distinct transport problems that
-> nevertheless travel together. Interventions that normalise the matrix are
-> predicted to relieve both; interventions that target only one modality are not.
+> nevertheless travel together. **The model predicts** that interventions which
+> normalise the matrix would relieve both; it does not measure treatment
+> response, and this prediction is not tested against any drug, dose or patient
+> outcome in this study. Interventions that target only one modality are not
+> predicted by the model to relieve the other.
 
 Whether that co-location is a property of the tissue or of our edge-weight
 definition is a separate question — see R3b.
@@ -614,6 +668,36 @@ obstructive to an IgG-sized molecule, a distinction no cell-migration model
 produces. It is also a deterministic consequence of the operator, not a
 statistical test, and we present it as such.
 
+### Model input perturbation (score scaling, not treatment simulation)
+
+As a final sensitivity analysis we asked how the two barrier scalars respond when
+the stromal input scores are scaled down, mimicking — in the most schematic
+sense — a matrix-normalising intervention. On every section we multiplied the
+within-section rank-normalised ECM, CAF and crosslink scores by 0.8, 0.7 and
+0.5 (i.e. a 20 %, 30 % and 50 % uniform reduction) and recomputed both operators
+without changing the graph, the source/sink nodes or any other parameter.
+
+At the 30 % reduction the median `B_cell` falls by **60.8 %** and median `B_mAb`
+by **49.5 %**; at the 50 % reduction the corresponding drops are **80.2 %** and
+**71.3 %**. Both barriers fall on 19/19 sections at both the 30 % and 50 %
+levels. This is expected: lowering the input conductance must lower the
+computed barrier, and the direction of the response is built into the operator.
+
+**We report this as a model input perturbation, not as a treatment prediction.**
+No drug, dose, pharmacodynamic relationship or patient outcome is involved: the
+scaling is a direct multiplication of the signature scores, with no calibration
+against measured RNA changes after any therapy, and there is no absorption or
+efflux term that could capture a drug-induced feedback. The result establishes
+that the two operators respond in the same direction to a common input scaling
+(consistent with the coupling reported in R3) and that the response is monotone
+across the tested range; it does **not** predict the magnitude or even the
+existence of a clinical response to LOX/LOXL inhibition, TGF-β blockade or any
+other matrix-directed therapy. Such a claim would require independent perturbational
+data or clinical response labels, neither of which this study contains.
+`[results/validation/stromal_intervention.json, run_23; median pct_drop
+B_cell at 30 % = 60.8 %, at 50 % = 80.2 %; B_mAb at 30 % = 49.5 %, at 50 % =
+71.3 %; both fall on 19/19 sections at both levels]`
+
 ---
 
 ## R5. The min-cut is not a rewrite of immune-cell density
@@ -683,6 +767,41 @@ spuriously enormous z.
 > Ripley's L 那一段必须写，不能悄悄只报 Visium。规则格点上置换不改变点过程的
 > 二阶结构，零分布方差塌成 0，z 就没有意义——这是统计量本身的退化，
 > 不是数据不好。已经在 `zstat` 里加了相对方差下限，1e15 这种数不会再进表。
+
+### Biological alignment with cell-type signatures (exploratory)
+
+As a separate, in-silico ground-truth check, we correlated the per-spot barrier
+fields against the deconvolved lineage signatures already in `adata.obs`,
+controlling again for distance to vessel (partial Spearman). This is **not an
+independent validation**: the immune-entry nodes used to build `B_cell` are
+selected from the per-spot T/NK signature, so any correlation between
+`B_cell` and T/NK is partly built into the operator. We report it as exploratory.
+
+The results are weak and directionally inconsistent across patients. The median
+partial correlation between `B_cell` and the T/NK signature is **−0.022**
+(range −0.286 to +0.148), and it is significantly negative in only 6 of 19
+sections. The corresponding CD8-only correlation is **−0.013** (range −0.227 to
++0.081), significantly negative in 5/19 sections — but on 18 sections where a
+true `CD8T_n` field exists, the count is **4/18**. The single first-generation
+ST section that lacks a `CD8T_n` field (CSCC12, P9) falls back to the T/NK
+signature and is flagged as `cd8_field = "T_NK_proxy"` in the output; it is
+excluded from the true-CD8 count.
+
+Patient-level medians make the non-replication clearer than the section count:
+the melanoma patient (MEL_PtB) and three of the six cSCC patients (P2, P6, P10)
+have positive or near-zero medians, and only two cSCC patients (P4, P5) show a
+consistently negative median. We therefore do not present this as evidence that
+the barrier blocks CD8 T cells; the most defensible statement is that on two
+of the six cSCC patients (P4, P5) the field is negatively aligned with T/NK
+abundance, and the melanoma cohort (n = 1 patient) trends the other way.
+
+The antibody barrier `B_mAb` correlates weakly but positively with the
+proliferation signature (median ρ = +0.046, range −0.001 to +0.148, significantly
+positive in 7/19 sections). This is consistent with — but does not demonstrate —
+antibody-blocked spots retaining proliferation; it is not adjusted for
+confounders beyond vessel distance.
+`[results/validation/biological_validation.json, run_25; cd8_field flag added
+2026-10-03, CSCC12 = T_NK_proxy; n_bc_cd8_neg_sig_true_cd8 = 4/18]`
 
 ---
 

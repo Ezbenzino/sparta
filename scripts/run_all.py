@@ -26,6 +26,7 @@ TEST_FILES = (
     "test_counterfactual.py",
     "test_loaders.py",
     "test_statistics.py",
+    "test_new_experiments.py",
 )
 SENSITIVITY_SLIDES = ("MEL01", "MEL03", "CSCC01", "CSCC03", "CSCC05")
 
@@ -54,6 +55,10 @@ def main() -> int:
         description="Rebuild SPARTA manuscript results, figures, and the Word draft."
     )
     parser.add_argument("--dry-run", action="store_true", help="print the run plan only")
+    parser.add_argument(
+        "--include-review-analyses", action="store_true",
+        help="rerun the optional manuscript checks in run_22 through run_26",
+    )
     args = parser.parse_args()
 
     cfg = load_config()
@@ -111,6 +116,16 @@ def main() -> int:
         _command("run_18_table1.py"),
         _command("run_19_runtime.py", "--slides", *slides),
         _command("run_21_mesh_stats.py"),
+    ])
+    if args.include_review_analyses:
+        plan.extend([
+            _command("run_22_null_crosslink.py"),
+            _command("run_23_stromal_intervention.py"),
+            _command("run_24_naive_baseline.py"),
+            _command("run_25_biological_validation.py"),
+            _command("run_26_radius_sensitivity.py"),
+        ])
+    plan.extend([
         _command("run_15_figure1.py", "--dpi", "300"),
         _command("run_16_figures.py", "--which", "2", "--dpi", "300"),
         _command("run_20_pending_figures.py"),
@@ -122,6 +137,10 @@ def main() -> int:
 
     print(f"SPARTA full rerun: {len(slides)} admitted sections")
     print("CSCC13 remains excluded by the ledger and is never added by this runner.")
+    if args.include_review_analyses:
+        print("Optional checks enabled: run_22 through run_26.")
+    else:
+        print("Optional checks skipped; use --include-review-analyses to rerun run_22 through run_26.")
     for i, cmd in enumerate(plan, start=1):
         print(f"\n[{i:02d}/{len(plan):02d}] {' '.join(cmd)}", flush=True)
         if not args.dry_run:

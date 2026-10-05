@@ -1,0 +1,61 @@
+{
+ "slide": "CSCC03",
+ "status": "ingested",
+ "checks": {
+  "C1": {
+   "pass": true,
+   "detail": "3650 spot × 33538 基因"
+  },
+  "C2": {
+   "pass": true,
+   "detail": "有坐标"
+  },
+  "C3": {
+   "pass": true,
+   "detail": "有配对 H&E"
+  },
+  "C4": {
+   "pass": true,
+   "detail": "3650 spot（阈值 500）"
+  },
+  "C5": {
+   "pass": true,
+   "detail": "中位 UMI 982（阈值 500）"
+  },
+  "C6": {
+   "pass": true,
+   "detail": "1625 个 spot 有内皮信号（阈值 20，匹配到 6/6 个标记基因）"
+  },
+  "C7": {
+   "pass": true,
+   "detail": "已知"
+  }
+ },
+ "failed": [],
+ "admitted": true,
+ "forced": false,
+ "force_reason": null,
+ "cohort": "cscc_gse144239",
+ "thresholds_applied": {
+  "min_spots_visium": 500,
+  "min_spots_legacy_st": 300,
+  "min_median_umi": 500,
+  "min_endothelial_spots": 20
+ },
+ "thresholds_overridden": [
+  "min_spots_visium",
+  "min_median_umi"
+ ],
+ "reconstructed": true,
+ "meta": {
+  "timestamp": "2026-10-03T13:52:01+00:00",
+  "config_path": "D:\\sparta\\configs\\default.yaml",
+  "seed": 0,
+  "python": "3.13.13",
+  "numpy": "2.5.2",
+  "scipy": "1.18.1",
+  "networkx": "3.6.1",
+  "module": "M0c-admission-audit",
+  "slide": "CSCC03"
+ }
+}

@@ -1,0 +1,746 @@
+{
+  "per_slide": {
+    "CSCC01": {
+      "patient": "CSCC_P4",
+      "n_nodes": 701,
+      "filled_keys": [],
+      "rho_obs": 0.38510368758088914,
+      "geometry_null_mean": 0.04588561077123478,
+      "geometry_null_sd": 0.09368856388588584,
+      "geometry_null_ci95": [
+        -0.11474718510882101,
+        0.21932502901937037
+      ],
+      "p_vs_geometry_null": 0.004975124378109453,
+      "construction_null_mean": 0.11643464132435342,
+      "construction_null_sd": 0.09507052379014874,
+      "construction_null_ci95": [
+        -0.056093921411582995,
+        0.2863698914766179
+      ],
+      "p_vs_construction_null": 0.004975124378109453,
+      "excess_over_geometry_null": 0.3392180768096544,
+      "excess_over_construction_null": 0.2686690462565357,
+      "share_reproduced_by_construction": 0.30234621240778664,
+      "input_correlations": {
+        "ecm_caf": 0.9409484096502643,
+        "ecm_crosslink": 0.35508460789487895,
+        "caf_crosslink": 0.2896923808478731,
+        "ecm_ag": -0.11250195237943292
+      },
+      "n_null": 200,
+      "bh_q_construction": 0.0472636815920398,
+      "bh_q_geometry": 0.03781094527363184
+    },
+    "CSCC02": {
+      "patient": "CSCC_P4",
+      "n_nodes": 652,
+      "filled_keys": [],
+      "rho_obs": 0.26166186957140364,
+      "geometry_null_mean": 0.02556232430926668,
+      "geometry_null_sd": 0.11280079764620826,
+      "geometry_null_ci95": [
+        -0.16485740185393327,
+        0.23315911341881407
+      ],
+      "p_vs_geometry_null": 0.014925373134328358,
+      "construction_null_mean": 0.07830767845856533,
+      "construction_null_sd": 0.11726871696694902,
+      "construction_null_ci95": [
+        -0.13651341861654148,
+        0.29631069180405795
+      ],
+      "p_vs_construction_null": 0.07462686567164178,
+      "excess_over_geometry_null": 0.23609954526213695,
+      "excess_over_construction_null": 0.1833541911128383,
+      "share_reproduced_by_construction": 0.29927049969807057,
+      "input_correlations": {
+        "ecm_caf": 0.9579797831457345,
+        "ecm_crosslink": 0.23127061229519646,
+        "caf_crosslink": 0.19132457194702956,
+        "ecm_ag": -0.2625796039970766
+      },
+      "n_null": 200,
+      "bh_q_construction": 0.25207296849087896,
+      "bh_q_geometry": 0.04051172707889126
+    },
+    "CSCC03": {
+      "patient": "CSCC_P6",
+      "n_nodes": 2645,
+      "filled_keys": [],
+      "rho_obs": 0.2791487518976953,
+      "geometry_null_mean": 0.05439356269174111,
+      "geometry_null_sd": 0.05966529661870398,
+      "geometry_null_ci95": [
+        -0.05480847988598185,
+        0.16111643052088123
+      ],
+      "p_vs_geometry_null": 0.004975124378109453,
+      "construction_null_mean": 0.11307070528899413,
+      "construction_null_sd": 0.06424191511478704,
+      "construction_null_ci95": [
+        -0.011151819271233881,
+        0.22714895517355116
+      ],
+      "p_vs_construction_null": 0.004975124378109453,
+      "excess_over_geometry_null": 0.22475518920595416,
+      "excess_over_construction_null": 0.16607804660870115,
+      "share_reproduced_by_construction": 0.4050553854184281,
+      "input_correlations": {
+        "ecm_caf": 0.8966277372687844,
+        "ecm_crosslink": 0.26449213047396986,
+        "caf_crosslink": 0.2568382950643744,
+        "ecm_ag": 0.057960634005859005
+      },
+      "n_null": 200,
+      "bh_q_construction": 0.0472636815920398,
+      "bh_q_geometry": 0.03781094527363184
+    },
+    "CSCC04": {
+      "patient": "CSCC_P6",
+      "n_nodes": 2328,
+      "filled_keys": [],
+      "rho_obs": 0.21698516161224804,
+      "geometry_null_mean": 0.08462820610943803,
+      "geometry_null_sd": 0.06660167187988637,
+      "geometry_null_ci95": [
+        -0.037805640825506456,
+        0.198458146248086
+      ],
+      "p_vs_geometry_null": 0.009950248756218905,
+      "construction_null_mean": 0.1355203478084193,
+      "construction_null_sd": 0.07599027650779669,
+      "construction_null_ci95": [
+        -0.003976076407641892,
+        0.2552101981756032
+      ],
+      "p_vs_construction_null": 0.14427860696517414,
+      "excess_over_geometry_null": 0.13235695550281001,
+      "excess_over_construction_null": 0.08146481380382875,
+      "share_reproduced_by_construction": 0.624560439070916,
+      "input_correlations": {
+        "ecm_caf": 0.8358414909507884,
+        "ecm_crosslink": 0.11873007606297527,
+        "caf_crosslink": 0.1415217592301582,
+        "ecm_ag": 0.07455426446781499
+      },
+      "n_null": 200,
+      "bh_q_construction": 0.3045881702598121,
+      "bh_q_geometry": 0.03781094527363184
+    },
+    "CSCC05": {
+      "patient": "CSCC_P2",
+      "n_nodes": 664,
+      "filled_keys": [],
+      "rho_obs": 0.2802954310107374,
+      "geometry_null_mean": 0.045787892082096014,
+      "geometry_null_sd": 0.11115282168438037,
+      "geometry_null_ci95": [
+        -0.14557431542914212,
+        0.25400343451447627
+      ],
+      "p_vs_geometry_null": 0.014925373134328358,
+      "construction_null_mean": 0.12315485323527482,
+      "construction_null_sd": 0.11005836820065497,
+      "construction_null_ci95": [
+        -0.07222370255297382,
+        0.30953720135342805
+      ],
+      "p_vs_construction_null": 0.07960199004975124,
+      "excess_over_geometry_null": 0.23450753892864137,
+      "excess_over_construction_null": 0.1571405777754626,
+      "share_reproduced_by_construction": 0.4393751720860447,
+      "input_correlations": {
+        "ecm_caf": 0.944572082771941,
+        "ecm_crosslink": 0.5120522507817818,
+        "caf_crosslink": 0.5036142528812901,
+        "ecm_ag": 0.011652488109186955
+      },
+      "n_null": 200,
+      "bh_q_construction": 0.25207296849087896,
+      "bh_q_geometry": 0.04051172707889126
+    },
+    "CSCC06": {
+      "patient": "CSCC_P2",
+      "n_nodes": 643,
+      "filled_keys": [],
+      "rho_obs": 0.20762072152427122,
+      "geometry_null_mean": -0.0006926772247996671,
+      "geometry_null_sd": 0.14495021619634005,
+      "geometry_null_ci95": [
+        -0.2539069114197877,
+        0.2610047030431422
+      ],
+      "p_vs_geometry_null": 0.09950248756218906,
+      "construction_null_mean": 0.06665492120792314,
+      "construction_null_sd": 0.14310252773390206,
+      "construction_null_ci95": [
+        -0.18659968533066232,
+        0.32386834542532633
+      ],
+      "p_vs_construction_null": 0.208955223880597,
+      "excess_over_geometry_null": 0.20831339874907087,
+      "excess_over_construction_null": 0.1409658003163481,
+      "share_reproduced_by_construction": 0.32104175690445746,
+      "input_correlations": {
+        "ecm_caf": 0.9406710920079974,
+        "ecm_crosslink": 0.49986489976808623,
+        "caf_crosslink": 0.48019808862737706,
+        "ecm_ag": -0.04211898583586719
+      },
+      "n_null": 200,
+      "bh_q_construction": 0.3609226594301221,
+      "bh_q_geometry": 0.1454267125908917
+    },
+    "CSCC07": {
+      "patient": "CSCC_P2",
+      "n_nodes": 637,
+      "filled_keys": [],
+      "rho_obs": 0.28388884556333716,
+      "geometry_null_mean": 0.01911988116177613,
+      "geometry_null_sd": 0.1684369254314673,
+      "geometry_null_ci95": [
+        -0.2816181097720046,
+        0.3048028045616016
+      ],
+      "p_vs_geometry_null": 0.04975124378109453,
+      "construction_null_mean": 0.06878053030629919,
+      "construction_null_sd": 0.16841556880059194,
+      "construction_null_ci95": [
+        -0.22166774540421683,
+        0.3490112933905081
+      ],
+      "p_vs_construction_null": 0.0945273631840796,
+      "excess_over_geometry_null": 0.264768964401561,
+      "excess_over_construction_null": 0.21510831525703797,
+      "share_reproduced_by_construction": 0.2422797914789994,
+      "input_correlations": {
+        "ecm_caf": 0.9391494740040144,
+        "ecm_crosslink": 0.49131749373407524,
+        "caf_crosslink": 0.4955274765201339,
+        "ecm_ag": 0.10429620437488865
+      },
+      "n_null": 200,
+      "bh_q_construction": 0.2565742714996446,
+      "bh_q_geometry": 0.08593396653098145
+    },
+    "CSCC08": {
+      "patient": "CSCC_P5",
+      "n_nodes": 566,
+      "filled_keys": [],
+      "rho_obs": 0.11388887316217428,
+      "geometry_null_mean": 0.04386601399380693,
+      "geometry_null_sd": 0.06175949835926769,
+      "geometry_null_ci95": [
+        -0.07031187382413659,
+        0.15622907585210669
+      ],
+      "p_vs_geometry_null": 0.14427860696517414,
+      "construction_null_mean": 0.10887247585261918,
+      "construction_null_sd": 0.062028364452563184,
+      "construction_null_ci95": [
+        -0.001563058879126999,
+        0.22017629033749708
+      ],
+      "p_vs_construction_null": 0.472636815920398,
+      "excess_over_geometry_null": 0.07002285916836734,
+      "excess_over_construction_null": 0.005016397309555096,
+      "share_reproduced_by_construction": 0.9559535785167362,
+      "input_correlations": {
+        "ecm_caf": 0.6522023795046715,
+        "ecm_crosslink": 0.010101735418026003,
+        "caf_crosslink": 0.031810426909141515,
+        "ecm_ag": -0.08170911256184539
+      },
+      "n_null": 200,
+      "bh_q_construction": 0.5612562189054726,
+      "bh_q_geometry": 0.18275290215588724
+    },
+    "CSCC09": {
+      "patient": "CSCC_P5",
+      "n_nodes": 511,
+      "filled_keys": [],
+      "rho_obs": 0.20134439473668833,
+      "geometry_null_mean": 0.0399108728731284,
+      "geometry_null_sd": 0.05532027958319112,
+      "geometry_null_ci95": [
+        -0.06935434658459926,
+        0.14818141645084598
+      ],
+      "p_vs_geometry_null": 0.009950248756218905,
+      "construction_null_mean": 0.11373816727724857,
+      "construction_null_sd": 0.05412605304563267,
+      "construction_null_ci95": [
+        0.004607182680848316,
+        0.21117542732586528
+      ],
+      "p_vs_construction_null": 0.04477611940298507,
+      "excess_over_geometry_null": 0.16143352186355991,
+      "excess_over_construction_null": 0.08760622745943976,
+      "share_reproduced_by_construction": 0.5648936362295641,
+      "input_correlations": {
+        "ecm_caf": 0.7373451349717968,
+        "ecm_crosslink": 0.16898328680787378,
+        "caf_crosslink": 0.12007372726487853,
+        "ecm_ag": -0.040772780909241545
+      },
+      "n_null": 200,
+      "bh_q_construction": 0.21268656716417908,
+      "bh_q_geometry": 0.03781094527363184
+    },
+    "CSCC10": {
+      "patient": "CSCC_P5",
+      "n_nodes": 448,
+      "filled_keys": [
+        "ag_target"
+      ],
+      "rho_obs": 0.1406873932984936,
+      "geometry_null_mean": 0.055804464171729566,
+      "geometry_null_sd": 0.07731959005278065,
+      "geometry_null_ci95": [
+        -0.1022564931244569,
+        0.20148109946689247
+      ],
+      "p_vs_geometry_null": 0.15920398009950248,
+      "construction_null_mean": 0.12621499945627968,
+      "construction_null_sd": 0.07129345121140661,
+      "construction_null_ci95": [
+        -0.024399460402611664,
+        0.2543133051980554
+      ],
+      "p_vs_construction_null": 0.4427860696517413,
+      "excess_over_geometry_null": 0.08488292912676404,
+      "excess_over_construction_null": 0.014472393842213938,
+      "share_reproduced_by_construction": 0.8971308409168677,
+      "input_correlations": {
+        "ecm_caf": 0.7825522306948219,
+        "ecm_crosslink": 0.12222591979099207,
+        "caf_crosslink": 0.10567534395675189,
+        "ecm_ag": null
+      },
+      "n_null": 200,
+      "bh_q_construction": 0.5608623548922057,
+      "bh_q_geometry": 0.1890547263681592
+    },
+    "CSCC11": {
+      "patient": "CSCC_P9",
+      "n_nodes": 672,
+      "filled_keys": [],
+      "rho_obs": 0.1933725934731335,
+      "geometry_null_mean": 0.10034599544795335,
+      "geometry_null_sd": 0.07175117799066097,
+      "geometry_null_ci95": [
+        -0.038620784618138386,
+        0.21813326567018912
+      ],
+      "p_vs_geometry_null": 0.10945273631840796,
+      "construction_null_mean": 0.15566916795478739,
+      "construction_null_sd": 0.07525614716110007,
+      "construction_null_ci95": [
+        -1.5151568150308397e-06,
+        0.283921704098953
+      ],
+      "p_vs_construction_null": 0.3383084577114428,
+      "excess_over_geometry_null": 0.09302659802518017,
+      "excess_over_construction_null": 0.03770342551834613,
+      "share_reproduced_by_construction": 0.8050218759485971,
+      "input_correlations": {
+        "ecm_caf": 0.7335918076759185,
+        "ecm_crosslink": 0.15253437639427697,
+        "caf_crosslink": 0.09644770635613689,
+        "ecm_ag": -0.0732008155394718
+      },
+      "n_null": 200,
+      "bh_q_construction": 0.45913290689410097,
+      "bh_q_geometry": 0.14854299928926795
+    },
+    "CSCC12": {
+      "patient": "CSCC_P9",
+      "n_nodes": 595,
+      "filled_keys": [],
+      "rho_obs": 0.22453193854072773,
+      "geometry_null_mean": 0.12409545744883303,
+      "geometry_null_sd": 0.0575916955219853,
+      "geometry_null_ci95": [
+        0.00415531295636792,
+        0.23606774381814022
+      ],
+      "p_vs_geometry_null": 0.04477611940298507,
+      "construction_null_mean": 0.1820049407829287,
+      "construction_null_sd": 0.060971194233172994,
+      "construction_null_ci95": [
+        0.05496547857141285,
+        0.3034148826300309
+      ],
+      "p_vs_construction_null": 0.25870646766169153,
+      "excess_over_geometry_null": 0.1004364810918947,
+      "excess_over_construction_null": 0.04252699775779903,
+      "share_reproduced_by_construction": 0.810597111332181,
+      "input_correlations": {
+        "ecm_caf": 0.7492903201549077,
+        "ecm_crosslink": 0.12196746097259326,
+        "caf_crosslink": 0.04740427796093016,
+        "ecm_ag": -0.17937955926844773
+      },
+      "n_null": 200,
+      "bh_q_construction": 0.40961857379767824,
+      "bh_q_geometry": 0.08507462686567163
+    },
+    "CSCC14": {
+      "patient": "CSCC_P10",
+      "n_nodes": 370,
+      "filled_keys": [
+        "ag_target",
+        "efflux"
+      ],
+      "rho_obs": 0.2949564765498363,
+      "geometry_null_mean": 0.14985822236114063,
+      "geometry_null_sd": 0.1161425282576388,
+      "geometry_null_ci95": [
+        -0.08183139911798472,
+        0.34406077995952
+      ],
+      "p_vs_geometry_null": 0.08955223880597014,
+      "construction_null_mean": 0.21640163592416123,
+      "construction_null_sd": 0.11791033688062195,
+      "construction_null_ci95": [
+        -0.01983405159639882,
+        0.4066152014870224
+      ],
+      "p_vs_construction_null": 0.2885572139303483,
+      "excess_over_geometry_null": 0.14509825418869568,
+      "excess_over_construction_null": 0.07855484062567508,
+      "share_reproduced_by_construction": 0.7336731115568424,
+      "input_correlations": {
+        "ecm_caf": 0.9406756964051028,
+        "ecm_crosslink": 0.14387845211591183,
+        "caf_crosslink": 0.16112888906262124,
+        "ecm_ag": null
+      },
+      "n_null": 200,
+      "bh_q_construction": 0.42173746651358596,
+      "bh_q_geometry": 0.1417910447761194
+    },
+    "CSCC15": {
+      "patient": "CSCC_P10",
+      "n_nodes": 597,
+      "filled_keys": [
+        "ag_target",
+        "efflux"
+      ],
+      "rho_obs": -0.00040111430907287666,
+      "geometry_null_mean": 0.0014706284790787563,
+      "geometry_null_sd": 0.07161691188547395,
+      "geometry_null_ci95": [
+        -0.14564213480038485,
+        0.13510102874100854
+      ],
+      "p_vs_geometry_null": 0.5024875621890548,
+      "construction_null_mean": 0.07780574014845772,
+      "construction_null_sd": 0.06538776230887959,
+      "construction_null_ci95": [
+        -0.033662148346951255,
+        0.21505470678444946
+      ],
+      "p_vs_construction_null": 0.8805970149253731,
+      "excess_over_geometry_null": -0.001871742788151633,
+      "excess_over_construction_null": -0.07820685445753059,
+      "share_reproduced_by_construction": null,
+      "input_correlations": {
+        "ecm_caf": 0.8732909457615567,
+        "ecm_crosslink": 0.2101018611328887,
+        "caf_crosslink": 0.19458613208046796,
+        "ecm_ag": null
+      },
+      "n_null": 200,
+      "bh_q_construction": 0.8805970149253731,
+      "bh_q_geometry": 0.5024875621890548
+    },
+    "CSCC16": {
+      "patient": "CSCC_P10",
+      "n_nodes": 380,
+      "filled_keys": [
+        "ag_target",
+        "efflux"
+      ],
+      "rho_obs": 0.23889699159820624,
+      "geometry_null_mean": 0.042892743274252895,
+      "geometry_null_sd": 0.10601744150623017,
+      "geometry_null_ci95": [
+        -0.18175545107792027,
+        0.24077773139940822
+      ],
+      "p_vs_geometry_null": 0.03980099502487562,
+      "construction_null_mean": 0.12662617428613687,
+      "construction_null_sd": 0.09666566022503008,
+      "construction_null_ci95": [
+        -0.059497809755123525,
+        0.3164840566090615
+      ],
+      "p_vs_construction_null": 0.12437810945273632,
+      "excess_over_geometry_null": 0.19600424832395336,
+      "excess_over_construction_null": 0.11227081731206937,
+      "share_reproduced_by_construction": 0.530045076913759,
+      "input_correlations": {
+        "ecm_caf": 0.8912427954560117,
+        "ecm_crosslink": 0.23160978298071025,
+        "caf_crosslink": 0.2477005052885262,
+        "ecm_ag": null
+      },
+      "n_null": 200,
+      "bh_q_construction": 0.2953980099502488,
+      "bh_q_geometry": 0.08402432283029299
+    },
+    "MEL01": {
+      "patient": "MEL_PtB",
+      "n_nodes": 1660,
+      "filled_keys": [
+        "efflux"
+      ],
+      "rho_obs": 0.2192428306725159,
+      "geometry_null_mean": 0.050823866198627464,
+      "geometry_null_sd": 0.0578688334741625,
+      "geometry_null_ci95": [
+        -0.06700001011141549,
+        0.16209126481081224
+      ],
+      "p_vs_geometry_null": 0.009950248756218905,
+      "construction_null_mean": 0.12491476012622997,
+      "construction_null_sd": 0.0549553344736336,
+      "construction_null_ci95": [
+        0.0011083754196835802,
+        0.21479728793145397
+      ],
+      "p_vs_construction_null": 0.024875621890547265,
+      "excess_over_geometry_null": 0.16841896447388843,
+      "excess_over_construction_null": 0.09432807054628593,
+      "share_reproduced_by_construction": 0.5697552788524965,
+      "input_correlations": {
+        "ecm_caf": 0.86960001266556,
+        "ecm_crosslink": 0.163983381095673,
+        "caf_crosslink": 0.14831730832607504,
+        "ecm_ag": 0.043160252253671115
+      },
+      "n_null": 200,
+      "bh_q_construction": 0.15754560530679934,
+      "bh_q_geometry": 0.03781094527363184
+    },
+    "MEL02": {
+      "patient": "MEL_PtB",
+      "n_nodes": 801,
+      "filled_keys": [],
+      "rho_obs": 0.05540353257541708,
+      "geometry_null_mean": 0.051354927810048016,
+      "geometry_null_sd": 0.08936666650334942,
+      "geometry_null_ci95": [
+        -0.105363282578592,
+        0.21756469002476933
+      ],
+      "p_vs_geometry_null": 0.48258706467661694,
+      "construction_null_mean": 0.1121008836527431,
+      "construction_null_sd": 0.09107107404083985,
+      "construction_null_ci95": [
+        -0.04834201337948585,
+        0.27032936007967323
+      ],
+      "p_vs_construction_null": 0.7114427860696517,
+      "excess_over_geometry_null": 0.004048604765369064,
+      "excess_over_construction_null": -0.056697351077326014,
+      "share_reproduced_by_construction": 2.023352635504744,
+      "input_correlations": {
+        "ecm_caf": 0.736648313672747,
+        "ecm_crosslink": 0.08665889116160908,
+        "caf_crosslink": 0.053798205796370485,
+        "ecm_ag": 0.018296333042453046
+      },
+      "n_null": 200,
+      "bh_q_construction": 0.7509673852957435,
+      "bh_q_geometry": 0.5024875621890548
+    },
+    "MEL03": {
+      "patient": "MEL_PtB",
+      "n_nodes": 1724,
+      "filled_keys": [],
+      "rho_obs": 0.14945050257352122,
+      "geometry_null_mean": 0.015647456359721285,
+      "geometry_null_sd": 0.056738691593857644,
+      "geometry_null_ci95": [
+        -0.09376232094918201,
+        0.13240668639983558
+      ],
+      "p_vs_geometry_null": 0.024875621890547265,
+      "construction_null_mean": 0.10983498776123313,
+      "construction_null_sd": 0.04777211943216844,
+      "construction_null_ci95": [
+        0.014806167415115363,
+        0.2014553060920814
+      ],
+      "p_vs_construction_null": 0.19900497512437812,
+      "excess_over_geometry_null": 0.13380304621379993,
+      "excess_over_construction_null": 0.03961551481228809,
+      "share_reproduced_by_construction": 0.7349255162738614,
+      "input_correlations": {
+        "ecm_caf": 0.8975172216507644,
+        "ecm_crosslink": 0.15677120606853626,
+        "caf_crosslink": 0.15025111271310548,
+        "ecm_ag": 0.1065826323435929
+      },
+      "n_null": 200,
+      "bh_q_construction": 0.3609226594301221,
+      "bh_q_geometry": 0.05907960199004975
+    },
+    "MEL04": {
+      "patient": "MEL_PtB",
+      "n_nodes": 2673,
+      "filled_keys": [],
+      "rho_obs": 0.14316679795921722,
+      "geometry_null_mean": 0.08340541454207254,
+      "geometry_null_sd": 0.05611721995213827,
+      "geometry_null_ci95": [
+        -0.030777329259354197,
+        0.18002918836008938
+      ],
+      "p_vs_geometry_null": 0.1691542288557214,
+      "construction_null_mean": 0.15885194697416824,
+      "construction_null_sd": 0.05521771398688455,
+      "construction_null_ci95": [
+        0.054133857261344474,
+        0.2616518633562358
+      ],
+      "p_vs_construction_null": 0.6019900497512438,
+      "excess_over_geometry_null": 0.05976138341714468,
+      "excess_over_construction_null": -0.015685149014951022,
+      "share_reproduced_by_construction": 1.109558565523126,
+      "input_correlations": {
+        "ecm_caf": 0.7740931629685536,
+        "ecm_crosslink": 0.025062257721285217,
+        "caf_crosslink": -0.01138871973119708,
+        "ecm_ag": 0.019222733658781747
+      },
+      "n_null": 200,
+      "bh_q_construction": 0.6728124085455078,
+      "bh_q_geometry": 0.18905472636815923
+    },
+    "BRCA01": {
+      "patient": "BRCA_P1",
+      "n_nodes": 3798,
+      "filled_keys": [],
+      "rho_obs": 0.3312877509350365,
+      "geometry_null_mean": 0.040052521733123035,
+      "geometry_null_sd": 0.0977428193813404,
+      "geometry_null_ci95": [
+        -0.15840499216494083,
+        0.21504864381458008
+      ],
+      "p_vs_geometry_null": 0.004975124378109453,
+      "construction_null_mean": 0.09424712136897931,
+      "construction_null_sd": 0.09675605483827111,
+      "construction_null_ci95": [
+        -0.10425149849483904,
+        0.26269994729521606
+      ],
+      "p_vs_construction_null": 0.004975124378109453,
+      "excess_over_geometry_null": 0.29123522920191347,
+      "excess_over_construction_null": 0.23704062956605718,
+      "share_reproduced_by_construction": 0.28448719007259826,
+      "input_correlations": {
+        "ecm_caf": 0.9528195739858009,
+        "ecm_crosslink": 0.4198027363654166,
+        "caf_crosslink": 0.4127869931306542,
+        "ecm_ag": -0.060734524922431705
+      },
+      "n_null": 200
+    },
+    "BRCA02": {
+      "patient": "BRCA_P1",
+      "n_nodes": 3985,
+      "filled_keys": [],
+      "rho_obs": 0.28134783058330287,
+      "geometry_null_mean": 0.018995830904771263,
+      "geometry_null_sd": 0.09762085636217022,
+      "geometry_null_ci95": [
+        -0.15507891847290076,
+        0.1851330940522811
+      ],
+      "p_vs_geometry_null": 0.004975124378109453,
+      "construction_null_mean": 0.06500047782864858,
+      "construction_null_sd": 0.09350593351719785,
+      "construction_null_ci95": [
+        -0.10806881269602511,
+        0.2287353459631464
+      ],
+      "p_vs_construction_null": 0.004975124378109453,
+      "excess_over_geometry_null": 0.2623519996785316,
+      "excess_over_construction_null": 0.21634735275465428,
+      "share_reproduced_by_construction": 0.2310324472518117,
+      "input_correlations": {
+        "ecm_caf": 0.9405106670568497,
+        "ecm_crosslink": 0.4201149731608512,
+        "caf_crosslink": 0.41004613105855975,
+        "ecm_ag": -0.025654986827503147
+      },
+      "n_null": 200
+    },
+    "LN01": {
+      "patient": "LN_P1",
+      "n_nodes": 4025,
+      "filled_keys": [],
+      "rho_obs": 0.2653892859576762,
+      "geometry_null_mean": 0.014246920074016949,
+      "geometry_null_sd": 0.054803174562408824,
+      "geometry_null_ci95": [
+        -0.09407715033475662,
+        0.11967918103065277
+      ],
+      "p_vs_geometry_null": 0.004975124378109453,
+      "construction_null_mean": 0.07243012102673149,
+      "construction_null_sd": 0.054843931702413966,
+      "construction_null_ci95": [
+        -0.03247357542387186,
+        0.17697264051035372
+      ],
+      "p_vs_construction_null": 0.004975124378109453,
+      "excess_over_geometry_null": 0.25114236588365924,
+      "excess_over_construction_null": 0.1929591649309447,
+      "share_reproduced_by_construction": 0.2729202905285427,
+      "input_correlations": {
+        "ecm_caf": 0.7714686317212572,
+        "ecm_crosslink": 0.26532033502716895,
+        "caf_crosslink": 0.26547426146530034,
+        "ecm_ag": 0.028547142699896756
+      },
+      "n_null": 200
+    }
+  },
+  "summary": {
+    "n_slides": 19,
+    "median_obs": 0.21698516161224804,
+    "median_geometry_null_mean": 0.04588561077123478,
+    "median_construction_null_mean": 0.11643464132435342,
+    "median_excess_over_construction": 0.08146481380382875,
+    "n_excess_construction_positive": 16,
+    "n_p_construction_lt_05": 4,
+    "n_bh_construction_lt_05": 2,
+    "n_p_geometry_lt_05": 11,
+    "n_bh_geometry_lt_05": 7,
+    "median_share_reproduced_by_construction": 0.5971578589617063,
+    "median_r_ecm_caf": 0.8732909457615567,
+    "median_r_ecm_crosslink": 0.163983381095673,
+    "external": [
+      "BRCA01",
+      "BRCA02",
+      "LN01"
+    ]
+  },
+  "meta": {
+    "timestamp": "2026-10-04T05:15:07+00:00",
+    "config_path": "configs/default.yaml",
+    "seed": 20261005,
+    "python": "3.13.16",
+    "numpy": "2.5.3",
+    "scipy": "1.18.1",
+    "networkx": "3.6.1",
+    "module": "M39-coupling-decomposition"
+  },
+  "design": " them with two input-level spectral nulls and one ablation:\n\n  geometry null   B_mAb recomputed from graph-spectral surrogates of ALL its inputs\n                  (ECM*, crosslink*, Ag*), real B_cell field kept;   -> (i)\n  construction    B_mAb recomputed from the REAL ECM score but surrogate crosslink*\n  null            and Ag*, real B_cell field kept;                    -> (i)+(ii)\n  ECM ablation    b_ecm = 0, c_caf = 12 (configs/no_shared_ecm.yaml) and lam = 0;\n                  association re-tested with the same 500-draw graph-spectral null\n                  used for the primary analysis.\nInput surrogates keep each input's graph power spectrum (sign randomisation of\n|V^T x|) and are rank-normalised back to [0, 1] exactly like the real *_n scores.\nThe observed association minus the construction-null mean is the part that the\nmodel structure alone does not produce.\n"
+}

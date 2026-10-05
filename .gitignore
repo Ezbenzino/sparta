@@ -1,7 +1,13 @@
-# 数据：只读原始数据与中间产物都不进版本库
+# 数据：原始数据与 .h5ad 中间产物不进版本库；v2.1.0 起收录复现所需的 node tables、图、屏障场与最小割记录（约 11 MB）
 data/raw/*
 data/interim/*
 data/external/*
+!data/interim/*.nodes.npz
+!data/interim/*.graph.npz
+!data/interim/*.barrier.npz
+!data/interim/*.mincut.json
+!data/interim/*.barrier_meta.json
+!data/interim/*.admission.json
 !data/*/.gitkeep
 
 # 下载缓存：GEO 的原始压缩包，几十 MB 起步，绝不进版本库
@@ -9,9 +15,17 @@ data/external/*
 #   `git add .` 会把它一起提交进去，之后再删也留在历史里洗不掉）
 downloads/
 
-# 结果：图件与表格按需归档到 Zenodo，不进 git
+# 结果：v2.1.0 起收录 validation/、counterfactual/ 的结果文件和 IS 图（PDF/PNG），TIFF/EPS 与其它图件仍不进 git
 results/*
 !results/.gitkeep
+!results/validation/
+!results/counterfactual/
+!results/intervention/
+!results/figures/
+results/figures/*
+!results/figures/is/
+results/figures/is/**/*.tif
+results/figures/is/**/*.eps
 
 # 备份文件
 *.bak
@@ -43,6 +57,14 @@ node_modules/
 package-lock.json
 docs/_build/
 
+# Local manuscript render QA and unpublished release candidates
+_cmpb_docx_qa/
+_cmpb_docx_qa_v2/
+release_candidate/
+
 # Word 导出稿（markdown 是源，docx 为生成产物）
 docs/*.docx
 
+# IS submission: manuscript renders and the submission package stay local
+docs_is/build/
+submission_IS/

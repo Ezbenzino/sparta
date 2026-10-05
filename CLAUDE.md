@@ -75,6 +75,13 @@ sparta/
 | M19 `run_19_runtime` | `{sid}.graph.npz` | `results/validation/runtime_benchmark.json`（SPARTA vs BANKSY vs Squidpy） |
 | M20 `run_20_pending_figures` | 各汇总 JSON（不重算） | `results/figures/fig{3,4,5}_*.png/.pdf` + `graphical_abstract.png/.pdf` |
 | M21 `run_21_mesh_stats` | `{sid}.scored.h5ad` + `.graph.npz` | `results/validation/mesh_stats.json`（网孔尺寸排除统计，backs 60–65% claim） |
+| M47 `run_47_codex_validation` | CODEX 单细胞表 + `docs/codex_validation_protocol.md` | `results/validation/codex_validation.json` + `codex_cores.csv`（实测 CD8⁺ 位置的外部验证） |
+| M48 `run_48_replication_cohort` | Thrane 2018 计数 zip | 复现队列的 `{sid}.nodes/graph/barrier/mincut/admission`、`replication_melanoma.json`（`--validate` 写 `lite_scoring_equivalence.json`） |
+| M49 `run_49_intervention_targeting` | `results/intervention/*.npz` + 图/节点表 | `results/validation/intervention_targeting.json` |
+| M50 `run_50_exact_mincut_refresh` | 图/节点表/旧 mincut | 刷新全部 `mincut.json` 与 `barrier.npz` 的割字段，`mincut_exactness.json` |
+| M51 `run_51_domain_comparison_exact_cut` | `{sid}.scored.h5ad` + 图 + 精确割（`--old-cuts` 做复现核对） | `benchmark_lambda_sensitivity.json`、`ndomains_sensitivity.json`、`domain_comparison_exact_cut.json` |
+| M52 `run_52_simple_baselines_spearman` | 30 张切片的图/节点表/barrier | `simple_baselines_spearman.json`（两算子 vs 基质密度 / 距肿瘤距离 / 邻域富集） |
+| M53 `run_53_intervention_domain_enrichment` | `results/intervention/*.npz` + 节点表 | `intervention_domain_enrichment.json`（top 1%/5% 干预位点的肿瘤/基质/免疫构成） |
 
 **热图色标的选法**：量级量（如"交联占比 0–100%"）用**单色相 light→dark**；
 有阈值的极性量（如"解离潜力，1.0 是 GO 线"）用**双色相 + 中性灰中点**，中点对齐阈值。
@@ -274,3 +281,28 @@ pytest tests/ -v                       # 有 pytest 时
   （S2 患者层 5/7、切断共享 ECM 15/19、S2 范围口径）。
 - `signatures.py` 的 Hypoxia 目前是占位集合，正式分析前需用
   `--hypoxia-gmt` 传入 MSigDB HALLMARK_HYPOXIA。
+
+## 九、v2.2（2026-10-05）必须知道的事
+
+- **最小割一律用 `barrier.exact_min_cut`（整数容量）。** networkx 的 preflow-push 在浮点容量上
+  给出的最大流数值是对的，但残量图导出的割集不一定是最小割（30 张图里 14 张偏差 0.03%–9.7%）。
+  任何需要割几何的新代码（割边、割节点、源侧集合）都走 `compute_b_cell` 或 `exact_min_cut`，
+  **不要再自己用浮点容量调 `nx.minimum_cut`**。`tests/test_v22_additions.py` 守住这一条。
+- **复现队列（MEL_THR*）台账状态是 `replication`，不是 `ingested`。** `admitted_slides()` 只取
+  `ingested`，所以主队列脚本不会把它们混进去；IS 稿件的切片名单以 `isdata.PRIMARY_ORDER /
+  REPLICATION_ORDER / EXTERNAL_ORDER` 为准。新脚本若用 glob 找 `*.nodes.npz`，必须按台账过滤
+  （run_44 曾因此会把复现队列算进主队列汇总）。
+- **无 scanpy 路线**：`sparta/lite.py` 复刻 QC / 归一化 / `score_genes`（legacy 全局种子），
+  在 3 张主队列 ST 切片上与存档分数一致到 float32 精度、秩完全一致。处理表格式新数据可直接用。
+- **CODEX 验证是预注册的**：改分析之前先在 `docs/codex_validation_protocol.md` 末尾登记偏离；
+  事后加的分析一律标 post hoc。主终点、比较方法、纳入标准都写死在 run_47 顶部常量里。
+- **干预排序的两条"发现"其实是定理**：单点干预对 B_cell 的效应只出现在最小割上
+  （最大流-最小割对偶）。论文与 README 只能把联合打通曲线、预算对比当信息量。
+- **BANKSY 式域比较已用精确割重算**（`run_51`）：`sparta/lite.py` 复刻 scanpy 的 HVG(seurat)/scale/PCA(arpack)，
+  `scripts/_h5ad_reader.py` 在没有 h5py 时经 libhdf5 读 `.h5ad`；给旧割时 19/19 张切片与存档逐位一致。
+  有 scanpy 的机器上 run_51 自动走 scanpy 路线。不要再用 run_13/run_13b/run_34 覆盖这些文件。
+- **稿件结构（v2.2）**：Fig. 7 = CODEX，Fig. 8 = 两算子 vs 简单空间摘要（run_52 + run_38 + run_47）；
+  干预图移到 Online Resource 1 的 Fig. S7（含 run_53 的区域构成面板），Tables S9/S10 覆盖全部 30 张切片。
+- **CODEX 的 post hoc 项**：几何比较量（血管-肿瘤距离、肿瘤核心深度）、给定单个/全部简单摘要的偏相关、
+  Eq. 1 权重四种变体都已在协议末尾登记为 post hoc；正文必须继续这样标注。核心深度与结局部分同构（结局就在核心区测）。
+

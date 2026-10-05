@@ -134,6 +134,7 @@ def _save(fig, P, name, dpi):
 def fig2(P, dpi):
     """驱动分解，以及它对 beta 的依赖。"""
     import matplotlib.pyplot as plt
+    from matplotlib.lines import Line2D
 
     scr = load_json(P.validation("screen_decision.json"))["per_slide"]
     sens = load_json(P.validation("bmab_sensitivity.json"))
@@ -197,7 +198,6 @@ def fig2(P, dpi):
     slides_sens = sens.get("slides", {})   # run_17 多切片格式
     sids_sens = [s for s in ORDER if s in slides_sens]
     if sids_sens:
-        ends = []
         for sid in sids_sens:
             g = slides_sens[sid]["lam_x_beta"]["grid"]
             xs, ys = g["xs"], g["ys"]
@@ -207,17 +207,18 @@ def fig2(P, dpi):
                    marker="o" if sid.startswith("CSCC") else "s", ms=4.5,
                    markerfacecolor=MAB if sid.startswith("CSCC") else SURFACE,
                    markeredgecolor=MAB, markeredgewidth=1.2)
-            ends.append((sid, float(M[-1, j])))
-        # 终点标签要铺开：五条曲线在 beta=12 处落在 81–96%，直接标会叠住
-        order_ = sorted(range(len(ends)), key=lambda k: ends[k][1])
-        yy = _spread([ends[k][1] for k in order_], 4.6)
-        for y_, k in zip(yy, order_):
-            sid, y0 = ends[k]
-            if abs(y_ - y0) > 1e-9:
-                b.plot([ys[-1], ys[-1] * 1.13], [y0, y_], color=MUTED, lw=0.7,
-                       alpha=0.8, clip_on=False, zorder=2)
-            b.annotate(sid, xy=(ys[-1] * 1.15, y_), xytext=(2, 0), annotation_clip=False,
-                       textcoords="offset points", fontsize=7, color=INK2, va="center")
+        # 五条曲线在 beta=12 端点接近，图例映射切片身份，避免线尾标签互相覆盖。
+        handles = [Line2D(
+            [0], [0], color=MAB, lw=1.6,
+            marker="o" if sid.startswith("CSCC") else "s",
+            markerfacecolor=MAB if sid.startswith("CSCC") else SURFACE,
+            markeredgecolor=MAB, markersize=4.5, label=sid,
+        ) for sid in sids_sens]
+        b.legend(handles=handles, loc="upper left", bbox_to_anchor=(0.025, 0.98),
+                 ncol=2, frameon=True, framealpha=0.88, facecolor="white",
+                 edgecolor="none", fontsize=6.8, handlelength=1.1,
+                 columnspacing=0.8, handletextpad=0.4, borderpad=0.35,
+                 labelspacing=0.25)
         b.axvline(3.0, color=MUTED, lw=0.9, ls=(0, (3, 3)), zorder=1)
         b.set_xscale("log"); b.set_xticks(ys)
         b.set_xticklabels([f"{y:g}" for y in ys], fontsize=7.4)

@@ -1,0 +1,374 @@
+{
+ "n_tissues": 540,
+ "geoms": [
+  "closed",
+  "gap05",
+  "gap10",
+  "gap20",
+  "gap40",
+  "closed_far",
+  "band",
+  "patches",
+  "scattered"
+ ],
+ "noise_levels": [
+  0.05,
+  0.15,
+  0.3
+ ],
+ "reps": 20,
+ "lattice_spots": 808,
+ "per_noise": {
+  "0.05": {
+   "sparta_bcell": {
+    "spearman_vs_lost_access": 0.8194574907641105,
+    "auc_closed_vs_band": 1.0,
+    "auc_closed_vs_scattered": 1.0,
+    "auc_closed_vs_gap05": 0.8375,
+    "auc_closedfar_vs_scattered": 1.0,
+    "auc_closedfar_vs_band": 1.0
+   },
+   "sparta_field_core": {
+    "spearman_vs_lost_access": 0.572729470718972,
+    "auc_closed_vs_band": 0.985,
+    "auc_closed_vs_scattered": 0.955,
+    "auc_closed_vs_gap05": 0.735,
+    "auc_closedfar_vs_scattered": 0.92,
+    "auc_closedfar_vs_band": 0.9375
+   },
+   "ecm_global_mean": {
+    "spearman_vs_lost_access": 0.036680962180252095,
+    "auc_closed_vs_band": 0.5,
+    "auc_closed_vs_scattered": 0.5,
+    "auc_closed_vs_gap05": 0.5,
+    "auc_closedfar_vs_scattered": 0.525,
+    "auc_closedfar_vs_band": 0.525
+   },
+   "ecm_peritumoural_mean": {
+    "spearman_vs_lost_access": 0.5715565889793877,
+    "auc_closed_vs_band": 0.5375,
+    "auc_closed_vs_scattered": 0.9975,
+    "auc_closed_vs_gap05": 0.41,
+    "auc_closedfar_vs_scattered": 0.7075,
+    "auc_closedfar_vs_band": 0.0225
+   },
+   "nhood_enrichment_z": {
+    "spearman_vs_lost_access": 0.6872305072804453,
+    "auc_closed_vs_band": 1.0,
+    "auc_closed_vs_scattered": 1.0,
+    "auc_closed_vs_gap05": 0.78,
+    "auc_closedfar_vs_scattered": 0.03,
+    "auc_closedfar_vs_band": 0.0
+   },
+   "domain_boundary_coverage": {
+    "spearman_vs_lost_access": 0.46676732521274733,
+    "auc_closed_vs_band": 0.6000000000000001,
+    "auc_closed_vs_scattered": 0.875,
+    "auc_closed_vs_gap05": 0.5,
+    "auc_closedfar_vs_scattered": 0.25125000000000003,
+    "auc_closedfar_vs_band": 0.005
+   },
+   "ripley_L_200um": {
+    "spearman_vs_lost_access": 0.34430076908600354,
+    "auc_closed_vs_band": 1.0,
+    "auc_closed_vs_scattered": 1.0,
+    "auc_closed_vs_gap05": 1.0,
+    "auc_closedfar_vs_scattered": 1.0,
+    "auc_closedfar_vs_band": 0.0
+   },
+   "vessel_boundary_distance": {
+    "spearman_vs_lost_access": 0.13220918275309015,
+    "auc_closed_vs_band": 0.5975,
+    "auc_closed_vs_scattered": 0.54125,
+    "auc_closed_vs_gap05": 0.5175,
+    "auc_closedfar_vs_scattered": 0.9325,
+    "auc_closedfar_vs_band": 0.9525
+   }
+  },
+  "0.15": {
+   "sparta_bcell": {
+    "spearman_vs_lost_access": 0.9063713878120061,
+    "auc_closed_vs_band": 1.0,
+    "auc_closed_vs_scattered": 1.0,
+    "auc_closed_vs_gap05": 0.9425,
+    "auc_closedfar_vs_scattered": 1.0,
+    "auc_closedfar_vs_band": 1.0
+   },
+   "sparta_field_core": {
+    "spearman_vs_lost_access": 0.7148043263198773,
+    "auc_closed_vs_band": 0.9675,
+    "auc_closed_vs_scattered": 1.0,
+    "auc_closed_vs_gap05": 0.7525,
+    "auc_closedfar_vs_scattered": 0.995,
+    "auc_closedfar_vs_band": 0.9675
+   },
+   "ecm_global_mean": {
+    "spearman_vs_lost_access": -0.12011247922089656,
+    "auc_closed_vs_band": 0.5,
+    "auc_closed_vs_scattered": 0.5,
+    "auc_closed_vs_gap05": 0.5,
+    "auc_closedfar_vs_scattered": 0.5,
+    "auc_closedfar_vs_band": 0.5
+   },
+   "ecm_peritumoural_mean": {
+    "spearman_vs_lost_access": 0.5459400676299705,
+    "auc_closed_vs_band": 0.5425,
+    "auc_closed_vs_scattered": 1.0,
+    "auc_closed_vs_gap05": 0.62,
+    "auc_closedfar_vs_scattered": 0.705,
+    "auc_closedfar_vs_band": 0.0
+   },
+   "nhood_enrichment_z": {
+    "spearman_vs_lost_access": 0.7000167187728497,
+    "auc_closed_vs_band": 1.0,
+    "auc_closed_vs_scattered": 1.0,
+    "auc_closed_vs_gap05": 0.7275,
+    "auc_closedfar_vs_scattered": 0.1475,
+    "auc_closedfar_vs_band": 0.0
+   },
+   "domain_boundary_coverage": {
+    "spearman_vs_lost_access": 0.42920997944722017,
+    "auc_closed_vs_band": 0.55,
+    "auc_closed_vs_scattered": 0.875,
+    "auc_closed_vs_gap05": 0.5,
+    "auc_closedfar_vs_scattered": 0.125,
+    "auc_closedfar_vs_band": 0.0
+   },
+   "ripley_L_200um": {
+    "spearman_vs_lost_access": 0.35073098139266,
+    "auc_closed_vs_band": 1.0,
+    "auc_closed_vs_scattered": 1.0,
+    "auc_closed_vs_gap05": 0.96375,
+    "auc_closedfar_vs_scattered": 1.0,
+    "auc_closedfar_vs_band": 0.0875
+   },
+   "vessel_boundary_distance": {
+    "spearman_vs_lost_access": 0.11553601430730207,
+    "auc_closed_vs_band": 0.645,
+    "auc_closed_vs_scattered": 0.6025,
+    "auc_closed_vs_gap05": 0.71,
+    "auc_closedfar_vs_scattered": 0.92625,
+    "auc_closedfar_vs_band": 0.9725
+   }
+  },
+  "0.3": {
+   "sparta_bcell": {
+    "spearman_vs_lost_access": 0.8852495110780029,
+    "auc_closed_vs_band": 1.0,
+    "auc_closed_vs_scattered": 1.0,
+    "auc_closed_vs_gap05": 0.7975,
+    "auc_closedfar_vs_scattered": 1.0,
+    "auc_closedfar_vs_band": 0.93
+   },
+   "sparta_field_core": {
+    "spearman_vs_lost_access": 0.6490949740031201,
+    "auc_closed_vs_band": 0.9275,
+    "auc_closed_vs_scattered": 0.9975,
+    "auc_closed_vs_gap05": 0.6875,
+    "auc_closedfar_vs_scattered": 0.9075,
+    "auc_closedfar_vs_band": 0.71
+   },
+   "ecm_global_mean": {
+    "spearman_vs_lost_access": -0.04217673520721849,
+    "auc_closed_vs_band": 0.5,
+    "auc_closed_vs_scattered": 0.5,
+    "auc_closed_vs_gap05": 0.5,
+    "auc_closedfar_vs_scattered": 0.5,
+    "auc_closedfar_vs_band": 0.5
+   },
+   "ecm_peritumoural_mean": {
+    "spearman_vs_lost_access": 0.5426153930277139,
+    "auc_closed_vs_band": 0.5425,
+    "auc_closed_vs_scattered": 0.99,
+    "auc_closed_vs_gap05": 0.5675,
+    "auc_closedfar_vs_scattered": 0.6175,
+    "auc_closedfar_vs_band": 0.0025
+   },
+   "nhood_enrichment_z": {
+    "spearman_vs_lost_access": 0.6738161305114884,
+    "auc_closed_vs_band": 0.9875,
+    "auc_closed_vs_scattered": 1.0,
+    "auc_closed_vs_gap05": 0.5775,
+    "auc_closedfar_vs_scattered": 0.525,
+    "auc_closedfar_vs_band": 0.025
+   },
+   "domain_boundary_coverage": {
+    "spearman_vs_lost_access": 0.4384276552670451,
+    "auc_closed_vs_band": 0.6000000000000001,
+    "auc_closed_vs_scattered": 0.975,
+    "auc_closed_vs_gap05": 0.5,
+    "auc_closedfar_vs_scattered": 0.28750000000000003,
+    "auc_closedfar_vs_band": 0.07500000000000001
+   },
+   "ripley_L_200um": {
+    "spearman_vs_lost_access": 0.30495619900781756,
+    "auc_closed_vs_band": 0.925,
+    "auc_closed_vs_scattered": 1.0,
+    "auc_closed_vs_gap05": 0.79125,
+    "auc_closedfar_vs_scattered": 1.0,
+    "auc_closedfar_vs_band": 0.365
+   },
+   "vessel_boundary_distance": {
+    "spearman_vs_lost_access": 0.11107150041047388,
+    "auc_closed_vs_band": 0.61,
+    "auc_closed_vs_scattered": 0.6175,
+    "auc_closed_vs_gap05": 0.595,
+    "auc_closedfar_vs_scattered": 0.9625,
+    "auc_closedfar_vs_band": 0.96
+   }
+  }
+ },
+ "pooled": {
+  "sparta_bcell": {
+   "spearman_vs_lost_access": 0.8699695440985018,
+   "auc_closed_vs_band": 1.0,
+   "auc_closed_vs_scattered": 1.0,
+   "auc_closed_vs_gap05": 0.8458333333333333,
+   "auc_closedfar_vs_scattered": 0.9983333333333333,
+   "auc_closedfar_vs_band": 0.9861111111111112
+  },
+  "sparta_field_core": {
+   "spearman_vs_lost_access": 0.6416611453738732,
+   "auc_closed_vs_band": 0.9619444444444445,
+   "auc_closed_vs_scattered": 0.9794444444444445,
+   "auc_closed_vs_gap05": 0.7263888888888889,
+   "auc_closedfar_vs_scattered": 0.9391666666666667,
+   "auc_closedfar_vs_band": 0.8791666666666667
+  },
+  "ecm_global_mean": {
+   "spearman_vs_lost_access": -0.03826414162207124,
+   "auc_closed_vs_band": 0.5,
+   "auc_closed_vs_scattered": 0.5,
+   "auc_closed_vs_gap05": 0.5,
+   "auc_closedfar_vs_scattered": 0.5083333333333333,
+   "auc_closedfar_vs_band": 0.5083333333333333
+  },
+  "ecm_peritumoural_mean": {
+   "spearman_vs_lost_access": 0.5520880479330383,
+   "auc_closed_vs_band": 0.5469444444444445,
+   "auc_closed_vs_scattered": 0.9966666666666667,
+   "auc_closed_vs_gap05": 0.5226388888888889,
+   "auc_closedfar_vs_scattered": 0.6791666666666667,
+   "auc_closedfar_vs_band": 0.007222222222222222
+  },
+  "nhood_enrichment_z": {
+   "spearman_vs_lost_access": 0.662010679535168,
+   "auc_closed_vs_band": 0.9930555555555556,
+   "auc_closed_vs_scattered": 1.0,
+   "auc_closed_vs_gap05": 0.6302777777777778,
+   "auc_closedfar_vs_scattered": 0.2802777777777778,
+   "auc_closedfar_vs_band": 0.002777777777777778
+  },
+  "domain_boundary_coverage": {
+   "spearman_vs_lost_access": 0.44872800252842526,
+   "auc_closed_vs_band": 0.5833333333333334,
+   "auc_closed_vs_scattered": 0.9083333333333333,
+   "auc_closed_vs_gap05": 0.5,
+   "auc_closedfar_vs_scattered": 0.2448611111111111,
+   "auc_closedfar_vs_band": 0.024305555555555556
+  },
+  "ripley_L_200um": {
+   "spearman_vs_lost_access": 0.28529343547858305,
+   "auc_closed_vs_band": 0.7772222222222221,
+   "auc_closed_vs_scattered": 1.0,
+   "auc_closed_vs_gap05": 0.7179166666666666,
+   "auc_closedfar_vs_scattered": 1.0,
+   "auc_closedfar_vs_band": 0.2891666666666667
+  },
+  "vessel_boundary_distance": {
+   "spearman_vs_lost_access": 0.11821677376221404,
+   "auc_closed_vs_band": 0.6175,
+   "auc_closed_vs_scattered": 0.5829166666666666,
+   "auc_closed_vs_gap05": 0.6022222222222222,
+   "auc_closedfar_vs_scattered": 0.93875,
+   "auc_closedfar_vs_band": 0.9602777777777778
+  }
+ },
+ "access_by_geom": {
+  "closed": {
+   "mean": 0.10416666666666667,
+   "sd": 0.008043746132981316
+  },
+  "gap05": {
+   "mean": 0.2435388888888889,
+   "sd": 0.025731310489482906
+  },
+  "gap10": {
+   "mean": 0.31136666666666674,
+   "sd": 0.03483185536471102
+  },
+  "gap20": {
+   "mean": 0.4315,
+   "sd": 0.037435796891329684
+  },
+  "gap40": {
+   "mean": 0.5832444444444443,
+   "sd": 0.04127001721574216
+  },
+  "closed_far": {
+   "mean": 0.3311444444444445,
+   "sd": 0.018067811225190942
+  },
+  "band": {
+   "mean": 0.691338888888889,
+   "sd": 0.03423781165485874
+  },
+  "patches": {
+   "mean": 0.8814333333333334,
+   "sd": 0.02806528764096977
+  },
+  "scattered": {
+   "mean": 0.8867444444444443,
+   "sd": 0.010418353937423708
+  }
+ },
+ "synthetic_s2_closed": {
+  "median_ratio": 0.9375426058316848,
+  "ratios": [
+   1.1111797468999165,
+   0.8800627300781093,
+   0.8264443757971465,
+   0.4745287344807427,
+   1.3820129594775399,
+   1.0781736867257345,
+   0.7692897168267372,
+   0.941981038325994,
+   0.9331041733373756,
+   1.0599719262738212
+  ],
+  "p": [
+   0.2903225806451613,
+   0.8064516129032258,
+   0.9032258064516129,
+   1.0,
+   0.06451612903225806,
+   0.3870967741935484,
+   1.0,
+   0.6774193548387096,
+   0.7741935483870968,
+   0.41935483870967744
+  ],
+  "n_cut": [
+   84,
+   84,
+   84,
+   84,
+   84,
+   84,
+   84,
+   84,
+   84,
+   84
+  ]
+ },
+ "meta": {
+  "timestamp": "2026-10-04T17:37:01+00:00",
+  "config_path": "/home/claude/sparta/configs/default.yaml",
+  "seed": 20261004,
+  "python": "3.13.16",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "networkx": "3.6.1",
+  "module": "M38-synthetic-benchmark"
+ }
+}

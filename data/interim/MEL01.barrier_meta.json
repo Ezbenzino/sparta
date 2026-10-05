@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-08-27T14:11:21+00:00",
+  "config_path": "D:\\sparta\\configs\\default.yaml",
+  "seed": 0,
+  "python": "3.13.13",
+  "numpy": "2.5.2",
+  "scipy": "1.18.1",
+  "networkx": "3.6.1",
+  "module": "M4",
+  "slide": "MEL01",
+  "b_cell": 0.030842386162606893,
+  "max_flow": 32.422912893216775,
+  "r_nm": 5.5,
+  "n_unreachable": 0,
+  "d_vessel_mode": "weighted",
+  "filled_keys": [
+    "efflux"
+  ],
+  "degraded": true
+}

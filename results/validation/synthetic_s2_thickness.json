@@ -1,0 +1,286 @@
+{
+ "widths_um": [
+  160.0,
+  330.0,
+  500.0
+ ],
+ "results": {
+  "160um": {
+   "per_rep": [
+    {
+     "K": 72,
+     "ratio_unmatched": 1.5729071053515478,
+     "p_unmatched": 0.047619047619047616,
+     "n_cut_nodes": 84,
+     "ratio_matched": 0.5735594999965129,
+     "p_matched": 1.0
+    },
+    {
+     "K": 72,
+     "ratio_unmatched": 0.9465927104072206,
+     "p_unmatched": 0.7142857142857143,
+     "n_cut_nodes": 84,
+     "ratio_matched": 0.6956865637757276,
+     "p_matched": 1.0
+    },
+    {
+     "K": 72,
+     "ratio_unmatched": 1.2155730901684474,
+     "p_unmatched": 0.42857142857142855,
+     "n_cut_nodes": 84,
+     "ratio_matched": 0.8591104552702923,
+     "p_matched": 0.9047619047619048
+    },
+    {
+     "K": 72,
+     "ratio_unmatched": 1.3159955053598353,
+     "p_unmatched": 0.3333333333333333,
+     "n_cut_nodes": 84,
+     "ratio_matched": 0.9814085731692616,
+     "p_matched": 0.5238095238095238
+    },
+    {
+     "K": 72,
+     "ratio_unmatched": 1.5365989403533007,
+     "p_unmatched": 0.2857142857142857,
+     "n_cut_nodes": 84,
+     "ratio_matched": 0.6605744492020023,
+     "p_matched": 1.0
+    },
+    {
+     "K": 72,
+     "ratio_unmatched": 0.8833199283666866,
+     "p_unmatched": 0.8571428571428571,
+     "n_cut_nodes": 84,
+     "ratio_matched": 0.6262873532402029,
+     "p_matched": 1.0
+    },
+    {
+     "K": 72,
+     "ratio_unmatched": 2.0113959699646586,
+     "p_unmatched": 0.09523809523809523,
+     "n_cut_nodes": 84,
+     "ratio_matched": 1.2201865474648392,
+     "p_matched": 0.19047619047619047
+    },
+    {
+     "K": 72,
+     "ratio_unmatched": 1.9138881992938368,
+     "p_unmatched": 0.14285714285714285,
+     "n_cut_nodes": 84,
+     "ratio_matched": 1.054508659736713,
+     "p_matched": 0.42857142857142855
+    },
+    {
+     "K": 72,
+     "ratio_unmatched": 0.9338710202977974,
+     "p_unmatched": 0.5714285714285714,
+     "n_cut_nodes": 84,
+     "ratio_matched": 1.0379604483178169,
+     "p_matched": 0.47619047619047616
+    },
+    {
+     "K": 72,
+     "ratio_unmatched": 1.9994349149367519,
+     "p_unmatched": 0.047619047619047616,
+     "n_cut_nodes": 84,
+     "ratio_matched": 1.252747252198773,
+     "p_matched": 0.23809523809523808
+    }
+   ],
+   "median_ratio_unmatched": 1.426297222856568,
+   "median_ratio_matched": 0.9202595142197769,
+   "n_matched_gt1": 4,
+   "n_matched_p05": 0,
+   "n": 10
+  },
+  "330um": {
+   "per_rep": [
+    {
+     "K": 150,
+     "ratio_unmatched": 1.7346403688489274,
+     "p_unmatched": 0.2857142857142857,
+     "n_cut_nodes": 76,
+     "ratio_matched": 2.4664281621463084,
+     "p_matched": 0.047619047619047616
+    },
+    {
+     "K": 150,
+     "ratio_unmatched": 1.9210233287651333,
+     "p_unmatched": 0.047619047619047616,
+     "n_cut_nodes": 72,
+     "ratio_matched": 0.7287840510337312,
+     "p_matched": 0.9047619047619048
+    },
+    {
+     "K": 150,
+     "ratio_unmatched": 1.0441154884689618,
+     "p_unmatched": 0.42857142857142855,
+     "n_cut_nodes": 72,
+     "ratio_matched": 0.8376200574641635,
+     "p_matched": 0.8571428571428571
+    },
+    {
+     "K": 150,
+     "ratio_unmatched": 4.377454162597568,
+     "p_unmatched": 0.047619047619047616,
+     "n_cut_nodes": 76,
+     "ratio_matched": 5.270388592662776,
+     "p_matched": 0.047619047619047616
+    },
+    {
+     "K": 150,
+     "ratio_unmatched": 11.236072974879685,
+     "p_unmatched": 0.047619047619047616,
+     "n_cut_nodes": 78,
+     "ratio_matched": 4.41483138074351,
+     "p_matched": 0.047619047619047616
+    },
+    {
+     "K": 150,
+     "ratio_unmatched": 2.7033833778347454,
+     "p_unmatched": 0.047619047619047616,
+     "n_cut_nodes": 78,
+     "ratio_matched": 2.383344718108055,
+     "p_matched": 0.09523809523809523
+    },
+    {
+     "K": 150,
+     "ratio_unmatched": 2.192795480436191,
+     "p_unmatched": 0.19047619047619047,
+     "n_cut_nodes": 76,
+     "ratio_matched": 1.779733005861443,
+     "p_matched": 0.14285714285714285
+    },
+    {
+     "K": 150,
+     "ratio_unmatched": 1.3492015084597362,
+     "p_unmatched": 0.2857142857142857,
+     "n_cut_nodes": 74,
+     "ratio_matched": 0.782285271658423,
+     "p_matched": 0.9047619047619048
+    },
+    {
+     "K": 150,
+     "ratio_unmatched": 3.7753324844972433,
+     "p_unmatched": 0.047619047619047616,
+     "n_cut_nodes": 72,
+     "ratio_matched": 1.1028595376545285,
+     "p_matched": 0.3333333333333333
+    },
+    {
+     "K": 150,
+     "ratio_unmatched": 1.729613650354476,
+     "p_unmatched": 0.19047619047619047,
+     "n_cut_nodes": 74,
+     "ratio_matched": 1.055487482074146,
+     "p_matched": 0.47619047619047616
+    }
+   ],
+   "median_ratio_unmatched": 2.0569094046006624,
+   "median_ratio_matched": 1.4412962717579858,
+   "n_matched_gt1": 7,
+   "n_matched_p05": 3,
+   "n": 10
+  },
+  "500um": {
+   "per_rep": [
+    {
+     "K": 228,
+     "ratio_unmatched": 1.7376748840778342,
+     "p_unmatched": 0.047619047619047616,
+     "n_cut_nodes": 76,
+     "ratio_matched": 1.0583090283867949,
+     "p_matched": 0.42857142857142855
+    },
+    {
+     "K": 228,
+     "ratio_unmatched": 0.9624726684910119,
+     "p_unmatched": 0.8571428571428571,
+     "n_cut_nodes": 60,
+     "ratio_matched": 0.9151590621333914,
+     "p_matched": 1.0
+    },
+    {
+     "K": 228,
+     "ratio_unmatched": 12.35501061524933,
+     "p_unmatched": 0.047619047619047616,
+     "n_cut_nodes": 78,
+     "ratio_matched": 0.48555398981253556,
+     "p_matched": 1.0
+    },
+    {
+     "K": 228,
+     "ratio_unmatched": 1.0463338250683636,
+     "p_unmatched": 0.2857142857142857,
+     "n_cut_nodes": 78,
+     "ratio_matched": 1.0885041381751808,
+     "p_matched": 0.38095238095238093
+    },
+    {
+     "K": 228,
+     "ratio_unmatched": 2.0514681375493296,
+     "p_unmatched": 0.14285714285714285,
+     "n_cut_nodes": 80,
+     "ratio_matched": 3.4331483073691627,
+     "p_matched": 0.047619047619047616
+    },
+    {
+     "K": 228,
+     "ratio_unmatched": 1.7652600002914365,
+     "p_unmatched": 0.09523809523809523,
+     "n_cut_nodes": 66,
+     "ratio_matched": 0.6066726140941145,
+     "p_matched": 1.0
+    },
+    {
+     "K": 228,
+     "ratio_unmatched": 1.3162987743016097,
+     "p_unmatched": 0.09523809523809523,
+     "n_cut_nodes": 68,
+     "ratio_matched": 1.1356236097209955,
+     "p_matched": 0.2857142857142857
+    },
+    {
+     "K": 228,
+     "ratio_unmatched": 0.9306237965594323,
+     "p_unmatched": 0.9047619047619048,
+     "n_cut_nodes": 62,
+     "ratio_matched": 0.843909660887192,
+     "p_matched": 1.0
+    },
+    {
+     "K": 228,
+     "ratio_unmatched": 0.8741424246664075,
+     "p_unmatched": 1.0,
+     "n_cut_nodes": 66,
+     "ratio_matched": 0.7338047987295446,
+     "p_matched": 1.0
+    },
+    {
+     "K": 228,
+     "ratio_unmatched": 11.412372309433872,
+     "p_unmatched": 0.047619047619047616,
+     "n_cut_nodes": 74,
+     "ratio_matched": 0.6648581948442928,
+     "p_matched": 0.9523809523809523
+    }
+   ],
+   "median_ratio_unmatched": 1.526986829189722,
+   "median_ratio_matched": 0.8795343615102917,
+   "n_matched_gt1": 4,
+   "n_matched_p05": 1,
+   "n": 10
+  }
+ },
+ "meta": {
+  "timestamp": "2026-10-04T17:01:35+00:00",
+  "config_path": "/home/claude/sparta/configs/default.yaml",
+  "seed": 20261007,
+  "python": "3.13.16",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "networkx": "3.6.1",
+  "module": "M38b-synthetic-s2"
+ }
+}

@@ -40,6 +40,11 @@ def main():
     ap.add_argument("--slide", required=True)
     ap.add_argument("--n-perm", type=int, default=None, help="S1 置换次数")
     ap.add_argument("--n-rand", type=int, default=None, help="S2 随机对照次数")
+    ap.add_argument("--s2-match-groups", type=int, default=None,
+                    help="S2 匹配选择敏感性：对照 B 每组抽 8 个分散候选取最有效，"
+                         "组数取本值；只跑主检验 k_frac=0.20，"
+                         "输出到 results/counterfactual/{slide}.s2matched.json，不覆盖原结果。"
+                         "（2026-10-03 审查 P4：量化定向弧 ≤8 候选选择对效应量的夸大）")
     ap.add_argument("--k-absolute", action="store_true",
                     help="S2 强制用 config 的绝对 k_list（只用于复现 2026-08-26 之前的旧结果）")
     ap.add_argument("--config", default=None)
@@ -75,8 +80,9 @@ def main():
     for mode in cf["s1"]["modes"]:
         kw = {}
         if mode == "follow":
-            kw = dict(endothelial=S.get("ecm"), t_nk=S.get("caf"), malignant=S.get("ag_target"),
-                      cfg_source_sink={k: cfg["source_sink"][k] for k in
+            # follow 模式必须用真正的 Endothelial/T_NK/Malignant 签名列，
+            # 不能拿 ecm/caf/ag_target 顶替——那会让 follow 测的东西与它声称的不同。
+            kw = dict(cfg_source_sink={k: cfg["source_sink"][k] for k in
                                        ("q_vessel", "q_immune_nbr", "q_malig", "q_core")})
             missing = []
             for name, col in (("endothelial", "Endothelial_n"), ("t_nk", "T_NK_n"),
@@ -111,6 +117,23 @@ def main():
     # k 优先按割集比例取（真实切片必须这样，见 counterfactual.s2_ring_breaking 的说明）；
     # 只有 config 里没写 k_frac 时才回退到绝对 k_list。
     k_frac = cf["s2"].get("k_frac") if not args.k_absolute else None
+    if args.s2_match_groups:
+        # 匹配选择敏感性：只跑主检验 20%，对照 B 施加与定向弧相同的 ≤8 候选选择。
+        print(f"[S2*] 匹配选择敏感性（k = 割集的 20%，{args.s2_match_groups} 组 × 8 候选）...")
+        s2 = s2_ring_breaking(A, S["ecm"], S["caf"], source, sink, cfg_cell,
+                              coords=coords, k_list=tuple(cf["s2"]["k_list"]),
+                              k_frac=(0.20,),
+                              n_rand=n_rand, seed=cfg["seed"], low_q=cf["s2"]["low_q"],
+                              match_selection=True, n_match_groups=args.s2_match_groups)
+        print(f"     割集 {s2['n_cut_nodes']} 节点（可动 {s2['n_cut_pool']} 个）")
+        for k, r in sorted(s2["per_k"].items()):
+            print(f"     k={k:>3}（占割集 {r['k_over_cut']*100:>4.1f}%）: 连续缺口 {r['targeted']:.4f}"
+                  f"｜分散(匹配选择) {r['rand_in_cut_mean']:.4f}"
+                  f"（{r['ratio_vs_in_cut']:.2f}x, p={r['p_vs_in_cut']:.3f}）")
+        out["s2_matched"] = s2
+        save_json(P.counterfactual(args.slide).with_name(f"{args.slide}.s2matched.json"), out)
+        print(f"[M5] 已写出 {P.counterfactual(args.slide).with_name(f'{args.slide}.s2matched.json')}")
+        return
     if k_frac:
         print(f"[S2] 环带断裂（k = 割集的 {k_frac}，随机对照 {n_rand} 次）...")
     else:

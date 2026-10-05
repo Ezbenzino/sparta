@@ -1,0 +1,561 @@
+{
+ "q": 0.75,
+ "chance_discordant": 0.0625,
+ "config_main": "configs/default.yaml",
+ "config_variant": "configs/no_shared_ecm.yaml",
+ "d_vessel_mode": "hops",
+ "per_slide": {
+  "CSCC01": {
+   "主配置": {
+    "rho": 0.3267540307793112,
+    "rho_partial": 0.3816500794356512,
+    "p_partial": 9.996202456144731e-26,
+    "frac_discordant_r": 0.017118402282453638,
+    "enrichment_vs_chance_r": 0.2738944365192582,
+    "n": 701
+   },
+   "切断共享ECM": {
+    "rho": 0.2608837275012924,
+    "rho_partial": 0.3023243153245093,
+    "p_partial": 2.782207608825964e-16,
+    "frac_discordant_r": 0.018544935805991442,
+    "enrichment_vs_chance_r": 0.2967189728958631,
+    "n": 701
+   }
+  },
+  "CSCC02": {
+   "主配置": {
+    "rho": 0.1844073091311358,
+    "rho_partial": 0.23051043967660795,
+    "p_partial": 2.600662464191112e-09,
+    "frac_discordant_r": 0.032208588957055216,
+    "enrichment_vs_chance_r": 0.5153374233128835,
+    "n": 652
+   },
+   "切断共享ECM": {
+    "rho": 0.1564403863942402,
+    "rho_partial": 0.19045540817872333,
+    "p_partial": 9.646287448697621e-07,
+    "frac_discordant_r": 0.029141104294478526,
+    "enrichment_vs_chance_r": 0.4662576687116564,
+    "n": 652
+   }
+  },
+  "CSCC03": {
+   "主配置": {
+    "rho": 0.1993116157251715,
+    "rho_partial": 0.2520560082287869,
+    "p_partial": 1.3024067452556351e-39,
+    "frac_discordant_r": 0.028733459357277884,
+    "enrichment_vs_chance_r": 0.45973534971644614,
+    "n": 2645
+   },
+   "切断共享ECM": {
+    "rho": 0.1523754314672056,
+    "rho_partial": 0.18100610614449497,
+    "p_partial": 6.457171722784064e-21,
+    "frac_discordant_r": 0.03440453686200378,
+    "enrichment_vs_chance_r": 0.5504725897920605,
+    "n": 2645
+   }
+  },
+  "CSCC04": {
+   "主配置": {
+    "rho": 0.24625435777065022,
+    "rho_partial": 0.20420903582763925,
+    "p_partial": 2.4539009104173878e-23,
+    "frac_discordant_r": 0.03608247422680412,
+    "enrichment_vs_chance_r": 0.5773195876288659,
+    "n": 2328
+   },
+   "切断共享ECM": {
+    "rho": 0.21087568682619165,
+    "rho_partial": 0.19004158171489105,
+    "p_partial": 2.2688639684817356e-20,
+    "frac_discordant_r": 0.03221649484536082,
+    "enrichment_vs_chance_r": 0.5154639175257731,
+    "n": 2328
+   }
+  },
+  "CSCC05": {
+   "主配置": {
+    "rho": 0.2717395227623853,
+    "rho_partial": 0.27277762773296643,
+    "p_partial": 8.564318890955284e-13,
+    "frac_discordant_r": 0.009036144578313253,
+    "enrichment_vs_chance_r": 0.14457831325301204,
+    "n": 664
+   },
+   "切断共享ECM": {
+    "rho": 0.20404517902796318,
+    "rho_partial": 0.17570262459010222,
+    "p_partial": 5.251370489027774e-06,
+    "frac_discordant_r": 0.016566265060240965,
+    "enrichment_vs_chance_r": 0.26506024096385544,
+    "n": 664
+   }
+  },
+  "CSCC06": {
+   "主配置": {
+    "rho": 0.15689506058899208,
+    "rho_partial": 0.16272765088695332,
+    "p_partial": 3.383427670059711e-05,
+    "frac_discordant_r": 0.03265940902021773,
+    "enrichment_vs_chance_r": 0.5225505443234837,
+    "n": 643
+   },
+   "切断共享ECM": {
+    "rho": 0.08846054384703868,
+    "rho_partial": 0.062000500355038776,
+    "p_partial": 0.11626943500060231,
+    "frac_discordant_r": 0.04043545878693624,
+    "enrichment_vs_chance_r": 0.6469673405909798,
+    "n": 643
+   }
+  },
+  "CSCC07": {
+   "主配置": {
+    "rho": 0.23259025245717024,
+    "rho_partial": 0.2686636420557221,
+    "p_partial": 5.401611130316073e-12,
+    "frac_discordant_r": 0.029827315541601257,
+    "enrichment_vs_chance_r": 0.4772370486656201,
+    "n": 637
+   },
+   "切断共享ECM": {
+    "rho": 0.18820257246037445,
+    "rho_partial": 0.20974573125581905,
+    "p_partial": 9.147709156799276e-08,
+    "frac_discordant_r": 0.02511773940345369,
+    "enrichment_vs_chance_r": 0.40188383045525905,
+    "n": 637
+   }
+  },
+  "CSCC08": {
+   "主配置": {
+    "rho": 0.23556452370287564,
+    "rho_partial": 0.08899846340166088,
+    "p_partial": 0.03427157455466244,
+    "frac_discordant_r": 0.054770318021201414,
+    "enrichment_vs_chance_r": 0.8763250883392226,
+    "n": 566
+   },
+   "切断共享ECM": {
+    "rho": 0.2794335871231919,
+    "rho_partial": 0.09216909772715548,
+    "p_partial": 0.028336670274939524,
+    "frac_discordant_r": 0.053003533568904596,
+    "enrichment_vs_chance_r": 0.8480565371024735,
+    "n": 566
+   }
+  },
+  "CSCC09": {
+   "主配置": {
+    "rho": 0.2621906912406784,
+    "rho_partial": 0.18265835351134194,
+    "p_partial": 3.2680770848854704e-05,
+    "frac_discordant_r": 0.03913894324853229,
+    "enrichment_vs_chance_r": 0.6262230919765166,
+    "n": 511
+   },
+   "切断共享ECM": {
+    "rho": 0.19500943215719116,
+    "rho_partial": 0.04287893265844014,
+    "p_partial": 0.33336272526360344,
+    "frac_discordant_r": 0.03718199608610567,
+    "enrichment_vs_chance_r": 0.5949119373776908,
+    "n": 511
+   }
+  },
+  "CSCC10": {
+   "主配置": {
+    "rho": 0.21465612716881705,
+    "rho_partial": 0.10378224310586633,
+    "p_partial": 0.028059517096915464,
+    "frac_discordant_r": 0.05357142857142857,
+    "enrichment_vs_chance_r": 0.8571428571428571,
+    "n": 448
+   },
+   "切断共享ECM": {
+    "rho": 0.18123117025811594,
+    "rho_partial": 0.006263417807491384,
+    "p_partial": 0.8948241319486481,
+    "frac_discordant_r": 0.05133928571428571,
+    "enrichment_vs_chance_r": 0.8214285714285714,
+    "n": 448
+   }
+  },
+  "CSCC11": {
+   "主配置": {
+    "rho": 0.3704212097172209,
+    "rho_partial": 0.20179425636936754,
+    "p_partial": 1.3222626852098482e-07,
+    "frac_discordant_r": 0.03869047619047619,
+    "enrichment_vs_chance_r": 0.6190476190476191,
+    "n": 672
+   },
+   "切断共享ECM": {
+    "rho": 0.362658224614854,
+    "rho_partial": 0.12757347354147364,
+    "p_partial": 0.0009181453339571082,
+    "frac_discordant_r": 0.044642857142857144,
+    "enrichment_vs_chance_r": 0.7142857142857143,
+    "n": 672
+   }
+  },
+  "CSCC12": {
+   "主配置": {
+    "rho": 0.30708723592100357,
+    "rho_partial": 0.19043570399773288,
+    "p_partial": 2.8921058759345688e-06,
+    "frac_discordant_r": 0.04201680672268908,
+    "enrichment_vs_chance_r": 0.6722689075630253,
+    "n": 595
+   },
+   "切断共享ECM": {
+    "rho": 0.2975148176177067,
+    "rho_partial": 0.1515674905212377,
+    "p_partial": 0.00020659440684394882,
+    "frac_discordant_r": 0.03361344537815126,
+    "enrichment_vs_chance_r": 0.5378151260504201,
+    "n": 595
+   }
+  },
+  "CSCC14": {
+   "主配置": {
+    "rho": 0.4290391547445527,
+    "rho_partial": 0.2641877833407332,
+    "p_partial": 2.5166657768114075e-07,
+    "frac_discordant_r": 0.03513513513513514,
+    "enrichment_vs_chance_r": 0.5621621621621622,
+    "n": 370
+   },
+   "切断共享ECM": {
+    "rho": 0.3823121334282234,
+    "rho_partial": 0.20467048366510207,
+    "p_partial": 7.319522319233315e-05,
+    "frac_discordant_r": 0.02702702702702703,
+    "enrichment_vs_chance_r": 0.43243243243243246,
+    "n": 370
+   }
+  },
+  "CSCC15": {
+   "主配置": {
+    "rho": 0.05173448554117158,
+    "rho_partial": -0.02075324058705544,
+    "p_partial": 0.6128090548109144,
+    "frac_discordant_r": 0.07035175879396985,
+    "enrichment_vs_chance_r": 1.1256281407035176,
+    "n": 597
+   },
+   "切断共享ECM": {
+    "rho": 0.03927853255769997,
+    "rho_partial": -0.040697230589061384,
+    "p_partial": 0.32085303568117013,
+    "frac_discordant_r": 0.06532663316582915,
+    "enrichment_vs_chance_r": 1.0452261306532664,
+    "n": 597
+   }
+  },
+  "CSCC16": {
+   "主配置": {
+    "rho": 0.27663766670421575,
+    "rho_partial": 0.2294707760158473,
+    "p_partial": 6.215773486021025e-06,
+    "frac_discordant_r": 0.039473684210526314,
+    "enrichment_vs_chance_r": 0.631578947368421,
+    "n": 380
+   },
+   "切断共享ECM": {
+    "rho": 0.2821392692965881,
+    "rho_partial": 0.21176132482055215,
+    "p_partial": 3.1591512223119846e-05,
+    "frac_discordant_r": 0.042105263157894736,
+    "enrichment_vs_chance_r": 0.6736842105263158,
+    "n": 380
+   }
+  },
+  "MEL01": {
+   "主配置": {
+    "rho": 0.27164472556360364,
+    "rho_partial": 0.19100143058815097,
+    "p_partial": 4.2107699010589176e-15,
+    "frac_discordant_r": 0.04457831325301205,
+    "enrichment_vs_chance_r": 0.7132530120481928,
+    "n": 1660
+   },
+   "切断共享ECM": {
+    "rho": 0.2344637321089665,
+    "rho_partial": 0.12491124328010172,
+    "p_partial": 3.30017676727336e-07,
+    "frac_discordant_r": 0.04457831325301205,
+    "enrichment_vs_chance_r": 0.7132530120481928,
+    "n": 1660
+   }
+  },
+  "MEL02": {
+   "主配置": {
+    "rho": 0.12870154371139814,
+    "rho_partial": 0.04380103372392602,
+    "p_partial": 0.2156001088148601,
+    "frac_discordant_r": 0.05493133583021224,
+    "enrichment_vs_chance_r": 0.8789013732833958,
+    "n": 801
+   },
+   "切断共享ECM": {
+    "rho": 0.08652597423700019,
+    "rho_partial": -0.04808170287170198,
+    "p_partial": 0.17399870466533418,
+    "frac_discordant_r": 0.0599250936329588,
+    "enrichment_vs_chance_r": 0.9588014981273408,
+    "n": 801
+   }
+  },
+  "MEL03": {
+   "主配置": {
+    "rho": 0.16773229277130647,
+    "rho_partial": 0.127529510357794,
+    "p_partial": 1.0781775568545259e-07,
+    "frac_discordant_r": 0.04408352668213457,
+    "enrichment_vs_chance_r": 0.7053364269141531,
+    "n": 1724
+   },
+   "切断共享ECM": {
+    "rho": 0.11464274872518261,
+    "rho_partial": 0.031709080154309816,
+    "p_partial": 0.1881837095248923,
+    "frac_discordant_r": 0.042923433874709975,
+    "enrichment_vs_chance_r": 0.6867749419953596,
+    "n": 1724
+   }
+  },
+  "MEL04": {
+   "主配置": {
+    "rho": 0.29517677882549775,
+    "rho_partial": 0.12033026020795018,
+    "p_partial": 4.3483565859592173e-10,
+    "frac_discordant_r": 0.04227459783015339,
+    "enrichment_vs_chance_r": 0.6763935652824542,
+    "n": 2673
+   },
+   "切断共享ECM": {
+    "rho": 0.24154266687420298,
+    "rho_partial": 0.028287820876275054,
+    "p_partial": 0.14370862151417124,
+    "frac_discordant_r": 0.048634493078937524,
+    "enrichment_vs_chance_r": 0.7781518892630004,
+    "n": 2673
+   }
+  }
+ },
+ "verdict": "MODEL",
+ "n_slides": 19,
+ "n_patients": 7,
+ "patients": {
+  "CSCC_P4": [
+   "CSCC01",
+   "CSCC02"
+  ],
+  "CSCC_P6": [
+   "CSCC03",
+   "CSCC04"
+  ],
+  "CSCC_P2": [
+   "CSCC05",
+   "CSCC06",
+   "CSCC07"
+  ],
+  "CSCC_P5": [
+   "CSCC08",
+   "CSCC09",
+   "CSCC10"
+  ],
+  "CSCC_P9": [
+   "CSCC11",
+   "CSCC12"
+  ],
+  "CSCC_P10": [
+   "CSCC14",
+   "CSCC15",
+   "CSCC16"
+  ],
+  "MEL_PtB": [
+   "MEL01",
+   "MEL02",
+   "MEL03",
+   "MEL04"
+  ]
+ },
+ "median_rho_partial_main": 0.19100143058815097,
+ "median_rho_partial_variant": 0.12757347354147364,
+ "n_positive_variant": 17,
+ "n_significant_positive_variant": 12,
+ "by_cohort": {
+  "CSCC": {
+   "n": 15,
+   "median_rho_partial_variant": 0.17570262459010222,
+   "n_significant_positive": 11,
+   "retention": [
+    0.7921505368780704,
+    0.8262333300214976,
+    0.7181185936270119,
+    0.9306227853467458,
+    0.6441240289768373,
+    0.38100777598092683,
+    0.7807000964139272,
+    1.0356257198642311,
+    0.23474936587434872,
+    0.06035153625560192,
+    0.6321957613499218,
+    0.795898496655029,
+    0.7747159277275537,
+    1.9610060616001215,
+    0.922824808009225
+   ],
+   "slides": [
+    "CSCC01",
+    "CSCC02",
+    "CSCC03",
+    "CSCC04",
+    "CSCC05",
+    "CSCC06",
+    "CSCC07",
+    "CSCC08",
+    "CSCC09",
+    "CSCC10",
+    "CSCC11",
+    "CSCC12",
+    "CSCC14",
+    "CSCC15",
+    "CSCC16"
+   ]
+  },
+  "MEL": {
+   "n": 4,
+   "median_rho_partial_variant": 0.029998450515292437,
+   "n_significant_positive": 1,
+   "retention": [
+    0.6539806686026506,
+    -1.0977298658008081,
+    0.24864111894844979,
+    0.23508484754698541
+   ],
+   "slides": [
+    "MEL01",
+    "MEL02",
+    "MEL03",
+    "MEL04"
+   ]
+  }
+ },
+ "meta": {
+  "timestamp": "2026-08-27T14:15:56+00:00",
+  "config_path": "D:\\sparta\\configs\\default.yaml",
+  "seed": 0,
+  "python": "3.13.13",
+  "numpy": "2.5.2",
+  "scipy": "1.18.1",
+  "networkx": "3.6.1",
+  "module": "M14-shared-ecm-check",
+  "d_vessel_mode": "hops"
+ },
+ "verdict_status": "deprecated_2026-08-27",
+ "verdict_note": "判定规则要求队列内每张切片都显著，严苛程度随 n 单调上升，证据越多越走不到 TISSUE。已改为按队列×按患者分层陈述，正文不使用这个字段。",
+ "stratified": {
+  "CSCC": {
+   "n_slides": 15,
+   "n_patients": 6,
+   "median_rho_partial_main": 0.20420903582763925,
+   "median_rho_partial_variant": 0.17570262459010222,
+   "n_significant_positive": 11,
+   "median_retention": 0.7807000964139272,
+   "per_patient": {
+    "CSCC_P4": {
+     "n_slides": 2,
+     "n_significant_positive": 2,
+     "median_rho_partial_variant": 0.2463898617516163,
+     "majority_significant": true,
+     "slides": [
+      "CSCC01",
+      "CSCC02"
+     ]
+    },
+    "CSCC_P6": {
+     "n_slides": 2,
+     "n_significant_positive": 2,
+     "median_rho_partial_variant": 0.185523843929693,
+     "majority_significant": true,
+     "slides": [
+      "CSCC03",
+      "CSCC04"
+     ]
+    },
+    "CSCC_P2": {
+     "n_slides": 3,
+     "n_significant_positive": 2,
+     "median_rho_partial_variant": 0.17570262459010222,
+     "majority_significant": true,
+     "slides": [
+      "CSCC05",
+      "CSCC06",
+      "CSCC07"
+     ]
+    },
+    "CSCC_P5": {
+     "n_slides": 3,
+     "n_significant_positive": 1,
+     "median_rho_partial_variant": 0.04287893265844014,
+     "majority_significant": false,
+     "slides": [
+      "CSCC08",
+      "CSCC09",
+      "CSCC10"
+     ]
+    },
+    "CSCC_P9": {
+     "n_slides": 2,
+     "n_significant_positive": 2,
+     "median_rho_partial_variant": 0.13957048203135566,
+     "majority_significant": true,
+     "slides": [
+      "CSCC11",
+      "CSCC12"
+     ]
+    },
+    "CSCC_P10": {
+     "n_slides": 3,
+     "n_significant_positive": 2,
+     "median_rho_partial_variant": 0.20467048366510207,
+     "majority_significant": true,
+     "slides": [
+      "CSCC14",
+      "CSCC15",
+      "CSCC16"
+     ]
+    }
+   }
+  },
+  "MEL": {
+   "n_slides": 4,
+   "n_patients": 1,
+   "median_rho_partial_main": 0.12392988528287209,
+   "median_rho_partial_variant": 0.029998450515292437,
+   "n_significant_positive": 1,
+   "median_retention": 0.2418629832477176,
+   "per_patient": {
+    "MEL_PtB": {
+     "n_slides": 4,
+     "n_significant_positive": 1,
+     "median_rho_partial_variant": 0.029998450515292437,
+     "majority_significant": false,
+     "slides": [
+      "MEL01",
+      "MEL02",
+      "MEL03",
+      "MEL04"
+     ]
+    }
+   }
+  }
+ }
+}

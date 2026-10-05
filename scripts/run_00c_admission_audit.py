@@ -44,7 +44,15 @@ from sparta.io_ import Paths, load_config, save_json, set_seed, stamp_run  # noq
 # 靠 ledger 的 accession/source 字段自动匹配，匹配不上就用默认阈值（不放宽）。
 COHORT_BY_ACCESSION = {
     "GSE144239": "cscc_gse144239",
-    "GSE250636": None,          # 2024 年 Visium，用默认阈值
+    # GSE250636 的 MEL01–04 未过 C7（治疗状态未知），MEL02/MEL04 另欠 C4/C5 默认阈值。
+    # 队列级豁免登记见 configs/default.yaml 的 admission_overrides.mel_gse250636
+    # （只有 reason/decided_on，不含阈值键——所以 C4/C5 仍按默认阈值如实记录）。
+    "GSE250636": "mel_gse250636",
+    # 外部独立验证队列：10x 公开 Visium 人乳腺癌（2026-10-03 补强）。
+    # 前缀匹配 V1_Breast_Cancer_Block_A/C 的全部 4 片（Section_1/2）。
+    "V1_Breast_Cancer_Block": "brca_10x_vis",
+    # 10x 公开 Visium 人淋巴结（外部独立验证第二样本）。
+    "V1_Human_Lymph_Node": "ln_10x_vis",
 }
 
 
@@ -92,28 +100,44 @@ def main():
         if not raw.exists():
             print(f"{sid:<8} 跳过：找不到 {raw}")
             continue
-        adata = sc.read_h5ad(raw)
+        # raw.h5ad 里基因名有重复，read_h5ad 会 warn；我们紧接着 make_unique，
+        # 所以把 read 包进 catch_warnings，避免每张切片都打一行噪音。
+        import warnings as _w
+        with _w.catch_warnings():
+            _w.simplefilter("ignore", UserWarning)
+            adata = sc.read_h5ad(raw)
         adata.var_names_make_unique()
         if "counts" not in adata.layers:
             adata.layers["counts"] = adata.X.copy()
 
         cohort = _cohort_of(meta)
         platform = "legacy_st" if meta.get("platform") == "legacy_st" else "visium"
+        # GSE144239 在 config 里按平台分成两段：Visium 用 cscc_gse144239（500/500），
+        # 第一代 ST 用 cscc_legacy_gse144239（300/300）。这里按平台选对段，
+        # 否则 legacy 切片会错误地套用 Visium 的 min_median_umi=500。
+        if cohort == "cscc_gse144239" and platform == "legacy_st":
+            cohort = "cscc_legacy_gse144239"
         has_he = str(meta.get("has_image", "")).lower() in ("true", "1", "yes")
         treatment_known = str(meta.get("treatment", "unknown")).lower() not in ("", "unknown", "na")
+        status = str(meta.get("status", "")).strip().lower()
+        rejected = status == "rejected"          # 台账里明确拒绝的切片（如 CSCC13）
 
         adm, thr = check_admission(adata, cfg, platform, has_he, treatment_known, cohort=cohort)
         failed = [k for k, (ok, _) in adm.items() if not ok]
+        ov = (cfg.get("admission_overrides") or {}).get(cohort or "", {})
+        force_reason = None if (not failed or rejected) else (
+            f"队列级豁免登记（{ov.get('decided_on', '见 configs/default.yaml')}）："
+            f"{ov.get('reason') or '见 configs/default.yaml admission_overrides'}")
+        admitted = not rejected                  # 被拒切片不进入分析，也非强制放行
 
         record = {
             "slide": sid,
+            "status": status,
             "checks": {k: {"pass": bool(v[0]), "detail": v[1]} for k, v in adm.items()},
             "failed": failed,
-            "admitted": True,                    # 这些切片事实上已进入分析
-            "forced": bool(failed),              # 有未通过项却已进入分析 = 强制放行
-            "force_reason": ("队列级质量差异；2026-08-26 回溯登记，"
-                             "并已在 configs/default.yaml 的 admission_overrides 写明阈值依据"
-                             if failed else None),
+            "admitted": admitted,                # 是否实际进入分析（被拒切片为 False）
+            "forced": bool(failed) and admitted, # 有未通过项却已进入分析 = 强制放行
+            "force_reason": force_reason,
             "cohort": cohort,
             "thresholds_applied": {k: v for k, v in thr.items() if not k.startswith("_")},
             "thresholds_overridden": thr.get("_overridden", []),
@@ -124,13 +148,20 @@ def main():
 
         marks = "".join(f"{'✓' if adm[c][0] else '✗':>4}" for c in
                         ("C1", "C2", "C3", "C4", "C5", "C6", "C7"))
-        verdict = "通过" if not failed else f"强制放行（未过 {','.join(failed)}）"
+        if rejected:
+            verdict = f"拒绝（未过 {','.join(failed)}，不进入分析）"
+        elif not failed:
+            verdict = "通过"
+        else:
+            verdict = f"强制放行（未过 {','.join(failed)}）"
         print(f"{sid:<8}{(cohort or '默认阈值'):<18}{marks}  {verdict}")
 
         rows.append(dict(slide_id=sid, cohort=cohort or "", platform=platform,
+                         status=status, admitted=admitted,
                          **{c: ("pass" if adm[c][0] else "FAIL") for c in
                             ("C1", "C2", "C3", "C4", "C5", "C6", "C7")},
-                         failed=";".join(failed), forced=bool(failed),
+                         failed=";".join(failed),
+                         forced=bool(failed) and admitted,
                          min_spots=thr.get("min_spots_legacy_st" if platform == "legacy_st"
                                            else "min_spots_visium"),
                          min_median_umi=thr.get("min_median_umi"),
@@ -144,13 +175,17 @@ def main():
         w = csv.DictWriter(f, fieldnames=list(rows[0]))
         w.writeheader(); w.writerows(rows)
 
+    n_admitted = sum(1 for r in rows if r["admitted"])
     n_forced = sum(1 for r in rows if r["forced"])
+    n_rejected = len(rows) - n_admitted
     print("-" * 78)
-    print(f"已写出 {out_csv}（{len(rows)} 张，其中 {n_forced} 张为强制放行）")
+    print(f"已写出 {out_csv}（共 {len(rows)} 张：纳入分析 {n_admitted}，"
+          f"其中强制放行 {n_forced}；拒绝 {n_rejected}）")
     if n_forced:
         print("\n⚠ Methods 里必须如实写成：")
-        print(f"   \"{len(rows)} 张切片中 {len(rows)-n_forced} 张在预设阈值下通过全部 C1–C7；")
-        print(f"    {n_forced} 张在队列级放宽阈值下纳入，逐切片记录见 data/admission_audit.csv\"")
+        print(f"   \"{len(rows)} 张切片中 {len(rows)-n_forced-n_rejected} 张在预设阈值下"
+              f"通过全部 C1–C7；{n_forced} 张按队列级豁免登记纳入"
+              f"（逐切片记录见 data/admission_audit.csv）；{n_rejected} 张被拒绝\"")
         print("   不能写成 \"全部通过准入\"。")
 
 

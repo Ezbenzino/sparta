@@ -77,8 +77,10 @@ barrier is high while the other is low are *rarer* than chance. The dominant
 axis of the antibody barrier is a matrix property — size exclusion set by
 crosslinking — rather than an antigen property. We therefore report a coupling
 rather than a dissociation, and we argue that the coupling is the more
-actionable finding: it predicts that matrix-directed intervention should relieve
-both modalities at once, whereas modality-specific intervention should not.
+actionable finding: the model predicts that reducing matrix density would lower
+both barrier scalars in the same regions, whereas reducing one modality alone
+would not be expected to move the other. This is a model-level prediction, not a
+measured treatment effect; see Discussion §4.
 
 > **中文注**：第 4 段的写法很关键。不要把"我们本来想找解耦但没找到"写出来——
 > 要把它写成"我们直接检验了可分离性这个问题，答案是不可分离，而这个答案有转化含义"。
@@ -98,14 +100,20 @@ are mechanistically distinct — one is a matter of a 10 µm cell negotiating a
 fibre network, the other of a 5.5 nm molecule negotiating a mesh — but they are
 produced by the same remodelling programme, so in tissue they co-localise.
 
-The therapeutic reading follows directly and is the most useful output of this
-work. Strategies that normalise the matrix — LOX/LOXL inhibition, TGF-β
-blockade, hyaluronidase, or physical modulation of interstitial pressure — are
-predicted to improve both T-cell access and antibody exposure in the same
-regions. Conversely, interventions aimed at only one modality (for example, a
-chemokine-based strategy to increase T-cell recruitment) would not be expected
-to improve antibody delivery, and combination designs that assume otherwise may
-be over-optimistic about the achievable intratumoural drug concentration.
+The model-derived implication follows, but we separate it from the evidence.
+Because the two obstructions are produced by the same remodelling programme, the
+operators predict that a uniform reduction in matrix density would lower both
+barrier scalars in the same regions (Results, model input perturbation). This is
+a statement about the model's response to its own inputs, not a measurement of
+what LOX/LOXL inhibition, TGF-β blockade, hyaluronidase or any other
+matrix-directed therapy does in patients. We report it as a rationale for why
+matrix-directed strategies *might* relieve both modalities, not as evidence that
+they do; a clinical test would require independent perturbational data or response
+labels, neither of which this study contains. Conversely, the model predicts that
+interventions aimed at only one modality (for example, a chemokine-based
+strategy to increase T-cell recruitment) would not be expected to move the
+antibody barrier, and combination designs that assume otherwise may be over-optimistic
+about the achievable intratumoural drug concentration.
 
 ## §2 — 耦合是组织的性质，还是模型的性质？
 
@@ -237,12 +245,41 @@ partly confounded, and any result that correlates with depth — S1 does, at
 control also fragments the shallow sections' graphs (largest connected component
 90.0–100 % of nodes), which we report per section in Table 1.
 
-**External validation.** No publicly available dataset combines Visium-format
-spatial data with ICB response labels; our bulk concept check is therefore
-motivational and not validation. Its own instability across two anti-PD-1 cohorts
-is informative in the same direction as our main result: barrier molecules
-measured as bulk abundance lose the spatial arrangement that makes them a
-barrier.
+**External validation.** The coupling result itself has not been replicated in an
+independent patient cohort. All results above come from seven patients in two GEO
+series; the sensitivity analyses (parameter sweeps, shared-ECM removal, hop-vs-weighted
+distance, leave-one-patient-out on the counterfactuals) are internal robustness
+checks on the same data, not external validation. No publicly available dataset
+combines Visium-format spatial data with ICB response labels; our bulk concept
+check in two anti-PD-1 melanoma cohorts is therefore motivational and not
+validation, and its instability across the two cohorts is informative in the same
+direction as our main result: barrier molecules measured as bulk abundance lose
+the spatial arrangement that makes them a barrier. A genuine external test would
+require an independent ST or Visium cohort from a different centre, processed
+through the same signature definitions and graph construction, and would report
+whether the positive partial correlation survives at the patient level. We have
+not attempted that here, and we do not describe any internal analysis as
+validation.
+
+**Static sections and causal language.** The coupling we report is an association
+between two per-spot fields computed from the same static tissue section. A
+positive partial correlation after controlling for vessel distance — and its
+survival when the shared ECM input is removed — does not establish that matrix
+crosslinking *causes* either barrier, nor that one barrier drives the other. The
+fields are computed from graph operators on the same coordinates; tissue shape,
+tumour-nest boundary geometry, cell density and segmentation quality could in
+principle produce or amplify the association. We addressed the most likely of
+these — that two smooth fields on the same graph will be correlated simply
+because they are smooth — with a graph-Laplacian phase-randomization null that
+preserves each field's autocorrelation variogram: 15/19 sections still exceed
+the null (median empirical p = 0.000; Results R3). What that null does not do
+is preserve tumour-nest region labels or cell-composition covariates beyond
+vessel distance; a block-level null that holds tumour regions fixed is the next
+step. We use "coupled" and "associated" throughout, not "interact", "mediate"
+or "drive", and we have avoided describing the size-exclusion decomposition as
+a mechanism: it is a parameter-defined attribution, and the permutation null in
+R2 shows that its dominant share is set by the scale parameter rather than by
+tissue architecture.
 
 **Treatment status.** The melanoma cohort has no treatment annotation in GEO,
 so we cannot exclude sections obtained after therapy, in which barrier structure

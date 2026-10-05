@@ -1,0 +1,53 @@
+{
+ "per_slide": {
+  "BRCA01": {
+   "patient": "BRCA_P1",
+   "cohort": "EXT",
+   "n_cut_nodes": 908,
+   "k": 101,
+   "targeted": 0.02187457772287065,
+   "rand_in_cut_matched": 0.024252452601975318,
+   "ratio_vs_in_cut_matched": 1.1087049500164663,
+   "p_vs_in_cut_matched": 0.009900990099009901,
+   "n_groups": 100,
+   "match_selection": true
+  },
+  "BRCA02": {
+   "patient": "BRCA_P1",
+   "cohort": "EXT",
+   "n_cut_nodes": 797,
+   "k": 89,
+   "targeted": 0.02939514100812066,
+   "rand_in_cut_matched": 0.03598553331908538,
+   "ratio_vs_in_cut_matched": 1.2242000576870808,
+   "p_vs_in_cut_matched": 0.009900990099009901,
+   "n_groups": 100,
+   "match_selection": true
+  },
+  "LN01": {
+   "patient": "LN_P1",
+   "cohort": "EXT",
+   "n_cut_nodes": 1398,
+   "k": 153,
+   "targeted": 0.005723549543893632,
+   "rand_in_cut_matched": 0.005813231880887251,
+   "ratio_vs_in_cut_matched": 1.0156690066697562,
+   "p_vs_in_cut_matched": 0.0594059405940594,
+   "n_groups": 100,
+   "match_selection": true
+  }
+ },
+ "summary": {
+  "n_slides": 3,
+  "median_ratio": 1.1087049500164663,
+  "n_ratio_above_1": 3,
+  "n_significant_raw": 2,
+  "p_values": [
+   0.009900990099009901,
+   0.009900990099009901,
+   0.0594059405940594
+  ],
+  "n_significant_bh": 2
+ },
+ "note": "外部独立验证 S2 匹配选择：与 run_28 完全同口径（8 候选取最优、100 组）"
+}

@@ -92,6 +92,19 @@ admission_overrides:
     reason: "GSE144239 (Ji et al. 2020 Cell) 为早期 Visium 平台，spot 数与测序深度与 2024 年数据不可比"
     decided_on: "2026-08-26"
 
+  # Thrane et al. 2018 黑色素瘤淋巴结转移灶（独立复现队列，2026-10-05 登记，任何屏障/关联计算之前）。
+  # 2016 年第一代 ST 阵列只有 1,007 个点（主队列 GSE144239 用的是 1,933 点阵列），
+  # 原文报告平均每张切片 286 个组织点，因此 C4 的点数阈值按平台降到 200。
+  # C3（无配对 H&E）与 C7（取样前治疗状态未报告）按队列豁免登记；两者都不进入任何计算。
+  # 该队列单独成族报告，绝不并入主队列的数字。
+  mel_thrane2018:
+    min_spots_legacy_st: 200
+    waived_criteria: ["C3", "C7"]
+    reason: "Thrane et al. 2018 Cancer Res 78:5970（4 位 III 期黑色素瘤患者淋巴结转移灶，各 2 张连续切片）。
+             1,007 点的 2016 年 ST 阵列，组织覆盖 212–383 点；点数阈值按平台降为 200。
+             公开计数表不含配对 H&E（C3），原文未报告取样前治疗（C7），按队列豁免并在稿件中披露。"
+    decided_on: "2026-10-05（复现队列登记；在计算任何图、屏障或关联之前）"
+
 admission:
   min_spots_visium: 1000    # Visium 平台的最小 spot 数
   min_spots_legacy_st: 300  # 第一代 ST 平台的最小 spot 数

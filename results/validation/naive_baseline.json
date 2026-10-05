@@ -1,0 +1,194 @@
+{
+ "per_slide": {
+  "MEL01": {
+   "patient": "MEL_PtB",
+   "cohort": "MEL",
+   "graph_rho_partial": 0.2192428306725159,
+   "graph_p": 1.6242553818923222e-19,
+   "naive_rho_partial": 0.16622262373226898,
+   "naive_p": 9.440576686389843e-12,
+   "delta_rho": 0.05302020694024692
+  },
+  "MEL02": {
+   "patient": "MEL_PtB",
+   "cohort": "MEL",
+   "graph_rho_partial": 0.05540353257541708,
+   "graph_p": 0.11716555486278586,
+   "naive_rho_partial": 0.05325753018090489,
+   "naive_p": 0.13206547855918616,
+   "delta_rho": 0.002146002394512188
+  },
+  "MEL03": {
+   "patient": "MEL_PtB",
+   "cohort": "MEL",
+   "graph_rho_partial": 0.14941310208390987,
+   "graph_p": 4.5374831164281883e-10,
+   "naive_rho_partial": 0.1909754601260371,
+   "naive_p": 1.2700080905329827e-15,
+   "delta_rho": -0.04156235804212724
+  },
+  "MEL04": {
+   "patient": "MEL_PtB",
+   "cohort": "MEL",
+   "graph_rho_partial": 0.14316679795921725,
+   "graph_p": 1.0319068028547181e-13,
+   "naive_rho_partial": 0.09531808789968922,
+   "naive_p": 7.933936515511776e-07,
+   "delta_rho": 0.047848710059528024
+  },
+  "CSCC01": {
+   "patient": "CSCC_P4",
+   "cohort": "CSCC",
+   "graph_rho_partial": 0.3847893496906938,
+   "graph_p": 3.700587670531873e-26,
+   "naive_rho_partial": 0.24191199201733002,
+   "naive_p": 8.574081768103636e-11,
+   "delta_rho": 0.14287735767336376
+  },
+  "CSCC02": {
+   "patient": "CSCC_P4",
+   "cohort": "CSCC",
+   "graph_rho_partial": 0.2616618695714037,
+   "graph_p": 1.1438831759985903e-11,
+   "naive_rho_partial": 0.1785555212342047,
+   "naive_p": 4.486821917601984e-06,
+   "delta_rho": 0.08310634833719899
+  },
+  "CSCC03": {
+   "patient": "CSCC_P6",
+   "cohort": "CSCC",
+   "graph_rho_partial": 0.2793263800417826,
+   "graph_p": 1.31908707460019e-48,
+   "naive_rho_partial": 0.2385735157422225,
+   "naive_p": 1.5068399262365145e-35,
+   "delta_rho": 0.040752864299560126
+  },
+  "CSCC04": {
+   "patient": "CSCC_P6",
+   "cohort": "CSCC",
+   "graph_rho_partial": 0.21698516161224798,
+   "graph_p": 3.309378991554797e-26,
+   "naive_rho_partial": 0.14289816138256017,
+   "naive_p": 4.310291424205424e-12,
+   "delta_rho": 0.07408700022968781
+  },
+  "CSCC05": {
+   "patient": "CSCC_P2",
+   "cohort": "CSCC",
+   "graph_rho_partial": 0.28029543101073734,
+   "graph_p": 1.8797768387142505e-13,
+   "naive_rho_partial": 0.28935382521177094,
+   "naive_p": 2.8410890746666098e-14,
+   "delta_rho": -0.009058394201033604
+  },
+  "CSCC06": {
+   "patient": "CSCC_P2",
+   "cohort": "CSCC",
+   "graph_rho_partial": 0.20672596922572775,
+   "graph_p": 1.229337899622599e-07,
+   "naive_rho_partial": 0.2776170872297896,
+   "naive_p": 7.648083310565329e-13,
+   "delta_rho": -0.07089111800406186
+  },
+  "CSCC07": {
+   "patient": "CSCC_P2",
+   "cohort": "CSCC",
+   "graph_rho_partial": 0.28388884556333716,
+   "graph_p": 2.8413374451684274e-13,
+   "naive_rho_partial": 0.32885398663457005,
+   "naive_p": 1.5716676410662275e-17,
+   "delta_rho": -0.044965141071232895
+  },
+  "CSCC09": {
+   "patient": "CSCC_P5",
+   "cohort": "CSCC",
+   "graph_rho_partial": 0.20134439473668836,
+   "graph_p": 4.488686067181276e-06,
+   "naive_rho_partial": 0.11186263715904249,
+   "naive_p": 0.011391850145487607,
+   "delta_rho": 0.08948175757764587
+  },
+  "CSCC10": {
+   "patient": "CSCC_P5",
+   "cohort": "CSCC",
+   "graph_rho_partial": 0.14068739329849367,
+   "graph_p": 0.002842022290172358,
+   "naive_rho_partial": 0.12666959967331817,
+   "naive_p": 0.007265564044950662,
+   "delta_rho": 0.014017793625175495
+  },
+  "CSCC11": {
+   "patient": "CSCC_P9",
+   "cohort": "CSCC",
+   "graph_rho_partial": 0.19337259347313349,
+   "graph_p": 4.3902102142703814e-07,
+   "naive_rho_partial": 0.05305851602756847,
+   "naive_p": 0.16949101830638172,
+   "delta_rho": 0.140314077445565
+  },
+  "CSCC12": {
+   "patient": "CSCC_P9",
+   "cohort": "CSCC",
+   "graph_rho_partial": 0.2245319385407277,
+   "graph_p": 3.0902183834462095e-08,
+   "naive_rho_partial": 0.05055622091225585,
+   "naive_p": 0.2181758937535142,
+   "delta_rho": 0.17397571762847186
+  },
+  "CSCC14": {
+   "patient": "CSCC_P10",
+   "cohort": "CSCC",
+   "graph_rho_partial": 0.29495647654983637,
+   "graph_p": 7.312983328634367e-09,
+   "naive_rho_partial": 0.19569074454825353,
+   "naive_p": 0.00015178027772488542,
+   "delta_rho": 0.09926573200158284
+  },
+  "CSCC15": {
+   "patient": "CSCC_P10",
+   "cohort": "CSCC",
+   "graph_rho_partial": -0.00040111430907287525,
+   "graph_p": 0.9921967177338679,
+   "naive_rho_partial": 0.13379968446358473,
+   "naive_p": 0.0010487905871593417,
+   "delta_rho": -0.13420079877265761
+  },
+  "CSCC16": {
+   "patient": "CSCC_P10",
+   "cohort": "CSCC",
+   "graph_rho_partial": 0.2388969915982062,
+   "graph_p": 2.477306713115542e-06,
+   "naive_rho_partial": 0.21337966715175874,
+   "naive_p": 2.7379471289331918e-05,
+   "delta_rho": 0.02551732444644747
+  },
+  "CSCC08": {
+   "patient": "CSCC_P5",
+   "cohort": "CSCC",
+   "graph_rho_partial": 0.11388887316217428,
+   "graph_p": 0.0066809564843856185,
+   "naive_rho_partial": 0.04226595627655944,
+   "naive_p": 0.31549209091043173,
+   "delta_rho": 0.07162291688561484
+  }
+ },
+ "summary": {
+  "n_slides": 19,
+  "median_graph_rho": 0.21698516161224798,
+  "median_naive_rho": 0.16622262373226898,
+  "median_delta": 0.047848710059528024,
+  "n_graph_higher": 14,
+  "n_graph_significant": 17,
+  "n_naive_significant": 15
+ },
+ "meta": {
+  "timestamp": "2026-10-01T17:17:47+00:00",
+  "config_path": "D:\\sparta\\configs\\default.yaml",
+  "seed": 0,
+  "python": "3.13.13",
+  "numpy": "2.5.2",
+  "scipy": "1.18.1",
+  "networkx": "3.6.1",
+  "module": "M24-naive-baseline"
+ }
+}

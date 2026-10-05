@@ -1,0 +1,140 @@
+{
+ "hallmark_gmt": "data\\external\\h.all.v7.1.HALLMARK_HYPOXIA.symbols.gmt",
+ "n_hallmark": 200,
+ "n_placeholder": 10,
+ "slides": [
+  {
+   "slide": "CSCC01",
+   "n_spot": 701,
+   "r_placeholder": 0.5673,
+   "r_hallmark": 1.0,
+   "verdict": "HALLMARK"
+  },
+  {
+   "slide": "CSCC02",
+   "n_spot": 652,
+   "r_placeholder": 0.5866,
+   "r_hallmark": 1.0,
+   "verdict": "HALLMARK"
+  },
+  {
+   "slide": "CSCC03",
+   "n_spot": 2645,
+   "r_placeholder": 0.5534,
+   "r_hallmark": 1.0,
+   "verdict": "HALLMARK"
+  },
+  {
+   "slide": "CSCC04",
+   "n_spot": 2328,
+   "r_placeholder": 0.4628,
+   "r_hallmark": 1.0,
+   "verdict": "HALLMARK"
+  },
+  {
+   "slide": "CSCC05",
+   "n_spot": 664,
+   "r_placeholder": 0.4108,
+   "r_hallmark": 1.0,
+   "verdict": "HALLMARK"
+  },
+  {
+   "slide": "CSCC06",
+   "n_spot": 643,
+   "r_placeholder": 0.3748,
+   "r_hallmark": 1.0,
+   "verdict": "HALLMARK"
+  },
+  {
+   "slide": "CSCC07",
+   "n_spot": 637,
+   "r_placeholder": 0.4402,
+   "r_hallmark": 1.0,
+   "verdict": "HALLMARK"
+  },
+  {
+   "slide": "CSCC08",
+   "n_spot": 566,
+   "r_placeholder": 0.3499,
+   "r_hallmark": 1.0,
+   "verdict": "HALLMARK"
+  },
+  {
+   "slide": "CSCC09",
+   "n_spot": 511,
+   "r_placeholder": 0.3607,
+   "r_hallmark": 1.0,
+   "verdict": "HALLMARK"
+  },
+  {
+   "slide": "CSCC10",
+   "n_spot": 448,
+   "r_placeholder": 0.3569,
+   "r_hallmark": 1.0,
+   "verdict": "HALLMARK"
+  },
+  {
+   "slide": "CSCC11",
+   "n_spot": 672,
+   "r_placeholder": 0.4687,
+   "r_hallmark": 1.0,
+   "verdict": "HALLMARK"
+  },
+  {
+   "slide": "CSCC12",
+   "n_spot": 595,
+   "r_placeholder": 0.5288,
+   "r_hallmark": 1.0,
+   "verdict": "HALLMARK"
+  },
+  {
+   "slide": "CSCC14",
+   "n_spot": 370,
+   "r_placeholder": 0.541,
+   "r_hallmark": 1.0,
+   "verdict": "HALLMARK"
+  },
+  {
+   "slide": "CSCC15",
+   "n_spot": 597,
+   "r_placeholder": 0.4828,
+   "r_hallmark": 1.0,
+   "verdict": "HALLMARK"
+  },
+  {
+   "slide": "CSCC16",
+   "n_spot": 380,
+   "r_placeholder": 0.5142,
+   "r_hallmark": 1.0,
+   "verdict": "HALLMARK"
+  },
+  {
+   "slide": "MEL01",
+   "n_spot": 1660,
+   "r_placeholder": 0.215,
+   "r_hallmark": 1.0,
+   "verdict": "HALLMARK"
+  },
+  {
+   "slide": "MEL02",
+   "n_spot": 801,
+   "r_placeholder": 0.5209,
+   "r_hallmark": 1.0,
+   "verdict": "HALLMARK"
+  },
+  {
+   "slide": "MEL03",
+   "n_spot": 1724,
+   "r_placeholder": 0.4325,
+   "r_hallmark": 1.0,
+   "verdict": "HALLMARK"
+  },
+  {
+   "slide": "MEL04",
+   "n_spot": 2673,
+   "r_placeholder": 0.2348,
+   "r_hallmark": 1.0,
+   "verdict": "HALLMARK"
+  }
+ ]
+}

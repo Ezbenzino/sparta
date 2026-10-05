@@ -1,0 +1,907 @@
+{
+ "protocol": {
+  "path": "docs/codex_validation_protocol.md",
+  "sha256": "8a15b1545e402a3da6f53065341da378472765024f683ebfca38fb0dfd8d6c31"
+ },
+ "data": {
+  "source": "Schürch et al. 2020 Cell 182:1341-1359 (CODEX, colorectal cancer)",
+  "doi_paper": "10.1016/j.cell.2020.07.005",
+  "doi_single_cell_table": "10.17632/mpjzbtfgfr.1 (Mendeley Data, CRC_clusters_neighborhoods_markers.csv)",
+  "doi_images": "10.7937/TCIA.2020.FQN0-0326 (TCIA, CC BY 4.0)",
+  "px_um": 0.37744
+ },
+ "settings": {
+  "variants": {
+   "primary": {
+    "max_len_um": 50.0,
+    "f_mode": "asma_vim",
+    "sink_mode": "core",
+    "outcome": "cd8",
+    "b": 8.0,
+    "c": 4.0
+   },
+   "edge30": {
+    "max_len_um": 30.0,
+    "f_mode": "asma_vim",
+    "sink_mode": "core",
+    "outcome": "cd8",
+    "b": 8.0,
+    "c": 4.0
+   },
+   "edge100": {
+    "max_len_um": 100.0,
+    "f_mode": "asma_vim",
+    "sink_mode": "core",
+    "outcome": "cd8",
+    "b": 8.0,
+    "c": 4.0
+   },
+   "f_asma_only": {
+    "max_len_um": 50.0,
+    "f_mode": "asma",
+    "sink_mode": "core",
+    "outcome": "cd8",
+    "b": 8.0,
+    "c": 4.0
+   },
+   "sinks_all_tumour": {
+    "max_len_um": 50.0,
+    "f_mode": "asma_vim",
+    "sink_mode": "all",
+    "outcome": "cd8",
+    "b": 8.0,
+    "c": 4.0
+   },
+   "outcome_all_t": {
+    "max_len_um": 50.0,
+    "f_mode": "asma_vim",
+    "sink_mode": "core",
+    "outcome": "tcell",
+    "b": 8.0,
+    "c": 4.0
+   },
+   "eq1_half": {
+    "max_len_um": 50.0,
+    "f_mode": "asma_vim",
+    "sink_mode": "core",
+    "outcome": "cd8",
+    "b": 4.0,
+    "c": 2.0
+   },
+   "eq1_x1.5": {
+    "max_len_um": 50.0,
+    "f_mode": "asma_vim",
+    "sink_mode": "core",
+    "outcome": "cd8",
+    "b": 12.0,
+    "c": 6.0
+   },
+   "eq1_matrix_only": {
+    "max_len_um": 50.0,
+    "f_mode": "asma_vim",
+    "sink_mode": "core",
+    "outcome": "cd8",
+    "b": 12.0,
+    "c": 0.0
+   },
+   "eq1_fibroblast_only": {
+    "max_len_um": 50.0,
+    "f_mode": "asma_vim",
+    "sink_mode": "core",
+    "outcome": "cd8",
+    "b": 0.0,
+    "c": 12.0
+   }
+  },
+  "post_hoc_variants": [
+   "eq1_half",
+   "eq1_x1.5",
+   "eq1_matrix_only",
+   "eq1_fibroblast_only"
+  ],
+  "eq1": {
+   "a": 3.0,
+   "b": 8.0,
+   "c": 4.0
+  },
+  "inclusion": {
+   "min_nodes": 100,
+   "min_sources": 5,
+   "min_tumour": 25,
+   "min_sinks": 10,
+   "min_cd8": 10
+  },
+  "n_boot": 2000,
+  "seed": 20261005,
+  "scaffold": [
+   "tumor cells",
+   "stroma",
+   "smooth muscle",
+   "vasculature",
+   "lymphatics",
+   "adipocytes",
+   "nerves",
+   "undefined"
+  ],
+  "outcome_cells": {
+   "cd8": [
+    "CD8+ T cells"
+   ],
+   "tcell": [
+    "CD8+ T cells",
+    "CD4+ T cells CD45RO+",
+    "CD4+ T cells",
+    "CD4+ T cells GATA3+",
+    "CD3+ T cells",
+    "Tregs"
+   ]
+  }
+ },
+ "summary": {
+  "counts": {
+   "n_cores_total": 140,
+   "n_cores_included": 114,
+   "n_patients_total": 35,
+   "n_patients_included": 35,
+   "n_clr_patients": 17,
+   "n_dii_patients": 18,
+   "exclusion_reasons": {
+    "scaffold<100": 7,
+    "tumour<25": 5,
+    "lcc<100;tumour<25;sinks<10": 3,
+    "sources<5": 3,
+    "outcome_cells<10": 2,
+    "sources<5;outcome_cells<10": 2,
+    "lcc<100;tumour<25;outcome_cells<10": 1,
+    "lcc<100;tumour<25": 1,
+    "lcc<100;sources<5;tumour<25;sinks<10": 1,
+    "tumour<25;sinks<10": 1
+   },
+   "max_flow_check_max_abs_diff": 0.0
+  },
+  "describe": {
+   "n_lcc": {
+    "median": 810.0,
+    "q25": 549.75,
+    "q75": 1190.75,
+    "min": 118.0,
+    "max": 2580.0
+   },
+   "lcc_frac": {
+    "median": 0.9991941745651187,
+    "q25": 0.9877385660883545,
+    "q75": 1.0,
+    "min": 0.4545454545454545,
+    "max": 1.0
+   },
+   "n_sources": {
+    "median": 76.0,
+    "q25": 46.0,
+    "q75": 127.25,
+    "min": 5.0,
+    "max": 295.0
+   },
+   "n_sinks": {
+    "median": 176.0,
+    "q25": 86.25,
+    "q75": 362.75,
+    "min": 26.0,
+    "max": 1490.0
+   },
+   "n_outcome_cells": {
+    "median": 91.5,
+    "q25": 48.25,
+    "q75": 181.0,
+    "min": 12.0,
+    "max": 518.0
+   },
+   "ir": {
+    "median": -0.36061566514782617,
+    "q25": -1.4061552307098868,
+    "q75": 0.2506448674239844,
+    "min": -4.72248779623487,
+    "max": 1.674189256108473
+   },
+   "log_b_rel": {
+    "median": 2.453294450748073,
+    "q25": 2.0454246715740982,
+    "q75": 2.8457744833427348,
+    "min": 1.4013117128607622,
+    "max": 4.401280738934564
+   },
+   "log_b_cell": {
+    "median": -2.6267287101829058,
+    "q25": -3.0882986903009,
+    "q75": -1.849046954943163,
+    "min": -4.270677771334919,
+    "max": 0.7578580863724217
+   },
+   "cd8_core_density_mm2": {
+    "median": 222.43585296478727,
+    "q25": 105.8938125353636,
+    "q75": 639.2546812763122,
+    "min": 0.0,
+    "max": 1936.0414866032845
+   },
+   "n_cut_edges": {
+    "median": 227.5,
+    "q25": 127.25,
+    "q75": 324.75,
+    "min": 27.0,
+    "max": 759.0
+   },
+   "seconds": {
+    "median": 0.2104302644729614,
+    "q25": 0.1293737888336181,
+    "q75": 0.3301019072532653,
+    "min": 0.0317332744598388,
+    "max": 0.9790468215942384
+   }
+  },
+  "primary_and_comparators": {
+   "log_b_rel": {
+    "label": "SPARTA relative barrier (min cut / matrix-free cut)",
+    "rho_core": -0.43229987242056667,
+    "p_core_naive": 1.56275003872547e-06,
+    "ci_core": [
+     -0.5739023128915066,
+     -0.26305314909193117
+    ],
+    "patient": {
+     "rho": -0.5316526610644258,
+     "p_two_sided": 0.0010137442700682085,
+     "p_one_sided_perm": 0.0006299937000629993,
+     "n_patients": 35
+    },
+    "post_hoc": false
+   },
+   "log_b_cell": {
+    "label": "SPARTA B_cell (min cut, absolute)",
+    "rho_core": -0.4318543569389037,
+    "p_core_naive": 1.606253279766017e-06,
+    "ci_core": [
+     -0.5739911898167064,
+     -0.2767907423351304
+    ],
+    "patient": {
+     "rho": -0.5733893557422969,
+     "p_two_sided": 0.00031748566601341206,
+     "p_one_sided_perm": 0.0001999980000199998,
+     "n_patients": 35
+    },
+    "post_hoc": false
+   },
+   "field_core": {
+    "label": "SPARTA B_cell field at the core",
+    "rho_core": -0.4448148073145542,
+    "p_core_naive": 7.110517558378795e-07,
+    "ci_core": [
+     -0.5746283441223026,
+     -0.26933765688059214
+    ],
+    "patient": {
+     "rho": -0.3680672268907563,
+     "p_two_sided": 0.029596558487851806,
+     "p_one_sided_perm": 0.015389846101538984,
+     "n_patients": 35
+    },
+    "post_hoc": false
+   },
+   "peritumoural_matrix": {
+    "label": "Peritumoural matrix mean",
+    "rho_core": -0.4575322492456613,
+    "p_core_naive": 3.0911807001101936e-07,
+    "ci_core": [
+     -0.5861205585565408,
+     -0.2853130825533748
+    ],
+    "patient": {
+     "rho": -0.5378151260504201,
+     "p_two_sided": 0.0008620870178098405,
+     "p_one_sided_perm": 0.0005099949000509995,
+     "n_patients": 35
+    },
+    "post_hoc": false
+   },
+   "global_matrix": {
+    "label": "Global matrix mean",
+    "degenerate": true,
+    "note": "constant across cores by construction (mean of within-core ranks)"
+   },
+   "stromal_fraction": {
+    "label": "Stromal fraction",
+    "rho_core": 0.23588067451228886,
+    "p_core_naive": 0.011519921108985488,
+    "ci_core": [
+     0.03550417839861894,
+     0.3916939331128155
+    ],
+    "patient": {
+     "rho": 0.11876750700280113,
+     "p_two_sided": 0.49680120499592956,
+     "p_one_sided_perm": 0.7517724822751772,
+     "n_patients": 35
+    },
+    "post_hoc": false
+   },
+   "contact_enrichment_z": {
+    "label": "Tumour-stroma contact enrichment",
+    "rho_core": 0.6377797128450214,
+    "p_core_naive": 2.328528805442185e-14,
+    "ci_core": [
+     0.43220010875162673,
+     0.7693212560534779
+    ],
+    "patient": {
+     "rho": 0.577310924369748,
+     "p_two_sided": 0.0002823810169662832,
+     "p_one_sided_perm": 0.999850001499985,
+     "n_patients": 35
+    },
+    "post_hoc": false
+   },
+   "ripley_l_matrix": {
+    "label": "Ripley's L of matrix-rich cells",
+    "rho_core": 0.1265466474960005,
+    "p_core_naive": 0.17970674608852533,
+    "ci_core": [
+     -0.03428341863589538,
+     0.28396361535225195
+    ],
+    "patient": {
+     "rho": -0.060504201680672276,
+     "p_two_sided": 0.7298954957246201,
+     "p_one_sided_perm": 0.3627963720362796,
+     "n_patients": 35
+    },
+    "post_hoc": false
+   },
+   "vessel_tumour_distance": {
+    "label": "Vessel-to-tumour distance (post hoc)",
+    "rho_core": 0.18419635082319114,
+    "p_core_naive": 0.04978283322066193,
+    "ci_core": [
+     -0.03363033078098149,
+     0.3779093419621925
+    ],
+    "patient": {
+     "rho": 0.005602240896358544,
+     "p_two_sided": 0.9745200374973905,
+     "p_one_sided_perm": 0.5111048889511105,
+     "n_patients": 35
+    },
+    "post_hoc": true
+   },
+   "core_depth": {
+    "label": "Tumour-core depth (post hoc)",
+    "rho_core": -0.5349628399586887,
+    "p_core_naive": 8.70538636537658e-10,
+    "ci_core": [
+     -0.6767433625326521,
+     -0.356450095005377
+    ],
+    "patient": {
+     "rho": -0.6005602240896358,
+     "p_two_sided": 0.00013659467025654607,
+     "p_one_sided_perm": 6.999930000699993e-05,
+     "n_patients": 35
+    },
+    "post_hoc": true
+   }
+  },
+  "sparta_minus_comparator_neg_rho": {
+   "log_b_cell": {
+    "median": 0.001627769591610928,
+    "ci": [
+     -0.1709541979960871,
+     0.17137351269139223
+    ],
+    "frac_gt0": 0.507
+   },
+   "field_core": {
+    "median": -0.009999489999222205,
+    "ci": [
+     -0.15386507607893277,
+     0.11983631540523927
+    ],
+    "frac_gt0": 0.44
+   },
+   "peritumoural_matrix": {
+    "median": -0.01839007707632992,
+    "ci": [
+     -0.1779929763922272,
+     0.13418563749319165
+    ],
+    "frac_gt0": 0.4035
+   },
+   "stromal_fraction": {
+    "median": 0.6595108122781481,
+    "ci": [
+     0.4053349042005524,
+     0.8746146358112754
+    ],
+    "frac_gt0": 1.0
+   },
+   "contact_enrichment_z": {
+    "median": 1.0688616081965725,
+    "ci": [
+     0.7455338747706542,
+     1.3115002790060604
+    ],
+    "frac_gt0": 1.0
+   },
+   "ripley_l_matrix": {
+    "median": 0.5578207481488506,
+    "ci": [
+     0.3233756937856066,
+     0.7560114269774049
+    ],
+    "frac_gt0": 1.0
+   },
+   "vessel_tumour_distance": {
+    "median": 0.6122854277866943,
+    "ci": [
+     0.33712474013226745,
+     0.8580209945013927
+    ],
+    "frac_gt0": 1.0
+   },
+   "core_depth": {
+    "median": -0.09755264195179816,
+    "ci": [
+     -0.26798252828143887,
+     0.06761263874994469
+    ],
+    "frac_gt0": 0.127
+   }
+  },
+  "added_value_partial": {
+   "covariates": [
+    "tumour_fraction",
+    "stromal_fraction",
+    "global_matrix",
+    "peritumoural_matrix"
+   ],
+   "rho": -0.1879062797432211,
+   "ci": [
+    -0.3327010745887183,
+    -0.03058992945575279
+   ]
+  },
+  "post_hoc": {
+   "b_rel_given_composition": {
+    "covariates": [
+     "tumour_fraction",
+     "stromal_fraction",
+     "peritumoural_matrix"
+    ],
+    "rho": -0.20901561329256194,
+    "ci": [
+     -0.3534092815802897,
+     -0.04703956764042062
+    ]
+   },
+   "b_rel_given_intermixing": {
+    "covariates": [
+     "contact_enrichment_z"
+    ],
+    "rho": -0.16186387476964825,
+    "ci": [
+     -0.34560912368836855,
+     0.004637773563732615
+    ]
+   },
+   "b_rel_given_composition_and_intermixing": {
+    "covariates": [
+     "tumour_fraction",
+     "stromal_fraction",
+     "peritumoural_matrix",
+     "contact_enrichment_z"
+    ],
+    "rho": -0.13655049512970577,
+    "ci": [
+     -0.33313934501818826,
+     0.025235756626206616
+    ]
+   },
+   "peritumoural_matrix_given_others": {
+    "covariates": [
+     "tumour_fraction",
+     "stromal_fraction",
+     "contact_enrichment_z",
+     "log_b_rel"
+    ],
+    "rho": -0.03608270387395962,
+    "ci": [
+     -0.24224419037667652,
+     0.12603827471440704
+    ]
+   },
+   "contact_enrichment_z_given_others": {
+    "covariates": [
+     "tumour_fraction",
+     "stromal_fraction",
+     "peritumoural_matrix",
+     "log_b_rel"
+    ],
+    "rho": 0.5383487576193274,
+    "ci": [
+     0.34972775271327644,
+     0.6782571506670815
+    ]
+   },
+   "b_rel_given_distances": {
+    "covariates": [
+     "vessel_tumour_distance",
+     "core_depth"
+    ],
+    "rho": -0.28630849922034796,
+    "ci": [
+     -0.42404409146467764,
+     -0.13806149539971166
+    ]
+   },
+   "b_rel_given_composition_and_distances": {
+    "covariates": [
+     "tumour_fraction",
+     "stromal_fraction",
+     "peritumoural_matrix",
+     "vessel_tumour_distance",
+     "core_depth"
+    ],
+    "rho": -0.19594175897612442,
+    "ci": [
+     -0.34790226867025226,
+     -0.044029250895933014
+    ]
+   },
+   "b_rel_given_peritumoural_matrix": {
+    "covariates": [
+     "peritumoural_matrix"
+    ],
+    "rho": -0.27755209493529903,
+    "ci": [
+     -0.42589530549235066,
+     -0.10995382556758532
+    ]
+   },
+   "b_rel_given_vessel_tumour_distance": {
+    "covariates": [
+     "vessel_tumour_distance"
+    ],
+    "rho": -0.39221157935238254,
+    "ci": [
+     -0.5520718674626953,
+     -0.20635049805338662
+    ]
+   },
+   "b_rel_given_core_depth": {
+    "covariates": [
+     "core_depth"
+    ],
+    "rho": -0.29721147809886395,
+    "ci": [
+     -0.4341049679518734,
+     -0.16079880201411884
+    ]
+   },
+   "b_rel_given_contact_enrichment_z": {
+    "covariates": [
+     "contact_enrichment_z"
+    ],
+    "rho": -0.16186387476964825,
+    "ci": [
+     -0.34560912368836855,
+     0.004637773563732615
+    ]
+   },
+   "b_rel_given_all_simple": {
+    "covariates": [
+     "peritumoural_matrix",
+     "vessel_tumour_distance",
+     "core_depth",
+     "contact_enrichment_z"
+    ],
+    "rho": -0.11401551203904337,
+    "ci": [
+     -0.319982670869743,
+     0.06293471373839542
+    ]
+   },
+   "spearman_matrix": {
+    "log_b_rel": {
+     "log_b_rel": 1.0,
+     "log_b_cell": 0.637,
+     "field_core": 0.6214,
+     "peritumoural_matrix": 0.486,
+     "contact_enrichment_z": -0.4549,
+     "stromal_fraction": -0.1309,
+     "tumour_fraction": 0.4157,
+     "vessel_tumour_distance": -0.2133,
+     "core_depth": 0.3788,
+     "ir": -0.4323
+    },
+    "log_b_cell": {
+     "log_b_rel": 0.637,
+     "log_b_cell": 1.0,
+     "field_core": 0.6647,
+     "peritumoural_matrix": 0.4214,
+     "contact_enrichment_z": -0.2018,
+     "stromal_fraction": -0.2989,
+     "tumour_fraction": 0.3617,
+     "vessel_tumour_distance": 0.0267,
+     "core_depth": 0.5407,
+     "ir": -0.4319
+    },
+    "field_core": {
+     "log_b_rel": 0.6214,
+     "log_b_cell": 0.6647,
+     "field_core": 1.0,
+     "peritumoural_matrix": 0.4706,
+     "contact_enrichment_z": -0.1664,
+     "stromal_fraction": -0.4948,
+     "tumour_fraction": 0.6078,
+     "vessel_tumour_distance": -0.4179,
+     "core_depth": 0.45,
+     "ir": -0.4448
+    },
+    "peritumoural_matrix": {
+     "log_b_rel": 0.486,
+     "log_b_cell": 0.4214,
+     "field_core": 0.4706,
+     "peritumoural_matrix": 1.0,
+     "contact_enrichment_z": -0.4273,
+     "stromal_fraction": -0.5869,
+     "tumour_fraction": 0.7661,
+     "vessel_tumour_distance": -0.4669,
+     "core_depth": 0.5871,
+     "ir": -0.4575
+    },
+    "contact_enrichment_z": {
+     "log_b_rel": -0.4549,
+     "log_b_cell": -0.2018,
+     "field_core": -0.1664,
+     "peritumoural_matrix": -0.4273,
+     "contact_enrichment_z": 1.0,
+     "stromal_fraction": 0.0069,
+     "tumour_fraction": -0.4084,
+     "vessel_tumour_distance": 0.1546,
+     "core_depth": -0.5809,
+     "ir": 0.6378
+    },
+    "stromal_fraction": {
+     "log_b_rel": -0.1309,
+     "log_b_cell": -0.2989,
+     "field_core": -0.4948,
+     "peritumoural_matrix": -0.5869,
+     "contact_enrichment_z": 0.0069,
+     "stromal_fraction": 1.0,
+     "tumour_fraction": -0.7765,
+     "vessel_tumour_distance": 0.58,
+     "core_depth": -0.5157,
+     "ir": 0.2359
+    },
+    "tumour_fraction": {
+     "log_b_rel": 0.4157,
+     "log_b_cell": 0.3617,
+     "field_core": 0.6078,
+     "peritumoural_matrix": 0.7661,
+     "contact_enrichment_z": -0.4084,
+     "stromal_fraction": -0.7765,
+     "tumour_fraction": 1.0,
+     "vessel_tumour_distance": -0.7483,
+     "core_depth": 0.7268,
+     "ir": -0.4491
+    },
+    "vessel_tumour_distance": {
+     "log_b_rel": -0.2133,
+     "log_b_cell": 0.0267,
+     "field_core": -0.4179,
+     "peritumoural_matrix": -0.4669,
+     "contact_enrichment_z": 0.1546,
+     "stromal_fraction": 0.58,
+     "tumour_fraction": -0.7483,
+     "vessel_tumour_distance": 1.0,
+     "core_depth": -0.2814,
+     "ir": 0.1842
+    },
+    "core_depth": {
+     "log_b_rel": 0.3788,
+     "log_b_cell": 0.5407,
+     "field_core": 0.45,
+     "peritumoural_matrix": 0.5871,
+     "contact_enrichment_z": -0.5809,
+     "stromal_fraction": -0.5157,
+     "tumour_fraction": 0.7268,
+     "vessel_tumour_distance": -0.2814,
+     "core_depth": 1.0,
+     "ir": -0.535
+    },
+    "ir": {
+     "log_b_rel": -0.4323,
+     "log_b_cell": -0.4319,
+     "field_core": -0.4448,
+     "peritumoural_matrix": -0.4575,
+     "contact_enrichment_z": 0.6378,
+     "stromal_fraction": 0.2359,
+     "tumour_fraction": -0.4491,
+     "vessel_tumour_distance": 0.1842,
+     "core_depth": -0.535,
+     "ir": 1.0
+    }
+   }
+  },
+  "s1_absolute": {
+   "rho_core": -0.38340623742167285,
+   "ci_core": [
+    -0.5169722279457325,
+    -0.2304936406356285
+   ],
+   "patient": {
+    "rho": -0.2215686274509804,
+    "p_two_sided": 0.20083316090431858,
+    "p_one_sided_perm": 0.0999790002099979,
+    "n_patients": 35
+   }
+  },
+  "s2_blockade_line": {
+   "median_cut_ratio_sparta": -0.14373255117033823,
+   "median_cut_ratio_open": -0.2879135865819781,
+   "median_diff_core": 0.1148440357417144,
+   "median_diff_patient": 0.06484232857611594,
+   "n_patients_diff_lt0": 12,
+   "n_patients": 35,
+   "wilcoxon_one_sided_p": 0.9908760362886824,
+   "median_beyond_area_frac_sparta": 0.6838960537661767,
+   "median_beyond_area_frac_open": 0.5315537240348096
+  },
+  "s3_clr_vs_dii": {
+   "median_log_b_rel_clr": 2.315227609342044,
+   "median_log_b_rel_dii": 2.586885723834418,
+   "mannwhitney_p_b_rel": 0.05772470112326117,
+   "median_ir_clr": -0.3440565802979404,
+   "median_ir_dii": -0.9515181486344622,
+   "mannwhitney_p_ir": 0.011573904213159573
+  },
+  "ir_tumour_region": {
+   "rho_core": -0.36434661104473387,
+   "patient": {
+    "rho": -0.36302521008403366,
+    "p_two_sided": 0.03207979440401165,
+    "p_one_sided_perm": 0.016519834801651985,
+    "n_patients": 35
+   }
+  },
+  "sensitivity": {
+   "edge30": {
+    "post_hoc": false,
+    "n_cores": 90,
+    "n_patients": 34,
+    "rho_core": -0.4078939786804955,
+    "patient": {
+     "rho": -0.3283422459893048,
+     "p_two_sided": 0.05797646954337912,
+     "p_one_sided_perm": 0.02829971700282997,
+     "n_patients": 34
+    },
+    "rho_core_b_cell_density": -0.3622105038740217
+   },
+   "edge100": {
+    "post_hoc": false,
+    "n_cores": 118,
+    "n_patients": 35,
+    "rho_core": -0.47993382489892966,
+    "patient": {
+     "rho": -0.634453781512605,
+     "p_two_sided": 4.2591827152261086e-05,
+     "p_one_sided_perm": 5.999940000599994e-05,
+     "n_patients": 35
+    },
+    "rho_core_b_cell_density": -0.4835072133293794
+   },
+   "f_asma_only": {
+    "post_hoc": false,
+    "n_cores": 114,
+    "n_patients": 35,
+    "rho_core": -0.384257102934327,
+    "patient": {
+     "rho": -0.5498599439775911,
+     "p_two_sided": 0.0006223827341315898,
+     "p_one_sided_perm": 0.0003699963000369996,
+     "n_patients": 35
+    },
+    "rho_core_b_cell_density": -0.3578857837914904
+   },
+   "sinks_all_tumour": {
+    "post_hoc": false,
+    "n_cores": 114,
+    "n_patients": 35,
+    "rho_core": -0.3387011198639153,
+    "patient": {
+     "rho": -0.38179271708683477,
+     "p_two_sided": 0.023624298036798424,
+     "p_one_sided_perm": 0.012269877301226988,
+     "n_patients": 35
+    },
+    "rho_core_b_cell_density": -0.22366092221704706
+   },
+   "outcome_all_t": {
+    "post_hoc": false,
+    "n_cores": 115,
+    "n_patients": 35,
+    "rho_core": -0.4630868776138247,
+    "patient": {
+     "rho": -0.5201680672268908,
+     "p_two_sided": 0.0013601545918775246,
+     "p_one_sided_perm": 0.0007599924000759993,
+     "n_patients": 35
+    },
+    "rho_core_b_cell_density": -0.39889843683429865
+   },
+   "eq1_half": {
+    "post_hoc": true,
+    "n_cores": 114,
+    "n_patients": 35,
+    "rho_core": -0.35100544743929857,
+    "patient": {
+     "rho": -0.5226890756302521,
+     "p_two_sided": 0.0012762850959564598,
+     "p_one_sided_perm": 0.0006799932000679993,
+     "n_patients": 35
+    },
+    "rho_core_b_cell_density": -0.273657351210428
+   },
+   "eq1_x1.5": {
+    "post_hoc": true,
+    "n_cores": 114,
+    "n_patients": 35,
+    "rho_core": -0.45801826613474816,
+    "patient": {
+     "rho": -0.5490196078431373,
+     "p_two_sided": 0.0006369455055457648,
+     "p_one_sided_perm": 0.0002999970000299997,
+     "n_patients": 35
+    },
+    "rho_core_b_cell_density": -0.4142770353218872
+   },
+   "eq1_matrix_only": {
+    "post_hoc": true,
+    "n_cores": 114,
+    "n_patients": 35,
+    "rho_core": -0.3226382616795934,
+    "patient": {
+     "rho": -0.3882352941176471,
+     "p_two_sided": 0.02118632887270872,
+     "p_one_sided_perm": 0.01048989510104899,
+     "n_patients": 35
+    },
+    "rho_core_b_cell_density": -0.332466585730385
+   },
+   "eq1_fibroblast_only": {
+    "post_hoc": true,
+    "n_cores": 114,
+    "n_patients": 35,
+    "rho_core": -0.5687086126242887,
+    "patient": {
+     "rho": -0.6747899159663866,
+     "p_two_sided": 8.759354408786264e-06,
+     "p_one_sided_perm": 9.99990000099999e-06,
+     "n_patients": 35
+    },
+    "rho_core_b_cell_density": -0.4588011341564524
+   }
+  }
+ },
+ "semantics": "Barrier computed from the non-immune scaffold only (Collagen IV, aSMA/vimentin protein; Eq. 1 parameters unchanged); CD8+ T-cell positions withheld and used as the outcome. IR = log2 relative CD8+ density in the tumour core (sink Voronoi region) vs the rest of the tissue; negative = depleted. log_b_rel = log(max flow on matrix-free capacities / max flow). Inference uses patients (35) as the unit; core-level CIs are patient-cluster bootstraps.",
+ "meta": {
+  "timestamp": "2026-10-05T03:02:13+00:00",
+  "config_path": "/home/claude/sparta/configs/default.yaml",
+  "seed": 0,
+  "python": "3.13.16",
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "networkx": "3.6.1",
+  "module": "M47-codex-validation",
+  "seconds": 101.3
+ }
+}

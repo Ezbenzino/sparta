@@ -5,7 +5,7 @@ run_20_pending_figures.py — 生成文稿待制图表（Fig 3/4/5 + Graphical a
 从已有产物 JSON 出发，不重算任何数值。
 
 Fig 3: 分子尺寸扫描（S3）+ 渗流/网格统计
-Fig 4: 耦合与共享输入去除（森林图 + 散点）
+Fig 4: 耦合与共享输入去除（逐切片配对图 + 散点）
 Fig 5: S2 剂量反应 + S1 患者分层
 Graphical abstract: 精简框架图
 """
@@ -105,7 +105,8 @@ def _mk(sid):
 # ══════════════════════════════════════════════════════════════════════════
 def fig3_size_scan():
     """Fig 3: 分子尺寸扫描（0.5–10 nm）+ 渗流/网格统计"""
-    scr = _load(VAL_DIR / "screen_decision.json")["per_slide"]
+    mesh_data = _load(VAL_DIR / "mesh_stats.json")
+    mesh = mesh_data["per_slide"]
     cfs = {s: _load(CF_DIR / f"{s}.json") for s in ORDER}
 
     fig, ax = plt.subplots(1, 2, figsize=(11.4, 4.6), facecolor=SURFACE)
@@ -130,11 +131,19 @@ def fig3_size_scan():
 
     # ---- (b) 渗流/网格统计 ----
     b = ax[1]; _style(b, ylab="edges with mesh < IgG radius (%)")
-    v = [scr[s]["frac_crosslink"] * 100 for s in ORDER]
-    bars = b.bar(range(len(ORDER)), v, width=0.66, linewidth=1.6,
-                 edgecolor=SURFACE, color=[MAB]*len(ORDER))
-    b.axhline(62.7, color=INK, lw=1.0, ls=(0,(4,3)), zorder=3)
-    b.text(len(ORDER)-0.5, 63.5, "median 62.7%", ha="right", fontsize=7.4, color=INK)
+    # Use the edge-level geometric exclusion fraction. `frac_crosslink` in
+    # screen_decision.json is a variance-attribution share, a different metric.
+    v = [mesh[s]["frac_size_excluded_pct"] for s in ORDER]
+    colors = [MAB if s.startswith("CSCC") else "#f3a27f" for s in ORDER]
+    b.bar(range(len(ORDER)), v, width=0.66, linewidth=1.0,
+          edgecolor=SURFACE, color=colors)
+    median_excluded = float(mesh_data["frac_excluded_median"]) * 100.0
+    # Match the manuscript's half-up display at an exact 62.65% midpoint;
+    # Python's built-in round() uses ties-to-even and serializes this as 62.6.
+    median_label = f"{np.floor(median_excluded * 10 + 0.5 + 1e-9) / 10:.1f}"
+    b.axhline(median_excluded, color=INK, lw=1.0, ls=(0,(4,3)), zorder=3)
+    b.text(len(ORDER)-0.5, median_excluded + 1.2,
+           f"median {median_label}%", ha="right", fontsize=7.4, color=INK)
     # 逐柱数字标签在 19 根柱子上必然重叠；median line 已表达主要信息，
     # 精确数字见 Supplementary Table S1。
     _cohort_ticks(b, ORDER)
@@ -142,8 +151,11 @@ def fig3_size_scan():
     _title(b, "b", "The antibody barrier is percolation-limited",
            "60–65% of edges exclude IgG; transport proceeds through the minority")
     # 图例
-    b.text(0.02, 0.96, "● primary cSCC      ■ metastatic melanoma",
-           transform=b.transAxes, fontsize=7.4, color=INK2, va="top")
+    b.legend(handles=[
+        mpatches.Patch(color=MAB, label="primary cSCC"),
+        mpatches.Patch(color="#f3a27f", label="metastatic melanoma"),
+    ], loc="upper left", frameon=False, fontsize=7.0, ncol=1,
+       borderaxespad=0.4, handlelength=1.0)
 
     fig.text(0.075, 0.955,
              "Figure 3  Molecular size scan and percolation statistics",
@@ -153,7 +165,7 @@ def fig3_size_scan():
 
 # ══════════════════════════════════════════════════════════════════════════
 def fig4_coupling_forest():
-    """Fig 4: 耦合与共享输入去除（分层森林图 + 散点）"""
+    """Fig 4: 耦合与共享输入去除（逐切片配对图 + 散点）"""
     dec = _load(VAL_DIR / "decoupling.json")
     chk = _load(VAL_DIR / "shared_ecm_check.json")["per_slide"]
     sids = [s for s in ORDER if s in dec and s in chk]
@@ -180,41 +192,54 @@ def fig4_coupling_forest():
     _title(a, "a", "Coupling, not dissociation",
            f"{n_pos}/{len(sids)} positive, {n_sig}/{len(sids)} significant")
 
-    # ---- (b) 共享输入去除 — 分层森林图 ----
-    b = ax[1]; _style(b, ylab=r"partial $\rho$", grid_axis="y")
-    b.axhline(0, color=INK, lw=0.8, zorder=1)
-    # 分层：Visium cSCC, 1st-gen ST cSCC, Melanoma
+    # ---- (b) 共享输入去除 — 配对相关系数图 ----
+    b = ax[1]; _style(b, xlab=r"partial Spearman $\rho$", grid_axis="x")
+    b.axvline(0, color=INK, lw=0.8, zorder=1)
+    # 分层：Visium cSCC, 1st-gen ST cSCC, Melanoma. Each section is one row;
+    # the x coordinate is the actual correlation, not its row index.
     strata = [
         ("cSCC (Visium)", [s for s in sids if s.startswith("CSCC") and int(s[4:])<=4]),
         ("cSCC (1st-gen ST)", [s for s in sids if s.startswith("CSCC") and int(s[4:])>=5]),
         ("Melanoma", [s for s in sids if s.startswith("MEL")]),
     ]
-    y_pos = 0
+    y_pos = 0.0
     yticks_pos, yticks_lab = [], []
-    for sname, members in strata:
+    xs_all = []
+    for group_i, (sname, members) in enumerate(strata):
         for s in members:
             m0 = chk[s]["主配置"]
             m1 = chk[s]["切断共享ECM"]
             keep = m1["p_partial"] < 0.05 and m1["rho_partial"] > 0
             col = CELL if keep else MUTED
-            b.plot([0, 1], [m0["rho_partial"], m1["rho_partial"]],
+            rho_full = float(m0["rho_partial"])
+            rho_removed = float(m1["rho_partial"])
+            xs_all.extend((rho_full, rho_removed))
+            b.plot([rho_full, rho_removed], [y_pos, y_pos],
                    color=col, lw=1.8 if keep else 1.0,
-                   alpha=0.9 if keep else 0.5, zorder=2)
-            mk = _mk(s)
-            for x, v in ((0, m0["rho_partial"]), (1, m1["rho_partial"])):
-                b.scatter(x, v, s=50, marker=mk["marker"],
-                          facecolors=col if mk["fc"]!="none" else "none",
-                          edgecolors=col, linewidths=1.3, zorder=3)
+                   alpha=0.9 if keep else 0.55, zorder=2)
+            b.scatter(rho_full, y_pos, s=38, marker="o", facecolors="none",
+                      edgecolors=NEUTRAL, linewidths=1.2, zorder=3)
+            b.scatter(rho_removed, y_pos, s=38, marker="o",
+                      facecolors=col, edgecolors=col, linewidths=1.0, zorder=3)
             yticks_pos.append(y_pos); yticks_lab.append(s)
             y_pos += 1
-        if members:
-            b.axhline(y_pos, color="#dedcd6", lw=0.6, zorder=0)
-            y_pos += 0.5
+        if members and group_i < len(strata) - 1:
+            b.axhline(y_pos - 0.5, color="#dedcd6", lw=0.6, zorder=0)
+            y_pos += 0.65
     b.set_yticks(yticks_pos); b.set_yticklabels(yticks_lab, fontsize=6.8)
-    b.set_xlim(-0.3, 1.4); b.set_xticks([0, 1])
-    b.set_xticklabels(["full\nmodel", "shared matrix\nremoved"], fontsize=7.6)
-    b.grid(axis="x", visible=False)
-    b.invert_yaxis()
+    if xs_all:
+        pad = 0.05
+        b.set_xlim(min(-0.10, min(xs_all) - pad), max(0.45, max(xs_all) + pad))
+    b.set_ylim(y_pos - 0.5, -0.5)
+    b.tick_params(axis="y", length=0, pad=2)
+    from matplotlib.lines import Line2D
+    b.legend(handles=[
+        Line2D([0], [0], marker="o", linestyle="none", markerfacecolor="none",
+               markeredgecolor=NEUTRAL, markersize=5, label="full model"),
+        Line2D([0], [0], marker="o", linestyle="none", markerfacecolor=CELL,
+               markeredgecolor=CELL, markersize=5, label="shared matrix removed"),
+    ], loc="upper center", bbox_to_anchor=(0.5, -0.19), ncol=2,
+       frameon=False, fontsize=6.6, columnspacing=0.8, handletextpad=0.35)
     # 统计标注
     cscc_all = [s for s in sids if s.startswith("CSCC")]
     cscc_surv = sum(1 for s in cscc_all
@@ -224,8 +249,8 @@ def fig4_coupling_forest():
     mel_surv = sum(1 for s in mel_all
                    if chk[s]["切断共享ECM"]["p_partial"]<0.05
                    and chk[s]["切断共享ECM"]["rho_partial"]>0)
-    _title(b, "b", "Is the coupling tissue-borne?",
-           f"cSCC {cscc_surv}/{len(cscc_all)} survive   |   melanoma {mel_surv}/{len(mel_all)}")
+    _title(b, "b", "Does coupling persist after shared-input removal?",
+           f"Significant positive: cSCC {cscc_surv}/{len(cscc_all)}; melanoma {mel_surv}/{len(mel_all)}")
 
     # ---- (c) 解离区 vs 随机期望 ----
     c = ax[2]; _style(c, ylab="dissociation-zone spots (%)")
@@ -259,7 +284,7 @@ def fig5_counterfactuals():
     cfs = {s: _load(CF_DIR / f"{s}.json") for s in ORDER}
 
     fig, ax = plt.subplots(1, 2, figsize=(11.4, 4.6), facecolor=SURFACE)
-    fig.subplots_adjust(left=0.075, right=0.97, top=0.74, bottom=0.22, wspace=0.28)
+    fig.subplots_adjust(left=0.075, right=0.97, top=0.69, bottom=0.22, wspace=0.28)
 
     # ---- (a) S1 患者分层 ----
     a = ax[0]; _style(a, ylab="observed / permutation null")
@@ -269,10 +294,12 @@ def fig5_counterfactuals():
     a.bar(range(len(ORDER)), v, width=0.66, linewidth=1.6, edgecolor=SURFACE,
           color=colors, alpha=0.85)
     a.axhline(1.0, color=INK, lw=1.2, zorder=3)
+    vmax = float(np.nanmax(v)) if v else 1.0
+    label_pad = max(vmax * 0.018, 0.04)
     for i, (x, k) in enumerate(zip(v, sig)):
-        a.text(i, x+0.06, f"{x:.2f}", ha="center", fontsize=6.8,
+        a.text(i, x + label_pad, f"{x:.2f}", ha="center", fontsize=6.8,
                color=INK if k else MUTED)
-    _cohort_ticks(a, ORDER); a.set_ylim(0, 4.0)
+    _cohort_ticks(a, ORDER); a.set_ylim(0, max(vmax * 1.17, 1.2))
     # 患者图例
     seen = set()
     handles = []
@@ -281,10 +308,11 @@ def fig5_counterfactuals():
         if p not in seen:
             seen.add(p)
             handles.append(mpatches.Patch(color=PAT_COLORS[p], label=p))
-    a.legend(handles=handles, fontsize=6.5, frameon=False, ncol=2,
-             loc="upper right", columnspacing=0.8, handletextpad=0.3)
+    fig.legend(handles=handles, fontsize=6.4, frameon=False, ncol=min(7, len(handles)),
+               loc="upper center", bbox_to_anchor=(0.51, 0.895),
+               columnspacing=0.85, handletextpad=0.3)
     _title(a, "a", "S1  spatial rearrangement (by patient)",
-           "composition held fixed, positions permuted")
+           "composition held fixed; colours identify patients")
 
     # ---- (b) S2 剂量反应 ----
     b = ax[1]; _style(b, ylab="residual barrier ratio\n(scattered / contiguous)",
@@ -299,8 +327,7 @@ def fig5_counterfactuals():
                markeredgecolor=CELL, markeredgewidth=1.2)
     b.axhline(1.0, color=INK, lw=1.2, zorder=3)
     b.axvline(20, color=MAB, lw=1.6, ls=(0,(4,3)), zorder=2)
-    b.text(20.7, b.get_ylim()[0]+0.012, "pre-specified\nprimary test",
-           fontsize=7.2, color=MAB, va="bottom")
+    b.set_xlim(2.5, 32.5)
     b.set_xticks([5,10,20,30]); b.set_xticklabels(["5%","10%","20%","30%"])
     sig20 = sum(1 for s in ORDER
                 if min(cfs[s]["s2"]["per_k"].values(),
@@ -311,11 +338,8 @@ def fig5_counterfactuals():
                        [v_["ratio_vs_in_cut"] for v_ in sorted(pk.values(),
                            key=lambda v_: v_["k_over_cut"])]))(
                        cfs[s]["s2"]["per_k"]))
-    b.text(0.02, 0.96, f"{sig20}/{len(ORDER)} significant at 20%;\n"
-           f"effect grows with removal in {mono}/{len(ORDER)}",
-           transform=b.transAxes, fontsize=7.4, color=INK2, va="top")
     _title(b, "b", "S2  blockade continuity",
-           "contiguous gap vs same material scattered")
+           f"{sig20}/{len(ORDER)} significant at pre-specified 20%; effect grows in {mono}/{len(ORDER)}")
 
     fig.text(0.075, 0.955,
              "Figure 5  Counterfactual experiments: "
@@ -328,78 +352,115 @@ def fig5_counterfactuals():
 
 # ══════════════════════════════════════════════════════════════════════════
 def graphical_abstract():
-    """Graphical abstract: 精简框架图"""
-    fig, ax = plt.subplots(figsize=(10, 4.0), facecolor=SURFACE)
-    ax.set_xlim(0, 10); ax.set_ylim(0, 4)
-    ax.set_aspect("equal"); ax.axis("off")
+    """Landscape graphical abstract with readable parallel transport paths."""
+    fig = plt.figure(figsize=(13.28, 5.31), dpi=300, facecolor=SURFACE)
+    ax = fig.add_axes([0, 0, 1, 1])
+    ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.axis("off")
 
-    # ── 左：空间图 ──
-    # 组织斑点
-    rng = np.random.RandomState(42)
-    pts = rng.randn(40, 2) * 0.6 + [1.8, 2.0]
-    pts = pts[(pts[:,0]>0.8) & (pts[:,0]<2.8) & (pts[:,1]>0.8) & (pts[:,1]<3.2)]
-    # 连线
-    for i in range(len(pts)):
-        for j in range(i+1, len(pts)):
-            d = np.linalg.norm(pts[i]-pts[j])
-            if d < 0.45:
-                ax.plot([pts[i,0],pts[j,0]], [pts[i,1],pts[j,1]],
-                        color=GRID, lw=0.5, zorder=1)
-    # 斑点着色
-    for i, (x,y) in enumerate(pts):
-        if x < 1.5 and y > 2.0:
-            c = CELL  # 源 (内皮)
-        elif x > 2.2:
-            c = MAB  # 汇 (肿瘤)
-        else:
-            c = NEUTRAL  # 基质
-        ax.scatter(x, y, s=80, c=c, edgecolors=SURFACE, linewidths=0.8, zorder=2)
-    ax.text(1.8, 3.45, "spatial graph", fontsize=9, color=INK, ha="center", weight="bold")
-    ax.text(1.8, 0.45, "one substrate:\nextracellular matrix", fontsize=7.5, color=INK2, ha="center")
+    fig.text(0.035, 0.94, "SPARTA  |  SPATIAL GRAPH TRANSPORT",
+             fontsize=10, color=MUTED, weight="bold", ha="left", va="top")
+    fig.text(0.035, 0.865,
+             "Two delivery barriers, two transport operators, one tissue graph",
+             fontsize=23, color=INK, weight="bold", ha="left", va="top")
 
-    # ── 中：两个算子 ──
-    # B_cell 框
-    box1 = FancyBboxPatch((4.2, 2.4), 2.0, 1.0, boxstyle="round,pad=0.1",
-                          fc=SURFACE, ec=CELL, lw=2.0, zorder=2)
-    ax.add_patch(box1)
-    ax.text(5.2, 3.15, r"$B_{cell}$", fontsize=13, color=CELL, ha="center", weight="bold")
-    ax.text(5.2, 2.75, "min-cut\nbarrier", fontsize=7.5, color=INK2, ha="center")
-    # B_mAb 框
-    box2 = FancyBboxPatch((4.2, 0.6), 2.0, 1.0, boxstyle="round,pad=0.1",
-                          fc=SURFACE, ec=MAB, lw=2.0, zorder=2)
-    ax.add_patch(box2)
-    ax.text(5.2, 1.35, r"$B_{mAb}$", fontsize=13, color=MAB, ha="center", weight="bold")
-    ax.text(5.2, 0.95, "screened Poisson\nsize exclusion", fontsize=7.5, color=INK2, ha="center")
-
-    # 箭头
-    ax.annotate("", xy=(4.2, 3.0), xytext=(2.9, 2.6),
-                arrowprops=dict(arrowstyle="-|>", color=CELL, lw=1.5))
-    ax.annotate("", xy=(4.2, 1.2), xytext=(2.9, 1.8),
-                arrowprops=dict(arrowstyle="-|>", color=MAB, lw=1.5))
-
-    # ── 右：结果 ──
-    ax.text(7.8, 3.5, "findings", fontsize=9, color=INK, ha="center", weight="bold")
-    findings = [
-        ("percolation-limited", MAB),
-        ("barriers co-located", CELL),
-        ("deterministic, < 0.2 s", INK2),
+    cards = [
+        (0.035, 0.14, 0.225, 0.60),
+        (0.32, 0.48, 0.405, 0.26),
+        (0.32, 0.14, 0.405, 0.26),
+        (0.785, 0.14, 0.18, 0.60),
     ]
-    for i, (txt, c) in enumerate(findings):
-        y = 3.0 - i * 0.55
-        ax.scatter(7.2, y, s=30, c=c, edgecolors=SURFACE, linewidths=0.6, zorder=3)
-        ax.text(7.4, y, txt, fontsize=7.8, color=c, va="center")
+    for x, y, w, h in cards:
+        ax.add_patch(FancyBboxPatch(
+            (x, y), w, h, boxstyle="round,pad=0.012,rounding_size=0.018",
+            fc="white", ec="#dedcd6", lw=1.0, transform=ax.transAxes, zorder=0))
+    for x, y, w, h, color in (
+        (0.32, 0.48, 0.405, 0.26, CELL),
+        (0.32, 0.14, 0.405, 0.26, MAB),
+    ):
+        ax.add_patch(FancyBboxPatch(
+            (x, y), w, h, boxstyle="round,pad=0.012,rounding_size=0.018",
+            fc="none", ec=color, lw=1.8, transform=ax.transAxes, zorder=1))
 
-    ax.annotate("", xy=(7.0, 2.0), xytext=(6.2, 2.0),
-                arrowprops=dict(arrowstyle="-|>", color=INK2, lw=1.2))
+    # Input card: a compact spatial graph with source, stroma and tumour nodes.
+    ax.text(0.052, 0.692, "ONE SPATIAL GRAPH", transform=ax.transAxes,
+            fontsize=11, color=INK, weight="bold", ha="left", va="center")
+    ax.text(0.052, 0.645, "spots + expression signatures", transform=ax.transAxes,
+            fontsize=9, color=INK2, ha="left", va="center")
+    nodes = np.array([
+        [0.075, 0.49], [0.105, 0.56], [0.13, 0.45], [0.16, 0.59],
+        [0.19, 0.50], [0.22, 0.43], [0.22, 0.60], [0.17, 0.38],
+    ])
+    edges = [(0,1),(0,2),(1,2),(1,3),(2,4),(3,4),(3,6),(4,5),(4,6),(4,7),(5,7)]
+    for i, j in edges:
+        ax.plot([nodes[i,0], nodes[j,0]], [nodes[i,1], nodes[j,1]],
+                transform=ax.transAxes, color="#dedcd6", lw=1.0, zorder=2)
+    node_cols = [CELL, CELL, NEUTRAL, NEUTRAL, NEUTRAL, MAB, MAB, NEUTRAL]
+    ax.scatter(nodes[:,0], nodes[:,1], transform=ax.transAxes, s=90,
+               c=node_cols, edgecolors="white", linewidths=1.0, zorder=3)
+    ax.scatter([0.06, 0.13, 0.20], [0.325]*3, transform=ax.transAxes,
+               s=28, c=[CELL, NEUTRAL, MAB], marker="o", zorder=3)
+    ax.text(0.072, 0.325, "entry", transform=ax.transAxes,
+            fontsize=8, color=INK2, va="center")
+    ax.text(0.142, 0.325, "matrix", transform=ax.transAxes,
+            fontsize=8, color=INK2, va="center")
+    ax.text(0.212, 0.325, "tumour", transform=ax.transAxes,
+            fontsize=8, color=INK2, va="center")
+    ax.text(0.052, 0.225, "ECM  ·  CAF  ·  crosslinking", transform=ax.transAxes,
+            fontsize=8.6, color=INK2, ha="left", va="center")
 
-    fig.text(0.5, 0.97,
-             "Two transport operators, one substrate: "
-             "graph-transport modelling of cell and antibody delivery barriers",
-             fontsize=10.5, color=INK, ha="center", va="top", style="italic")
+    # Parallel operator cards.
+    ax.text(0.345, 0.686, "CELL MIGRATION  ·  ~10 µm", transform=ax.transAxes,
+            fontsize=10, color=CELL, weight="bold", ha="left", va="center")
+    ax.text(0.345, 0.605, r"$B_{cell}=1/\mathrm{maxflow}$",
+            transform=ax.transAxes, fontsize=19, color=INK, ha="left", va="center")
+    ax.text(0.345, 0.535, "ECM/CAF-weighted source–sink minimum cut",
+            transform=ax.transAxes, fontsize=9, color=INK2, ha="left", va="center")
 
-    for ext in ("png","pdf"):
+    ax.text(0.345, 0.346, "ANTIBODY DIFFUSION  ·  IgG ~5.5 nm", transform=ax.transAxes,
+            fontsize=10, color=MAB, weight="bold", ha="left", va="center")
+    ax.text(0.345, 0.265, r"$B_{mAb}=-\log\phi$",
+            transform=ax.transAxes, fontsize=19, color=INK, ha="left", va="center")
+    ax.text(0.345, 0.195, "Screened diffusion–absorption + size exclusion",
+            transform=ax.transAxes, fontsize=9, color=INK2, ha="left", va="center")
+
+    # Arrows route each modality through the same measured substrate.
+    ax.add_patch(FancyArrowPatch((0.265, 0.58), (0.315, 0.61),
+                 transform=ax.transAxes, arrowstyle="-|>", mutation_scale=13,
+                 color=CELL, lw=1.8, zorder=4))
+    ax.add_patch(FancyArrowPatch((0.265, 0.34), (0.315, 0.30),
+                 transform=ax.transAxes, arrowstyle="-|>", mutation_scale=13,
+                 color=MAB, lw=1.8, zorder=4))
+    ax.add_patch(FancyArrowPatch((0.73, 0.61), (0.78, 0.61),
+                 transform=ax.transAxes, arrowstyle="-|>", mutation_scale=13,
+                 color=CELL, lw=1.8, zorder=4))
+    ax.add_patch(FancyArrowPatch((0.73, 0.30), (0.78, 0.30),
+                 transform=ax.transAxes, arrowstyle="-|>", mutation_scale=13,
+                 color=MAB, lw=1.8, zorder=4))
+
+    # Evidence panel. Keep the cohort size visible and limit the interpretation.
+    ax.text(0.807, 0.692, "COHORT EVIDENCE", transform=ax.transAxes,
+            fontsize=10.5, color=INK, weight="bold", ha="left", va="center")
+    ax.text(0.807, 0.635, "19 sections  ·  7 patients", transform=ax.transAxes,
+            fontsize=9, color=INK2, ha="left", va="center")
+    ax.plot([0.807, 0.942], [0.59, 0.59], transform=ax.transAxes,
+            color="#dedcd6", lw=1.0)
+    ax.text(0.807, 0.535, "18/19", transform=ax.transAxes,
+            fontsize=16, color=CELL, weight="bold", ha="left", va="center")
+    ax.text(0.807, 0.493, "sections show positive\nbarrier-field coupling",
+            transform=ax.transAxes, fontsize=8.4, color=INK2,
+            ha="left", va="top", linespacing=1.2)
+    ax.text(0.807, 0.382, "12/15", transform=ax.transAxes,
+            fontsize=16, color=CELL, weight="bold", ha="left", va="center")
+    ax.text(0.807, 0.34, "cSCC sections retain significant\ncoupling after shared-input removal",
+            transform=ax.transAxes, fontsize=8.1, color=INK2,
+            ha="left", va="top", linespacing=1.2)
+    ax.text(0.807, 0.205, "Computational evidence;\nno response labels or\nintervention data.",
+            transform=ax.transAxes, fontsize=7.6, color=MUTED,
+            ha="left", va="bottom", linespacing=1.15)
+
+    for ext in ("png", "pdf"):
         p = FIG_DIR / f"graphical_abstract.{ext}"
-        fig.savefig(p, dpi=400, facecolor=SURFACE, bbox_inches="tight")
+        fig.savefig(p, dpi=300, facecolor=SURFACE)
         print(f"  saved {p}")
     plt.close(fig)
 
@@ -409,7 +470,7 @@ if __name__ == "__main__":
     FIG_DIR.mkdir(parents=True, exist_ok=True)
     print("[Fig 3] molecular size scan + percolation stats")
     fig3_size_scan()
-    print("[Fig 4] coupling forest plot")
+    print("[Fig 4] paired coupling plot")
     fig4_coupling_forest()
     print("[Fig 5] counterfactuals S1+S2")
     fig5_counterfactuals()

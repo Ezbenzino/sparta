@@ -1,0 +1,429 @@
+{
+ "definitions": {
+  "ag_target_missing": [
+   "CSCC10",
+   "CSCC14",
+   "CSCC15",
+   "CSCC16"
+  ],
+  "efflux_missing": [
+   "CSCC14",
+   "CSCC15",
+   "CSCC16",
+   "MEL01"
+  ],
+  "association_complete_case": "Exclude only sections missing Ag_target; efflux is not part of B_cell/B_mAb fields or graph-distance adjustment.",
+  "spatial_null": "Existing 500 graph-spectral sign-randomized surrogates per section; the 15-section subset uses the same section-level empirical p-values and recomputes BH within that family.",
+  "s2": "Selection-matched ratio from s2_matched_selection.json; S2 uses ECM/CAF and source/sink only, so all 19 sections are retained.",
+  "lcc_sensitivity": "Recalculate partial Spearman on the largest connected component using the unchanged full-graph field values restricted to that component; component-local shortest-path and diffusion solves are independent of other components."
+ },
+ "per_slide": {
+  "CSCC01": {
+   "patient": "CSCC_P4",
+   "n_nodes": 701,
+   "lcc_nodes": 697,
+   "non_lcc_nodes": 4,
+   "source_outside_lcc": 0,
+   "sink_outside_lcc": 0,
+   "filled_keys": [],
+   "rho_all_nodes": 0.3847893496906938,
+   "rho_lcc_only": 0.3931947863653137,
+   "delta_lcc_minus_all": 0.008405436674619904,
+   "spatial_null_p": 0.001996007984031936,
+   "s2_ratio": 1.1278820651784898,
+   "s2_p": 0.019801980198019802,
+   "s2_bh_q": 0.04702970297029703
+  },
+  "CSCC02": {
+   "patient": "CSCC_P4",
+   "n_nodes": 652,
+   "lcc_nodes": 644,
+   "non_lcc_nodes": 8,
+   "source_outside_lcc": 0,
+   "sink_outside_lcc": 0,
+   "filled_keys": [],
+   "rho_all_nodes": 0.2616618695714037,
+   "rho_lcc_only": 0.24349587863385877,
+   "delta_lcc_minus_all": -0.018165990937544924,
+   "spatial_null_p": 0.001996007984031936,
+   "s2_ratio": 1.1117482549007949,
+   "s2_p": 0.019801980198019802,
+   "s2_bh_q": 0.04702970297029703
+  },
+  "CSCC03": {
+   "patient": "CSCC_P6",
+   "n_nodes": 2645,
+   "lcc_nodes": 2492,
+   "non_lcc_nodes": 153,
+   "source_outside_lcc": 16,
+   "sink_outside_lcc": 1,
+   "filled_keys": [],
+   "rho_all_nodes": 0.2793263800417826,
+   "rho_lcc_only": 0.248555946683993,
+   "delta_lcc_minus_all": -0.030770433357789617,
+   "spatial_null_p": 0.001996007984031936,
+   "s2_ratio": 1.0979365061970303,
+   "s2_p": 0.0297029702970297,
+   "s2_bh_q": 0.05643564356435643
+  },
+  "CSCC04": {
+   "patient": "CSCC_P6",
+   "n_nodes": 2328,
+   "lcc_nodes": 2096,
+   "non_lcc_nodes": 232,
+   "source_outside_lcc": 23,
+   "sink_outside_lcc": 2,
+   "filled_keys": [],
+   "rho_all_nodes": 0.21698516161224798,
+   "rho_lcc_only": 0.15945444544543502,
+   "delta_lcc_minus_all": -0.05753071616681296,
+   "spatial_null_p": 0.001996007984031936,
+   "s2_ratio": 1.0376236877424856,
+   "s2_p": 0.25742574257425743,
+   "s2_bh_q": 0.32607260726072607
+  },
+  "CSCC05": {
+   "patient": "CSCC_P2",
+   "n_nodes": 664,
+   "lcc_nodes": 664,
+   "non_lcc_nodes": 0,
+   "source_outside_lcc": 0,
+   "sink_outside_lcc": 0,
+   "filled_keys": [],
+   "rho_all_nodes": 0.28029543101073734,
+   "rho_lcc_only": 0.28029543101073734,
+   "delta_lcc_minus_all": 0.0,
+   "spatial_null_p": 0.001996007984031936,
+   "s2_ratio": 1.1463702999407113,
+   "s2_p": 0.009900990099009901,
+   "s2_bh_q": 0.04702970297029703
+  },
+  "CSCC06": {
+   "patient": "CSCC_P2",
+   "n_nodes": 643,
+   "lcc_nodes": 643,
+   "non_lcc_nodes": 0,
+   "source_outside_lcc": 0,
+   "sink_outside_lcc": 0,
+   "filled_keys": [],
+   "rho_all_nodes": 0.20672596922572775,
+   "rho_lcc_only": 0.20672596922572775,
+   "delta_lcc_minus_all": 0.0,
+   "spatial_null_p": 0.003992015968063872,
+   "s2_ratio": 1.216653395213524,
+   "s2_p": 0.009900990099009901,
+   "s2_bh_q": 0.04702970297029703
+  },
+  "CSCC07": {
+   "patient": "CSCC_P2",
+   "n_nodes": 637,
+   "lcc_nodes": 637,
+   "non_lcc_nodes": 0,
+   "source_outside_lcc": 0,
+   "sink_outside_lcc": 0,
+   "filled_keys": [],
+   "rho_all_nodes": 0.28388884556333716,
+   "rho_lcc_only": 0.28388884556333716,
+   "delta_lcc_minus_all": 0.0,
+   "spatial_null_p": 0.001996007984031936,
+   "s2_ratio": 1.1331036859040966,
+   "s2_p": 0.019801980198019802,
+   "s2_bh_q": 0.04702970297029703
+  },
+  "CSCC08": {
+   "patient": "CSCC_P5",
+   "n_nodes": 566,
+   "lcc_nodes": 564,
+   "non_lcc_nodes": 2,
+   "source_outside_lcc": 0,
+   "sink_outside_lcc": 0,
+   "filled_keys": [],
+   "rho_all_nodes": 0.11388887316217428,
+   "rho_lcc_only": 0.11157442134683042,
+   "delta_lcc_minus_all": -0.002314451815343857,
+   "spatial_null_p": 0.0718562874251497,
+   "s2_ratio": 1.038024014769828,
+   "s2_p": 0.0891089108910891,
+   "s2_bh_q": 0.14108910891089108
+  },
+  "CSCC09": {
+   "patient": "CSCC_P5",
+   "n_nodes": 511,
+   "lcc_nodes": 511,
+   "non_lcc_nodes": 0,
+   "source_outside_lcc": 0,
+   "sink_outside_lcc": 0,
+   "filled_keys": [],
+   "rho_all_nodes": 0.20134439473668836,
+   "rho_lcc_only": 0.20134439473668836,
+   "delta_lcc_minus_all": 0.0,
+   "spatial_null_p": 0.001996007984031936,
+   "s2_ratio": 1.0098560396399565,
+   "s2_p": 0.297029702970297,
+   "s2_bh_q": 0.3527227722772277
+  },
+  "CSCC10": {
+   "patient": "CSCC_P5",
+   "n_nodes": 448,
+   "lcc_nodes": 448,
+   "non_lcc_nodes": 0,
+   "source_outside_lcc": 0,
+   "sink_outside_lcc": 0,
+   "filled_keys": [
+    "ag_target"
+   ],
+   "rho_all_nodes": 0.14068739329849367,
+   "rho_lcc_only": 0.14068739329849367,
+   "delta_lcc_minus_all": 0.0,
+   "spatial_null_p": 0.04790419161676647,
+   "s2_ratio": 1.002449079423622,
+   "s2_p": 0.49504950495049505,
+   "s2_bh_q": 0.553290623179965
+  },
+  "CSCC11": {
+   "patient": "CSCC_P9",
+   "n_nodes": 672,
+   "lcc_nodes": 635,
+   "non_lcc_nodes": 37,
+   "source_outside_lcc": 1,
+   "sink_outside_lcc": 5,
+   "filled_keys": [],
+   "rho_all_nodes": 0.19337259347313349,
+   "rho_lcc_only": 0.13202462554313577,
+   "delta_lcc_minus_all": -0.06134796792999772,
+   "spatial_null_p": 0.001996007984031936,
+   "s2_ratio": 1.0349914680955936,
+   "s2_p": 0.07920792079207921,
+   "s2_bh_q": 0.13681368136813682
+  },
+  "CSCC12": {
+   "patient": "CSCC_P9",
+   "n_nodes": 595,
+   "lcc_nodes": 566,
+   "non_lcc_nodes": 29,
+   "source_outside_lcc": 2,
+   "sink_outside_lcc": 5,
+   "filled_keys": [],
+   "rho_all_nodes": 0.2245319385407277,
+   "rho_lcc_only": 0.19724630060838208,
+   "delta_lcc_minus_all": -0.02728563793234562,
+   "spatial_null_p": 0.007984031936127744,
+   "s2_ratio": 1.0677079728560948,
+   "s2_p": 0.009900990099009901,
+   "s2_bh_q": 0.04702970297029703
+  },
+  "CSCC14": {
+   "patient": "CSCC_P10",
+   "n_nodes": 370,
+   "lcc_nodes": 365,
+   "non_lcc_nodes": 5,
+   "source_outside_lcc": 0,
+   "sink_outside_lcc": 2,
+   "filled_keys": [
+    "ag_target",
+    "efflux"
+   ],
+   "rho_all_nodes": 0.29495647654983637,
+   "rho_lcc_only": 0.2824237709564585,
+   "delta_lcc_minus_all": -0.01253270559337788,
+   "spatial_null_p": 0.15568862275449102,
+   "s2_ratio": 0.9393708795393629,
+   "s2_p": 0.900990099009901,
+   "s2_bh_q": 0.900990099009901
+  },
+  "CSCC15": {
+   "patient": "CSCC_P10",
+   "n_nodes": 597,
+   "lcc_nodes": 597,
+   "non_lcc_nodes": 0,
+   "source_outside_lcc": 0,
+   "sink_outside_lcc": 0,
+   "filled_keys": [
+    "ag_target",
+    "efflux"
+   ],
+   "rho_all_nodes": -0.00040111430907287525,
+   "rho_lcc_only": -0.00040111430907287525,
+   "delta_lcc_minus_all": 0.0,
+   "spatial_null_p": 0.49700598802395207,
+   "s2_ratio": 1.0253801194199963,
+   "s2_p": 0.15841584158415842,
+   "s2_bh_q": 0.214992927864215
+  },
+  "CSCC16": {
+   "patient": "CSCC_P10",
+   "n_nodes": 380,
+   "lcc_nodes": 379,
+   "non_lcc_nodes": 1,
+   "source_outside_lcc": 0,
+   "sink_outside_lcc": 0,
+   "filled_keys": [
+    "ag_target",
+    "efflux"
+   ],
+   "rho_all_nodes": 0.2388969915982062,
+   "rho_lcc_only": 0.23637600944798215,
+   "delta_lcc_minus_all": -0.0025209821502240604,
+   "spatial_null_p": 0.029940119760479042,
+   "s2_ratio": 1.0327378528564948,
+   "s2_p": 0.1188118811881188,
+   "s2_bh_q": 0.17364813404417362
+  },
+  "MEL01": {
+   "patient": "MEL_PtB",
+   "n_nodes": 1660,
+   "lcc_nodes": 1660,
+   "non_lcc_nodes": 0,
+   "source_outside_lcc": 0,
+   "sink_outside_lcc": 0,
+   "filled_keys": [
+    "efflux"
+   ],
+   "rho_all_nodes": 0.2192428306725159,
+   "rho_lcc_only": 0.2192428306725159,
+   "delta_lcc_minus_all": 0.0,
+   "spatial_null_p": 0.001996007984031936,
+   "s2_ratio": 1.0760727592932782,
+   "s2_p": 0.019801980198019802,
+   "s2_bh_q": 0.04702970297029703
+  },
+  "MEL02": {
+   "patient": "MEL_PtB",
+   "n_nodes": 801,
+   "lcc_nodes": 729,
+   "non_lcc_nodes": 72,
+   "source_outside_lcc": 10,
+   "sink_outside_lcc": 17,
+   "filled_keys": [],
+   "rho_all_nodes": 0.05540353257541708,
+   "rho_lcc_only": 0.04670510769696046,
+   "delta_lcc_minus_all": -0.008698424878456623,
+   "spatial_null_p": 0.20958083832335328,
+   "s2_ratio": 0.9883240908068336,
+   "s2_p": 0.6237623762376238,
+   "s2_bh_q": 0.6584158415841584
+  },
+  "MEL03": {
+   "patient": "MEL_PtB",
+   "n_nodes": 1724,
+   "lcc_nodes": 1662,
+   "non_lcc_nodes": 62,
+   "source_outside_lcc": 10,
+   "sink_outside_lcc": 4,
+   "filled_keys": [],
+   "rho_all_nodes": 0.14941310208390987,
+   "rho_lcc_only": 0.143278798191865,
+   "delta_lcc_minus_all": -0.006134303892044862,
+   "spatial_null_p": 0.007984031936127744,
+   "s2_ratio": 1.0528358757506597,
+   "s2_p": 0.0297029702970297,
+   "s2_bh_q": 0.05643564356435643
+  },
+  "MEL04": {
+   "patient": "MEL_PtB",
+   "n_nodes": 2673,
+   "lcc_nodes": 2644,
+   "non_lcc_nodes": 29,
+   "source_outside_lcc": 8,
+   "sink_outside_lcc": 4,
+   "filled_keys": [],
+   "rho_all_nodes": 0.14316679795921725,
+   "rho_lcc_only": 0.13334440282007692,
+   "delta_lcc_minus_all": -0.009822395139140322,
+   "spatial_null_p": 0.001996007984031936,
+   "s2_ratio": 1.0549938118578568,
+   "s2_p": 0.019801980198019802,
+   "s2_bh_q": 0.04702970297029703
+  }
+ },
+ "summary": {
+  "association_all_19": {
+   "n": 19,
+   "median": 0.21698516161224798,
+   "range": [
+    -0.00040111430907287525,
+    0.3847893496906938
+   ],
+   "n_positive": 18,
+   "n_negative": 1
+  },
+  "association_ag_target_available_15": {
+   "n": 15,
+   "median": 0.21698516161224798,
+   "range": [
+    0.05540353257541708,
+    0.3847893496906938
+   ],
+   "n_positive": 15,
+   "n_negative": 0
+  },
+  "spatial_null_ag_target_available_15": {
+   "n": 15,
+   "n_positive": 15,
+   "n_empirical_p_lt_0_05": 13,
+   "n_bh_q_lt_0_05": 13,
+   "median_rho": 0.21698516161224798,
+   "bh_q_values_by_slide": {
+    "CSCC01": 0.002994011976047904,
+    "CSCC02": 0.002994011976047904,
+    "CSCC03": 0.002994011976047904,
+    "CSCC04": 0.002994011976047904,
+    "CSCC05": 0.002994011976047904,
+    "CSCC06": 0.005443658138268916,
+    "CSCC07": 0.002994011976047904,
+    "CSCC08": 0.07698887938408897,
+    "CSCC09": 0.002994011976047904,
+    "CSCC11": 0.002994011976047904,
+    "CSCC12": 0.009212344541685858,
+    "MEL01": 0.002994011976047904,
+    "MEL02": 0.20958083832335328,
+    "MEL03": 0.009212344541685858,
+    "MEL04": 0.002994011976047904
+   }
+  },
+  "s2_matched_all_19": {
+   "n": 19,
+   "median_ratio": 1.0528358757506597,
+   "ratio_range": [
+    0.9393708795393629,
+    1.216653395213524
+   ],
+   "n_ratio_gt_1": 17,
+   "n_raw_p_lt_0_05": 10,
+   "n_bh_q_lt_0_05": 8
+  },
+  "largest_component_association": {
+   "all_19": {
+    "n": 19,
+    "median": 0.20134439473668836,
+    "range": [
+     -0.00040111430907287525,
+     0.3931947863653137
+    ],
+    "n_positive": 18,
+    "n_negative": 1
+   },
+   "ag_target_available_15": {
+    "n": 15,
+    "median": 0.20134439473668836,
+    "range": [
+     0.04670510769696046,
+     0.3931947863653137
+    ],
+    "n_positive": 15,
+    "n_negative": 0
+   },
+   "n_sign_changed_all_19": 0,
+   "median_abs_rho_change_all_19": 0.006134303892044862,
+   "max_abs_rho_change_slide": "CSCC11",
+   "mel02": {
+    "rho_all_nodes": 0.05540353257541708,
+    "rho_lcc_only": 0.04670510769696046,
+    "delta_lcc_minus_all": -0.008698424878456623,
+    "non_lcc_nodes": 72,
+    "source_outside_lcc": 10,
+    "sink_outside_lcc": 17
+   }
+  }
+ }
+}
