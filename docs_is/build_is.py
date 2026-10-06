@@ -56,15 +56,15 @@ CAPTIONS = {
         "raw-spectrum surrogate test, its normal-score variant and the point-level test. **c** Distribution of "
         "pooled surrogate-test p-values in the spectrum-matched scenario; the line marks the uniform expectation"),
     "Fig4_association": (
-        "**Fig. 4** Field association within sections and across patients. **a** Vessel-distance-adjusted partial "
-        "Spearman correlation between the $B_{\\mathrm{cell}}$ and $B_{\\mathrm{mAb}}$ fields in each section, "
-        "grouped by patient, with the 95% range of its graph-spectral surrogate null (grey bar) and the "
-        "BH-adjusted q-value; filled markers, q < 0.05; marker shape, platform. Primary, replication (LN P1–P4, "
-        "melanoma lymph-node metastases; r1, r2 consecutive sections) and external sections were corrected as "
-        "separate families. **b** Patient means (dots), individual sections (ticks) and their range (grey line); "
-        "diamonds, pooled estimates with 95% CIs from the nested random-effects model for the primary cohort, the "
-        "replication cohort and all 11 patients. **c** The association in the primary sections under alternative "
-        "adjustments for vessel distance (*primary analysis); dots, sections; bars, median and interquartile range"),
+        "**Fig. 4** Field association within sections and patient-level cohorts. **a** Vessel-distance-adjusted "
+        "partial Spearman correlations for all 77 transcriptomics sections, grouped by cohort and tumour stratum; "
+        "marker shape encodes platform, filled markers indicate BH q < 0.05 within that section's analysis family, "
+        "and grey bars show the stratum interquartile range with the median marked. The 11 GSE289745 sections with "
+        "unavailable patient relationships are included as conservative section-level units. **b** Pooled estimates "
+        "with 95% CIs from nested random-effects models for the primary, replication and extension cohorts and for "
+        "the explicitly labelled combined analyses; text gives the number of positive patient or analytical units. "
+        "**c** The primary-cohort association under alternative adjustments for vessel distance (*primary analysis)"
+    ),
     "Fig5_structure": (
         "**Fig. 5** How much of the coupling does the model produce by itself? **a** Observed association "
         "(markers) against the 95% ranges of the geometry null (light grey; all $B_{\\mathrm{mAb}}$ inputs replaced "
@@ -96,20 +96,17 @@ CAPTIONS = {
         "patient level; SPARTA summaries in blue; the two geometry-only summaries were added post hoc. **d** "
         "Patient-mean $\\log B_{\\mathrm{rel}}$ by group; lines, medians"),
     "Fig8_baselines": (
-        "**Fig. 8** The two operators against simple spatial summaries. **a** $B_{\\mathrm{cell}}$ field (within-section "
-        "rank) against local stromal density, the mean ECM and CAF score over a spot and its graph neighbours, in "
-        "CSCC04; blue, spots on the minimum cut. **b** $B_{\\mathrm{mAb}}$ field against the signed distance to the "
-        "malignant compartment (negative inside it) in the same section. **c** Within-section Spearman correlations "
-        "between each field and stromal density (dens.), distance to the tumour (dist.) and neighbourhood enrichment "
-        "of stromal spots (niche) in all 30 sections (markers; shape, platform as in Fig. 4); bars, medians. "
-        "Unreachable spots are excluded. **d** Section level: the matrix-dependent cellular barrier "
-        "$\\log B_{\\mathrm{rel}}$ against peritumoural stromal density in the 29 tumour sections. **e** Simulation "
-        "benchmark: AUC for separating closed from 5%-gap capsules (filled) and Spearman correlation with lost access "
-        "(open) for the cut and for analogues of the three summaries (peritumoural ECM mean, vessel–nest distance, "
-        "tumour–matrix neighbourhood enrichment). **f** CODEX cores: Spearman correlation of each summary with the "
-        "CD8$^+$ infiltration ratio of the tumour core (grey) and partial correlation of $\\log B_{\\mathrm{rel}}$ "
-        "given that summary (open blue); bars, patient-cluster bootstrap 95% CIs; negative values are barrier-like. "
-        "*Added post hoc"),
+        "**Fig. 8** Cross-cohort robustness and incremental evidence. **a** Median observed field association, "
+        "construction-null association and association after shared-ECM ablation in the primary, replication and "
+        "extension cohorts. **b** Extension sections grouped by disease stratum; black dots, medians. **c** Extension "
+        "sections grouped by platform; vertical grey bars show interquartile ranges and black dots medians. "
+        "**d** Median within-section correlations of the two fields with stromal density, tumour distance and "
+        "neighbourhood enrichment, comparing the primary/replication and extension cohorts. **e** Primary-cohort "
+        "association as the graph radius is perturbed relative to the platform default. **f** Pooled false-positive "
+        "rates for graph-spectral, normal-score and point-level tests in the primary/replication and extension "
+        "calibrations; dashed line marks α = 0.05. The figure supports robustness of the structural characterization; "
+        "it is not evidence of treatment response, prognosis or clinical utility"
+    ),
 }
 
 # figure -> insert before this exact line of the markdown
@@ -121,7 +118,7 @@ PLACE = {
     "Fig5_structure": "## 3.5 The size-exclusion term is parameter-driven",
     "Fig6_parameters": "## 3.7 The minimum cut tracks measured CD8^+^ T-cell exclusion in multiplexed images",
     "Fig7_codex": "## 3.8 Simple spatial summaries reproduce only part of either operator",
-    "Fig8_baselines": "## 3.9 Modality-specific intervention maps",
+    "Fig8_baselines": "## 3.9 Modality-specific in-model perturbation maps",
 }
 
 DECLARATIONS = """
@@ -146,7 +143,7 @@ provided to reviewers (Online Resource 3).
 reviewers as an anonymised archive (Online Resource 3). They will be released under the MIT licence in a public
 repository with a versioned archive DOI upon acceptance (identifiers withheld for double-blind review).
 
-**Online Resources** Online Resource 1 (PDF): supplementary methods, Tables S1–S9 and Figs. S1–S6. Online Resource 2
+**Online Resources** Online Resource 1 (PDF): supplementary methods, Tables S1–S13 and Figs. S1–S8. Online Resource 2
 (XLSX): per-section results. Online Resource 3 (ZIP): anonymised code and result archive.
 """
 
@@ -178,7 +175,7 @@ def fill(text, facts):
 
 
 # keyed citations used by additions after v2.1.0 -> their entry number in references.md
-REF_KEYS = {"thrane2018": 45, "schurch2020": 46, "schurch2020data": 47}
+REF_KEYS = {"thrane2018": 43, "schurch2020": 44, "schurch2020data": 45}
 _CITE = re.compile(r"\[(\d+(?:\s*[,\u2013-]\s*\d+)*)\]")
 
 

@@ -16,7 +16,6 @@
 16. Pluen A, Boucher Y, Ramanujan S et al (2001) Role of tumor–host interactions in interstitial diffusion of macromolecules: cranial vs. subcutaneous tumors. Proc Natl Acad Sci USA 98:4628–4633. https://doi.org/10.1073/pnas.081626898
 17. Fujimori K, Covell DG, Fletcher JE, Weinstein JN (1990) A modeling analysis of monoclonal antibody percolation through tumors: a binding-site barrier. J Nucl Med 31:1191–1198
 18. Thurber GM, Schmidt MM, Wittrup KD (2008) Antibody tumor penetration: transport opposed by systemic and antigen-mediated clearance. Adv Drug Deliv Rev 60:1421–1434. https://doi.org/10.1016/j.addr.2008.04.012
-19. Mariathasan S, Turley SJ, Nickles D et al (2018) TGFβ attenuates tumour response to PD-L1 blockade by contributing to exclusion of T cells. Nature 554:544–548. https://doi.org/10.1038/nature25501
 20. Ford LR, Fulkerson DR (1956) Maximal flow through a network. Can J Math 8:399–404. https://doi.org/10.4153/CJM-1956-045-5
 21. Doyle PG, Snell JL (1984) Random walks and electric networks. Mathematical Association of America, Washington, DC
 22. Clifford P, Richardson S, Hémon D (1989) Assessing the significance of the correlation between two spatial processes. Biometrics 45:123–134. https://doi.org/10.2307/2532039
@@ -39,9 +38,7 @@
 39. Wagner HH, Dray S (2015) Generating spatially constrained null models for irregularly spaced data using Moran spectral randomization methods. Methods Ecol Evol 6:1169–1178. https://doi.org/10.1111/2041-210X.12407
 40. Benjamini Y, Hochberg Y (1995) Controlling the false discovery rate: a practical and powerful approach to multiple testing. J R Stat Soc Series B Stat Methodol 57:289–300. https://doi.org/10.1111/j.2517-6161.1995.tb02031.x
 41. Konstantopoulos S (2011) Fixed effects and variance components estimation in three-level meta-analysis. Res Synth Methods 2:61–76. https://doi.org/10.1002/jrsm.35
-42. Hugo W, Zaretsky JM, Sun L et al (2016) Genomic and transcriptomic features of response to anti-PD-1 therapy in metastatic melanoma. Cell 165:35–44. https://doi.org/10.1016/j.cell.2016.02.065
-43. Riaz N, Havel JJ, Makarov V et al (2017) Tumor and microenvironment evolution during immunotherapy with nivolumab. Cell 171:934–949.e16. https://doi.org/10.1016/j.cell.2017.09.028
-44. Harris CR, Millman KJ, van der Walt SJ et al (2020) Array programming with NumPy. Nature 585:357–362. https://doi.org/10.1038/s41586-020-2649-2
-45. Thrane K, Eriksson H, Maaskola J, Hansson J, Lundeberg J (2018) Spatially resolved transcriptomics enables dissection of genetic heterogeneity in stage III cutaneous malignant melanoma. Cancer Res 78:5970–5979. https://doi.org/10.1158/0008-5472.CAN-18-0747
-46. Schürch CM, Bhate SS, Barlow GL et al (2020) Coordinated cellular neighborhoods orchestrate antitumoral immunity at the colorectal cancer invasive front. Cell 182:1341–1359.e19. https://doi.org/10.1016/j.cell.2020.07.005
-47. Schürch CM (2020) Coordinated cellular neighborhoods orchestrate antitumoral immunity at the colorectal cancer invasive front [dataset]. Mendeley Data, V1. https://doi.org/10.17632/mpjzbtfgfr.1
+42. Harris CR, Millman KJ, van der Walt SJ et al (2020) Array programming with NumPy. Nature 585:357–362. https://doi.org/10.1038/s41586-020-2649-2
+43. Thrane K, Eriksson H, Maaskola J, Hansson J, Lundeberg J (2018) Spatially resolved transcriptomics enables dissection of genetic heterogeneity in stage III cutaneous malignant melanoma. Cancer Res 78:5970–5979. https://doi.org/10.1158/0008-5472.CAN-18-0747
+44. Schürch CM, Bhate SS, Barlow GL et al (2020) Coordinated cellular neighborhoods orchestrate antitumoral immunity at the colorectal cancer invasive front. Cell 182:1341–1359.e19. https://doi.org/10.1016/j.cell.2020.07.005
+45. Schürch CM (2020) Coordinated cellular neighborhoods orchestrate antitumoral immunity at the colorectal cancer invasive front [dataset]. Mendeley Data, V1. https://doi.org/10.17632/mpjzbtfgfr.1

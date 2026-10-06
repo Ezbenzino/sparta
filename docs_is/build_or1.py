@@ -88,7 +88,7 @@ GENE_SETS = [
 ]
 
 PARAMS = [
-    ("Graph radius", "150 μm (Visium); 300 μm (1st-gen. ST)", "design; sensitivity in Fig. S4"),
+    ("Graph radius", "150 μm (Visium); 300 μm (1st-gen. ST)", "design; sensitivity in Fig. S5"),
     ("Vessel quantile", "0.80 of endothelial score", "design"),
     ("Source quantile", "0.60 of neighbouring T/NK among vessels", "design"),
     ("Malignant quantile", "0.70 of malignant score", "design"),
@@ -380,8 +380,9 @@ def main():
     text = text.replace("<<TABLE_S9>>", table_s9())
     text = text.replace("<<TABLE_S10>>", table_s10())
     text = fill(text, facts)
-    for tag in ("FigS1a_maps", "FigS1b_maps", "FigS2_calibration", "FigS3_domain_scans", "FigS4_radius",
-                "FigS5_reproduction", "FigS6_runtime", "FigS7_intervention"):
+    for tag in ("FigS1_parameter_sensitivity", "FigS2a_maps", "FigS2b_maps",
+                "FigS3_calibration", "FigS4_domain_scans", "FigS5_radius",
+                "FigS6_reproduction", "FigS7_runtime", "FigS8_intervention"):
         text = text.replace(f"<<{tag}>>", str((FIGS / f"{tag}.pdf").as_posix()))
     src = BUILD / "online_resource_1.md"
     src.write_text(text, encoding="utf-8")
