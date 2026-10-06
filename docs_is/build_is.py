@@ -94,7 +94,8 @@ CAPTIONS = {
     "Fig7_codex": (
         "**Fig. 7** The minimum cut against measured CD8$^+$ T-cell positions in CODEX images of colorectal cancer. "
         "**a** Two cores with a high (left) and a low (right) geometry-normalised barrier $B_{\\mathrm{rel}}$: "
-        "scaffold cells (stroma shaded by collagen IV, other tumour cells light grey, tumour-core sinks dark squares, "
+        "scaffold cells (stroma, grey level = collagen IV: light low, dark high; other tumour cells light grey, "
+        "tumour-core sinks dark squares, "
         "vascular sources blue), minimum-cut edges (black) and the withheld CD8$^+$ T cells (green crosses); IR, "
         "log$_2$ infiltration ratio of the tumour core. **b** Patient means of $\\log B_{\\mathrm{rel}}$ and IR (open "
         "circles, Crohn's-like reaction, CLR; filled squares, diffuse inflammatory infiltration, DII). **c** Spearman "

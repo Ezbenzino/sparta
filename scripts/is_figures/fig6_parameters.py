@@ -128,8 +128,8 @@ def main():
         if len(hi):
             axd.plot([XMAX - 0.015] * len(hi), y + jit[vals > XMAX], ">", ms=3.4, mfc=S.MUTED, mec=S.MUTED,
                      ls="none", clip_on=False)
-            axd.text(XMAX + 0.04, y, f"×{len(hi)}", fontsize=6.0, ha="left", va="center", color=S.INK2,
-                     clip_on=False)
+            axd.text(XMAX + 0.06, y, f"{len(hi)} beyond axis", fontsize=5.6, ha="left", va="center",
+                     color=S.INK2, clip_on=False)
         lo = vals[vals < XMIN]
         if len(lo):
             axd.plot([XMIN + 0.015] * len(lo), y + jit[vals < XMIN], "<", ms=3.4, mfc=S.MUTED, mec=S.MUTED,
@@ -153,7 +153,7 @@ def main():
     axd.set_yticks(yt)
     axd.set_yticklabels(yl, fontsize=6.6)
     axd.set_ylim(y + 0.8, -0.8)
-    axd.set_xlim(XMIN, XMAX)
+    axd.set_xlim(XMIN, XMAX + 0.85)
     axd.set_xticks([0.4, 0.8, 1.2, 1.6, 2.0])
     axd.tick_params(axis="y", length=0)
     axd.spines["left"].set_visible(False)

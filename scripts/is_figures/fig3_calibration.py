@@ -66,7 +66,7 @@ def main():
     sm = nc.get("summary", {})
     sids = PRIMARY_ORDER + EXTERNAL_ORDER
     fig = plt.figure(figsize=(S.FULL_W, 104 * S.MM))
-    gs = fig.add_gridspec(2, 2, width_ratios=[1.0, 1.05], height_ratios=[1.0, 1.0], wspace=0.55, hspace=0.75,
+    gs = fig.add_gridspec(2, 2, width_ratios=[1.0, 1.05], height_ratios=[1.0, 1.0], wspace=0.40, hspace=0.75,
                           left=0.085, right=0.985, top=0.95, bottom=0.16)
     axa = fig.add_subplot(gs[:, 0])
     axb = fig.add_subplot(gs[0, 1])

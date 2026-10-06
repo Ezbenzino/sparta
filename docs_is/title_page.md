@@ -30,7 +30,7 @@ ORCID: 0009-0002-9940-5317
 
 **Data availability** The spatial transcriptomics data analysed in this study are available from the Gene Expression Omnibus (https://www.ncbi.nlm.nih.gov/geo/) under accessions GSE144239 and GSE250636 and from 10x Genomics (Human Breast Cancer Block A Sections 1 and 2; Human Lymph Node; Space Ranger 1.1.0). The melanoma replication cohort (Thrane et al. 2018, Cancer Res 78:5970) is available from https://www.spatialresearch.org, and the CODEX single-cell table of Schürch et al. (2020) from Mendeley Data (https://doi.org/10.17632/mpjzbtfgfr.1). Derived node tables, graph files and all per-section and per-core result files supporting the findings are archived with the code (see Code availability).
 
-**Code availability** SPARTA is open source under the MIT licence: https://github.com/Ezbenzino/sparta. The exact version used for this manuscript (release v2.2.1, including configuration files, node tables, result files and figure scripts) is archived at Zenodo: https://doi.org/[insert DOI after the release is deposited].
+**Code availability** SPARTA is open source under the MIT licence: https://github.com/Ezbenzino/sparta. The exact version used for this manuscript (release v2.2.1, including configuration files, node tables, result files and figure scripts) is archived at Zenodo: https://doi.org/10.5281/zenodo.23181026.
 
 **Author contributions** Y.L. conceived the study, developed the methodology and software, curated the data, performed all analyses, prepared the figures and wrote and revised the manuscript.
 

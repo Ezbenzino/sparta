@@ -65,8 +65,13 @@ def core_geometry(core):
 def draw_core(ax, g, title):
     xy = g["xy"]
     m = (8 * g["E"]) / 8.0
-    ax.scatter(xy[~g["tumour"], 0], xy[~g["tumour"], 1], s=1.2, c=m[~g["tumour"]], cmap="Greys",
-               vmin=-0.3, vmax=1.2, linewidths=0, zorder=1, rasterized=True)
+    m_nt = m[~g["tumour"]]
+    xy_nt = xy[~g["tumour"]]
+    civ_high = m_nt >= np.median(m_nt)
+    ax.scatter(xy_nt[~civ_high, 0], xy_nt[~civ_high, 1], s=1.2, color="#c8c8c8",
+               linewidths=0, zorder=1, rasterized=True)
+    ax.scatter(xy_nt[civ_high, 0], xy_nt[civ_high, 1], s=1.2, color="#5a5a5a",
+               linewidths=0, zorder=1, rasterized=True)
     ax.scatter(xy[g["tumour"], 0], xy[g["tumour"], 1], s=1.2, color=S.LIGHT, linewidths=0, zorder=1,
                rasterized=True)
     ax.scatter(xy[g["sink"], 0], xy[g["sink"], 1], s=1.6, marker="s", color=S.INK2, linewidths=0, zorder=2,
@@ -115,8 +120,8 @@ def main():
     handles = [Line2D([0], [0], marker="o", color="none", mfc=S.CELL, mec="none", ms=3.5, label="vessel (source)"),
                Line2D([0], [0], marker="s", color="none", mfc=S.INK2, mec="none", ms=3, label="tumour core (sink)"),
                Line2D([0], [0], marker="o", color="none", mfc=S.LIGHT, mec="none", ms=3, label="other tumour"),
-               Line2D([0], [0], marker="o", color="none", mfc="#7a7a7a", mec="none", ms=3,
-                      label="stroma (shade: collagen IV)"),
+               Line2D([0], [0], marker="o", color="none", mfc="#5a5a5a", mec="none", ms=3,
+                      label="stroma (dark: collagen IV–high)"),
                Line2D([0], [0], color=S.INK, lw=1.0, label="minimum cut"),
                Line2D([0], [0], marker="+", color="none", mec=S.AQUA, ms=4, mew=0.8,
                       label="CD8$^+$ T cell (withheld)")]

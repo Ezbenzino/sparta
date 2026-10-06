@@ -216,8 +216,8 @@ def main():
             ax.plot([xm - 1000, xm], [ym, ym], color=S.INK, lw=1.0)
             ax.text(xm - 500, ym - 30, "1 mm", fontsize=6.2, ha="center", va="top")
         S.panel(ax, "defg"[k], x=-0.04, y=1.07)
-    fig.text(0.01, 0.405, f"Primary-cohort section with the median field association ({sid}: cSCC, Visium; "
-             f"partial ρ = {rho:.2f})", fontsize=7, color=S.INK, ha="left", va="bottom", style="italic")
+    fig.text(0.01, 0.405, f"Primary-cohort section {sid} (median field association; partial ρ = {rho:.2f})",
+             fontsize=7, color=S.INK, ha="left", va="bottom", style="italic")
     S.save(fig, OUT, "Fig1_overview")
 
 

@@ -1,4 +1,4 @@
-# SPARTA → *Interdisciplinary Sciences: Computational Life Sciences* 投稿清单（v2.2.0）
+# SPARTA → *Interdisciplinary Sciences: Computational Life Sciences* 投稿清单（v2.2.1）
 
 生成日期：2026-10-05；2026-10-06 修订重建（新增 Fig. 2e–g / Table 3 分子尺度 ground-truth 实验 run_59；正文压缩至约 9,700 词）。期刊投稿须知：<https://link.springer.com/journal/12539/submission-guidelines>
 （双盲评审；摘要 150–250 词；关键词 4–6 个；正文 Word 或 LaTeX；线图 EPS 或 ≥1200 dpi TIFF、组合图 ≥600 dpi；
@@ -26,9 +26,8 @@
 
 ## 2 上传前必须由您完成（约 20 分钟）
 
-1. **Title page 两处方括号**：填写 16 位 ORCID 和院系名称，Word 中“另存为 PDF”覆盖 `Title_page_IS.pdf`。
-2. **Code availability 中的 DOI**：按第 4 节发布 v2.2.0 并取得 Zenodo DOI，替换 `[insert DOI after the release is deposited]`。
-   若暂时不想公开仓库，改成：*“The exact version used in this study (release v2.2.0) will be archived at Zenodo upon acceptance.”*
+1. ~~Title page 两处方括号~~ 已完成：ORCID `0009-0002-9940-5317` 与院系已填入，Title page 已重建（2026-10-06）。
+2. ~~Code availability 中的 DOI~~ 已完成：**v2.2.1 已发布，DOI = 10.5281/zenodo.23181026**（GitHub release v2.2.1，Zenodo 自动生成）。
 3. **核实声明**：Funding、Competing interests、Author contributions、AI 工具使用说明（正文 2.17 节与 Title page 一致）。
 4. **核实推荐审稿人**。
 5. **用 Word 打开** `Manuscript_IS_anonymised.docx`，确认公式（Eq. 1–3 和行内符号）正常显示。
@@ -40,7 +39,10 @@
 - 作者信息只填在系统表单和 Title page 中；匿名正文、ESM_1/2/3 中没有姓名、单位、邮箱或仓库链接（ESM_3 已自动扫描确认）。
 - Data availability / Code availability：与 Title page 一致。
 
-## 4 发布 v2.2.0（GitHub + Zenodo）——在 Windows PowerShell 中执行
+## 4 发布（已完成 2026-10-06）：v2.2.1 → DOI 10.5281/zenodo.23181026
+
+GitHub release v2.2.1: https://github.com/Ezbenzino/sparta/releases/tag/v2.2.1
+（历史记录：以下为 v2.2.0/v2.2.1 发布时执行的步骤，仅留档。）
 
 ```powershell
 cd D:\sparta
