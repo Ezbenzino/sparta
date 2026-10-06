@@ -26,7 +26,7 @@ import matplotlib  # noqa: E402
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 from matplotlib.collections import LineCollection  # noqa: E402
-from matplotlib.patches import Arc, Circle, FancyBboxPatch  # noqa: E402
+from matplotlib.patches import Circle, FancyBboxPatch  # noqa: E402
 
 import figstyle as S  # noqa: E402
 
@@ -115,13 +115,14 @@ def channel(ax, x0, y0, blocked):
         dot(ax, x0 + 4 * dx, ymid, 1.9, "none", ec=MAB, lw=0.85, z=7)
 
 
-def mini_graph(ax, x0, y0, colours, gap=2.9):
-    pts = [(x0 + i * gap, y0 + j * gap) for j in range(3) for i in range(3)]
+def mini_graph(ax, x0, ys, colours, dx=5.2, r=0.95):
+    """A 4 x 3 lattice of the same node values, drawn at one of two spatial arrangements."""
+    pts = [(x0 + i * dx, y) for y in ys for i in range(4)]
     segs = [[p, q] for i, p in enumerate(pts) for q in pts[i + 1:]
-            if abs(p[0] - q[0]) <= gap + 1e-9 and abs(p[1] - q[1]) <= gap + 1e-9]
+            if abs(p[0] - q[0]) <= dx + 1e-9 and abs(p[1] - q[1]) <= 4.1 + 1e-9]
     ax.add_collection(LineCollection(segs, colors=MESH, linewidths=0.32, zorder=2))
     for (x, y), c in zip(pts, colours):
-        dot(ax, x, y, 0.82, c)
+        dot(ax, x, y, r, c)
 
 
 def main():
@@ -152,13 +153,18 @@ def main():
     # 3 ---------------------------------------------------- the null models
     card(ax, 92.0, 8.6, 34.0, 32.2)
     txt(ax, 93.2, 38.6, "null models", 5.4, INK, "bold")
-    mini_graph(ax, 95.6, 12.6, [MATRIX, STROMA, LIGHT, CELL, MATRIX, LIGHT, STROMA, MAB, MATRIX])
-    txt(ax, 103.7, 10.4, "observed", 5.0, MUTED, ha="center")
-    mini_graph(ax, 111.4, 12.6, [LIGHT, STROMA, MATRIX, MAB, LIGHT, MATRIX, STROMA, CELL, MATRIX])
-    txt(ax, 119.5, 10.4, "resampled", 5.0, MUTED, ha="center")
-    ax.add_patch(Arc((107.6, 22.4), 5.2, 5.2, angle=0, theta1=-70, theta2=195,
-                     color=MUTED, lw=0.8, zorder=6))
-    ax.plot([108.9], [19.8], marker=(3, 0, -25), color=MUTED, ms=3.0, zorder=6)
+    # the same node values in their observed positions, then in permuted positions
+    greys = ["#5d6874", "#8b959e", "#b9c2ca", "#d7dee4"]
+    observed = greys * 3
+    permuted = [greys[i] for i in (2, 0, 3, 1, 1, 3, 0, 2, 3, 1, 2, 0)]
+    mini_graph(ax, 105.4, (35.0, 31.0, 27.0), observed)
+    txt(ax, 93.6, 31.0, "observed", 5.0, MUTED, va="center")
+    mini_graph(ax, 105.4, (19.0, 15.0, 11.0), permuted)
+    txt(ax, 93.6, 15.0, "resampled", 5.0, MUTED, va="center")
+    ax.annotate("", xy=(119.0, 22.6), xytext=(106.2, 22.6),
+                arrowprops=dict(arrowstyle="-|>", color=MUTED, lw=0.9,
+                                connectionstyle="arc3,rad=-0.34", shrinkA=0, shrinkB=0,
+                                mutation_scale=8), zorder=6)
 
     # left-to-right flow between the three panels
     for xa in (40.6, 89.6):
