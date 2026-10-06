@@ -71,7 +71,8 @@ def main():
     ax.set_xticklabels(cohorts, fontsize=6.8)
     ax.set_ylabel("Median partial Spearman ρ")
     ax.set_ylim(0.0, 0.36)
-    ax.legend(fontsize=5.8, handletextpad=0.3, loc="upper right")
+    ax.legend(fontsize=5.8, handletextpad=0.3, loc="lower right",
+              borderaxespad=0.3)
     S.panel(ax, "a", x=-0.25, y=1.03)
 
     # ---------------- b: extension disease subgroups ----------------
