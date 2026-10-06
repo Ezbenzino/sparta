@@ -274,3 +274,5 @@ This section documents the 50 public sections added as the 2026 extension cohort
 | MEL320_YUSTE | Visium | 2,785 | 1,458 | 18,011 | 15102 | 0.031 | True |
 | CSCC321_cut1 | Visium | 4,454 | 4,258 | 17,513 | 4744 | NA | True |
 | CSCC321_cut2 | Visium | 4,197 | 4,195 | 17,636 | 13472 | NA | True |
+
+![**Fig. S9** Technical-summary PCA of the extension cohort. Points represent sections, colours identify GEO source projects and markers identify platforms. Clustering by source project and platform is visible, supporting the batch and preprocessing-heterogeneity limitation; this is not a conventional expression batch correction](<<FigS9_batch_effect>>){width=95%}

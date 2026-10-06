@@ -143,7 +143,7 @@ provided to reviewers (Online Resource 3).
 reviewers as an anonymised archive (Online Resource 3). They will be released under the MIT licence in a public
 repository with a versioned archive DOI upon acceptance (identifiers withheld for double-blind review).
 
-**Online Resources** Online Resource 1 (PDF): supplementary methods, Tables S1–S13 and Figs. S1–S8. Online Resource 2
+**Online Resources** Online Resource 1 (PDF): supplementary methods, Tables S1–S13 and Figs. S1–S9. Online Resource 2
 (XLSX): per-section results. Online Resource 3 (ZIP): anonymised code and result archive.
 """
 

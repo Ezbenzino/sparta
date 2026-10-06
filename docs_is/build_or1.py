@@ -382,7 +382,8 @@ def main():
     text = fill(text, facts)
     for tag in ("FigS1_parameter_sensitivity", "FigS2a_maps", "FigS2b_maps",
                 "FigS3_calibration", "FigS4_domain_scans", "FigS5_radius",
-                "FigS6_reproduction", "FigS7_runtime", "FigS8_intervention"):
+                "FigS6_reproduction", "FigS7_runtime", "FigS8_intervention",
+                "FigS9_batch_effect"):
         text = text.replace(f"<<{tag}>>", str((FIGS / f"{tag}.pdf").as_posix()))
     src = BUILD / "online_resource_1.md"
     src.write_text(text, encoding="utf-8")
