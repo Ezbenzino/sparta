@@ -161,11 +161,14 @@ def write_manifest_and_summary(checks: list[str]):
         writer.writerows(rows)
 
     failures = [line for line in checks if line.startswith("FAIL")]
+    # MANIFEST cannot contain a final hash of itself; it lists all other content files.
+    total_files = sum(1 for p in OUT.rglob("*") if p.is_file()) + 1  # adds PACKAGE_SUMMARY below
     summary = [
         "# SPARTA submission package summary",
         "",
         f"Built: {datetime.now().astimezone().isoformat()}",
-        f"Files: {len(rows)}",
+        f"Files: {total_files}",
+        f"Manifested content files: {len(rows)}",
         f"Self-check status: {'PASS' if not failures else 'FAIL'}",
         "",
         "## Self-checks",
