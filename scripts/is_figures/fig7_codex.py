@@ -86,11 +86,17 @@ def draw_core(ax, g, title):
     ax.set_yticks([])
     for s_ in ax.spines.values():
         s_.set_visible(False)
+    allp = np.vstack([xy, g["cd8"]]) if len(g["cd8"]) else xy
+    cxp = (allp[:, 0].min() + allp[:, 0].max()) / 2
+    cyp = (allp[:, 1].min() + allp[:, 1].max()) / 2
+    half = max(np.ptp(allp[:, 0]), np.ptp(allp[:, 1])) / 2 + 10
+    ax.set_xlim(cxp - half, cxp + half)
+    ax.set_ylim(cyp - half, cyp + half)
     ax.invert_yaxis()
     ax.set_title(title, fontsize=7, color=S.INK2, loc="left")
-    x0, y0 = xy[:, 0].min(), xy[:, 1].max() + 18
-    ax.plot([x0, x0 + 100], [y0, y0], color=S.INK, lw=1.0)
-    ax.text(x0 + 50, y0 + 6, "100 μm", ha="center", va="top", fontsize=6.4, color=S.INK2)
+    sx, sy = cxp - half + 10, cyp + half - 12
+    ax.plot([sx, sx + 100], [sy, sy], color=S.INK, lw=1.0)
+    ax.text(sx + 50, sy - 6, "100 μm", ha="center", va="bottom", fontsize=6.4, color=S.INK2)
 
 
 def main():
@@ -103,8 +109,8 @@ def main():
     rlo = prim.set_index("core").loc[lo]
 
     fig = plt.figure(figsize=(S.FULL_W, 128 * S.MM))
-    gs = fig.add_gridspec(2, 3, width_ratios=[1.0, 1.0, 1.05], height_ratios=[1.0, 1.0],
-                          wspace=0.42, hspace=0.55, left=0.03, right=0.985, top=0.95, bottom=0.08)
+    gs = fig.add_gridspec(2, 3, width_ratios=[1.0, 1.0, 1.05], height_ratios=[1.22, 1.0],
+                          wspace=0.42, hspace=0.48, left=0.03, right=0.985, top=0.95, bottom=0.08)
     ax_hi = fig.add_subplot(gs[0, 0])
     ax_lo = fig.add_subplot(gs[0, 1])
     axb = fig.add_subplot(gs[0, 2])
