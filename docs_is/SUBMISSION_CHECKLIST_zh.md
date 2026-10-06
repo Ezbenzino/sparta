@@ -1,6 +1,6 @@
 # SPARTA → *Interdisciplinary Sciences: Computational Life Sciences* 投稿清单（v2.2.0）
 
-生成日期：2026-10-05。期刊投稿须知：<https://link.springer.com/journal/12539/submission-guidelines>
+生成日期：2026-10-05；2026-10-06 修订重建（新增 Fig. 2e–g / Table 3 分子尺度 ground-truth 实验 run_59；正文压缩至约 9,700 词）。期刊投稿须知：<https://link.springer.com/journal/12539/submission-guidelines>
 （双盲评审；摘要 150–250 词；关键词 4–6 个；正文 Word 或 LaTeX；线图 EPS 或 ≥1200 dpi TIFF、组合图 ≥600 dpi；
 图宽 84/174 mm；补充材料称 Online Resource，文件名按 ESM_1、ESM_2… 编号；声明放在单独的 Title page；LLM 使用须在 Methods 中说明。）
 
@@ -12,15 +12,15 @@
 |---|---|---|
 | `Cover_letter_IS.pdf`（`.docx` 可编辑） | Cover Letter | 1 页，致两位主编 |
 | `Title_page_IS.docx`（`.pdf` 供核对） | Title Page | 作者信息 + 全部 Declarations；**审稿人看不到** |
-| `Manuscript_IS_anonymised.docx` | Manuscript（匿名） | 行号、页码、图表嵌入；摘要 240 词，正文约 8,640 词，8 图 3 表 47 篇文献 |
-| `Manuscript_IS_anonymised.pdf` | （若系统允许，作为附加的审稿 PDF） | LaTeX 排版的同内容版本（24 页），已逐页检查 |
+| `Manuscript_IS_anonymised.docx` | Manuscript（匿名） | 行号、页码、图表嵌入；摘要 234 词，正文约 9,690 词，8 图 4 表 44 篇文献 |
+| `Manuscript_IS_anonymised.pdf` | （若系统允许，作为附加的审稿 PDF） | LaTeX 排版的同内容版本（27 页） |
 | `Figures/Fig1_overview.tif`、`Fig7_codex.tif`、`Fig8_baselines.tif` | Figure 1、7、8 | 组合图（含切片栅格或栅格化散点），600 dpi，RGB，174 mm |
 | `Figures/eps/Fig2–Fig6 *.eps` | Figure 2–6 | 矢量线图（期刊首选格式） |
 | `Figures/line_art_1200dpi/*.tif` | 备用 | 若系统不收 EPS，就上传这 5 个 1200 dpi TIFF |
 | `Figures/pdf/*.pdf` | 不上传 | 8 张图的矢量 PDF，生产阶段备用 |
-| `ESM_1.pdf` | Supplementary Material | Online Resource 1（16 页）：S1–S14，Tables S1–S10，Figs. S1–S7 |
+| `ESM_1.pdf` | Supplementary Material | Online Resource 1（23 页）：S1–S14，Tables S1–S13，Figs. S1–S9 |
 | `ESM_2.xlsx` | Supplementary Material | Online Resource 2：逐切片 / 逐核心结果（含干预图、简单基线、区域构成、CODEX 逐核心） |
-| `ESM_3.zip` | Supplementary Material | Online Resource 3：**匿名**代码 + 30 张切片的 node tables + 全部结果文件（含 README_REVIEWERS.md、SHA-256 清单） |
+| `ESM_3.zip` | Supplementary Material | Online Resource 3：**匿名**代码（含 run_59）+ 30 张切片的 node tables + 全部结果文件（run_59 逐组织数值在 `results/validation/mab_ground_truth_tissues.csv`；含 README_REVIEWERS.md、SHA-256 清单） |
 | `suggested_reviewers.md` | Suggested Reviewers（可选） | 需您核实 |
 | `_superseded/` | 不上传 | 旧版本文件（v2.1 的 Fig8 等），只为留痕 |
 

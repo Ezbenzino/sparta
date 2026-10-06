@@ -70,7 +70,11 @@ def main() -> int:
     for p in OUT.iterdir():
         if p.name not in keep:
             sup.mkdir(exist_ok=True)
-            shutil.move(str(p), str(sup / p.name))
+            try:
+                shutil.move(str(p), str(sup / p.name))
+            except OSError as e:
+                # e.g. a previous packaging zip still held open by another process
+                print(f"[warn] cannot move {p.name} to _superseded ({e.strerror}); leaving in place")
     for name, src in DOCS.items():
         if src.resolve() != (OUT / name).resolve():
             shutil.copy2(src, OUT / name)

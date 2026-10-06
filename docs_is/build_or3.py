@@ -124,9 +124,10 @@ exact versions used); none of the analyses added for this submission does.
 |---|---|---|
 | Table 1, Fig. S1 | `run_40_graph_coverage_table.py` | `graph_coverage_table.json` |
 | Fig. 2, Table 2 | `run_38_synthetic_benchmark.py`, `run_38b_synthetic_s2.py` | `synthetic_benchmark.json`, `synthetic_s2_thickness.json` |
+| Fig. 2e–g, Table 3 | `run_59_mab_ground_truth.py` | `mab_ground_truth.json` |
 | Fig. 3, Fig. S2, Table S4 | `run_37_null_calibration.py` | `null_calibration_all.json`, `null_calibration_replication.json` |
 | Fig. 4a | `run_27_spatial_null.py`, `run_43_nscore_spatial_null.py` | `spatial_null_check.json`, `spatial_null_nscore.json` |
-| Fig. 4b, Table 3 | `run_36_patient_level.py` | `patient_level_inference.json` |
+| Fig. 4b, Table 4 | `run_36_patient_level.py` | `patient_level_inference.json` |
 | Fig. 4c | `run_41_adjustment_robustness.py` | `adjustment_robustness.json` |
 | Fig. 5 | `run_39_coupling_decomposition.py`, `run_14_shared_ecm_check.py` | `geometry_null.json`, `shared_input_spatial_null.json`, `shared_ecm_check.json` |
 | Fig. 6 | `run_42_size_exclusion_scan.py`, `run_28_s2_matched.py`, `run_05_counterfactual.py` | `size_exclusion_scan.json`, `s2_matched_selection.json`, `results/counterfactual/` |

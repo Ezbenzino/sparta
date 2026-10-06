@@ -3,7 +3,7 @@
 3. Moses L, Pachter L (2022) Museum of spatial transcriptomics. Nat Methods 19:534–546. https://doi.org/10.1038/s41592-022-01409-2
 4. Ji AL, Rubin AJ, Thrane K et al (2020) Multimodal analysis of composition and spatial architecture in human squamous cell carcinoma. Cell 182:497–514.e22. https://doi.org/10.1016/j.cell.2020.05.039
 5. Alhaddad H, Ospina OE, Khaled ML et al (2024) Spatial transcriptomics analysis identifies a tumor-promoting function of the meningeal stroma in melanoma leptomeningeal disease. Cell Rep Med 5:101606. https://doi.org/10.1016/j.xcrm.2024.101606
-6. Singhal V, Chou N, Lee J et al (2024) BANKSY unifies cell typing and tissue domain segmentation for scalable spatial omics data analysis. Nat Genet 56:431–441. https://doi.org/10.1038/s41588-023-01576-2
+6. Singhal V, Chou N, Lee J et al (2024) BANKSY unifies cell typing and tissue domain segmentation for scalable spatial omics data analysis. Nat Genet 56:431–441. https://doi.org/10.1038/s41588-024-01664-3
 7. Hu J, Li X, Coleman K et al (2021) SpaGCN: integrating gene expression, spatial location and histology to identify spatial domains and spatially variable genes by graph convolutional network. Nat Methods 18:1342–1351. https://doi.org/10.1038/s41592-021-01255-8
 8. Zhao E, Stone MR, Ren X et al (2021) Spatial transcriptomics at subspot resolution with BayesSpace. Nat Biotechnol 39:1375–1384. https://doi.org/10.1038/s41587-021-00935-2
 9. Dong K, Zhang S (2022) Deciphering spatial domains from spatially resolved transcriptomics with an adaptive graph attention auto-encoder. Nat Commun 13:1739. https://doi.org/10.1038/s41467-022-29439-6
@@ -32,7 +32,7 @@
 33. Tirosh I, Izar B, Prakadan SM et al (2016) Dissecting the multicellular ecosystem of metastatic melanoma by single-cell RNA-seq. Science 352:189–196. https://doi.org/10.1126/science.aad0501
 34. Hagberg AA, Schult DA, Swart PJ (2008) Exploring network structure, dynamics, and function using NetworkX. In: Varoquaux G, Vaught T, Millman J (eds) Proceedings of the 7th Python in Science Conference, Pasadena, pp 11–15
 35. Virtanen P, Gommers R, Oliphant TE et al (2020) SciPy 1.0: fundamental algorithms for scientific computing in Python. Nat Methods 17:261–272. https://doi.org/10.1038/s41592-019-0686-2
-36. Renkin EM (1954) Filtration, diffusion, and molecular sieving through porous cellulose membranes. J Gen Physiol 38:225–243. https://doi.org/10.1085/jgp.38.2.225
+36. Renkin EM (1954) Filtration, diffusion, and molecular sieving through porous cellulose membranes. J Gen Physiol 38:225–243
 37. Deen WM (1987) Hindered transport of large molecules in liquid-filled pores. AIChE J 33:1409–1425. https://doi.org/10.1002/aic.690330902
 38. Armstrong JK, Wenby RB, Meiselman HJ, Fisher TC (2004) The hydrodynamic radii of macromolecules and their effect on red blood cell aggregation. Biophys J 87:4259–4270. https://doi.org/10.1529/biophysj.104.047746
 39. Wagner HH, Dray S (2015) Generating spatially constrained null models for irregularly spaced data using Moran spectral randomization methods. Methods Ecol Evol 6:1169–1178. https://doi.org/10.1111/2041-210X.12407

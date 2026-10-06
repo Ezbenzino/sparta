@@ -38,14 +38,20 @@ CAPTIONS = {
         "field with minimum-cut edges (black bars; **f**) and $B_{\\mathrm{mAb}}$ field (**g**), shown as "
         "within-section ranks. Scale bars, 1 mm"),
     "Fig2_synthetic": (
-        "**Fig. 2** Simulation benchmark with planted barriers. **a** Four of the nine geometries, with vessel "
-        "sources (blue), tumour-core sinks (black squares), matrix-rich spots (dark grey), the tumour nest (light "
-        "grey) and the minimum cut computed from noisy observed scores (black bars); access is the fraction of "
-        "agents reaching the core. **b** Ground-truth access for every simulated tissue (20 replicates at each of "
-        "three noise levels per geometry); bars, means. **c** Spearman correlation of each summary with lost "
-        "access over all tissues (dots) and within each noise level (ticks); SPARTA summaries in blue. "
-        "**d** AUC for four contrasts, rows as in **c**; 0.5 is chance. Composition is matched across "
-        "geometries except for the distant capsule, which needs more spots to close"),
+        "**Fig. 2** Simulation benchmark with planted barriers and process-level ground truths. **a** Four of the "
+        "nine geometries, with vessel sources (blue), tumour-core sinks (black squares), matrix-rich spots (dark "
+        "grey), the tumour nest (light grey) and the minimum cut computed from noisy observed scores (black bars); "
+        "access is the fraction of agents reaching the core. **b** Ground-truth access for every simulated tissue "
+        "(20 replicates at each of three noise levels per geometry); bars, means. **c** Spearman correlation of each "
+        "summary with lost access over all tissues (dots) and within each noise level (ticks); SPARTA summaries in "
+        "blue. **d** AUC for four contrasts, rows as in **c**; 0.5 is chance. **e** Ground-truth delivery to the "
+        "tumour core for in silico probes of three hydrodynamic radii (marker shape and orange shade) across the "
+        "same nine geometries at the final census of 2,500 steps; bars, means. **f** Spearman correlation of each "
+        "tissue-level summary with lost core delivery by probe radius; the cellular benchmark's analogue of **c**. "
+        "**g** Correlation of the tumour-core $B_{\\mathrm{mAb}}$ with lost delivery at each census time, by probe "
+        "radius. Composition is matched across geometries except for the distant capsule, which needs more spots "
+        "to close"
+    ),
     "Fig3_calibration": (
         "**Fig. 3** Calibration of the surrogate test on the {{cal_n_graphs}} real section graphs. **a** False-"
         "positive rate at α = 0.05 for fields that share the expected graph power spectrum of the section's "
@@ -113,12 +119,12 @@ CAPTIONS = {
 PLACE = {
     "Fig1_overview": "# 2 Materials and Methods",
     "Fig2_synthetic": "**Table 2** Simulation benchmark.",
-    "Fig3_calibration": "## 3.3 The two model fields co-vary within sections and across patients",
-    "Fig4_association": "**Table 3** Section-level and patient-level inference.",
-    "Fig5_structure": "## 3.5 The size-exclusion term is parameter-driven",
-    "Fig6_parameters": "## 3.7 The minimum cut tracks measured CD8^+^ T-cell exclusion in multiplexed images",
-    "Fig7_codex": "## 3.8 Simple spatial summaries reproduce only part of either operator",
-    "Fig8_baselines": "## 3.9 Modality-specific in-model perturbation maps",
+    "Fig3_calibration": "## 3.4 The two model fields co-vary within sections and across patients",
+    "Fig4_association": "**Table 4** Section-level and patient-level inference.",
+    "Fig5_structure": "## 3.6 The size-exclusion term is parameter-driven",
+    "Fig6_parameters": "## 3.8 The minimum cut tracks measured CD8^+^ T-cell exclusion in multiplexed images",
+    "Fig7_codex": "## 3.9 Simple spatial summaries reproduce only part of either operator",
+    "Fig8_baselines": "## 3.10 Modality-specific in-model perturbation maps",
 }
 
 DECLARATIONS = """
@@ -378,6 +384,7 @@ LATEX_PREAMBLE = r"""
 \DeclareUnicodeCharacter{2212}{\ensuremath{-}}
 \DeclareUnicodeCharacter{00B7}{\ensuremath{\cdot}}
 \DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}
+\DeclareUnicodeCharacter{2080}{\ensuremath{_{0}}}
 \usepackage{mathptmx}
 \usepackage[scaled=0.92]{helvet}
 \usepackage{setspace}\onehalfspacing

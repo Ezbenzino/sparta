@@ -1,0 +1,350 @@
+{
+ "n_tissues": 216,
+ "geoms": [
+  "closed",
+  "gap05",
+  "gap10",
+  "gap20",
+  "gap40",
+  "closed_far",
+  "band",
+  "patches",
+  "scattered"
+ ],
+ "reps": 8,
+ "W": 6000,
+ "radii": [
+  0.5,
+  2.0,
+  5.5
+ ],
+ "checkpoints": [
+  200,
+  800,
+  2500
+ ],
+ "noise": 0.15,
+ "sat_cap": 40,
+ "seed": 20261006,
+ "delivery_by_radius": {
+  "0.5": {
+   "mean": 0.04242592592592593,
+   "by_geom": {
+    "closed": 0.03779166666666667,
+    "gap05": 0.043958333333333335,
+    "gap10": 0.044062500000000004,
+    "gap20": 0.042604166666666665,
+    "gap40": 0.04095833333333333,
+    "closed_far": 0.050875000000000004,
+    "band": 0.04125,
+    "patches": 0.03964583333333334,
+    "scattered": 0.0406875
+   }
+  },
+  "2": {
+   "mean": 0.039074074074074074,
+   "by_geom": {
+    "closed": 0.02366666666666667,
+    "gap05": 0.0394375,
+    "gap10": 0.042395833333333334,
+    "gap20": 0.03658333333333333,
+    "gap40": 0.03808333333333333,
+    "closed_far": 0.05291666666666667,
+    "band": 0.042354166666666665,
+    "patches": 0.034333333333333334,
+    "scattered": 0.041895833333333334
+   }
+  },
+  "5.5": {
+   "mean": 0.01080324074074074,
+   "by_geom": {
+    "closed": 0.0,
+    "gap05": 0.009354166666666667,
+    "gap10": 0.01225,
+    "gap20": 0.0047708333333333335,
+    "gap40": 0.012395833333333332,
+    "closed_far": 6.25e-05,
+    "band": 0.021166666666666667,
+    "patches": 0.017145833333333332,
+    "scattered": 0.020083333333333335
+   }
+  }
+ },
+ "gt_separability": {},
+ "per_radius": {
+  "0.5": {
+   "b_mab_core": {
+    "spearman_vs_lost_delivery": -0.15372493625177333,
+    "auc_closed_vs_gap05": 0.6875,
+    "auc_closed_vs_band": 0.828125,
+    "auc_closed_vs_scattered": 0.953125
+   },
+   "b_mab_reach_mean": {
+    "spearman_vs_lost_delivery": -0.22106803594031166,
+    "auc_closed_vs_gap05": 0.828125,
+    "auc_closed_vs_band": 0.53125,
+    "auc_closed_vs_scattered": 0.421875
+   },
+   "b_cell_field_core": {
+    "spearman_vs_lost_delivery": -0.012252970860235489,
+    "auc_closed_vs_gap05": 0.9375,
+    "auc_closed_vs_band": 1.0,
+    "auc_closed_vs_scattered": 1.0
+   },
+   "ecm_peritumoural_mean": {
+    "spearman_vs_lost_delivery": -0.011223849948089726,
+    "auc_closed_vs_gap05": 0.78125,
+    "auc_closed_vs_band": 0.359375,
+    "auc_closed_vs_scattered": 1.0
+   },
+   "ecm_global_mean": {
+    "spearman_vs_lost_delivery": 0.17704408526328153,
+    "auc_closed_vs_gap05": 0.5,
+    "auc_closed_vs_band": 0.5,
+    "auc_closed_vs_scattered": 0.5
+   },
+   "vessel_boundary_distance": {
+    "spearman_vs_lost_delivery": -0.1026869710150444,
+    "auc_closed_vs_gap05": 0.421875,
+    "auc_closed_vs_band": 0.28125,
+    "auc_closed_vs_scattered": 0.390625
+   },
+   "_gt": {
+    "auc_closed_vs_gap05": 0.78125,
+    "auc_closed_vs_band": 0.703125
+   },
+   "node_rho_median": 0.24234609839721677
+  },
+  "2": {
+   "b_mab_core": {
+    "spearman_vs_lost_delivery": 0.42857946893400434,
+    "auc_closed_vs_gap05": 0.6953125,
+    "auc_closed_vs_band": 0.890625,
+    "auc_closed_vs_scattered": 1.0
+   },
+   "b_mab_reach_mean": {
+    "spearman_vs_lost_delivery": -0.40088757479366693,
+    "auc_closed_vs_gap05": 0.703125,
+    "auc_closed_vs_band": 0.5625,
+    "auc_closed_vs_scattered": 0.546875
+   },
+   "b_cell_field_core": {
+    "spearman_vs_lost_delivery": -0.03489194758953383,
+    "auc_closed_vs_gap05": 0.9375,
+    "auc_closed_vs_band": 1.0,
+    "auc_closed_vs_scattered": 1.0
+   },
+   "ecm_peritumoural_mean": {
+    "spearman_vs_lost_delivery": 0.04449125298628576,
+    "auc_closed_vs_gap05": 0.78125,
+    "auc_closed_vs_band": 0.359375,
+    "auc_closed_vs_scattered": 1.0
+   },
+   "ecm_global_mean": {
+    "spearman_vs_lost_delivery": 0.13420436423177137,
+    "auc_closed_vs_gap05": 0.5,
+    "auc_closed_vs_band": 0.5,
+    "auc_closed_vs_scattered": 0.5
+   },
+   "vessel_boundary_distance": {
+    "spearman_vs_lost_delivery": -0.04244918969417941,
+    "auc_closed_vs_gap05": 0.421875,
+    "auc_closed_vs_band": 0.28125,
+    "auc_closed_vs_scattered": 0.390625
+   },
+   "_gt": {
+    "auc_closed_vs_gap05": 0.6875,
+    "auc_closed_vs_band": 0.734375
+   },
+   "node_rho_median": 0.5129198416484806
+  },
+  "5.5": {
+   "b_mab_core": {
+    "spearman_vs_lost_delivery": 0.6464092064277285,
+    "auc_closed_vs_gap05": 0.5625,
+    "auc_closed_vs_band": 0.6875,
+    "auc_closed_vs_scattered": 0.8125
+   },
+   "b_mab_reach_mean": {
+    "spearman_vs_lost_delivery": -0.07113896729021973,
+    "auc_closed_vs_gap05": 0.703125,
+    "auc_closed_vs_band": 0.40625,
+    "auc_closed_vs_scattered": 0.4375
+   },
+   "b_cell_field_core": {
+    "spearman_vs_lost_delivery": 0.2030762687538362,
+    "auc_closed_vs_gap05": 0.9375,
+    "auc_closed_vs_band": 1.0,
+    "auc_closed_vs_scattered": 1.0
+   },
+   "ecm_peritumoural_mean": {
+    "spearman_vs_lost_delivery": 0.0860026031649558,
+    "auc_closed_vs_gap05": 0.78125,
+    "auc_closed_vs_band": 0.359375,
+    "auc_closed_vs_scattered": 1.0
+   },
+   "ecm_global_mean": {
+    "spearman_vs_lost_delivery": 0.13968903312449854,
+    "auc_closed_vs_gap05": 0.5,
+    "auc_closed_vs_band": 0.5,
+    "auc_closed_vs_scattered": 0.5
+   },
+   "vessel_boundary_distance": {
+    "spearman_vs_lost_delivery": 0.0903125659378947,
+    "auc_closed_vs_gap05": 0.421875,
+    "auc_closed_vs_band": 0.28125,
+    "auc_closed_vs_scattered": 0.390625
+   },
+   "_gt": {
+    "auc_closed_vs_gap05": 0.875,
+    "auc_closed_vs_band": 0.875
+   },
+   "node_rho_median": 0.6825340827040108
+  }
+ },
+ "by_checkpoint": {
+  "200": {
+   "0.5": {
+    "b_mab_core": 0.33464655837458446,
+    "b_mab_reach_mean": -0.1830739064482554,
+    "b_cell_field_core": 0.3384897435868051,
+    "ecm_peritumoural_mean": 0.2669968504757868,
+    "ecm_global_mean": 0.191324910953184,
+    "vessel_boundary_distance": -0.08762140678406181
+   },
+   "2": {
+    "b_mab_core": 0.7843980656510074,
+    "b_mab_reach_mean": -0.18634379344986762,
+    "b_cell_field_core": 0.38201362022451935,
+    "ecm_peritumoural_mean": 0.23340810300442474,
+    "ecm_global_mean": 0.19702501245459492,
+    "vessel_boundary_distance": -0.028203211123571298
+   },
+   "5.5": {
+    "b_mab_core": 0.6889957348781064,
+    "b_mab_reach_mean": -0.025698446574208014,
+    "b_cell_field_core": 0.30680119550891055,
+    "ecm_peritumoural_mean": 0.13063792841024577,
+    "ecm_global_mean": 0.12701357703715566,
+    "vessel_boundary_distance": 0.08862221575882219
+   }
+  },
+  "800": {
+   "0.5": {
+    "b_mab_core": -0.019586402337314526,
+    "b_mab_reach_mean": -0.18933522259404043,
+    "b_cell_field_core": 0.10180748209978513,
+    "ecm_peritumoural_mean": 0.0073006787037280755,
+    "ecm_global_mean": 0.2027538153137749,
+    "vessel_boundary_distance": -0.15651433000745674
+   },
+   "2": {
+    "b_mab_core": 0.6293312755493063,
+    "b_mab_reach_mean": -0.32271861233433474,
+    "b_cell_field_core": 0.17104681371195526,
+    "ecm_peritumoural_mean": 0.13485332079358606,
+    "ecm_global_mean": 0.168465244889329,
+    "vessel_boundary_distance": -0.07235482813534486
+   },
+   "5.5": {
+    "b_mab_core": 0.6868840093851594,
+    "b_mab_reach_mean": -0.002371882181809609,
+    "b_cell_field_core": 0.2531654801000951,
+    "ecm_peritumoural_mean": 0.04936479790891249,
+    "ecm_global_mean": 0.13455249510994177,
+    "vessel_boundary_distance": 0.09884489564610739
+   }
+  },
+  "2500": {
+   "0.5": {
+    "b_mab_core": -0.15372493625177333,
+    "b_mab_reach_mean": -0.22106803594031166,
+    "b_cell_field_core": -0.012252970860235489,
+    "ecm_peritumoural_mean": -0.011223849948089726,
+    "ecm_global_mean": 0.17704408526328153,
+    "vessel_boundary_distance": -0.1026869710150444
+   },
+   "2": {
+    "b_mab_core": 0.42857946893400434,
+    "b_mab_reach_mean": -0.40088757479366693,
+    "b_cell_field_core": -0.03489194758953383,
+    "ecm_peritumoural_mean": 0.04449125298628576,
+    "ecm_global_mean": 0.13420436423177137,
+    "vessel_boundary_distance": -0.04244918969417941
+   },
+   "5.5": {
+    "b_mab_core": 0.6464092064277285,
+    "b_mab_reach_mean": -0.07113896729021973,
+    "b_cell_field_core": 0.2030762687538362,
+    "ecm_peritumoural_mean": 0.0860026031649558,
+    "ecm_global_mean": 0.13968903312449854,
+    "vessel_boundary_distance": 0.0903125659378947
+   }
+  }
+ },
+ "saturation": {
+  "r_nm": 5.5,
+  "cap": 40,
+  "n": 72,
+  "rho_mab_vs_lost_delivery_saturating": 0.6129964073910432,
+  "rho_mab_vs_lost_delivery_linear": 0.6464092064277285,
+  "delivery_spearman_lin_vs_sat": 0.8627389889874946,
+  "median_rel_delivery_change": 0.8066502463054188
+ },
+ "clip_fraction_main": {
+  "0.5": {
+   "overall": 0.0,
+   "by_geom": {
+    "closed": 0.0,
+    "gap05": 0.0,
+    "gap10": 0.0,
+    "gap20": 0.0,
+    "gap40": 0.0,
+    "closed_far": 0.0,
+    "band": 0.0,
+    "patches": 0.0,
+    "scattered": 0.0
+   }
+  },
+  "2": {
+   "overall": 0.06620370370370371,
+   "by_geom": {
+    "closed": 0.175,
+    "gap05": 0.15416666666666667,
+    "gap10": 0.0125,
+    "gap20": 0.0375,
+    "gap40": 0.03333333333333333,
+    "closed_far": 0.04166666666666667,
+    "band": 0.075,
+    "patches": 0.05416666666666667,
+    "scattered": 0.0125
+   }
+  },
+  "5.5": {
+   "overall": 0.7921296296296296,
+   "by_geom": {
+    "closed": 1.0,
+    "gap05": 0.8041666666666667,
+    "gap10": 0.7958333333333334,
+    "gap20": 0.8666666666666667,
+    "gap40": 0.7916666666666667,
+    "closed_far": 0.9875,
+    "band": 0.6916666666666667,
+    "patches": 0.6833333333333333,
+    "scattered": 0.5083333333333333
+   }
+  }
+ },
+ "meta": {
+  "timestamp": "2026-10-06T04:45:10+00:00",
+  "config_path": "D:\\sparta\\configs\\default.yaml",
+  "seed": 20261006,
+  "python": "3.13.13",
+  "numpy": "2.5.2",
+  "scipy": "1.18.1",
+  "networkx": "3.6.1",
+  "module": "M59-mab-ground-truth",
+  "shared_local_law": true,
+  "note": "particle process shares Eqs. (2)-(3) by construction; tests steady-state + linear-absorption approximations and noisy-input robustness, not the law itself"
+ }
+}

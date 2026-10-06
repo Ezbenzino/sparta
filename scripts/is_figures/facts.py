@@ -312,6 +312,38 @@ def main():
         F["syn_bcell_auc_gap05_by_noise"] = ", ".join(f2(pn[k]["sparta_bcell"]["auc_closed_vs_gap05"]) for k in sorted(pn, key=float))
         F["syn_nhood_auc_gap05_by_noise"] = ", ".join(f2(pn[k]["nhood_enrichment_z"]["auc_closed_vs_gap05"]) for k in sorted(pn, key=float))
 
+    # ---------------- molecular ground truth (run_59, v2.3) ----------------
+    p = VAL / "mab_ground_truth.json"
+    if p.exists():
+        mg = j("mab_ground_truth.json")
+        RT = {"0.5": "05", "2": "2", "5.5": "55"}
+        F["mab59_n_tissues"] = mg["n_tissues"] // len(mg["radii"])
+        F["mab59_W"] = f"{mg['W']:,}"
+        F["mab59_sat_cap_w"] = "forty"
+        F["mab59_bmab_floor"] = f"{-np.log(1e-12):.1f}"
+        for r, tg in RT.items():
+            pr = mg["per_radius"][r]
+            for k in ("b_mab_core", "b_mab_reach_mean", "b_cell_field_core",
+                      "ecm_peritumoural_mean", "ecm_global_mean", "vessel_boundary_distance"):
+                F[f"mab59_rho_{k}_{tg}"] = f2(pr[k]["spearman_vs_lost_delivery"])
+                F[f"mab59_auc_{k}_{tg}"] = f2(pr[k]["auc_closed_vs_gap05"])
+            F[f"mab59_gt_auc_gap05_{tg}"] = f2(pr["_gt"]["auc_closed_vs_gap05"])
+            F[f"mab59_gt_auc_band_{tg}"] = f2(pr["_gt"]["auc_closed_vs_band"])
+            F[f"mab59_node_rho_{tg}"] = f2(pr["node_rho_median"])
+            F[f"mab59_clip_{tg}"] = pct(mg["clip_fraction_main"][r]["overall"], 0)
+            for T in mg["checkpoints"]:
+                F[f"mab59_rho_T{T}_{tg}"] = f2(mg["by_checkpoint"][str(T)][r]["b_mab_core"])
+            d = mg["delivery_by_radius"][r]["by_geom"]
+            F[f"mab59_delivery_closed_{tg}"] = f"{d['closed']:.4f}"
+            F[f"mab59_delivery_gap05_{tg}"] = f"{d['gap05']:.4f}"
+        F["mab59_clip_closed_55"] = pct(mg["clip_fraction_main"]["5.5"]["by_geom"]["closed"], 0)
+        if "saturation" in mg:
+            st = mg["saturation"]
+            F["mab59_sat_rho_lin"] = f2(st["rho_mab_vs_lost_delivery_linear"])
+            F["mab59_sat_rho_sat"] = f2(st["rho_mab_vs_lost_delivery_saturating"])
+            F["mab59_sat_rho_linvssat"] = f2(st["delivery_spearman_lin_vs_sat"])
+            F["mab59_sat_relchange_pct"] = f"{100 * st['median_rel_delivery_change']:+.0f}"
+
     # ---------------- S2 / S3 / mesh / crosslink ----------------
     s2 = j("s2_matched_selection.json")["summary"]
     F["s2_median"] = f3(s2["median_ratio"])

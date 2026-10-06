@@ -11,6 +11,7 @@ REQUIRED = (
     "null_crosslink_check.json",
     "stromal_intervention.json",
     "naive_baseline.json",
+    "mab_ground_truth.json",
 )
 
 
@@ -55,6 +56,19 @@ def test_stromal_intervention_and_naive_baseline_smoke_summaries():
     naive = outputs["naive_baseline.json"]["summary"]
     assert 50.0 <= intervention["median_pct_drop_b_cell_30"] <= 70.0
     assert naive["n_slides"] == 19
+
+
+def test_mab_ground_truth_tracks_delivery_in_size_exclusion_regime():
+    outputs = _load_outputs()
+    result = outputs["mab_ground_truth.json"]
+    assert result["W"] == 6000
+    assert result["radii"] == [0.5, 2.0, 5.5]
+    assert result["n_tissues"] == 216  # 9 geometries x 8 replicates x 3 radii
+    rho = [result["per_radius"][r]["b_mab_core"]["spearman_vs_lost_delivery"] for r in ("0.5", "2", "5.5")]
+    assert rho[0] < rho[1] < rho[2]  # tracking emerges with probe radius
+    assert result["clip_fraction_main"]["5.5"]["by_geom"]["closed"] == 1.0  # solver floor
+    sat = result["saturation"]
+    assert sat["delivery_spearman_lin_vs_sat"] > 0.8  # saturable binding preserves ranking
 
 
 if __name__ == "__main__":

@@ -38,10 +38,10 @@ def main():
     ep = ext["per_slide"]
     led = ledger()
 
-    fig = plt.figure(figsize=(S.FULL_W, 155 * S.MM))
+    fig = plt.figure(figsize=(S.FULL_W, 160 * S.MM))
     gs = fig.add_gridspec(2, 2, width_ratios=[1.18, 1.0], height_ratios=[1.45, 1.0],
                           wspace=0.48, hspace=0.48, left=0.09, right=0.985,
-                          top=0.965, bottom=0.13)
+                          top=0.955, bottom=0.20)
     ax = fig.add_subplot(gs[:, 0])
     axb = fig.add_subplot(gs[0, 1])
     axc = fig.add_subplot(gs[1, 1])
@@ -116,8 +116,9 @@ def main():
                label="Open: BH q ≥ 0.05"),
         Line2D([0], [0], color=S.LIGHT, lw=3.0, label="Interquartile range"),
     ]
-    ax.legend(handles=handles, loc="lower right", bbox_to_anchor=(1.0, 0.01),
-              ncol=2, fontsize=6.1, columnspacing=0.7, handletextpad=0.3)
+    ax.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.46, -0.30),
+              ncol=3, fontsize=6.1, columnspacing=0.7, handletextpad=0.3,
+              borderaxespad=0.0)
 
     # ---------------- b: patient-level pooled estimates ----------------
     primary_model = pl["primary_association"]

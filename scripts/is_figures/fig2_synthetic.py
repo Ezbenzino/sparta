@@ -1,4 +1,4 @@
-"""Fig. 2 -- simulation benchmark with planted barriers and an agent-based ground truth."""
+"""Fig. 2 -- simulation benchmark with planted barriers and process-level ground truths."""
 from __future__ import annotations
 
 import csv
@@ -30,6 +30,14 @@ SUMMARY_LABEL = {"sparta_bcell": "SPARTA B$_{\\rm cell}$ (min cut)",
                  "ecm_global_mean": "Global ECM",
                  "vessel_boundary_distance": "Vessel–nest distance"}
 GREYS = LinearSegmentedColormap.from_list("g", ["#ffffff", "#e1e0d9", "#c3c2b7", "#898781", "#52514e", "#1f1f1e"])
+RADII = [(0.5, "0.5", "o", "#f7c9a8"), (2.0, "2", "s", S.MAB), (5.5, "5.5", "^", "#9c3413")]
+RHO_CMAP = LinearSegmentedColormap.from_list("r", [S.INK2, S.WASH_GREY, S.MAB])
+MAB_ROWS = [("b_mab_core", "$B_{\\rm mAb}$ at the core"),
+            ("b_mab_reach_mean", "$B_{\\rm mAb}$, mean reachable"),
+            ("b_cell_field_core", "$B_{\\rm cell}$ field at the core"),
+            ("ecm_peritumoural_mean", "Peritumoural ECM"),
+            ("ecm_global_mean", "Global ECM"),
+            ("vessel_boundary_distance", "Vessel–nest distance")]
 
 
 def fence(ax, xy, edges, half=0.5, lw=0.9):
@@ -45,10 +53,13 @@ def fence(ax, xy, edges, half=0.5, lw=0.9):
 def main():
     S.apply()
     sb = j("synthetic_benchmark.json")
+    mg = j("mab_ground_truth.json")
     with open(VAL / "synthetic_benchmark_tissues.csv", encoding="utf-8") as f:
         tissues = list(csv.DictReader(f))
+    with open(VAL / "mab_ground_truth_tissues.csv", encoding="utf-8") as f:
+        mtis = list(csv.DictReader(f))
     geoms = sb["geoms"]
-    fig = plt.figure(figsize=(S.FULL_W, 128 * S.MM))
+    fig = plt.figure(figsize=(S.FULL_W, 190 * S.MM))
 
     # ---------------- a: example tissues ----------------
     xy, A = B.hex_lattice()
@@ -56,7 +67,7 @@ def main():
     show = ["closed", "gap10", "closed_far", "band"]
     W = 0.235
     for k, g in enumerate(show):
-        ax = fig.add_axes([0.005 + k * 0.248, 0.555, W, 0.40])
+        ax = fig.add_axes([0.005 + k * 0.248, 0.700, W, 0.27])
         ax.set_aspect("equal")
         ax.axis("off")
         t = B.make_tissue(xy, A, g, rng)
@@ -81,7 +92,7 @@ def main():
         if k == 0:
             S.panel(ax, "a", x=0.0, y=1.0)
     # legend for a
-    axl = fig.add_axes([0.0, 0.505, 1.0, 0.03])
+    axl = fig.add_axes([0.0, 0.660, 1.0, 0.03])
     axl.axis("off")
     items = [("o", S.CELL, "vessel (source)"), ("s", S.INK, "tumour core (sink)"), ("o", "#52514e", "matrix-rich spot"),
              ("o", "#c3c2b7", "tumour nest"), ("_", S.INK, "minimum cut")]
@@ -95,7 +106,7 @@ def main():
         x0 += 0.165
 
     # ---------------- b: ground-truth access by geometry ----------------
-    axb = fig.add_axes([0.095, 0.085, 0.275, 0.34])
+    axb = fig.add_axes([0.095, 0.355, 0.275, 0.235])
     for i, g in enumerate(geoms):
         v = np.array([float(r["access"]) for r in tissues if r["geom"] == g])
         jit = (np.random.default_rng(i).random(len(v)) - 0.5) * 0.5
@@ -110,7 +121,7 @@ def main():
     # ---------------- c: Spearman with lost access ----------------
     order = ["sparta_bcell", "sparta_field_core", "nhood_enrichment_z", "domain_boundary_coverage",
              "ecm_peritumoural_mean", "ripley_L_200um", "ecm_global_mean", "vessel_boundary_distance"]
-    axc = fig.add_axes([0.525, 0.085, 0.16, 0.34])
+    axc = fig.add_axes([0.525, 0.355, 0.16, 0.235])
     for i, k in enumerate(order):
         pooled = sb["pooled"][k]["spearman_vs_lost_access"]
         colr = S.CELL if k.startswith("sparta") else S.INK2
@@ -130,7 +141,7 @@ def main():
     # ---------------- d: AUC matrix ----------------
     cols = [("auc_closed_vs_gap05", "Closed vs\n5% gap"), ("auc_closed_vs_band", "Closed vs\nband"),
             ("auc_closed_vs_scattered", "Closed vs\nscatter"), ("auc_closedfar_vs_scattered", "Distant vs\nscatter")]
-    axd = fig.add_axes([0.715, 0.085, 0.27, 0.34])
+    axd = fig.add_axes([0.715, 0.355, 0.27, 0.235])
     M = np.array([[sb["pooled"][k].get(c[0]) if sb["pooled"][k].get(c[0]) is not None else np.nan for c in cols]
                   for k in order])
     axd.imshow(M, cmap=GREYS, vmin=0.5, vmax=1.0, aspect="auto")
@@ -149,6 +160,67 @@ def main():
     axd.tick_params(length=0)
     axd.text(1.5, len(order) - 0.35, "AUC (0.5 = chance)", ha="center", va="top", fontsize=6.6, color=S.INK2)
     S.panel(axd, "d", x=-0.05, y=1.13)
+
+    # ---------------- e: ground-truth particle delivery by geometry and radius ----------------
+    axe = fig.add_axes([0.095, 0.045, 0.275, 0.235])
+    T_fin = str(mg["checkpoints"][-1])
+    for kr, (r, rl, mk, cc) in enumerate(RADII):
+        off = (kr - 1) * 0.27
+        for i, g in enumerate(geoms):
+            v = np.array([float(row["delivery"]) for row in mtis
+                          if row["geom"] == g and float(row["radius"]) == r and row["T"] == T_fin])
+            jit = (np.random.default_rng(100 + kr * 9 + i).random(len(v)) - 0.5) * 0.12
+            axe.plot(i + off + jit, v, mk, ms=2.2, mfc=cc, mec=cc, ls="none", zorder=1)
+            m = mg["delivery_by_radius"][rl]["by_geom"][g]
+            axe.plot([i + off - 0.11, i + off + 0.11], [m, m], color=S.INK, lw=1.1, zorder=2)
+    axe.set_xticks(range(len(geoms)))
+    axe.set_xticklabels([GEOM_LABEL[g] for g in geoms], fontsize=6.4, rotation=90)
+    axe.set_ylabel("Ground-truth core delivery\n(particles at 2,500 steps)")
+    axe.set_ylim(-0.002, None)
+    hnd = [plt.Line2D([], [], marker=mk, ls="none", color=cc, ms=4, label=f"{r:g} nm")
+           for (r, rl, mk, cc) in RADII]
+    axe.legend(handles=hnd, loc="upper right", handletextpad=0.2, borderpad=0.2, fontsize=6.6)
+    S.panel(axe, "e", x=-0.30, y=1.03)
+
+    # ---------------- f: Spearman with lost delivery by radius ----------------
+    axf = fig.add_axes([0.50, 0.045, 0.135, 0.235])
+    R = np.array([[mg["per_radius"][rl][k]["spearman_vs_lost_delivery"] for (_, rl, _, _) in RADII]
+                  for (k, _) in MAB_ROWS])
+    axf.imshow(R, cmap=RHO_CMAP, vmin=-0.7, vmax=0.7, aspect="auto")
+    for i in range(R.shape[0]):
+        for jj in range(R.shape[1]):
+            v = R[i, jj]
+            axf.text(jj, i, f"{v:.2f}", ha="center", va="center", fontsize=6.6,
+                     color="white" if abs(v) > 0.5 else S.INK)
+    axf.set_xticks(range(len(RADII)))
+    axf.set_xticklabels([f"{r:g}" for (r, _, _, _) in RADII], fontsize=6.4)
+    axf.xaxis.tick_top()
+    axf.set_yticks(range(len(MAB_ROWS)))
+    axf.set_yticklabels([lab for (_, lab) in MAB_ROWS], fontsize=6.6)
+    axf.tick_params(axis="y", length=0)
+    axf.tick_params(axis="x", length=0)
+    for sp in axf.spines.values():
+        sp.set_visible(False)
+    axf.text(1.0, len(MAB_ROWS) - 0.35, "Spearman ρ with lost delivery", ha="center", va="top",
+             fontsize=6.6, color=S.INK2)
+    axf.text(1.0, len(MAB_ROWS) + 0.75, "probe radius (nm)", ha="center", va="bottom",
+             fontsize=6.6, color=S.INK2)
+    S.panel(axf, "f", x=-0.42, y=1.13)
+
+    # ---------------- g: census-time dependence ----------------
+    axg = fig.add_axes([0.72, 0.045, 0.245, 0.235])
+    cps = mg["checkpoints"]
+    for (r, rl, mk, cc) in RADII:
+        v = [mg["by_checkpoint"][str(T)][rl]["b_mab_core"] for T in cps]
+        axg.plot(range(len(cps)), v, marker=mk, ms=3.6, lw=1.1, color=cc, label=f"{r:g} nm")
+    axg.axhline(0, color=S.INK2, lw=0.6)
+    axg.set_xticks(range(len(cps)))
+    axg.set_xticklabels([f"{T:,}" for T in cps])
+    axg.set_xlabel("Census (steps)")
+    axg.set_ylabel("ρ($B_{\\rm mAb}$ core, lost delivery)")
+    axg.set_ylim(-0.35, 1.0)
+    axg.legend(loc="lower right", handletextpad=0.3, borderpad=0.2, fontsize=6.6)
+    S.panel(axg, "g", x=-0.20, y=1.03)
     S.save(fig, OUT, "Fig2_synthetic")
 
 
