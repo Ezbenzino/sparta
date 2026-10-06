@@ -1,4 +1,0 @@
-Two graph operators model cell migration and IgG-sized transport fields.
-Model fields correlate positively in 18 of 19 primary sections.
-A graph-spectral null retains BH significance in 14 of 19 sections.
-Selection-matched counterfactual effects are modest and model-defined.

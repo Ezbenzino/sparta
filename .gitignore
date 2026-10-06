@@ -73,3 +73,18 @@ docs/*.docx
 # IS submission: manuscript renders and the submission package stay local
 docs_is/build/
 submission_IS/
+
+# ---------------------------------------------------------------------------
+# 本地保留、不随仓库发布的工作文档（2026-10-06 起 untrack）：
+# AI 规范、投稿清单、评审回复、其他期刊稿件草稿、审稿人建议名单。
+# 文件仍在本机，脚本照常可读；只是不再出现在 GitHub 上。
+# ---------------------------------------------------------------------------
+/CLAUDE.md
+/docs/release_checklist.md
+/docs/response_to_reviewers_2026.md
+/docs/v22_changelog.md
+/docs/manuscript_*
+/docs/cover_letter.md
+/docs/figure_legends.md
+/docs_is/SUBMISSION_CHECKLIST_zh.md
+/docs_is/suggested_reviewers.md
