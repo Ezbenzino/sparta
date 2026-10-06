@@ -32,9 +32,9 @@
 3. **核实声明**：Funding、Competing interests、Author contributions、AI 工具使用说明（正文 2.17 节与 Title page 一致）。
 4. **核实推荐审稿人**：期刊要求推荐人完全独立（近 3 年无合作、不同单位、无师生关系），并填写机构邮箱。2026-10-06 已核实 4 人的现任职务与机构邮箱（见更新后的 `suggested_reviewers.md`），仅需作者本人最终确认无合作关系后即可填入系统。
 5. **用 Word 打开** `Manuscript_IS_anonymised.docx`，确认公式（Eq. 1–3 和行内符号，尤其是变量、上下标和希腊字母）正常显示。
-6. **同步 Zenodo 记录元数据**（需在 zenodo.org 网页端手动修改）：发布 v2.2.2 后，进入 concept DOI 记录 → Edit → 用 `docs_is/release/zenodo.json`（已更新为 v2.2.2 与新标题，且与本仓库根目录 `.zenodo.json` 完全一致）中的 title 和 description 替换后保存。
+6. ~~同步 Zenodo 记录元数据~~ 已完成：v2.2.2 记录直接继承 `.zenodo.json`，title/description/version 均已核对。
 7. **GitHub release 说明核对**：v2.2.1 release 说明中的正文字数写的是未取整的 9,609，与 Title page 的 9,610（取整到十位）同源不冲突；如希望完全一致，可在 release 页面把该数字改为约 9,610，并顺带确认 release 说明引用的论文标题与新标题一致。
-8. **发布 v2.2.2**：见第 4 节。代码与文档已全部就绪，只差在 GitHub 网页上点一次 “Publish release”（Zenodo 才会生成新版本）；由于稿件引用的是 concept DOI，**点完即生效，无需再改任何文件**。
+8. ~~发布 v2.2.2~~ 已完成，见第 4 节。
 
 ## 3 Editorial Manager 填写要点
 
@@ -47,12 +47,10 @@
 
 **已完成：v2.2.1 → DOI 10.5281/zenodo.23181026**（GitHub release <https://github.com/Ezbenzino/sparta/releases/tag/v2.2.1>）。
 
-**v2.2.2 已在本机全部准备就绪**（版本号 7 处、Title page 与 ESM_3 已重建、CITATION/zenodo 元数据已更新、concept DOI 已写入）。剩余动作只有两步：
+**v2.2.2 已发布（2026-10-06，作者授权后由助手完成）**：commit `83617ff` → tag `v2.2.2` → GitHub release <https://github.com/Ezbenzino/sparta/releases/tag/v2.2.2> → Zenodo 自动归档。
 
-1. `git push` 后，在 GitHub 上由 tag `v2.2.2` 点一次 **Publish release**（Zenodo 的自动归档由 release 触发，tag 本身不触发）。
-2. 发布后按第 2 节第 6 条更新 Zenodo 记录的 title/description。
-
-> 因为稿件引用的是 concept DOI，**这两步完成后归档链接自动生效，稿件里没有任何需要回填的字段**。
+- 版本 DOI `10.5281/zenodo.23187800`；**concept DOI `10.5281/zenodo.23086430`（稿件引用的是它，永远指向最新版，换版本无需改稿）**。
+- Zenodo 记录的 title/description 直接继承仓库根目录 `.zenodo.json`，已核对为 v2.2.2 与新标题，**网页端无需再手改**（原第 2 节第 6 条作废）。
 
 （历史记录：以下为 v2.2.0/v2.2.1 发布时执行的步骤，仅留档。）
 
