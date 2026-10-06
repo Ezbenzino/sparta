@@ -16,7 +16,7 @@ SPARTA is **not** presented as a treatment-response, prognostic, therapeutic-eff
 | `scripts/` | Versioned pipeline and figure-generation scripts |
 | `configs/` | Default parameters and cohort admission rules |
 | `docs_is/` | Manuscript, cover letter, references and supplement sources |
-| `docs/` | Cohort correction records and reviewer-response plan |
+| `docs/` | Scientific protocol notes, cohort correction record, gene-set sources and manuscript tables |
 | `results/` | Validation outputs and manuscript figures |
 | `exploratory/` | One-off inspection and drafting work; not part of the clean pipeline |
 | `legacy/` | Obsolete scripts retained for traceability; do not run |
