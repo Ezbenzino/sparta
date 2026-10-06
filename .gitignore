@@ -62,6 +62,11 @@ _cmpb_docx_qa/
 _cmpb_docx_qa_v2/
 release_candidate/
 
+# AI assistant / preview tool scratch (never versioned)
+.workbuddy/
+.preview/
+Claude outputs/
+
 # Word 导出稿（markdown 是源，docx 为生成产物）
 docs/*.docx
 
