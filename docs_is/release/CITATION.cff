@@ -11,7 +11,7 @@ abstract: >-
   CPU-only; the operators depend on NumPy, SciPy and NetworkX.
 type: software
 license: MIT
-version: "2.2.2"
+version: "2.2.3"
 date-released: "2026-10-06"
 authors:
   - family-names: "Li"

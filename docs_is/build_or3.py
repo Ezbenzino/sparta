@@ -70,7 +70,7 @@ This archive accompanies the manuscript "SPARTA: graph structural operators and 
 models for characterizing spatial tissue architecture in spatial omics", submitted to
 *Interdisciplinary Sciences: Computational Life Sciences*. Author names, affiliations and
 repository links have been removed for double-blind review. The software is released under the
-MIT licence (LICENSE). Version 2.2.2.
+MIT licence (LICENSE). Version 2.2.3.
 
 Raw data are not redistributed. They are public: GEO GSE144239 (cSCC), GSE250636 (melanoma), the
 10x Genomics Visium datasets Human Breast Cancer Block A Sections 1 and 2 and Human Lymph Node
