@@ -43,7 +43,8 @@ BLUE_RAMP = ["#cde2fb", "#b7d3f6", "#9ec5f4", "#86b6ef", "#6da7ec", "#5598e7",
              "#3987e5", "#2a78d6", "#256abf", "#1c5cab", "#184f95", "#104281", "#0d366b"]
 
 # marker shape per platform / arm (shape, not colour, carries the cohort)
-SHAPE = {"visium_cscc": "o", "legacy_st": "s", "visium_mel": "^", "external": "D", "legacy_mel": "v"}
+SHAPE = {"visium_cscc": "o", "legacy_st": "s", "visium_mel": "^", "external": "D", "legacy_mel": "v",
+         "slideseq": "P"}
 
 
 def platform_key(sid: str) -> str:
@@ -60,11 +61,13 @@ def platform_key(sid: str) -> str:
 
 SHAPE_LABEL = {"visium_cscc": "cSCC, Visium", "legacy_st": "cSCC, first-generation ST",
                "visium_mel": "Melanoma, Visium", "external": "External, Visium",
-               "legacy_mel": "Melanoma LN, first-generation ST"}
+               "legacy_mel": "Melanoma LN, first-generation ST",
+               "slideseq": "Melanoma, Slide-seqV2"}
 
 PATIENT_LABEL = {"CSCC_P2": "cSCC P2", "CSCC_P4": "cSCC P4", "CSCC_P5": "cSCC P5",
                  "CSCC_P6": "cSCC P6", "CSCC_P9": "cSCC P9", "CSCC_P10": "cSCC P10",
-                 "MEL_PtB": "Melanoma PtB", "BRCA_P1": "Breast P1", "LN_P1": "Lymph node",
+                 "MEL_PtA": "Melanoma PtA", "MEL_PtB": "Melanoma PtB",
+                 "BRCA_P1": "Breast P1", "LN_P1": "Lymph node",
                  "MEL_THR1": "Melanoma LN P1", "MEL_THR2": "Melanoma LN P2", "MEL_THR3": "Melanoma LN P3",
                  "MEL_THR4": "Melanoma LN P4"}
 

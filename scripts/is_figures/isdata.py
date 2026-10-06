@@ -28,14 +28,24 @@ PRIMARY_ORDER = ["CSCC01", "CSCC02", "CSCC03", "CSCC04",          # Visium cSCC 
                  "CSCC08", "CSCC09", "CSCC10",                    # ST P5
                  "CSCC11", "CSCC12",                              # ST P9
                  "CSCC14", "CSCC15", "CSCC16",                    # ST P10
-                 "MEL01", "MEL02", "MEL03", "MEL04"]              # melanoma PtB
+                 "MEL01", "MEL02", "MEL03", "MEL04"]              # melanoma patients A/B
 EXTERNAL_ORDER = ["BRCA01", "BRCA02", "LN01"]
-PATIENT_ORDER = ["CSCC_P4", "CSCC_P6", "CSCC_P2", "CSCC_P5", "CSCC_P9", "CSCC_P10", "MEL_PtB"]
+PATIENT_ORDER = ["CSCC_P4", "CSCC_P6", "CSCC_P2", "CSCC_P5", "CSCC_P9", "CSCC_P10",
+                 "MEL_PtA", "MEL_PtB"]
 # independent melanoma replication cohort (Thrane et al. 2018; run_48) -- a separate family, never
-# pooled into the primary numbers except in the explicitly labelled 11-patient analysis
+# pooled into the primary numbers except in the explicitly labelled combined patient analysis
 REPLICATION_ORDER = ["MEL_THR1_rep1", "MEL_THR1_rep2", "MEL_THR2_rep1", "MEL_THR2_rep2",
                      "MEL_THR3_rep1", "MEL_THR3_rep2", "MEL_THR4_rep1", "MEL_THR4_rep2"]
 REPLICATION_PATIENTS = ["MEL_THR1", "MEL_THR2", "MEL_THR3", "MEL_THR4"]
+
+
+def _extension_order():
+    with (ROOT / "data/ledger.csv").open(encoding="utf-8", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    return [r["slide_id"] for r in rows if r.get("status") == "extension"]
+
+
+EXTENSION_ORDER = _extension_order()
 
 
 def bh(ps):

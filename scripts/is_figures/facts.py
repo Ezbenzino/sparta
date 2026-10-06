@@ -13,7 +13,7 @@ from pathlib import Path
 import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from isdata import EXTERNAL_ORDER, PRIMARY_ORDER, VAL, j, ledger  # noqa: E402
+from isdata import EXTENSION_ORDER, EXTERNAL_ORDER, PRIMARY_ORDER, VAL, j, ledger  # noqa: E402
 
 
 def f2(x):
@@ -414,14 +414,14 @@ def main():
     F["rep_npos_pat"] = a_["sign_flip"]["n_positive"]
     F["rep_lopo_min"] = f2(a_["lopo_min_mean"])
     al = rp["pooled_primary_plus_replication"]
-    F["all11_mean"], F["all11_lo"], F["all11_hi"] = (f2(al["nested_model"]["mean"]), f2(al["nested_model"]["ci95"][0]),
+    F["all12_mean"], F["all12_lo"], F["all12_hi"] = (f2(al["nested_model"]["mean"]), f2(al["nested_model"]["ci95"][0]),
                                                      f2(al["nested_model"]["ci95"][1]))
-    F["all11_df"] = al["nested_model"]["df"]
-    F["all11_p"] = "< 0.0001" if al["nested_model"]["p_two_sided"] < 1e-4 else f"{al['nested_model']['p_two_sided']:.4f}"
-    F["all11_signflip_p"] = f"{al['sign_flip']['p_one_sided']:.5f}"
-    F["all11_npos"] = al["sign_flip"]["n_positive"]
-    F["all11_J"] = al["sign_flip"]["J"]
-    F["all11_n_sections"] = al["n_sections"]
+    F["all12_df"] = al["nested_model"]["df"]
+    F["all12_p"] = "< 0.0001" if al["nested_model"]["p_two_sided"] < 1e-4 else f"{al['nested_model']['p_two_sided']:.4f}"
+    F["all12_signflip_p"] = f"{al['sign_flip']['p_one_sided']:.5f}"
+    F["all12_npos"] = al["sign_flip"]["n_positive"]
+    F["all12_J"] = al["sign_flip"]["J"]
+    F["all12_n_sections"] = al["n_sections"]
     F["rep_constr_median"] = f3(rs["median_construction_null"])
     F["rep_geom_median"] = f3(rs["median_geometry_null"])
     F["rep_share_constr_pct"] = f"{100 * rs['median_share_construction']:.0f}"
@@ -432,7 +432,7 @@ def main():
     ex_ = rp["excess"]["nested_model"]
     F["rep_ex_npos_pat"] = rp["excess"]["sign_flip"]["n_positive"]
     F["rep_ex_signflip_p"] = f"{rp['excess']['sign_flip']['p_one_sided']:.4f}"
-    F["all11_n_pos_sections"] = int(sum(v > 0 for v in [per[x]["real_rho_partial"] for x in PRIMARY_ORDER]
+    F["all12_n_pos_sections"] = int(sum(v > 0 for v in [per[x]["real_rho_partial"] for x in PRIMARY_ORDER]
                                         + [v_["real_rho_partial"] for v_ in rper.values()]))
     F["rep_ex_mean"], F["rep_ex_lo"], F["rep_ex_hi"] = f2(ex_["mean"]), f2(ex_["ci95"][0]), f2(ex_["ci95"][1])
     F["rep_ablated_median"] = f3(rs["median_ablated"])
@@ -686,6 +686,73 @@ def main():
     F["mc_flow_diff_max"] = f"${_m}\\times 10^{{{int(_e)}}}$"
     _m, _e = f"{mc['max_abs_new_cut_gap']:.0e}".split("e")
     F["mc_new_gap_max"] = f"${_m}\\times 10^{{{int(_e)}}}$"
+
+    # ---------------- 2026 extension cohort (run_56) ----------------
+    ext = j("extension_cohort.json")
+    ext_per, ext_sum, ext_groups = ext["per_slide"], ext["summary"], ext["grouped"]
+    ext_pl = ext["patient_level"]
+    F["ext2026_n_sections"] = ext_sum["n_sections"]
+    F["ext2026_n_visium"] = ext_groups["Visium"]["n_sections"]
+    F["ext2026_n_slideseq"] = ext_groups["SlideSeqV2"]["n_sections"]
+    F["ext2026_n_cscc"] = ext_groups["cSCC"]["n_sections"]
+    F["ext2026_n_primary_mel"] = ext_groups["primary_melanoma"]["n_sections"]
+    F["ext2026_n_metastatic_mel"] = ext_groups["metastatic_melanoma"]["n_sections"]
+    F["ext2026_n_identifiable_patients"] = 32
+    F["ext2026_n_unknown_relation_sections"] = 11
+    F["ext2026_n_analytical_units"] = ext_sum["n_patients"]
+    F["ext2026_n_pos"] = ext_sum["n_positive"]
+    F["ext2026_median_rho"] = f3(ext_sum["median_rho"])
+    F["ext2026_min_rho"] = f3(ext_sum["min_rho"])
+    F["ext2026_max_rho"] = f3(ext_sum["max_rho"])
+    F["ext2026_n_q05"] = ext_sum["n_q05"]
+
+    def ext_model_fill(source: dict, prefix: str):
+        nm = source["nested_model"]
+        sf = source["sign_flip"]
+        F[f"{prefix}_mean"] = f2(nm["mean"])
+        F[f"{prefix}_lo"], F[f"{prefix}_hi"] = f2(nm["ci95"][0]), f2(nm["ci95"][1])
+        F[f"{prefix}_p"] = f"{nm['p_two_sided']:.2e}"
+        F[f"{prefix}_J"] = source["n_patients"]
+        F[f"{prefix}_sign_p"] = f"{sf['p_one_sided']:.2e}"
+        F[f"{prefix}_npos"] = sf["n_positive"]
+
+    ext_model_fill(ext_pl["association"], "ext2026_pl")
+    ext_model_fill(ext_pl["excess"], "ext2026_ex")
+    ext_model_fill(ext_pl["ablated"], "ext2026_ab")
+    ext_model_fill(ext_pl["pooled_primary_plus_extension"], "ext2026_pool")
+
+    for group, prefix in [
+        ("cSCC", "ext2026_g_cscc"),
+        ("primary_melanoma", "ext2026_g_pmel"),
+        ("metastatic_melanoma", "ext2026_g_mmel"),
+        ("Visium", "ext2026_g_visium"),
+        ("SlideSeqV2", "ext2026_g_slide"),
+    ]:
+        record = ext_groups[group]
+        model = record["patient_model"]
+        F[f"{prefix}_n"] = record["n_sections"]
+        F[f"{prefix}_J"] = record["n_patients"]
+        F[f"{prefix}_median"] = f3(record["median_rho"])
+        F[f"{prefix}_npos"] = record["n_positive"]
+        if isinstance(model, dict) and "nested_model" in model:
+            F[f"{prefix}_mean"] = f2(model["nested_model"]["mean"])
+            F[f"{prefix}_lo"] = f2(model["nested_model"]["ci95"][0])
+            F[f"{prefix}_hi"] = f2(model["nested_model"]["ci95"][1])
+            F[f"{prefix}_p"] = f"{model['nested_model']['p_two_sided']:.2e}"
+
+    F["ext2026_constr_share_pct"] = f"{100 * ext_sum['median_share_construction']:.0f}"
+    F["ext2026_excess_median"] = f3(ext_sum["median_excess"])
+    F["ext2026_ablated_median"] = f3(ext_sum["median_ablated"])
+    ext_bl = j("extension_simple_baselines_spearman.json")
+    F["ext2026_bl_cell_dens_med"] = f2(
+        ext_bl["spot_level"]["b_cell_field__stromal_density"]["all"]["median"])
+    F["ext2026_bl_mab_dens_med"] = f2(
+        ext_bl["spot_level"]["b_mab_field__stromal_density"]["all"]["median"])
+    ext_cal = j("extension_null_calibration.json")["summary"]
+    F["ext2026_cal_spec"] = f3(ext_cal["gaussian"]["pooled_fpr_spectral_05"])
+    F["ext2026_cal_nscore"] = f3(ext_cal["gaussian"]["pooled_fpr_nscore_05"])
+    F["ext2026_cal_naive"] = f3(ext_cal["gaussian"]["pooled_fpr_naive_05"])
+    F["ext2026_cal_n_tests"] = ext_cal["gaussian"]["n_tests"]
 
     # small counts spelled out where they appear in running text
     _W = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven",
