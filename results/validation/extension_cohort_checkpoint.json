@@ -1,0 +1,2264 @@
+{
+ "settings": {
+  "n_surrogates": 500,
+  "n_structural_nulls": 200,
+  "seed": 20261005,
+  "visium_radius_um": 150.0,
+  "slideseqv2_bin_size_um": 50.0,
+  "slideseqv2_radius_um": 100.0
+ },
+ "per_slide": {
+  "ECM01_rep1": {
+   "patient": "MPM01",
+   "platform": "Slide-seqV2",
+   "project": "GSE200278",
+   "cancer_type": "melanoma",
+   "site": "subcutaneous tissue",
+   "n_nodes": 7100,
+   "filled_keys": [],
+   "n_source": 568,
+   "n_sink": 1988,
+   "n_vessel": 1420,
+   "real_rho_partial": 0.1592748275074641,
+   "null_mean": -0.0007276880666279304,
+   "null_std": 0.015683992035900273,
+   "null_ci95": [
+    -0.028090512565300336,
+    0.032285387540616696
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.04894634757391815,
+   "geometry_null_sd": 0.014918430404384574,
+   "geometry_null_ci95": [
+    0.020830638834189376,
+    0.08197275955609712
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.1243605645149454,
+   "construction_null_sd": 0.01478678597802425,
+   "construction_null_ci95": [
+    0.09811378455463236,
+    0.15571819071472554
+   ],
+   "p_vs_construction_null": 0.014925373134328358,
+   "excess_over_construction_null": 0.03491426299251871,
+   "share_reproduced_by_construction": 0.7807923352427896,
+   "ablated_rho": 0.09670688523828307,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.01447341545985578,
+   "discordant_low_bcell_high_bmab": 0.03971830985915493,
+   "input_correlations": {
+    "ecm_caf": 0.5252565889721883,
+    "ecm_crosslink": 0.05241768049861032
+   }
+  },
+  "ECM01_rep2": {
+   "patient": "MPM01",
+   "platform": "Slide-seqV2",
+   "project": "GSE200278",
+   "cancer_type": "melanoma",
+   "site": "subcutaneous tissue",
+   "n_nodes": 7088,
+   "filled_keys": [],
+   "n_source": 567,
+   "n_sink": 1981,
+   "n_vessel": 1418,
+   "real_rho_partial": 0.14459562571174614,
+   "null_mean": 0.0011283702774013613,
+   "null_std": 0.01603034830067543,
+   "null_ci95": [
+    -0.02684992285201281,
+    0.03364950409335963
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.06040026716449539,
+   "geometry_null_sd": 0.015429981685202756,
+   "geometry_null_ci95": [
+    0.02768881258819054,
+    0.08583860521981994
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.1378609128920576,
+   "construction_null_sd": 0.015212659117110196,
+   "construction_null_ci95": [
+    0.10706514719002837,
+    0.16416195083722046
+   ],
+   "p_vs_construction_null": 0.30845771144278605,
+   "excess_over_construction_null": 0.006734712819688543,
+   "share_reproduced_by_construction": 0.953423813572934,
+   "ablated_rho": 0.08873296413357973,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.013919481036720773,
+   "discordant_low_bcell_high_bmab": 0.04345372460496614,
+   "input_correlations": {
+    "ecm_caf": 0.5096423172083867,
+    "ecm_crosslink": 0.010471073039119407
+   }
+  },
+  "ECM06": {
+   "patient": "MPM06",
+   "platform": "Slide-seqV2",
+   "project": "GSE200278",
+   "cancer_type": "melanoma",
+   "site": "subcutaneous tissue",
+   "n_nodes": 6152,
+   "filled_keys": [],
+   "n_source": 493,
+   "n_sink": 1717,
+   "n_vessel": 1231,
+   "real_rho_partial": 0.14332884909150265,
+   "null_mean": -0.0022462235835208687,
+   "null_std": 0.043458201949012544,
+   "null_ci95": [
+    -0.08493903465642284,
+    0.08077533060157788
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.050012661501492486,
+   "geometry_null_sd": 0.027573446949054854,
+   "geometry_null_ci95": [
+    0.0020113395171776644,
+    0.10627301870171224
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.12617945884690857,
+   "construction_null_sd": 0.027402916836418913,
+   "construction_null_ci95": [
+    0.08028159393115143,
+    0.1773229108597826
+   ],
+   "p_vs_construction_null": 0.2736318407960199,
+   "excess_over_construction_null": 0.01714939024459408,
+   "share_reproduced_by_construction": 0.8803493479973056,
+   "ablated_rho": 0.07007698955751653,
+   "ablated_p": 0.02594810379241517,
+   "ablated_null_sd": 0.03700708029962288,
+   "discordant_low_bcell_high_bmab": 0.047626788036410926,
+   "input_correlations": {
+    "ecm_caf": 0.6905238502506386,
+    "ecm_crosslink": 0.04646661019869843
+   }
+  },
+  "ECM08": {
+   "patient": "MPM08",
+   "platform": "Slide-seqV2",
+   "project": "GSE200278",
+   "cancer_type": "melanoma",
+   "site": "subcutaneous tissue",
+   "n_nodes": 5984,
+   "filled_keys": [],
+   "n_source": 479,
+   "n_sink": 1718,
+   "n_vessel": 1197,
+   "real_rho_partial": 0.1953943284661301,
+   "null_mean": -0.00014201178122338353,
+   "null_std": 0.02784068021219141,
+   "null_ci95": [
+    -0.05216130872442355,
+    0.05533806518559783
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.06719867217692471,
+   "geometry_null_sd": 0.03735789979979495,
+   "geometry_null_ci95": [
+    -0.00897764488027153,
+    0.1367756838947621
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.14061762743432538,
+   "construction_null_sd": 0.039812124073973526,
+   "construction_null_ci95": [
+    0.06245476690870557,
+    0.2085662991857853
+   ],
+   "p_vs_construction_null": 0.07960199004975124,
+   "excess_over_construction_null": 0.054776701031804736,
+   "share_reproduced_by_construction": 0.7196607421422685,
+   "ablated_rho": 0.16510328085066156,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.02338336943355937,
+   "discordant_low_bcell_high_bmab": 0.037266042780748666,
+   "input_correlations": {
+    "ecm_caf": 0.6807187276470028,
+    "ecm_crosslink": 0.03053224831008671
+   }
+  },
+  "ECM10": {
+   "patient": "MPM10",
+   "platform": "Slide-seqV2",
+   "project": "GSE200278",
+   "cancer_type": "melanoma",
+   "site": "subcutaneous tissue",
+   "n_nodes": 6112,
+   "filled_keys": [],
+   "n_source": 489,
+   "n_sink": 1745,
+   "n_vessel": 1223,
+   "real_rho_partial": 0.2410191870092972,
+   "null_mean": -0.0003662867257576522,
+   "null_std": 0.02877644662353583,
+   "null_ci95": [
+    -0.0529968740795006,
+    0.05652355291575911
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.05224617240571782,
+   "geometry_null_sd": 0.031794483556301656,
+   "geometry_null_ci95": [
+    -0.010458325016223556,
+    0.11303710550152767
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.15519919096484044,
+   "construction_null_sd": 0.026246042381040002,
+   "construction_null_ci95": [
+    0.10744396127430735,
+    0.20656555680228392
+   ],
+   "p_vs_construction_null": 0.004975124378109453,
+   "excess_over_construction_null": 0.08581999604445675,
+   "share_reproduced_by_construction": 0.643928779657089,
+   "ablated_rho": 0.19448714254818228,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.022313099889478542,
+   "discordant_low_bcell_high_bmab": 0.037303664921465966,
+   "input_correlations": {
+    "ecm_caf": 0.6194140265940906,
+    "ecm_crosslink": 0.12051308058642149
+   }
+  },
+  "MBM05_rep1": {
+   "patient": "MBM05",
+   "platform": "Slide-seqV2",
+   "project": "GSE200278",
+   "cancer_type": "melanoma",
+   "site": "brain",
+   "n_nodes": 6082,
+   "filled_keys": [],
+   "n_source": 487,
+   "n_sink": 1695,
+   "n_vessel": 1217,
+   "real_rho_partial": 0.23457603154629936,
+   "null_mean": -0.00014839631643481376,
+   "null_std": 0.05303121014969969,
+   "null_ci95": [
+    -0.09354658169233167,
+    0.0907255875406674
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.061606132150294195,
+   "geometry_null_sd": 0.025652685898954523,
+   "geometry_null_ci95": [
+    0.010082362567169047,
+    0.111139615074949
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.16788811712690851,
+   "construction_null_sd": 0.02054185439640064,
+   "construction_null_ci95": [
+    0.12705193273728746,
+    0.20508055569241285
+   ],
+   "p_vs_construction_null": 0.004975124378109453,
+   "excess_over_construction_null": 0.06668791441939084,
+   "share_reproduced_by_construction": 0.7157087449225249,
+   "ablated_rho": 0.13474995945880808,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.03084491227294611,
+   "discordant_low_bcell_high_bmab": 0.0350213745478461,
+   "input_correlations": {
+    "ecm_caf": 0.6407708244421683,
+    "ecm_crosslink": 0.04943775848461195
+   }
+  },
+  "MBM05_rep2": {
+   "patient": "MBM05",
+   "platform": "Slide-seqV2",
+   "project": "GSE200278",
+   "cancer_type": "melanoma",
+   "site": "brain",
+   "n_nodes": 6422,
+   "filled_keys": [],
+   "n_source": 514,
+   "n_sink": 1846,
+   "n_vessel": 1285,
+   "real_rho_partial": 0.2724173573141604,
+   "null_mean": 0.0008646691221080356,
+   "null_std": 0.037734603575909735,
+   "null_ci95": [
+    -0.06970971652817942,
+    0.07594428483218953
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.0916634963749383,
+   "geometry_null_sd": 0.030934939655214832,
+   "geometry_null_ci95": [
+    0.03947044427591285,
+    0.15100354117617748
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.18897023934340512,
+   "construction_null_sd": 0.03051119097660791,
+   "construction_null_ci95": [
+    0.13257587299112705,
+    0.2526378647345467
+   ],
+   "p_vs_construction_null": 0.004975124378109453,
+   "excess_over_construction_null": 0.08344711797075527,
+   "share_reproduced_by_construction": 0.6936791444073757,
+   "ablated_rho": 0.16524035068576057,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.036632903885488136,
+   "discordant_low_bcell_high_bmab": 0.03456867019620056,
+   "input_correlations": {
+    "ecm_caf": 0.6637012202630598,
+    "ecm_crosslink": 0.11477895028756721
+   }
+  },
+  "MBM05_rep3": {
+   "patient": "MBM05",
+   "platform": "Slide-seqV2",
+   "project": "GSE200278",
+   "cancer_type": "melanoma",
+   "site": "brain",
+   "n_nodes": 4066,
+   "filled_keys": [],
+   "n_source": 326,
+   "n_sink": 1136,
+   "n_vessel": 815,
+   "real_rho_partial": 0.27708836311648555,
+   "null_mean": -0.002443097064804644,
+   "null_std": 0.05396130066841718,
+   "null_ci95": [
+    -0.10103787432985818,
+    0.11015882920736288
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.07719331088197075,
+   "geometry_null_sd": 0.09193555741172416,
+   "geometry_null_ci95": [
+    -0.09441900774579653,
+    0.23465623743854552
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.1410892384327461,
+   "construction_null_sd": 0.09600794114325464,
+   "construction_null_ci95": [
+    -0.04105637789577684,
+    0.29859918939410857
+   ],
+   "p_vs_construction_null": 0.06965174129353234,
+   "excess_over_construction_null": 0.13599912468373945,
+   "share_reproduced_by_construction": 0.5091850009357246,
+   "ablated_rho": 0.2827862892439932,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.047975306489797476,
+   "discordant_low_bcell_high_bmab": 0.03344810624692573,
+   "input_correlations": {
+    "ecm_caf": 0.4753605398918083,
+    "ecm_crosslink": 0.1176003696565606
+   }
+  },
+  "MBM06": {
+   "patient": "MBM06",
+   "platform": "Slide-seqV2",
+   "project": "GSE200278",
+   "cancer_type": "melanoma",
+   "site": "brain",
+   "n_nodes": 4803,
+   "filled_keys": [],
+   "n_source": 385,
+   "n_sink": 1355,
+   "n_vessel": 961,
+   "real_rho_partial": 0.18782603972673773,
+   "null_mean": -0.002964208968244252,
+   "null_std": 0.048133836594983485,
+   "null_ci95": [
+    -0.09731539496605128,
+    0.0860280112092251
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.08732459483378538,
+   "geometry_null_sd": 0.04649140900392236,
+   "geometry_null_ci95": [
+    -0.006708021138584628,
+    0.17646480907754286
+   ],
+   "p_vs_geometry_null": 0.014925373134328358,
+   "construction_null_mean": 0.17331920482132226,
+   "construction_null_sd": 0.03994015506017066,
+   "construction_null_ci95": [
+    0.09574779289543338,
+    0.2465625966347618
+   ],
+   "p_vs_construction_null": 0.3781094527363184,
+   "excess_over_construction_null": 0.014506834905415461,
+   "share_reproduced_by_construction": 0.9227645169619665,
+   "ablated_rho": 0.08877054757574297,
+   "ablated_p": 0.007984031936127744,
+   "ablated_null_sd": 0.03451680286919825,
+   "discordant_low_bcell_high_bmab": 0.03476993545700604,
+   "input_correlations": {
+    "ecm_caf": 0.6241452962853562,
+    "ecm_crosslink": 0.06194414146469769
+   }
+  },
+  "MBM07": {
+   "patient": "MBM07",
+   "platform": "Slide-seqV2",
+   "project": "GSE200278",
+   "cancer_type": "melanoma",
+   "site": "brain",
+   "n_nodes": 6355,
+   "filled_keys": [],
+   "n_source": 617,
+   "n_sink": 1739,
+   "n_vessel": 1542,
+   "real_rho_partial": 0.09430326826980184,
+   "null_mean": 0.0020724377515049463,
+   "null_std": 0.02964319945488206,
+   "null_ci95": [
+    -0.0529284721317933,
+    0.05800646344341104
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.08416176360866892,
+   "geometry_null_sd": 0.02197891466052047,
+   "geometry_null_ci95": [
+    0.04331883170717046,
+    0.13430654864403777
+   ],
+   "p_vs_geometry_null": 0.3283582089552239,
+   "construction_null_mean": 0.1537333803470886,
+   "construction_null_sd": 0.01933127333123894,
+   "construction_null_ci95": [
+    0.11761753590341828,
+    0.19164080228990696
+   ],
+   "p_vs_construction_null": 1.0,
+   "excess_over_construction_null": -0.05943011207728677,
+   "share_reproduced_by_construction": 1.6302020403710409,
+   "ablated_rho": 0.0661668725495936,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.01774854951731144,
+   "discordant_low_bcell_high_bmab": 0.04075531077891424,
+   "input_correlations": {
+    "ecm_caf": 0.46636379864584915,
+    "ecm_crosslink": -0.05964672995842652
+   }
+  },
+  "MBM08": {
+   "patient": "MBM08",
+   "platform": "Slide-seqV2",
+   "project": "GSE200278",
+   "cancer_type": "melanoma",
+   "site": "brain",
+   "n_nodes": 6888,
+   "filled_keys": [],
+   "n_source": 551,
+   "n_sink": 1980,
+   "n_vessel": 1378,
+   "real_rho_partial": 0.4063223875187595,
+   "null_mean": 0.004129501125348641,
+   "null_std": 0.056859231533398794,
+   "null_ci95": [
+    -0.09791026794947727,
+    0.10602504485773766
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.09655217395753773,
+   "geometry_null_sd": 0.048208565897465736,
+   "geometry_null_ci95": [
+    0.007750205056652428,
+    0.18609136474489837
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.20880750849825977,
+   "construction_null_sd": 0.05065680444895347,
+   "construction_null_ci95": [
+    0.11497459236105258,
+    0.296584560074883
+   ],
+   "p_vs_construction_null": 0.004975124378109453,
+   "excess_over_construction_null": 0.19751487902049972,
+   "share_reproduced_by_construction": 0.5138961448158437,
+   "ablated_rho": 0.30723454219243435,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.05359185131596487,
+   "discordant_low_bcell_high_bmab": 0.024099883855981417,
+   "input_correlations": {
+    "ecm_caf": 0.8272237129921691,
+    "ecm_crosslink": 0.16142735650440493
+   }
+  },
+  "MBM11_rep1": {
+   "patient": "MBM11",
+   "platform": "Slide-seqV2",
+   "project": "GSE200278",
+   "cancer_type": "melanoma",
+   "site": "brain",
+   "n_nodes": 6325,
+   "filled_keys": [],
+   "n_source": 506,
+   "n_sink": 1751,
+   "n_vessel": 1265,
+   "real_rho_partial": 0.18867180184994803,
+   "null_mean": -0.00159119344865511,
+   "null_std": 0.025895076616707157,
+   "null_ci95": [
+    -0.05233596039394363,
+    0.046932134345144996
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.09314864638215395,
+   "geometry_null_sd": 0.028170503338104187,
+   "geometry_null_ci95": [
+    0.03603399338923921,
+    0.14033853292721454
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.1487896909301637,
+   "construction_null_sd": 0.027685848461897165,
+   "construction_null_ci95": [
+    0.09754093090267377,
+    0.195862933029446
+   ],
+   "p_vs_construction_null": 0.06965174129353234,
+   "excess_over_construction_null": 0.03988211091978433,
+   "share_reproduced_by_construction": 0.7886164730037251,
+   "ablated_rho": 0.15371151468313124,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.026297072558374015,
+   "discordant_low_bcell_high_bmab": 0.03905138339920949,
+   "input_correlations": {
+    "ecm_caf": 0.2215117263408905,
+    "ecm_crosslink": 0.006516093653409577
+   }
+  },
+  "MBM11_rep2": {
+   "patient": "MBM11",
+   "platform": "Slide-seqV2",
+   "project": "GSE200278",
+   "cancer_type": "melanoma",
+   "site": "brain",
+   "n_nodes": 6296,
+   "filled_keys": [],
+   "n_source": 504,
+   "n_sink": 1784,
+   "n_vessel": 1260,
+   "real_rho_partial": 0.18964641654443726,
+   "null_mean": 0.0007355553364070886,
+   "null_std": 0.029980208652353933,
+   "null_ci95": [
+    -0.05755278102697493,
+    0.059148715893253205
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.07073782067147816,
+   "geometry_null_sd": 0.033540522539465586,
+   "geometry_null_ci95": [
+    0.014510096400568315,
+    0.13608546847329778
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.144619053724622,
+   "construction_null_sd": 0.026822281866085314,
+   "construction_null_ci95": [
+    0.09311706830516783,
+    0.19409758148168377
+   ],
+   "p_vs_construction_null": 0.03482587064676617,
+   "excess_over_construction_null": 0.04502736281981526,
+   "share_reproduced_by_construction": 0.7625720346302214,
+   "ablated_rho": 0.07090955970751707,
+   "ablated_p": 0.003992015968063872,
+   "ablated_null_sd": 0.027521054292583592,
+   "discordant_low_bcell_high_bmab": 0.041296060991105464,
+   "input_correlations": {
+    "ecm_caf": 0.5570135557610646,
+    "ecm_crosslink": 0.11117338208706619
+   }
+  },
+  "MBM11_rep3": {
+   "patient": "MBM11",
+   "platform": "Slide-seqV2",
+   "project": "GSE200278",
+   "cancer_type": "melanoma",
+   "site": "brain",
+   "n_nodes": 5220,
+   "filled_keys": [],
+   "n_source": 418,
+   "n_sink": 1434,
+   "n_vessel": 1044,
+   "real_rho_partial": 0.1300378494812373,
+   "null_mean": 0.00020655240843291977,
+   "null_std": 0.036036294757616584,
+   "null_ci95": [
+    -0.06784093768882396,
+    0.06711490514418231
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.07139128349275406,
+   "geometry_null_sd": 0.04696510551123849,
+   "geometry_null_ci95": [
+    -0.013759851796303202,
+    0.16325946981166098
+   ],
+   "p_vs_geometry_null": 0.12437810945273632,
+   "construction_null_mean": 0.1410673034933651,
+   "construction_null_sd": 0.04790443763088673,
+   "construction_null_ci95": [
+    0.05336141678708644,
+    0.23296869699162734
+   ],
+   "p_vs_construction_null": 0.6169154228855721,
+   "excess_over_construction_null": -0.011029454012127793,
+   "share_reproduced_by_construction": 1.08481725940661,
+   "ablated_rho": 0.07220544950092296,
+   "ablated_p": 0.005988023952095809,
+   "ablated_null_sd": 0.030972375634476714,
+   "discordant_low_bcell_high_bmab": 0.0421455938697318,
+   "input_correlations": {
+    "ecm_caf": 0.5726247446631378,
+    "ecm_crosslink": -0.012393800719799375
+   }
+  },
+  "MBM13": {
+   "patient": "MBM13",
+   "platform": "Slide-seqV2",
+   "project": "GSE200278",
+   "cancer_type": "melanoma",
+   "site": "brain",
+   "n_nodes": 6351,
+   "filled_keys": [
+    "ag_target"
+   ],
+   "n_source": 509,
+   "n_sink": 1769,
+   "n_vessel": 1271,
+   "real_rho_partial": 0.2833491116434743,
+   "null_mean": 0.0012831806671485238,
+   "null_std": 0.021193394896816292,
+   "null_ci95": [
+    -0.03903057993905256,
+    0.04160255906800114
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.059853068983990065,
+   "geometry_null_sd": 0.026583369125306993,
+   "geometry_null_ci95": [
+    0.005414475992599817,
+    0.10542552649035215
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.15287189624056244,
+   "construction_null_sd": 0.026368226610996588,
+   "construction_null_ci95": [
+    0.09490928688398212,
+    0.19763041069173315
+   ],
+   "p_vs_construction_null": 0.004975124378109453,
+   "excess_over_construction_null": 0.13047721540291188,
+   "share_reproduced_by_construction": 0.5395178243329536,
+   "ablated_rho": 0.1721466408040719,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.01874230673465958,
+   "discordant_low_bcell_high_bmab": 0.03464021413950559,
+   "input_correlations": {
+    "ecm_caf": 0.303434276040019,
+    "ecm_crosslink": 0.09748675045407251
+   }
+  },
+  "MBM18": {
+   "patient": "MBM18",
+   "platform": "Slide-seqV2",
+   "project": "GSE200278",
+   "cancer_type": "melanoma",
+   "site": "brain",
+   "n_nodes": 6689,
+   "filled_keys": [],
+   "n_source": 535,
+   "n_sink": 1927,
+   "n_vessel": 1338,
+   "real_rho_partial": 0.2076298950293768,
+   "null_mean": 0.001856600361896319,
+   "null_std": 0.025801245476745806,
+   "null_ci95": [
+    -0.05114629003409939,
+    0.04533269498405979
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.08754964855063203,
+   "geometry_null_sd": 0.020036493366172265,
+   "geometry_null_ci95": [
+    0.04761526132426605,
+    0.1263710834722063
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.15310048458528003,
+   "construction_null_sd": 0.020019507941847373,
+   "construction_null_ci95": [
+    0.11448378749978014,
+    0.1924160214986043
+   ],
+   "p_vs_construction_null": 0.009950248756218905,
+   "excess_over_construction_null": 0.05452941044409676,
+   "share_reproduced_by_construction": 0.7373720656344714,
+   "ablated_rho": 0.18637107344497963,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.026087105388659482,
+   "discordant_low_bcell_high_bmab": 0.04021527881596651,
+   "input_correlations": {
+    "ecm_caf": 0.3096493679453778,
+    "ecm_crosslink": 0.02968344447908783
+   }
+  },
+  "CSCC289_S1": {
+   "patient": "CSCC289_S1",
+   "platform": "Visium",
+   "project": "GSE289745",
+   "cancer_type": "cscc",
+   "site": "skin",
+   "n_nodes": 2860,
+   "filled_keys": [],
+   "n_source": 229,
+   "n_sink": 846,
+   "n_vessel": 572,
+   "real_rho_partial": 0.3640331032959574,
+   "null_mean": 0.00037038897597130077,
+   "null_std": 0.04160119425384141,
+   "null_ci95": [
+    -0.0768553525907211,
+    0.08056544820191971
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": -0.018997705467366875,
+   "geometry_null_sd": 0.1598319925998925,
+   "geometry_null_ci95": [
+    -0.24678520637809165,
+    0.24718017190668598
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.07536405233803799,
+   "construction_null_sd": 0.1528087742557103,
+   "construction_null_ci95": [
+    -0.1502005792506866,
+    0.2906871156668523
+   ],
+   "p_vs_construction_null": 0.004975124378109453,
+   "excess_over_construction_null": 0.2886690509579194,
+   "share_reproduced_by_construction": 0.2070252723054346,
+   "ablated_rho": 0.28779873028873537,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.03514044947507114,
+   "discordant_low_bcell_high_bmab": 0.026573426573426574,
+   "input_correlations": {
+    "ecm_caf": 0.9054467673448625,
+    "ecm_crosslink": 0.4252404475891959
+   }
+  },
+  "CSCC289_S10": {
+   "patient": "CSCC289_S10",
+   "platform": "Visium",
+   "project": "GSE289745",
+   "cancer_type": "cscc",
+   "site": "skin",
+   "n_nodes": 1146,
+   "filled_keys": [],
+   "n_source": 92,
+   "n_sink": 183,
+   "n_vessel": 230,
+   "real_rho_partial": 0.30757919591949806,
+   "null_mean": 0.001836362908864139,
+   "null_std": 0.28687253922493555,
+   "null_ci95": [
+    -0.4338425656271456,
+    0.4327054964309224
+   ],
+   "empirical_p_one_sided": 0.20359281437125748,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.03186124888236943,
+   "geometry_null_sd": 0.2799357240190706,
+   "geometry_null_ci95": [
+    -0.38120089556865155,
+    0.39866736657775537
+   ],
+   "p_vs_geometry_null": 0.263681592039801,
+   "construction_null_mean": 0.09537225329294528,
+   "construction_null_sd": 0.2907168569490304,
+   "construction_null_ci95": [
+    -0.35733984230418203,
+    0.45042237119915507
+   ],
+   "p_vs_construction_null": 0.38308457711442784,
+   "excess_over_construction_null": 0.21220694262655276,
+   "share_reproduced_by_construction": 0.310073810446877,
+   "ablated_rho": 0.1800635656598377,
+   "ablated_p": 0.249500998003992,
+   "ablated_null_sd": 0.23304330030097228,
+   "discordant_low_bcell_high_bmab": 0.030541012216404886,
+   "input_correlations": {
+    "ecm_caf": 0.8148744375793536,
+    "ecm_crosslink": 0.2490182439643796
+   }
+  },
+  "CSCC289_S11": {
+   "patient": "CSCC289_S11",
+   "platform": "Visium",
+   "project": "GSE289745",
+   "cancer_type": "cscc",
+   "site": "skin",
+   "n_nodes": 1483,
+   "filled_keys": [],
+   "n_source": 119,
+   "n_sink": 431,
+   "n_vessel": 297,
+   "real_rho_partial": 0.4692505060973462,
+   "null_mean": 0.005646540291351164,
+   "null_std": 0.0929655611121257,
+   "null_ci95": [
+    -0.16626660360143827,
+    0.17851430589859568
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.028386988537899657,
+   "geometry_null_sd": 0.11721422101935872,
+   "geometry_null_ci95": [
+    -0.16326288376679615,
+    0.24979302129038697
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.17370722389194834,
+   "construction_null_sd": 0.10617425960992796,
+   "construction_null_ci95": [
+    -0.020179817934189895,
+    0.35555182887944625
+   ],
+   "p_vs_construction_null": 0.004975124378109453,
+   "excess_over_construction_null": 0.29554328220539783,
+   "share_reproduced_by_construction": 0.3701801524661813,
+   "ablated_rho": 0.3750589925436544,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.08409205068333205,
+   "discordant_low_bcell_high_bmab": 0.016857720836142953,
+   "input_correlations": {
+    "ecm_caf": 0.9185527947715896,
+    "ecm_crosslink": 0.36400923309421546
+   }
+  },
+  "CSCC289_S15": {
+   "patient": "CSCC289_S15",
+   "platform": "Visium",
+   "project": "GSE289745",
+   "cancer_type": "cscc",
+   "site": "skin",
+   "n_nodes": 2029,
+   "filled_keys": [],
+   "n_source": 163,
+   "n_sink": 601,
+   "n_vessel": 406,
+   "real_rho_partial": 0.5529476521063033,
+   "null_mean": 0.012014608259573515,
+   "null_std": 0.20637126899250563,
+   "null_ci95": [
+    -0.34473483062796917,
+    0.35879223221620155
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.0757565157922912,
+   "geometry_null_sd": 0.16378384536500182,
+   "geometry_null_ci95": [
+    -0.24155792277076799,
+    0.37176782480423065
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.18862625794962667,
+   "construction_null_sd": 0.15422075074072308,
+   "construction_null_ci95": [
+    -0.1265537418109995,
+    0.46409514257666096
+   ],
+   "p_vs_construction_null": 0.004975124378109453,
+   "excess_over_construction_null": 0.3643213941566766,
+   "share_reproduced_by_construction": 0.34112859911983784,
+   "ablated_rho": 0.4896670417211066,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.19263355670314716,
+   "discordant_low_bcell_high_bmab": 0.0034499753573188764,
+   "input_correlations": {
+    "ecm_caf": 0.8313237173124249,
+    "ecm_crosslink": 0.3613537710829892
+   }
+  },
+  "CSCC289_S3": {
+   "patient": "CSCC289_S3",
+   "platform": "Visium",
+   "project": "GSE289745",
+   "cancer_type": "cscc",
+   "site": "skin",
+   "n_nodes": 2858,
+   "filled_keys": [],
+   "n_source": 229,
+   "n_sink": 441,
+   "n_vessel": 572,
+   "real_rho_partial": 0.5143280055556888,
+   "null_mean": 0.0055978220442173985,
+   "null_std": 0.16909463457769813,
+   "null_ci95": [
+    -0.3313564390489657,
+    0.32903202045181457
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.012717537792388007,
+   "geometry_null_sd": 0.1761392882438657,
+   "geometry_null_ci95": [
+    -0.33583201319528533,
+    0.367296977979998
+   ],
+   "p_vs_geometry_null": 0.009950248756218905,
+   "construction_null_mean": 0.11118020900136766,
+   "construction_null_sd": 0.17856261592778483,
+   "construction_null_ci95": [
+    -0.23919296444405114,
+    0.42302299821456646
+   ],
+   "p_vs_construction_null": 0.014925373134328358,
+   "excess_over_construction_null": 0.40314779655432115,
+   "share_reproduced_by_construction": 0.21616596374379157,
+   "ablated_rho": 0.4461535791351198,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.15718781710970986,
+   "discordant_low_bcell_high_bmab": 0.002099370188943317,
+   "input_correlations": {
+    "ecm_caf": 0.9591529499116211,
+    "ecm_crosslink": 0.6496428885660486
+   }
+  },
+  "CSCC289_S4": {
+   "patient": "CSCC289_S4",
+   "platform": "Visium",
+   "project": "GSE289745",
+   "cancer_type": "cscc",
+   "site": "skin",
+   "n_nodes": 3195,
+   "filled_keys": [],
+   "n_source": 256,
+   "n_sink": 953,
+   "n_vessel": 639,
+   "real_rho_partial": 0.30375715723958263,
+   "null_mean": 0.0008890852706543075,
+   "null_std": 0.08000616656066736,
+   "null_ci95": [
+    -0.15539009737598453,
+    0.1531133612372553
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.051878417906572466,
+   "geometry_null_sd": 0.11268097925568735,
+   "geometry_null_ci95": [
+    -0.16209575373038973,
+    0.2546792383345296
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.13650319458105772,
+   "construction_null_sd": 0.10632452091402879,
+   "construction_null_ci95": [
+    -0.06997030569450205,
+    0.30939512717714834
+   ],
+   "p_vs_construction_null": 0.03980099502487562,
+   "excess_over_construction_null": 0.1672539626585249,
+   "share_reproduced_by_construction": 0.4493826444174728,
+   "ablated_rho": 0.17957170154188842,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.0666253247024802,
+   "discordant_low_bcell_high_bmab": 0.026917057902973395,
+   "input_correlations": {
+    "ecm_caf": 0.9257597192027737,
+    "ecm_crosslink": 0.3834049467725185
+   }
+  },
+  "CSCC289_S5": {
+   "patient": "CSCC289_S5",
+   "platform": "Visium",
+   "project": "GSE289745",
+   "cancer_type": "cscc",
+   "site": "skin",
+   "n_nodes": 2729,
+   "filled_keys": [],
+   "n_source": 219,
+   "n_sink": 810,
+   "n_vessel": 546,
+   "real_rho_partial": 0.39764642050189136,
+   "null_mean": 0.00489784992764635,
+   "null_std": 0.16329137828298354,
+   "null_ci95": [
+    -0.24320124342227165,
+    0.24181323107524086
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.07058928299451782,
+   "geometry_null_sd": 0.15446624816842172,
+   "geometry_null_ci95": [
+    -0.1574356496542804,
+    0.3097801848969442
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.18316374369251434,
+   "construction_null_sd": 0.13706515156081073,
+   "construction_null_ci95": [
+    -0.027792027236135976,
+    0.3880735388530963
+   ],
+   "p_vs_construction_null": 0.01990049751243781,
+   "excess_over_construction_null": 0.21448267680937702,
+   "share_reproduced_by_construction": 0.4606196214751118,
+   "ablated_rho": 0.30748319649882583,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.1476398170140065,
+   "discordant_low_bcell_high_bmab": 0.022352510076951264,
+   "input_correlations": {
+    "ecm_caf": 0.8862611686009976,
+    "ecm_crosslink": 0.31659276609157805
+   }
+  },
+  "CSCC289_S6": {
+   "patient": "CSCC289_S6",
+   "platform": "Visium",
+   "project": "GSE289745",
+   "cancer_type": "cscc",
+   "site": "skin",
+   "n_nodes": 2059,
+   "filled_keys": [],
+   "n_source": 165,
+   "n_sink": 595,
+   "n_vessel": 412,
+   "real_rho_partial": 0.5520829234570667,
+   "null_mean": 0.0009235052774123427,
+   "null_std": 0.10343155055344731,
+   "null_ci95": [
+    -0.18272214034173193,
+    0.17446236373449037
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.03386953570139417,
+   "geometry_null_sd": 0.16890319981684515,
+   "geometry_null_ci95": [
+    -0.26306911448531584,
+    0.33962371064826974
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.15807494624322657,
+   "construction_null_sd": 0.16818832619514618,
+   "construction_null_ci95": [
+    -0.1436621602918972,
+    0.42268217608558534
+   ],
+   "p_vs_construction_null": 0.004975124378109453,
+   "excess_over_construction_null": 0.39400797721384007,
+   "share_reproduced_by_construction": 0.28632464350352155,
+   "ablated_rho": 0.4632822104783991,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.08788485418870474,
+   "discordant_low_bcell_high_bmab": 0.0048567265662943174,
+   "input_correlations": {
+    "ecm_caf": 0.9396895656922893,
+    "ecm_crosslink": 0.49974045127539146
+   }
+  },
+  "CSCC289_S7": {
+   "patient": "CSCC289_S7",
+   "platform": "Visium",
+   "project": "GSE289745",
+   "cancer_type": "cscc",
+   "site": "skin",
+   "n_nodes": 2746,
+   "filled_keys": [],
+   "n_source": 220,
+   "n_sink": 824,
+   "n_vessel": 550,
+   "real_rho_partial": 0.4712821216796143,
+   "null_mean": 0.001383697486577125,
+   "null_std": 0.11002294973268135,
+   "null_ci95": [
+    -0.2118800260378725,
+    0.20016687650404325
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.011577741440937312,
+   "geometry_null_sd": 0.2681141131061004,
+   "geometry_null_ci95": [
+    -0.3321260699867501,
+    0.36499880490352526
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.060389770503845225,
+   "construction_null_sd": 0.2768513978506572,
+   "construction_null_ci95": [
+    -0.28681058487271843,
+    0.39969029076714213
+   ],
+   "p_vs_construction_null": 0.004975124378109453,
+   "excess_over_construction_null": 0.41089235117576905,
+   "share_reproduced_by_construction": 0.12813931979558357,
+   "ablated_rho": 0.42878206532058916,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.12059795222949597,
+   "discordant_low_bcell_high_bmab": 0.012017479970866714,
+   "input_correlations": {
+    "ecm_caf": 0.9841234727931253,
+    "ecm_crosslink": 0.7289594073122889
+   }
+  },
+  "CSCC289_S8": {
+   "patient": "CSCC289_S8",
+   "platform": "Visium",
+   "project": "GSE289745",
+   "cancer_type": "cscc",
+   "site": "skin",
+   "n_nodes": 2156,
+   "filled_keys": [],
+   "n_source": 173,
+   "n_sink": 647,
+   "n_vessel": 432,
+   "real_rho_partial": 0.3649880204443608,
+   "null_mean": 0.00021537523156579087,
+   "null_std": 0.08445937309980411,
+   "null_ci95": [
+    -0.1677274608405341,
+    0.14626093368220922
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.06950080831982249,
+   "geometry_null_sd": 0.1302341803954926,
+   "geometry_null_ci95": [
+    -0.17765963647127883,
+    0.3033719980400616
+   ],
+   "p_vs_geometry_null": 0.009950248756218905,
+   "construction_null_mean": 0.09465232129179647,
+   "construction_null_sd": 0.1316067311088032,
+   "construction_null_ci95": [
+    -0.14941839778310986,
+    0.34629202382813895
+   ],
+   "p_vs_construction_null": 0.01990049751243781,
+   "excess_over_construction_null": 0.27033569915256433,
+   "share_reproduced_by_construction": 0.2593299395869498,
+   "ablated_rho": 0.38337592090313544,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.06260056532335373,
+   "discordant_low_bcell_high_bmab": 0.023191094619666047,
+   "input_correlations": {
+    "ecm_caf": 0.9698528740654885,
+    "ecm_crosslink": 0.7445517935798558
+   }
+  },
+  "CSCC289_S9": {
+   "patient": "CSCC289_S9",
+   "platform": "Visium",
+   "project": "GSE289745",
+   "cancer_type": "cscc",
+   "site": "skin",
+   "n_nodes": 4261,
+   "filled_keys": [],
+   "n_source": 341,
+   "n_sink": 1209,
+   "n_vessel": 853,
+   "real_rho_partial": 0.1301820718044546,
+   "null_mean": -0.0024385569824069446,
+   "null_std": 0.07948620417377213,
+   "null_ci95": [
+    -0.16095177328370705,
+    0.145503717515084
+   ],
+   "empirical_p_one_sided": 0.05588822355289421,
+   "empirical_p_nscore": 0.05788423153692615,
+   "geometry_null_mean": 0.018255323982269693,
+   "geometry_null_sd": 0.060412606369973205,
+   "geometry_null_ci95": [
+    -0.0977536413796044,
+    0.134677402220663
+   ],
+   "p_vs_geometry_null": 0.03482587064676617,
+   "construction_null_mean": 0.10588298908038457,
+   "construction_null_sd": 0.05424676204926108,
+   "construction_null_ci95": [
+    0.0037152798346954657,
+    0.2024108742260753
+   ],
+   "p_vs_construction_null": 0.31343283582089554,
+   "excess_over_construction_null": 0.024299082724070026,
+   "share_reproduced_by_construction": 0.8133453985847646,
+   "ablated_rho": 0.018335113569457457,
+   "ablated_p": 0.4171656686626746,
+   "ablated_null_sd": 0.07935674856652326,
+   "discordant_low_bcell_high_bmab": 0.04294766486740202,
+   "input_correlations": {
+    "ecm_caf": 0.8999292236183795,
+    "ecm_crosslink": 0.028989315594311435
+   }
+  },
+  "MEL300_0019": {
+   "patient": "MEL300_0019",
+   "platform": "Visium",
+   "project": "GSE300445",
+   "cancer_type": "melanoma",
+   "site": "skin",
+   "n_nodes": 2534,
+   "filled_keys": [],
+   "n_source": 203,
+   "n_sink": 754,
+   "n_vessel": 507,
+   "real_rho_partial": -0.05201995448749658,
+   "null_mean": -0.001921791836098126,
+   "null_std": 0.0905349279654785,
+   "null_ci95": [
+    -0.16308257594526113,
+    0.17153305303377184
+   ],
+   "empirical_p_one_sided": 0.6626746506986028,
+   "empirical_p_nscore": 0.6706586826347305,
+   "geometry_null_mean": -0.0006158836628086683,
+   "geometry_null_sd": 0.12527698660784795,
+   "geometry_null_ci95": [
+    -0.19609125081644976,
+    0.26266068614638904
+   ],
+   "p_vs_geometry_null": 0.5970149253731343,
+   "construction_null_mean": 0.08193449429529448,
+   "construction_null_sd": 0.12116870239615465,
+   "construction_null_ci95": [
+    -0.12761898426512985,
+    0.31265768669486743
+   ],
+   "p_vs_construction_null": 0.8656716417910447,
+   "excess_over_construction_null": -0.13395444878279106,
+   "share_reproduced_by_construction": null,
+   "ablated_rho": -0.10136897123491558,
+   "ablated_p": 0.8283433133732535,
+   "ablated_null_sd": 0.10742590340558682,
+   "discordant_low_bcell_high_bmab": 0.06471981057616416,
+   "input_correlations": {
+    "ecm_caf": 0.9869637066876266,
+    "ecm_crosslink": 0.1105072915252493
+   }
+  },
+  "MEL300_0022": {
+   "patient": "MEL300_0022",
+   "platform": "Visium",
+   "project": "GSE300445",
+   "cancer_type": "melanoma",
+   "site": "skin",
+   "n_nodes": 2762,
+   "filled_keys": [],
+   "n_source": 221,
+   "n_sink": 810,
+   "n_vessel": 553,
+   "real_rho_partial": 0.33218196330669986,
+   "null_mean": 0.00018532109859534075,
+   "null_std": 0.1276789186600201,
+   "null_ci95": [
+    -0.22781541252212395,
+    0.2276519737525101
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.04759754958150141,
+   "geometry_null_sd": 0.09981377855576753,
+   "geometry_null_ci95": [
+    -0.1245443017487715,
+    0.23875305084721604
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.14046974753687377,
+   "construction_null_sd": 0.10021407286854206,
+   "construction_null_ci95": [
+    -0.04938971466981174,
+    0.3271175068487205
+   ],
+   "p_vs_construction_null": 0.024875621890547265,
+   "excess_over_construction_null": 0.19171221576982608,
+   "share_reproduced_by_construction": 0.42286988173159673,
+   "ablated_rho": 0.2292256604547339,
+   "ablated_p": 0.05189620758483034,
+   "ablated_null_sd": 0.14650880205859176,
+   "discordant_low_bcell_high_bmab": 0.017378711078928313,
+   "input_correlations": {
+    "ecm_caf": 0.9544026360145826,
+    "ecm_crosslink": 0.43926042599344783
+   }
+  },
+  "MEL300_0113": {
+   "patient": "MEL300_0113",
+   "platform": "Visium",
+   "project": "GSE300445",
+   "cancer_type": "melanoma",
+   "site": "skin",
+   "n_nodes": 2132,
+   "filled_keys": [],
+   "n_source": 171,
+   "n_sink": 613,
+   "n_vessel": 427,
+   "real_rho_partial": 0.6265034553243419,
+   "null_mean": -0.012276876131637795,
+   "null_std": 0.12606186522232643,
+   "null_ci95": [
+    -0.22268544337237609,
+    0.2262821883651802
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.03380008620104452,
+   "geometry_null_sd": 0.21749558642910427,
+   "geometry_null_ci95": [
+    -0.27789408237354923,
+    0.39820018389026834
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.12469905852665786,
+   "construction_null_sd": 0.22165406894092857,
+   "construction_null_ci95": [
+    -0.20738319831720367,
+    0.47057668900926725
+   ],
+   "p_vs_construction_null": 0.004975124378109453,
+   "excess_over_construction_null": 0.5018043967976841,
+   "share_reproduced_by_construction": 0.19903969797277643,
+   "ablated_rho": 0.5673980939031048,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.12740914066892242,
+   "discordant_low_bcell_high_bmab": 0.0014071294559099437,
+   "input_correlations": {
+    "ecm_caf": 0.9325307246712966,
+    "ecm_crosslink": 0.7067663618816283
+   }
+  },
+  "MEL300_0133": {
+   "patient": "MEL300_0133",
+   "platform": "Visium",
+   "project": "GSE300445",
+   "cancer_type": "melanoma",
+   "site": "skin",
+   "n_nodes": 4080,
+   "filled_keys": [],
+   "n_source": 327,
+   "n_sink": 1147,
+   "n_vessel": 816,
+   "real_rho_partial": 0.04770700994903485,
+   "null_mean": 0.001133642635768863,
+   "null_std": 0.0571244118195671,
+   "null_ci95": [
+    -0.11541044742152269,
+    0.11048671478301708
+   ],
+   "empirical_p_one_sided": 0.2155688622754491,
+   "empirical_p_nscore": 0.2215568862275449,
+   "geometry_null_mean": 0.01624493445347233,
+   "geometry_null_sd": 0.07508790491828558,
+   "geometry_null_ci95": [
+    -0.1119372740885136,
+    0.16295570725342473
+   ],
+   "p_vs_geometry_null": 0.3482587064676617,
+   "construction_null_mean": 0.10833762105727401,
+   "construction_null_sd": 0.07477822910295083,
+   "construction_null_ci95": [
+    -0.03097410921134158,
+    0.25389492901407573
+   ],
+   "p_vs_construction_null": 0.7761194029850746,
+   "excess_over_construction_null": -0.06063061110823916,
+   "share_reproduced_by_construction": 2.2708952242660048,
+   "ablated_rho": -0.06931009439079194,
+   "ablated_p": 0.8982035928143712,
+   "ablated_null_sd": 0.0555040971081501,
+   "discordant_low_bcell_high_bmab": 0.03995098039215686,
+   "input_correlations": {
+    "ecm_caf": 0.9214669687102053,
+    "ecm_crosslink": -0.012048167294319933
+   }
+  },
+  "MEL316_mel2": {
+   "patient": "MEL316_mel2",
+   "platform": "Visium",
+   "project": "GSE316760",
+   "cancer_type": "melanoma",
+   "site": "skin",
+   "n_nodes": 4082,
+   "filled_keys": [],
+   "n_source": 327,
+   "n_sink": 1153,
+   "n_vessel": 817,
+   "real_rho_partial": 0.026780215319363303,
+   "null_mean": -0.0002282715991323454,
+   "null_std": 0.07259688178446844,
+   "null_ci95": [
+    -0.1135618657778609,
+    0.1143848000437133
+   ],
+   "empirical_p_one_sided": 0.469061876247505,
+   "empirical_p_nscore": 0.500998003992016,
+   "geometry_null_mean": 0.0005983931334422376,
+   "geometry_null_sd": 0.05860966985126743,
+   "geometry_null_ci95": [
+    -0.0980709934551765,
+    0.10241557318986212
+   ],
+   "p_vs_geometry_null": 0.3781094527363184,
+   "construction_null_mean": 0.11460513628047238,
+   "construction_null_sd": 0.046083031133549904,
+   "construction_null_ci95": [
+    0.03203962344342819,
+    0.19666972112172973
+   ],
+   "p_vs_construction_null": 0.9800995024875622,
+   "excess_over_construction_null": -0.08782492096110908,
+   "share_reproduced_by_construction": 4.279470307231163,
+   "ablated_rho": -0.07782321150014476,
+   "ablated_p": 0.7485029940119761,
+   "ablated_null_sd": 0.08164653627193795,
+   "discordant_low_bcell_high_bmab": 0.05169034786869182,
+   "input_correlations": {
+    "ecm_caf": 0.8673109837315645,
+    "ecm_crosslink": 0.10069118990812569
+   }
+  },
+  "MEL316_mel3": {
+   "patient": "MEL316_mel3",
+   "platform": "Visium",
+   "project": "GSE316760",
+   "cancer_type": "melanoma",
+   "site": "skin",
+   "n_nodes": 4933,
+   "filled_keys": [],
+   "n_source": 395,
+   "n_sink": 1416,
+   "n_vessel": 987,
+   "real_rho_partial": 0.012286634447243296,
+   "null_mean": -0.005469887387038456,
+   "null_std": 0.14860376210061976,
+   "null_ci95": [
+    -0.22919184851599517,
+    0.22626789797740607
+   ],
+   "empirical_p_one_sided": 0.4810379241516966,
+   "empirical_p_nscore": 0.5109780439121756,
+   "geometry_null_mean": 0.016266812645204184,
+   "geometry_null_sd": 0.0365739272030228,
+   "geometry_null_ci95": [
+    -0.0557190770183348,
+    0.09036102838437465
+   ],
+   "p_vs_geometry_null": 0.5323383084577115,
+   "construction_null_mean": 0.05976087016973811,
+   "construction_null_sd": 0.033020252464441124,
+   "construction_null_ci95": [
+    -0.0012965120448219809,
+    0.12416444163076369
+   ],
+   "p_vs_construction_null": 0.9303482587064676,
+   "excess_over_construction_null": -0.04747423572249482,
+   "share_reproduced_by_construction": 4.8638925839570675,
+   "ablated_rho": -0.02504744765431965,
+   "ablated_p": 0.5049900199600799,
+   "ablated_null_sd": 0.12647520637504414,
+   "discordant_low_bcell_high_bmab": 0.07500506790999392,
+   "input_correlations": {
+    "ecm_caf": 0.9344731175838721,
+    "ecm_crosslink": 0.18045480535106365
+   }
+  },
+  "MEL320_WU1340": {
+   "patient": "MEL320_WU1340",
+   "platform": "Visium",
+   "project": "GSE320041",
+   "cancer_type": "melanoma",
+   "site": "metastatic melanoma (specific site not annotated)",
+   "n_nodes": 4989,
+   "filled_keys": [],
+   "n_source": 399,
+   "n_sink": 1489,
+   "n_vessel": 998,
+   "real_rho_partial": 0.3979800991197639,
+   "null_mean": 0.0017103707827136536,
+   "null_std": 0.048488638551673326,
+   "null_ci95": [
+    -0.09280677881938776,
+    0.09231658005484045
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.047580827537018255,
+   "geometry_null_sd": 0.07221791193499566,
+   "geometry_null_ci95": [
+    -0.10503691416688085,
+    0.18801566841939213
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.09363885240497843,
+   "construction_null_sd": 0.07363009525056427,
+   "construction_null_ci95": [
+    -0.05629127841633126,
+    0.2303173101844559
+   ],
+   "p_vs_construction_null": 0.004975124378109453,
+   "excess_over_construction_null": 0.30434124671478546,
+   "share_reproduced_by_construction": 0.23528526328850366,
+   "ablated_rho": 0.3568565093541412,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.044358650494687846,
+   "discordant_low_bcell_high_bmab": 0.01543395470034075,
+   "input_correlations": {
+    "ecm_caf": 0.9624676069335704,
+    "ecm_crosslink": 0.7971428998395806
+   }
+  },
+  "MEL320_WU1373": {
+   "patient": "MEL320_WU1373",
+   "platform": "Visium",
+   "project": "GSE320041",
+   "cancer_type": "melanoma",
+   "site": "metastatic melanoma (specific site not annotated)",
+   "n_nodes": 4651,
+   "filled_keys": [],
+   "n_source": 373,
+   "n_sink": 1381,
+   "n_vessel": 931,
+   "real_rho_partial": 0.27433975136856487,
+   "null_mean": -0.0036971492637370962,
+   "null_std": 0.10947415809981939,
+   "null_ci95": [
+    -0.21895064825344243,
+    0.20590618584573264
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.03307284484450567,
+   "geometry_null_sd": 0.08337685078449113,
+   "geometry_null_ci95": [
+    -0.14033223193467176,
+    0.1807447448572512
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.06859940643280547,
+   "construction_null_sd": 0.08768086712028662,
+   "construction_null_ci95": [
+    -0.09447121642668224,
+    0.22197327792462834
+   ],
+   "p_vs_construction_null": 0.004975124378109453,
+   "excess_over_construction_null": 0.20574034493575938,
+   "share_reproduced_by_construction": 0.25005273967987535,
+   "ablated_rho": 0.17369329754756674,
+   "ablated_p": 0.03592814371257485,
+   "ablated_null_sd": 0.09129086172713154,
+   "discordant_low_bcell_high_bmab": 0.02752096323371318,
+   "input_correlations": {
+    "ecm_caf": 0.9197024796319984,
+    "ecm_crosslink": 0.46327880542193484
+   }
+  },
+  "MEL320_WU1384_1": {
+   "patient": "MEL320_WU1384",
+   "platform": "Visium",
+   "project": "GSE320041",
+   "cancer_type": "melanoma",
+   "site": "metastatic melanoma (specific site not annotated)",
+   "n_nodes": 4782,
+   "filled_keys": [],
+   "n_source": 383,
+   "n_sink": 1428,
+   "n_vessel": 957,
+   "real_rho_partial": 0.2212192687186957,
+   "null_mean": -2.6918356589877847e-05,
+   "null_std": 0.12773356689961238,
+   "null_ci95": [
+    -0.23263536987615624,
+    0.2260231870453611
+   ],
+   "empirical_p_one_sided": 0.03992015968063872,
+   "empirical_p_nscore": 0.059880239520958084,
+   "geometry_null_mean": 0.026429883926784185,
+   "geometry_null_sd": 0.09633862929345693,
+   "geometry_null_ci95": [
+    -0.1451785446220594,
+    0.19080924015052997
+   ],
+   "p_vs_geometry_null": 0.014925373134328358,
+   "construction_null_mean": 0.10273304278578375,
+   "construction_null_sd": 0.09113552202253654,
+   "construction_null_ci95": [
+    -0.06803455669135233,
+    0.272990179567064
+   ],
+   "p_vs_construction_null": 0.0945273631840796,
+   "excess_over_construction_null": 0.11848622593291196,
+   "share_reproduced_by_construction": 0.4643946405790716,
+   "ablated_rho": 0.06394372543838846,
+   "ablated_p": 0.2934131736526946,
+   "ablated_null_sd": 0.10960808287582663,
+   "discordant_low_bcell_high_bmab": 0.03178586365537432,
+   "input_correlations": {
+    "ecm_caf": 0.7417304316788583,
+    "ecm_crosslink": 0.39435118878116304
+   }
+  },
+  "MEL320_WU1384_2": {
+   "patient": "MEL320_WU1384",
+   "platform": "Visium",
+   "project": "GSE320041",
+   "cancer_type": "melanoma",
+   "site": "metastatic melanoma (specific site not annotated)",
+   "n_nodes": 4571,
+   "filled_keys": [],
+   "n_source": 366,
+   "n_sink": 1345,
+   "n_vessel": 915,
+   "real_rho_partial": 0.1835502077611472,
+   "null_mean": -0.00031442425005887367,
+   "null_std": 0.09001069778939659,
+   "null_ci95": [
+    -0.17230870312591717,
+    0.17052390667881734
+   ],
+   "empirical_p_one_sided": 0.015968063872255488,
+   "empirical_p_nscore": 0.023952095808383235,
+   "geometry_null_mean": 0.0363844966024784,
+   "geometry_null_sd": 0.05905754839215,
+   "geometry_null_ci95": [
+    -0.10302655637233818,
+    0.1451324221673724
+   ],
+   "p_vs_geometry_null": 0.009950248756218905,
+   "construction_null_mean": 0.13047344933286267,
+   "construction_null_sd": 0.05562265584869047,
+   "construction_null_ci95": [
+    0.004472033315642779,
+    0.22949760976055267
+   ],
+   "p_vs_construction_null": 0.18407960199004975,
+   "excess_over_construction_null": 0.05307675842828452,
+   "share_reproduced_by_construction": 0.7108324797030304,
+   "ablated_rho": 0.016198021829605534,
+   "ablated_p": 0.40718562874251496,
+   "ablated_null_sd": 0.08859456560950246,
+   "discordant_low_bcell_high_bmab": 0.03522205206738132,
+   "input_correlations": {
+    "ecm_caf": 0.7806728199156594,
+    "ecm_crosslink": 0.2933241622498821
+   }
+  },
+  "MEL320_WU1609": {
+   "patient": "MEL320_WU1609",
+   "platform": "Visium",
+   "project": "GSE320041",
+   "cancer_type": "melanoma",
+   "site": "metastatic melanoma (specific site not annotated)",
+   "n_nodes": 4989,
+   "filled_keys": [],
+   "n_source": 399,
+   "n_sink": 1400,
+   "n_vessel": 998,
+   "real_rho_partial": 0.235128793638439,
+   "null_mean": 0.003187949790691543,
+   "null_std": 0.07035228260443546,
+   "null_ci95": [
+    -0.13171282304008905,
+    0.1280603462444286
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": -0.015610162180274325,
+   "geometry_null_sd": 0.11667915367859037,
+   "geometry_null_ci95": [
+    -0.22891165566368882,
+    0.20398434571774024
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.11078491839051356,
+   "construction_null_sd": 0.10896456113653473,
+   "construction_null_ci95": [
+    -0.07046855453538474,
+    0.291300336342532
+   ],
+   "p_vs_construction_null": 0.1691542288557214,
+   "excess_over_construction_null": 0.12434387524792544,
+   "share_reproduced_by_construction": 0.4711669578030037,
+   "ablated_rho": 0.09086638477641551,
+   "ablated_p": 0.08782435129740519,
+   "ablated_null_sd": 0.06417369901289874,
+   "discordant_low_bcell_high_bmab": 0.03748246141511325,
+   "input_correlations": {
+    "ecm_caf": 0.9332222716097535,
+    "ecm_crosslink": 0.2539716781058264
+   }
+  },
+  "MEL320_WU2130_1": {
+   "patient": "MEL320_WU2130",
+   "platform": "Visium",
+   "project": "GSE320041",
+   "cancer_type": "melanoma",
+   "site": "metastatic melanoma (specific site not annotated)",
+   "n_nodes": 4251,
+   "filled_keys": [],
+   "n_source": 341,
+   "n_sink": 1248,
+   "n_vessel": 851,
+   "real_rho_partial": 0.2564978398076274,
+   "null_mean": 5.3382503512998336e-05,
+   "null_std": 0.035701237986253694,
+   "null_ci95": [
+    -0.06808182720745429,
+    0.06719795589685507
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.0014739053537351412,
+   "geometry_null_sd": 0.07889915360579101,
+   "geometry_null_ci95": [
+    -0.14390523547370587,
+    0.1440711799650497
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.12676917919826694,
+   "construction_null_sd": 0.058542627410026755,
+   "construction_null_ci95": [
+    0.02088845617173274,
+    0.22488420052084143
+   ],
+   "p_vs_construction_null": 0.004975124378109453,
+   "excess_over_construction_null": 0.12972866060936047,
+   "share_reproduced_by_construction": 0.4942309818021993,
+   "ablated_rho": 0.14406070868467213,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.025641680482491748,
+   "discordant_low_bcell_high_bmab": 0.035285815102328866,
+   "input_correlations": {
+    "ecm_caf": 0.8726384142967477,
+    "ecm_crosslink": 0.19804644942604252
+   }
+  },
+  "MEL320_WU2130_2": {
+   "patient": "MEL320_WU2130",
+   "platform": "Visium",
+   "project": "GSE320041",
+   "cancer_type": "melanoma",
+   "site": "metastatic melanoma (specific site not annotated)",
+   "n_nodes": 3771,
+   "filled_keys": [],
+   "n_source": 302,
+   "n_sink": 1084,
+   "n_vessel": 755,
+   "real_rho_partial": 0.30237331310588256,
+   "null_mean": -0.0040326734025277295,
+   "null_std": 0.09598561225145426,
+   "null_ci95": [
+    -0.19735616937336156,
+    0.17391481309341728
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.06218515875487297,
+   "geometry_null_sd": 0.08337588878698089,
+   "geometry_null_ci95": [
+    -0.08683385707434622,
+    0.2316240147573199
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.1171376192815487,
+   "construction_null_sd": 0.0844143204737048,
+   "construction_null_ci95": [
+    -0.04072604232242411,
+    0.2739116148094444
+   ],
+   "p_vs_construction_null": 0.014925373134328358,
+   "excess_over_construction_null": 0.18523569382433386,
+   "share_reproduced_by_construction": 0.38739403976610337,
+   "ablated_rho": 0.06078736643650324,
+   "ablated_p": 0.2435129740518962,
+   "ablated_null_sd": 0.07622503459522872,
+   "discordant_low_bcell_high_bmab": 0.01856271546009016,
+   "input_correlations": {
+    "ecm_caf": 0.8292904391219305,
+    "ecm_crosslink": 0.24933565070412889
+   }
+  },
+  "MEL320_WU2415": {
+   "patient": "MEL320_WU2415",
+   "platform": "Visium",
+   "project": "GSE320041",
+   "cancer_type": "melanoma",
+   "site": "metastatic melanoma (specific site not annotated)",
+   "n_nodes": 4807,
+   "filled_keys": [],
+   "n_source": 385,
+   "n_sink": 1385,
+   "n_vessel": 962,
+   "real_rho_partial": 0.2901049501588943,
+   "null_mean": 0.0008240293612782847,
+   "null_std": 0.05462145449649269,
+   "null_ci95": [
+    -0.10187433690491318,
+    0.09726945780877971
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.023043492318836404,
+   "geometry_null_sd": 0.059519853105545535,
+   "geometry_null_ci95": [
+    -0.09819467318465584,
+    0.13017599709442584
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.08611072373233769,
+   "construction_null_sd": 0.05844190991952554,
+   "construction_null_ci95": [
+    -0.018934918109278522,
+    0.19354284558515783
+   ],
+   "p_vs_construction_null": 0.004975124378109453,
+   "excess_over_construction_null": 0.20399422642655662,
+   "share_reproduced_by_construction": 0.2968261096033477,
+   "ablated_rho": 0.04794505798578165,
+   "ablated_p": 0.15169660678642716,
+   "ablated_null_sd": 0.04674084222034995,
+   "discordant_low_bcell_high_bmab": 0.03245267318493863,
+   "input_correlations": {
+    "ecm_caf": 0.7542976105946219,
+    "ecm_crosslink": 0.31774228327600046
+   }
+  },
+  "MEL320_WU3049": {
+   "patient": "MEL320_WU3049",
+   "platform": "Visium",
+   "project": "GSE320041",
+   "cancer_type": "melanoma",
+   "site": "metastatic melanoma (specific site not annotated)",
+   "n_nodes": 3897,
+   "filled_keys": [],
+   "n_source": 312,
+   "n_sink": 1168,
+   "n_vessel": 780,
+   "real_rho_partial": 0.20314811549754908,
+   "null_mean": -0.008478586997824514,
+   "null_std": 0.23661760791195574,
+   "null_ci95": [
+    -0.3575572054712546,
+    0.35991684102311977
+   ],
+   "empirical_p_one_sided": 0.2634730538922156,
+   "empirical_p_nscore": 0.18163672654690619,
+   "geometry_null_mean": 0.07417144527250248,
+   "geometry_null_sd": 0.09527174403198166,
+   "geometry_null_ci95": [
+    -0.1071571085508012,
+    0.255517724202941
+   ],
+   "p_vs_geometry_null": 0.08955223880597014,
+   "construction_null_mean": 0.12905866547854597,
+   "construction_null_sd": 0.09784244058571934,
+   "construction_null_ci95": [
+    -0.07013820111475855,
+    0.315917569737155
+   ],
+   "p_vs_construction_null": 0.24875621890547264,
+   "excess_over_construction_null": 0.0740894500190031,
+   "share_reproduced_by_construction": 0.6352934417454786,
+   "ablated_rho": 0.15674465639265864,
+   "ablated_p": 0.36726546906187624,
+   "ablated_null_sd": 0.2303750943588221,
+   "discordant_low_bcell_high_bmab": 0.030536309982037466,
+   "input_correlations": {
+    "ecm_caf": 0.9838380401000633,
+    "ecm_crosslink": 0.6414445580402729
+   }
+  },
+  "MEL320_WU3244": {
+   "patient": "MEL320_WU3244",
+   "platform": "Visium",
+   "project": "GSE320041",
+   "cancer_type": "melanoma",
+   "site": "metastatic melanoma (specific site not annotated)",
+   "n_nodes": 4867,
+   "filled_keys": [],
+   "n_source": 390,
+   "n_sink": 1372,
+   "n_vessel": 974,
+   "real_rho_partial": 0.5225830051691169,
+   "null_mean": 0.0021238363106903116,
+   "null_std": 0.04943509137990172,
+   "null_ci95": [
+    -0.0907979740410071,
+    0.09132188399213788
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.06544543433401853,
+   "geometry_null_sd": 0.047858121496093226,
+   "geometry_null_ci95": [
+    -0.026231156737544743,
+    0.15891772625619585
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.18700374274031076,
+   "construction_null_sd": 0.04648388925372244,
+   "construction_null_ci95": [
+    0.09915157603550225,
+    0.2670400715202651
+   ],
+   "p_vs_construction_null": 0.004975124378109453,
+   "excess_over_construction_null": 0.3355792624288062,
+   "share_reproduced_by_construction": 0.35784505215548124,
+   "ablated_rho": 0.4090709181500625,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.046958684288616055,
+   "discordant_low_bcell_high_bmab": 0.007602219026094103,
+   "input_correlations": {
+    "ecm_caf": 0.918336201087649,
+    "ecm_crosslink": 0.573749759451674
+   }
+  },
+  "MEL320_YUADD": {
+   "patient": "MEL320_YUADD",
+   "platform": "Visium",
+   "project": "GSE320041",
+   "cancer_type": "melanoma",
+   "site": "metastatic melanoma (specific site not annotated)",
+   "n_nodes": 482,
+   "filled_keys": [],
+   "n_source": 39,
+   "n_sink": 136,
+   "n_vessel": 97,
+   "real_rho_partial": 0.48081746817686294,
+   "null_mean": 0.002153117247563479,
+   "null_std": 0.19270818251910712,
+   "null_ci95": [
+    -0.3109187130531529,
+    0.3051289275799872
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.07755004561794088,
+   "geometry_null_sd": 0.17062934503383695,
+   "geometry_null_ci95": [
+    -0.19020306591106528,
+    0.3859753813735885
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.20050996467692989,
+   "construction_null_sd": 0.15671932705034658,
+   "construction_null_ci95": [
+    -0.036883554127965026,
+    0.45462031040414
+   ],
+   "p_vs_construction_null": 0.004975124378109453,
+   "excess_over_construction_null": 0.28030750349993305,
+   "share_reproduced_by_construction": 0.4170188854352827,
+   "ablated_rho": 0.38288909984923886,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.14546001574081277,
+   "discordant_low_bcell_high_bmab": 0.008298755186721992,
+   "input_correlations": {
+    "ecm_caf": 0.8377991522498109,
+    "ecm_crosslink": 0.3463257612635207
+   }
+  },
+  "MEL320_YUALT": {
+   "patient": "MEL320_YUALT",
+   "platform": "Visium",
+   "project": "GSE320041",
+   "cancer_type": "melanoma",
+   "site": "metastatic melanoma (specific site not annotated)",
+   "n_nodes": 2393,
+   "filled_keys": [],
+   "n_source": 192,
+   "n_sink": 712,
+   "n_vessel": 479,
+   "real_rho_partial": 0.445162653165006,
+   "null_mean": -0.006405934363605637,
+   "null_std": 0.14408787794272934,
+   "null_ci95": [
+    -0.2597169034458412,
+    0.25079868685474477
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.037833612863968316,
+   "geometry_null_sd": 0.17653811760960383,
+   "geometry_null_ci95": [
+    -0.2811916740995656,
+    0.3525440018319925
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.09954714539137247,
+   "construction_null_sd": 0.18238944309691357,
+   "construction_null_ci95": [
+    -0.23572202785710555,
+    0.4111240833557655
+   ],
+   "p_vs_construction_null": 0.009950248756218905,
+   "excess_over_construction_null": 0.3456155077736335,
+   "share_reproduced_by_construction": 0.22361971446529652,
+   "ablated_rho": 0.3322201377906964,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.10150312268318949,
+   "discordant_low_bcell_high_bmab": 0.008357709987463435,
+   "input_correlations": {
+    "ecm_caf": 0.9358685931075749,
+    "ecm_crosslink": 0.4510313826822408
+   }
+  },
+  "MEL320_YUBOISE": {
+   "patient": "MEL320_YUBOISE",
+   "platform": "Visium",
+   "project": "GSE320041",
+   "cancer_type": "melanoma",
+   "site": "metastatic melanoma (specific site not annotated)",
+   "n_nodes": 369,
+   "filled_keys": [],
+   "n_source": 30,
+   "n_sink": 111,
+   "n_vessel": 74,
+   "real_rho_partial": -0.08300915791026753,
+   "null_mean": 0.008017142614842782,
+   "null_std": 0.2661972558395052,
+   "null_ci95": [
+    -0.43472874118329563,
+    0.4362900123970838
+   ],
+   "empirical_p_one_sided": 0.6027944111776448,
+   "empirical_p_nscore": 0.7085828343313373,
+   "geometry_null_mean": 0.057309892368770585,
+   "geometry_null_sd": 0.3285132545027729,
+   "geometry_null_ci95": [
+    -0.3859762219957626,
+    0.5430374370687993
+   ],
+   "p_vs_geometry_null": 0.527363184079602,
+   "construction_null_mean": 0.06204254675141467,
+   "construction_null_sd": 0.3305941464775838,
+   "construction_null_ci95": [
+    -0.376311610444152,
+    0.575508927604782
+   ],
+   "p_vs_construction_null": 0.5174129353233831,
+   "excess_over_construction_null": -0.1450517046616822,
+   "share_reproduced_by_construction": null,
+   "ablated_rho": -0.0517832363548319,
+   "ablated_p": 0.5469061876247505,
+   "ablated_null_sd": 0.2466212084847954,
+   "discordant_low_bcell_high_bmab": 0.0975609756097561,
+   "input_correlations": {
+    "ecm_caf": 0.9737071642161779,
+    "ecm_crosslink": 0.7293036408624957
+   }
+  },
+  "MEL320_YUMAZO": {
+   "patient": "MEL320_YUMAZO",
+   "platform": "Visium",
+   "project": "GSE320041",
+   "cancer_type": "melanoma",
+   "site": "metastatic melanoma (specific site not annotated)",
+   "n_nodes": 2355,
+   "filled_keys": [],
+   "n_source": 189,
+   "n_sink": 640,
+   "n_vessel": 471,
+   "real_rho_partial": 0.4040142287489842,
+   "null_mean": -0.0010216471199938086,
+   "null_std": 0.05378511753193584,
+   "null_ci95": [
+    -0.10491760499807232,
+    0.09409245201404522
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.12044121935832415,
+   "geometry_null_sd": 0.05598850219725594,
+   "geometry_null_ci95": [
+    0.019284156163644206,
+    0.2311634000089074
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.19574256342004315,
+   "construction_null_sd": 0.051435312734057465,
+   "construction_null_ci95": [
+    0.10341315061137049,
+    0.2947924662889787
+   ],
+   "p_vs_construction_null": 0.004975124378109453,
+   "excess_over_construction_null": 0.20827166532894104,
+   "share_reproduced_by_construction": 0.48449423186443974,
+   "ablated_rho": 0.343082608586282,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.05411936981879985,
+   "discordant_low_bcell_high_bmab": 0.026326963906581742,
+   "input_correlations": {
+    "ecm_caf": 0.947070887191201,
+    "ecm_crosslink": 0.29298950160390796
+   }
+  },
+  "MEL320_YUSTE": {
+   "patient": "MEL320_YUSTE",
+   "platform": "Visium",
+   "project": "GSE320041",
+   "cancer_type": "melanoma",
+   "site": "metastatic melanoma (specific site not annotated)",
+   "n_nodes": 1458,
+   "filled_keys": [],
+   "n_source": 117,
+   "n_sink": 431,
+   "n_vessel": 292,
+   "real_rho_partial": 0.4726353137407928,
+   "null_mean": 0.00028552172728582814,
+   "null_std": 0.1003001439593584,
+   "null_ci95": [
+    -0.20366279332489481,
+    0.200040487913347
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.06573124684373101,
+   "geometry_null_sd": 0.10771463761206135,
+   "geometry_null_ci95": [
+    -0.14486267401623015,
+    0.26579388489527156
+   ],
+   "p_vs_geometry_null": 0.004975124378109453,
+   "construction_null_mean": 0.14311243450703018,
+   "construction_null_sd": 0.10828856767773738,
+   "construction_null_ci95": [
+    -0.06558607147679696,
+    0.3479637836043968
+   ],
+   "p_vs_construction_null": 0.004975124378109453,
+   "excess_over_construction_null": 0.32952287923376267,
+   "share_reproduced_by_construction": 0.30279674486091673,
+   "ablated_rho": 0.40824225038215306,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.0937920351446656,
+   "discordant_low_bcell_high_bmab": 0.025377229080932786,
+   "input_correlations": {
+    "ecm_caf": 0.9672825835942063,
+    "ecm_crosslink": 0.4227767540736944
+   }
+  },
+  "CSCC321_cut1": {
+   "patient": "CSCC321_cut1",
+   "platform": "Visium",
+   "project": "GSE321832",
+   "cancer_type": "cscc",
+   "site": "skin",
+   "n_nodes": 4258,
+   "filled_keys": [],
+   "n_source": 341,
+   "n_sink": 1231,
+   "n_vessel": 852,
+   "real_rho_partial": 0.38805542028708856,
+   "null_mean": -0.00011393706169184536,
+   "null_std": 0.11564229504978864,
+   "null_ci95": [
+    -0.20852329884593557,
+    0.2017603459032835
+   ],
+   "empirical_p_one_sided": 0.001996007984031936,
+   "empirical_p_nscore": 0.001996007984031936,
+   "geometry_null_mean": 0.048825443286726423,
+   "geometry_null_sd": 0.1723035586805486,
+   "geometry_null_ci95": [
+    -0.22398254265213904,
+    0.370008860754078
+   ],
+   "p_vs_geometry_null": 0.014925373134328358,
+   "construction_null_mean": 0.13017272187951465,
+   "construction_null_sd": 0.16597242931394268,
+   "construction_null_ci95": [
+    -0.12938786062603966,
+    0.41038157819631005
+   ],
+   "p_vs_construction_null": 0.07462686567164178,
+   "excess_over_construction_null": 0.25788269840757394,
+   "share_reproduced_by_construction": 0.33544879178136755,
+   "ablated_rho": 0.2810307804154125,
+   "ablated_p": 0.001996007984031936,
+   "ablated_null_sd": 0.10072129238880127,
+   "discordant_low_bcell_high_bmab": 0.014795678722404886,
+   "input_correlations": {
+    "ecm_caf": 0.9465994584110056,
+    "ecm_crosslink": 0.42290319479051053
+   }
+  },
+  "CSCC321_cut2": {
+   "patient": "CSCC321_cut2",
+   "platform": "Visium",
+   "project": "GSE321832",
+   "cancer_type": "cscc",
+   "site": "skin",
+   "n_nodes": 4195,
+   "filled_keys": [],
+   "n_source": 336,
+   "n_sink": 1232,
+   "n_vessel": 839,
+   "real_rho_partial": 0.13553522734077883,
+   "null_mean": 0.00018632822457124299,
+   "null_std": 0.14840453135255433,
+   "null_ci95": [
+    -0.1927714952496182,
+    0.20638567679425013
+   ],
+   "empirical_p_one_sided": 0.29740518962075846,
+   "empirical_p_nscore": 0.405189620758483,
+   "geometry_null_mean": 0.029349682527570378,
+   "geometry_null_sd": 0.10035032069997636,
+   "geometry_null_ci95": [
+    -0.13869707905040504,
+    0.19984745082464084
+   ],
+   "p_vs_geometry_null": 0.20398009950248755,
+   "construction_null_mean": 0.13672567395741542,
+   "construction_null_sd": 0.06029282002222873,
+   "construction_null_ci95": [
+    0.022688101222136933,
+    0.2609382622968869
+   ],
+   "p_vs_construction_null": 0.47761194029850745,
+   "excess_over_construction_null": -0.0011904466166365868,
+   "share_reproduced_by_construction": 1.008783300400887,
+   "ablated_rho": -0.02289552872788191,
+   "ablated_p": 0.5249500998003992,
+   "ablated_null_sd": 0.15999282765047138,
+   "discordant_low_bcell_high_bmab": 0.05029797377830751,
+   "input_correlations": {
+    "ecm_caf": 0.9450113400883304,
+    "ecm_crosslink": 0.15273763752318353
+   }
+  }
+ }
+}

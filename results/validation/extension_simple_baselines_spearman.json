@@ -1,0 +1,1753 @@
+{
+ "per_section": {
+  "ECM01_rep1": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.3543551721003926,
+    "b_cell_field__dist_tumour_boundary": 0.07220071622299802,
+    "b_cell_field__niche_z": 0.18730618073386282,
+    "b_mab_field__stromal_density": 0.042878571698082645,
+    "b_mab_field__dist_tumour_boundary": 0.02265395412777385,
+    "b_mab_field__niche_z": 0.0273315649782365,
+    "b_cell_field__b_mab_field": 0.24863899094599884,
+    "cut_density_pct_median": 0.5620509930976194,
+    "cut_share_top_density_decile": 0.12783720323506392,
+    "top_decile_share_on_cut": 0.6901408450704225
+   },
+   "section": {
+    "log_b_rel": 1.9716422691190258,
+    "b_cell_field_core": 7.511156413456932,
+    "b_mab_field_core": 3.8008110400995143,
+    "stromal_density": 0.5124825011101539,
+    "dist_tumour_boundary": 47.511656209767224,
+    "niche_z": -6.8698988227549265,
+    "frac_tumour": 0.3,
+    "frac_stroma": 0.34112676056338026,
+    "frac_immune": 0.3588732394366197,
+    "n_spots": 7100,
+    "n_reachable": 7100
+   },
+   "cohort": "extension",
+   "patient": "MPM01"
+  },
+  "ECM01_rep2": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.390365326328292,
+    "b_cell_field__dist_tumour_boundary": 0.06771703915352022,
+    "b_cell_field__niche_z": 0.23094908983384596,
+    "b_mab_field__stromal_density": 0.050293548317439755,
+    "b_mab_field__dist_tumour_boundary": 0.02553697720576401,
+    "b_mab_field__niche_z": 0.02132503792424858,
+    "b_cell_field__b_mab_field": 0.24552551520549837,
+    "cut_density_pct_median": 0.542331028643996,
+    "cut_share_top_density_decile": 0.12375138734739179,
+    "top_decile_share_on_cut": 0.6290550070521862
+   },
+   "section": {
+    "log_b_rel": 1.992323104267347,
+    "b_cell_field_core": 7.875407180476996,
+    "b_mab_field_core": 3.7502571760971968,
+    "stromal_density": 0.5149524731077718,
+    "dist_tumour_boundary": 46.16307691345374,
+    "niche_z": -2.3745596662736514,
+    "frac_tumour": 0.30008465011286684,
+    "frac_stroma": 0.34664221218961627,
+    "frac_immune": 0.35327313769751695,
+    "n_spots": 7088,
+    "n_reachable": 7086
+   },
+   "cohort": "extension",
+   "patient": "MPM01"
+  },
+  "ECM06": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.36795230967822,
+    "b_cell_field__dist_tumour_boundary": -0.06706710166119936,
+    "b_cell_field__niche_z": 0.2518351739293471,
+    "b_mab_field__stromal_density": -0.10775176244314348,
+    "b_mab_field__dist_tumour_boundary": 0.04146925741273745,
+    "b_mab_field__niche_z": -0.10006734936113094,
+    "b_cell_field__b_mab_field": 0.19315979056191046,
+    "cut_density_pct_median": 0.670541375386116,
+    "cut_share_top_density_decile": 0.16817434210526316,
+    "top_decile_share_on_cut": 0.663961038961039
+   },
+   "section": {
+    "log_b_rel": 2.393488208503233,
+    "b_cell_field_core": 13.181240098048624,
+    "b_mab_field_core": 3.8146291914587507,
+    "stromal_density": 0.5011276877577668,
+    "dist_tumour_boundary": 46.23548698096503,
+    "niche_z": -3.6513817706752207,
+    "frac_tumour": 0.30006501950585174,
+    "frac_stroma": 0.34053966189856955,
+    "frac_immune": 0.35939531859557866,
+    "n_spots": 6152,
+    "n_reachable": 6128
+   },
+   "cohort": "extension",
+   "patient": "MPM06"
+  },
+  "ECM08": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.43139964120010443,
+    "b_cell_field__dist_tumour_boundary": -0.0426213922912756,
+    "b_cell_field__niche_z": 0.21376548289198868,
+    "b_mab_field__stromal_density": 0.02328635444472689,
+    "b_mab_field__dist_tumour_boundary": 0.06326431157963341,
+    "b_mab_field__niche_z": -0.023597603359221765,
+    "b_cell_field__b_mab_field": 0.25414711678824053,
+    "cut_density_pct_median": 0.5432893197392612,
+    "cut_share_top_density_decile": 0.11126005361930295,
+    "top_decile_share_on_cut": 0.41569282136894825
+   },
+   "section": {
+    "log_b_rel": 1.9589273205957511,
+    "b_cell_field_core": 8.984779807271982,
+    "b_mab_field_core": 3.401566558293979,
+    "stromal_density": 0.5046915576147541,
+    "dist_tumour_boundary": 49.522792171326536,
+    "niche_z": -7.5444178396944706,
+    "frac_tumour": 0.29996657754010697,
+    "frac_stroma": 0.31634358288770054,
+    "frac_immune": 0.3836898395721925,
+    "n_spots": 5984,
+    "n_reachable": 5935
+   },
+   "cohort": "extension",
+   "patient": "MPM08"
+  },
+  "ECM10": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.43144993394069897,
+    "b_cell_field__dist_tumour_boundary": 0.006606678747629354,
+    "b_cell_field__niche_z": 0.32507158800701974,
+    "b_mab_field__stromal_density": 0.04338931152237047,
+    "b_mab_field__dist_tumour_boundary": -0.013789684034315302,
+    "b_mab_field__niche_z": 0.003319140263853313,
+    "b_cell_field__b_mab_field": 0.299758703425444,
+    "cut_density_pct_median": 0.7141629847815415,
+    "cut_share_top_density_decile": 0.21441124780316345,
+    "top_decile_share_on_cut": 0.7973856209150327
+   },
+   "section": {
+    "log_b_rel": 2.5244185379486477,
+    "b_cell_field_core": 11.424236521971544,
+    "b_mab_field_core": 3.8727050595367065,
+    "stromal_density": 0.502826837678796,
+    "dist_tumour_boundary": 48.48017958403222,
+    "niche_z": -15.086016074309667,
+    "frac_tumour": 0.300065445026178,
+    "frac_stroma": 0.349803664921466,
+    "frac_immune": 0.35013089005235604,
+    "n_spots": 6112,
+    "n_reachable": 6095
+   },
+   "cohort": "extension",
+   "patient": "MPM10"
+  },
+  "MBM05_rep1": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.5707849400565476,
+    "b_cell_field__dist_tumour_boundary": 0.19153552883368213,
+    "b_cell_field__niche_z": 0.3918996576951602,
+    "b_mab_field__stromal_density": 0.03139375938104276,
+    "b_mab_field__dist_tumour_boundary": 0.0432015707559478,
+    "b_mab_field__niche_z": -0.04952025702630154,
+    "b_cell_field__b_mab_field": 0.2705094162642607,
+    "cut_density_pct_median": 0.5644630817299786,
+    "cut_share_top_density_decile": 0.13023952095808383,
+    "top_decile_share_on_cut": 0.7142857142857143
+   },
+   "section": {
+    "log_b_rel": 1.945856808639625,
+    "b_cell_field_core": 6.2038929674034415,
+    "b_mab_field_core": 3.804603821612413,
+    "stromal_density": 0.512089823557682,
+    "dist_tumour_boundary": 47.90161502728391,
+    "niche_z": -13.97040513778844,
+    "frac_tumour": 0.3000657678395265,
+    "frac_stroma": 0.3395264715554094,
+    "frac_immune": 0.36040776060506413,
+    "n_spots": 6082,
+    "n_reachable": 6070
+   },
+   "cohort": "extension",
+   "patient": "MBM05"
+  },
+  "MBM05_rep2": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.48603998780665986,
+    "b_cell_field__dist_tumour_boundary": 0.21554685000096563,
+    "b_cell_field__niche_z": 0.3983432133184953,
+    "b_mab_field__stromal_density": 0.013038331383528654,
+    "b_mab_field__dist_tumour_boundary": 0.042989843421792066,
+    "b_mab_field__niche_z": -0.04960422620533185,
+    "b_cell_field__b_mab_field": 0.2927050027579802,
+    "cut_density_pct_median": 0.6319887867933344,
+    "cut_share_top_density_decile": 0.1564092512740102,
+    "top_decile_share_on_cut": 0.6205287713841369
+   },
+   "section": {
+    "log_b_rel": 2.214358313003176,
+    "b_cell_field_core": 8.196280349123146,
+    "b_mab_field_core": 3.290425136479816,
+    "stromal_density": 0.5058642085492222,
+    "dist_tumour_boundary": 51.20733638845104,
+    "niche_z": -28.89083066625064,
+    "frac_tumour": 0.30006228589224543,
+    "frac_stroma": 0.34506384303955157,
+    "frac_immune": 0.35487387106820306,
+    "n_spots": 6422,
+    "n_reachable": 6317
+   },
+   "cohort": "extension",
+   "patient": "MBM05"
+  },
+  "MBM05_rep3": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.4956447254320007,
+    "b_cell_field__dist_tumour_boundary": 0.24512243579388845,
+    "b_cell_field__niche_z": 0.35586631882607167,
+    "b_mab_field__stromal_density": 0.13218165435290843,
+    "b_mab_field__dist_tumour_boundary": 0.08372373908380046,
+    "b_mab_field__niche_z": 0.06210997665401635,
+    "b_cell_field__b_mab_field": 0.3314568661831511,
+    "cut_density_pct_median": 0.6313653136531365,
+    "cut_share_top_density_decile": 0.14149139579349904,
+    "top_decile_share_on_cut": 0.5454545454545454
+   },
+   "section": {
+    "log_b_rel": 2.322855281764103,
+    "b_cell_field_core": 12.989420290470099,
+    "b_mab_field_core": 5.337240181084468,
+    "stromal_density": 0.5068848216030369,
+    "dist_tumour_boundary": 59.39915824319401,
+    "niche_z": -7.868563048665346,
+    "frac_tumour": 0.3000491883915396,
+    "frac_stroma": 0.3251352680767339,
+    "frac_immune": 0.3748155435317265,
+    "n_spots": 4066,
+    "n_reachable": 4045
+   },
+   "cohort": "extension",
+   "patient": "MBM05"
+  },
+  "MBM06": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.6401184279350721,
+    "b_cell_field__dist_tumour_boundary": -0.3289613783139177,
+    "b_cell_field__niche_z": 0.33286960277812244,
+    "b_mab_field__stromal_density": -0.04424354180754098,
+    "b_mab_field__dist_tumour_boundary": 0.011950777780512036,
+    "b_mab_field__niche_z": 0.056852306206438184,
+    "b_cell_field__b_mab_field": 0.21298717626011351,
+    "cut_density_pct_median": 0.45543523531861724,
+    "cut_share_top_density_decile": 0.10759175465057819,
+    "top_decile_share_on_cut": 0.44490644490644493
+   },
+   "section": {
+    "log_b_rel": 1.670341686308697,
+    "b_cell_field_core": 24.4956410325847,
+    "b_mab_field_core": 4.081942473577994,
+    "stromal_density": 0.5031808772697985,
+    "dist_tumour_boundary": 51.46557143576552,
+    "niche_z": -7.950821025179733,
+    "frac_tumour": 0.30002082032063293,
+    "frac_stroma": 0.2931501145117635,
+    "frac_immune": 0.4068290651676036,
+    "n_spots": 4803,
+    "n_reachable": 4724
+   },
+   "cohort": "extension",
+   "patient": "MBM06"
+  },
+  "MBM07": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.409075994833135,
+    "b_cell_field__dist_tumour_boundary": 0.02984273014190432,
+    "b_cell_field__niche_z": 0.319230085421873,
+    "b_mab_field__stromal_density": 0.054861255020894575,
+    "b_mab_field__dist_tumour_boundary": 0.021563908581145954,
+    "b_mab_field__niche_z": 0.07228635259795663,
+    "b_cell_field__b_mab_field": 0.28359591581203536,
+    "cut_density_pct_median": 0.5228202706956248,
+    "cut_share_top_density_decile": 0.11028368794326242,
+    "top_decile_share_on_cut": 0.4889937106918239
+   },
+   "section": {
+    "log_b_rel": 1.877238990706311,
+    "b_cell_field_core": 8.903577900545883,
+    "b_mab_field_core": 3.842710243846728,
+    "stromal_density": 0.5055791321132311,
+    "dist_tumour_boundary": 47.6577607062782,
+    "niche_z": -11.222526692349502,
+    "frac_tumour": 0.3000786782061369,
+    "frac_stroma": 0.3652242328874902,
+    "frac_immune": 0.33469708890637295,
+    "n_spots": 6355,
+    "n_reachable": 6315
+   },
+   "cohort": "extension",
+   "patient": "MBM07"
+  },
+  "MBM08": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.5911153693760648,
+    "b_cell_field__dist_tumour_boundary": 0.3615028166423869,
+    "b_cell_field__niche_z": 0.5044272060171792,
+    "b_mab_field__stromal_density": 0.11259182754944799,
+    "b_mab_field__dist_tumour_boundary": 0.06881034963951292,
+    "b_mab_field__niche_z": 0.09955771482434629,
+    "b_cell_field__b_mab_field": 0.39655678427645136,
+    "cut_density_pct_median": 0.5328880499491796,
+    "cut_share_top_density_decile": 0.08866799204771372,
+    "top_decile_share_on_cut": 0.32365747460087085
+   },
+   "section": {
+    "log_b_rel": 1.79181184990663,
+    "b_cell_field_core": 5.310200615384613,
+    "b_mab_field_core": 3.1138820812343218,
+    "stromal_density": 0.48368097329682563,
+    "dist_tumour_boundary": 68.5052814132531,
+    "niche_z": -54.209000865118156,
+    "frac_tumour": 0.3000871080139373,
+    "frac_stroma": 0.3828397212543554,
+    "frac_immune": 0.3170731707317073,
+    "n_spots": 6888,
+    "n_reachable": 6781
+   },
+   "cohort": "extension",
+   "patient": "MBM08"
+  },
+  "MBM11_rep1": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.32315359747411687,
+    "b_cell_field__dist_tumour_boundary": 0.022609440705974065,
+    "b_cell_field__niche_z": 0.11475020450066852,
+    "b_mab_field__stromal_density": 0.05095725819549244,
+    "b_mab_field__dist_tumour_boundary": 0.08349381730969477,
+    "b_mab_field__niche_z": 0.06717056932121718,
+    "b_cell_field__b_mab_field": 0.2918553059859999,
+    "cut_density_pct_median": 0.5645951929158761,
+    "cut_share_top_density_decile": 0.13648124191461836,
+    "top_decile_share_on_cut": 0.6666666666666666
+   },
+   "section": {
+    "log_b_rel": 2.1421868683233813,
+    "b_cell_field_core": 9.295661762483556,
+    "b_mab_field_core": 3.2357219624248734,
+    "stromal_density": 0.49911079455685603,
+    "dist_tumour_boundary": 47.34081119221327,
+    "niche_z": -13.625722256164408,
+    "frac_tumour": 0.3000790513833992,
+    "frac_stroma": 0.34877470355731227,
+    "frac_immune": 0.35114624505928854,
+    "n_spots": 6325,
+    "n_reachable": 6289
+   },
+   "cohort": "extension",
+   "patient": "MBM11"
+  },
+  "MBM11_rep2": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.24066823685572286,
+    "b_cell_field__dist_tumour_boundary": 0.003172093324019427,
+    "b_cell_field__niche_z": 0.23567810710374942,
+    "b_mab_field__stromal_density": 0.008922392305674775,
+    "b_mab_field__dist_tumour_boundary": -0.08910580631675775,
+    "b_mab_field__niche_z": -0.06602004580817056,
+    "b_cell_field__b_mab_field": 0.26424727877212684,
+    "cut_density_pct_median": 0.7382049245432883,
+    "cut_share_top_density_decile": 0.2063344201210992,
+    "top_decile_share_on_cut": 0.7031746031746032
+   },
+   "section": {
+    "log_b_rel": 2.5729403615292656,
+    "b_cell_field_core": 13.93594082133813,
+    "b_mab_field_core": 4.3934426244412865,
+    "stromal_density": 0.5041060549330921,
+    "dist_tumour_boundary": 49.57161857260071,
+    "niche_z": -25.12906585523836,
+    "frac_tumour": 0.3000317662007624,
+    "frac_stroma": 0.36086404066073696,
+    "frac_immune": 0.33910419313850065,
+    "n_spots": 6296,
+    "n_reachable": 6259
+   },
+   "cohort": "extension",
+   "patient": "MBM11"
+  },
+  "MBM11_rep3": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.47746282244417315,
+    "b_cell_field__dist_tumour_boundary": 0.09948013678116178,
+    "b_cell_field__niche_z": 0.28289334492807905,
+    "b_mab_field__stromal_density": 0.015167986866948606,
+    "b_mab_field__dist_tumour_boundary": 0.03816207023323386,
+    "b_mab_field__niche_z": -0.036530859011153584,
+    "b_cell_field__b_mab_field": 0.23894023928716515,
+    "cut_density_pct_median": 0.5816248323433608,
+    "cut_share_top_density_decile": 0.13414634146341464,
+    "top_decile_share_on_cut": 0.6532567049808429
+   },
+   "section": {
+    "log_b_rel": 2.0246021323907875,
+    "b_cell_field_core": 9.08528609539318,
+    "b_mab_field_core": 4.308510500745596,
+    "stromal_density": 0.4962804771492451,
+    "dist_tumour_boundary": 44.61340791697329,
+    "niche_z": -9.666475459399802,
+    "frac_tumour": 0.3,
+    "frac_stroma": 0.31800766283524906,
+    "frac_immune": 0.38199233716475095,
+    "n_spots": 5220,
+    "n_reachable": 5200
+   },
+   "cohort": "extension",
+   "patient": "MBM11"
+  },
+  "MBM13": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.5026268792902719,
+    "b_cell_field__dist_tumour_boundary": 0.29857781773220005,
+    "b_cell_field__niche_z": 0.3977663309196734,
+    "b_mab_field__stromal_density": 0.11280112747158144,
+    "b_mab_field__dist_tumour_boundary": 0.11761942822076567,
+    "b_mab_field__niche_z": 0.11928602555095684,
+    "b_cell_field__b_mab_field": 0.34237181541471784,
+    "cut_density_pct_median": 0.605748031496063,
+    "cut_share_top_density_decile": 0.1367003367003367,
+    "top_decile_share_on_cut": 0.6383647798742138
+   },
+   "section": {
+    "log_b_rel": 2.1392441124856436,
+    "b_cell_field_core": 7.125948339614094,
+    "b_mab_field_core": 3.707730079282481,
+    "stromal_density": 0.5017446498513785,
+    "dist_tumour_boundary": 48.15132279202007,
+    "niche_z": -25.66230580386492,
+    "frac_tumour": 0.30011021886317113,
+    "frac_stroma": 0.3471894189891356,
+    "frac_immune": 0.3527003621476933,
+    "n_spots": 6351,
+    "n_reachable": 6331
+   },
+   "cohort": "extension",
+   "patient": "MBM13"
+  },
+  "MBM18": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.3242580099579178,
+    "b_cell_field__dist_tumour_boundary": -0.008920640019037609,
+    "b_cell_field__niche_z": 0.16032598580640922,
+    "b_mab_field__stromal_density": -0.002641239707961134,
+    "b_mab_field__dist_tumour_boundary": -0.07744177837964013,
+    "b_mab_field__niche_z": -0.058797454523739766,
+    "b_cell_field__b_mab_field": 0.28171119458035593,
+    "cut_density_pct_median": 0.6557266746411483,
+    "cut_share_top_density_decile": 0.1711482558139535,
+    "top_decile_share_on_cut": 0.7040358744394619
+   },
+   "section": {
+    "log_b_rel": 2.29251903137448,
+    "b_cell_field_core": 9.811969854236672,
+    "b_mab_field_core": 3.958762977736596,
+    "stromal_density": 0.5004791667151262,
+    "dist_tumour_boundary": 49.87237295656416,
+    "niche_z": -8.173508437901175,
+    "frac_tumour": 0.30004484975332635,
+    "frac_stroma": 0.347735087457019,
+    "frac_immune": 0.3522200627896547,
+    "n_spots": 6689,
+    "n_reachable": 6656
+   },
+   "cohort": "extension",
+   "patient": "MBM18"
+  },
+  "CSCC289_S1": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.6382216351999399,
+    "b_cell_field__dist_tumour_boundary": 0.4735513772122872,
+    "b_cell_field__niche_z": 0.6443147484718161,
+    "b_mab_field__stromal_density": 0.041598712782689784,
+    "b_mab_field__dist_tumour_boundary": -0.027151719693085725,
+    "b_mab_field__niche_z": 0.020403970221721628,
+    "b_cell_field__b_mab_field": 0.27942605524814323,
+    "cut_density_pct_median": 0.6243441762854145,
+    "cut_share_top_density_decile": 0.1019036954087346,
+    "top_decile_share_on_cut": 0.3181818181818182
+   },
+   "section": {
+    "log_b_rel": 2.286886737256339,
+    "b_cell_field_core": 6.119355445737394,
+    "b_mab_field_core": 3.7442121431533373,
+    "stromal_density": 0.49590367364154486,
+    "dist_tumour_boundary": 168.968276291464,
+    "niche_z": -52.453069875843866,
+    "frac_tumour": 0.3,
+    "frac_stroma": 0.40594405594405597,
+    "frac_immune": 0.29405594405594404,
+    "n_spots": 2860,
+    "n_reachable": 2860
+   },
+   "cohort": "extension",
+   "patient": "CSCC289_S1"
+  },
+  "CSCC289_S10": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.7035380621358264,
+    "b_cell_field__dist_tumour_boundary": -0.5480938704062053,
+    "b_cell_field__niche_z": -0.028516025327787794,
+    "b_mab_field__stromal_density": -0.015725887773094235,
+    "b_mab_field__dist_tumour_boundary": -0.22377335810841403,
+    "b_mab_field__niche_z": -0.1903130321892426,
+    "b_cell_field__b_mab_field": 0.24725115484349772,
+    "cut_density_pct_median": 0.6192139737991267,
+    "cut_share_top_density_decile": 0.05128205128205128,
+    "top_decile_share_on_cut": 0.017391304347826087
+   },
+   "section": {
+    "log_b_rel": 2.205489881940303,
+    "b_cell_field_core": 109.09664663942812,
+    "b_mab_field_core": 6.602247192837501,
+    "stromal_density": 0.5133368835871764,
+    "dist_tumour_boundary": 196.85256324374967,
+    "niche_z": -22.962859876928515,
+    "frac_tumour": 0.30017452006980805,
+    "frac_stroma": 0.2443280977312391,
+    "frac_immune": 0.45549738219895286,
+    "n_spots": 1146,
+    "n_reachable": 1137
+   },
+   "cohort": "extension",
+   "patient": "CSCC289_S10"
+  },
+  "CSCC289_S11": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.7938797829326174,
+    "b_cell_field__dist_tumour_boundary": 0.19407658479248446,
+    "b_cell_field__niche_z": 0.6924689794307239,
+    "b_mab_field__stromal_density": 0.24415790087759687,
+    "b_mab_field__dist_tumour_boundary": -0.12070069316744661,
+    "b_mab_field__niche_z": 0.15983163280715368,
+    "b_cell_field__b_mab_field": 0.4157140355616531,
+    "cut_density_pct_median": 0.5445344129554656,
+    "cut_share_top_density_decile": 0.11507293354943274,
+    "top_decile_share_on_cut": 0.47651006711409394
+   },
+   "section": {
+    "log_b_rel": 1.3046468994883997,
+    "b_cell_field_core": 5.057718440051224,
+    "b_mab_field_core": 3.8383212895151413,
+    "stromal_density": 0.47115656072098905,
+    "dist_tumour_boundary": 224.50621453448184,
+    "niche_z": -31.87156583745251,
+    "frac_tumour": 0.3000674308833446,
+    "frac_stroma": 0.34389750505731626,
+    "frac_immune": 0.35603506405933916,
+    "n_spots": 1483,
+    "n_reachable": 1481
+   },
+   "cohort": "extension",
+   "patient": "CSCC289_S11"
+  },
+  "CSCC289_S15": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.8772369668348382,
+    "b_cell_field__dist_tumour_boundary": -0.5099174473075984,
+    "b_cell_field__niche_z": 0.526987556311095,
+    "b_mab_field__stromal_density": 0.5179916251829553,
+    "b_mab_field__dist_tumour_boundary": -0.5391567986312885,
+    "b_mab_field__niche_z": 0.24596018016902416,
+    "b_cell_field__b_mab_field": 0.6050215421758495,
+    "cut_density_pct_median": 0.398422090729783,
+    "cut_share_top_density_decile": 0.02254428341384863,
+    "top_decile_share_on_cut": 0.06896551724137931
+   },
+   "section": {
+    "log_b_rel": 1.425486051389893,
+    "b_cell_field_core": 49.788675958343106,
+    "b_mab_field_core": 12.102175659772875,
+    "stromal_density": 0.5507272318281198,
+    "dist_tumour_boundary": 169.51490518483055,
+    "niche_z": -5.302932725798483,
+    "frac_tumour": 0.3001478560867422,
+    "frac_stroma": 0.27501232134056186,
+    "frac_immune": 0.4248398225726959,
+    "n_spots": 2029,
+    "n_reachable": 2006
+   },
+   "cohort": "extension",
+   "patient": "CSCC289_S15"
+  },
+  "CSCC289_S3": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.896947960892421,
+    "b_cell_field__dist_tumour_boundary": -0.37011804386624536,
+    "b_cell_field__niche_z": 0.7121869270996489,
+    "b_mab_field__stromal_density": 0.18245074428338123,
+    "b_mab_field__dist_tumour_boundary": -0.5962771060383069,
+    "b_mab_field__niche_z": -0.05247073735925155,
+    "b_cell_field__b_mab_field": 0.32183006464368413,
+    "cut_density_pct_median": 0.37871893594679734,
+    "cut_share_top_density_decile": 0.032,
+    "top_decile_share_on_cut": 0.027972027972027972
+   },
+   "section": {
+    "log_b_rel": 1.4453102183544984,
+    "b_cell_field_core": 25.749672519166964,
+    "b_mab_field_core": 19.44416153804531,
+    "stromal_density": 0.6777362453028312,
+    "dist_tumour_boundary": 293.5030507694532,
+    "niche_z": -44.01235159911436,
+    "frac_tumour": 0.3002099370188943,
+    "frac_stroma": 0.31315605318404477,
+    "frac_immune": 0.38663400979706086,
+    "n_spots": 2858,
+    "n_reachable": 2858
+   },
+   "cohort": "extension",
+   "patient": "CSCC289_S3"
+  },
+  "CSCC289_S4": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.39848345564780696,
+    "b_cell_field__dist_tumour_boundary": 0.02152508650244413,
+    "b_cell_field__niche_z": 0.3597447846503895,
+    "b_mab_field__stromal_density": -0.055471976081602814,
+    "b_mab_field__dist_tumour_boundary": -0.14669011402679258,
+    "b_mab_field__niche_z": -0.03770786032939699,
+    "b_cell_field__b_mab_field": 0.2889854637773862,
+    "cut_density_pct_median": 0.7773951158422041,
+    "cut_share_top_density_decile": 0.14538310412573674,
+    "top_decile_share_on_cut": 0.23125
+   },
+   "section": {
+    "log_b_rel": 2.9511115404867447,
+    "b_cell_field_core": 18.245256739328124,
+    "b_mab_field_core": 3.486664722649498,
+    "stromal_density": 0.507001510316204,
+    "dist_tumour_boundary": 338.4733714332118,
+    "niche_z": -45.43329302324621,
+    "frac_tumour": 0.3001564945226917,
+    "frac_stroma": 0.4162754303599374,
+    "frac_immune": 0.28356807511737087,
+    "n_spots": 3195,
+    "n_reachable": 3193
+   },
+   "cohort": "extension",
+   "patient": "CSCC289_S4"
+  },
+  "CSCC289_S5": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.7127963441396171,
+    "b_cell_field__dist_tumour_boundary": -0.04542390143167073,
+    "b_cell_field__niche_z": 0.6078666018407478,
+    "b_mab_field__stromal_density": 0.2626599631958094,
+    "b_mab_field__dist_tumour_boundary": -0.27702017712875265,
+    "b_mab_field__niche_z": 0.22509891642244692,
+    "b_cell_field__b_mab_field": 0.3872181719704271,
+    "cut_density_pct_median": 0.6964809384164223,
+    "cut_share_top_density_decile": 0.21052631578947367,
+    "top_decile_share_on_cut": 0.4542124542124542
+   },
+   "section": {
+    "log_b_rel": 1.8416366438477327,
+    "b_cell_field_core": 15.262250715605834,
+    "b_mab_field_core": 4.979786467523105,
+    "stromal_density": 0.553052136674378,
+    "dist_tumour_boundary": 146.4901620101024,
+    "niche_z": -23.119572438980747,
+    "frac_tumour": 0.3001099303774276,
+    "frac_stroma": 0.37119824111396116,
+    "frac_immune": 0.32869182850861123,
+    "n_spots": 2729,
+    "n_reachable": 2671
+   },
+   "cohort": "extension",
+   "patient": "CSCC289_S5"
+  },
+  "CSCC289_S6": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.7478488943558567,
+    "b_cell_field__dist_tumour_boundary": 0.40370552924049774,
+    "b_cell_field__niche_z": 0.6865818972316319,
+    "b_mab_field__stromal_density": 0.2231963404697281,
+    "b_mab_field__dist_tumour_boundary": 0.07021606739812446,
+    "b_mab_field__niche_z": 0.20853147167911998,
+    "b_cell_field__b_mab_field": 0.44860660106547184,
+    "cut_density_pct_median": 0.49416909620991256,
+    "cut_share_top_density_decile": 0.11064278187565858,
+    "top_decile_share_on_cut": 0.5097087378640777
+   },
+   "section": {
+    "log_b_rel": 1.4981699811738975,
+    "b_cell_field_core": 4.154784115891448,
+    "b_mab_field_core": 3.0328594213606825,
+    "stromal_density": 0.5189572222935515,
+    "dist_tumour_boundary": 146.70330411032393,
+    "niche_z": -41.19847678807662,
+    "frac_tumour": 0.30014570179698885,
+    "frac_stroma": 0.4113647401651287,
+    "frac_immune": 0.28848955803788245,
+    "n_spots": 2059,
+    "n_reachable": 2049
+   },
+   "cohort": "extension",
+   "patient": "CSCC289_S6"
+  },
+  "CSCC289_S7": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.49668837995743675,
+    "b_cell_field__dist_tumour_boundary": 0.27928449120981036,
+    "b_cell_field__niche_z": 0.4301748092585605,
+    "b_mab_field__stromal_density": -0.02694243113351172,
+    "b_mab_field__dist_tumour_boundary": -0.137880519866735,
+    "b_mab_field__niche_z": -0.13153950427043756,
+    "b_cell_field__b_mab_field": 0.30497762699799674,
+    "cut_density_pct_median": 0.7293260473588342,
+    "cut_share_top_density_decile": 0.0779816513761468,
+    "top_decile_share_on_cut": 0.18545454545454546
+   },
+   "section": {
+    "log_b_rel": 3.405796066755197,
+    "b_cell_field_core": 17.3994072150416,
+    "b_mab_field_core": 5.084797662101659,
+    "stromal_density": 0.483022308022308,
+    "dist_tumour_boundary": 423.2898358473162,
+    "niche_z": -38.19960037404549,
+    "frac_tumour": 0.30007283321194467,
+    "frac_stroma": 0.404952658412236,
+    "frac_immune": 0.2949745083758194,
+    "n_spots": 2746,
+    "n_reachable": 2746
+   },
+   "cohort": "extension",
+   "patient": "CSCC289_S7"
+  },
+  "CSCC289_S8": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.4445945024052828,
+    "b_cell_field__dist_tumour_boundary": 0.3947733417336902,
+    "b_cell_field__niche_z": 0.49086080372556923,
+    "b_mab_field__stromal_density": -0.1975041789050269,
+    "b_mab_field__dist_tumour_boundary": -0.22113657876155837,
+    "b_mab_field__niche_z": -0.18237008942145327,
+    "b_cell_field__b_mab_field": 0.14611314973973544,
+    "cut_density_pct_median": 0.7675174013921113,
+    "cut_share_top_density_decile": 0.12416851441241686,
+    "top_decile_share_on_cut": 0.25925925925925924
+   },
+   "section": {
+    "log_b_rel": 4.416066771153785,
+    "b_cell_field_core": 19.033439364383103,
+    "b_mab_field_core": 8.104944916549213,
+    "stromal_density": 0.4679032408584365,
+    "dist_tumour_boundary": 368.92965305043504,
+    "niche_z": -37.81700083358388,
+    "frac_tumour": 0.30009276437847865,
+    "frac_stroma": 0.3807977736549165,
+    "frac_immune": 0.31910946196660483,
+    "n_spots": 2156,
+    "n_reachable": 2130
+   },
+   "cohort": "extension",
+   "patient": "CSCC289_S8"
+  },
+  "CSCC289_S9": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.4164182197917068,
+    "b_cell_field__dist_tumour_boundary": 0.01971500013586739,
+    "b_cell_field__niche_z": 0.27944544569200647,
+    "b_mab_field__stromal_density": -0.31397830798845994,
+    "b_mab_field__dist_tumour_boundary": 0.010479037941487846,
+    "b_mab_field__niche_z": -0.07818695020640574,
+    "b_cell_field__b_mab_field": 0.09610160509712401,
+    "cut_density_pct_median": 0.7518779342723005,
+    "cut_share_top_density_decile": 0.20150375939849624,
+    "top_decile_share_on_cut": 0.6276346604215457
+   },
+   "section": {
+    "log_b_rel": 3.1954142277605095,
+    "b_cell_field_core": 17.860645480180832,
+    "b_mab_field_core": 4.657220461820242,
+    "stromal_density": 0.49590414929052906,
+    "dist_tumour_boundary": 84.7509226293621,
+    "niche_z": -32.69664280978966,
+    "frac_tumour": 0.30016428068528517,
+    "frac_stroma": 0.33255104435578503,
+    "frac_immune": 0.3672846749589298,
+    "n_spots": 4261,
+    "n_reachable": 4261
+   },
+   "cohort": "extension",
+   "patient": "CSCC289_S9"
+  },
+  "MEL300_0019": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.4319901630816648,
+    "b_cell_field__dist_tumour_boundary": -0.3844811529505583,
+    "b_cell_field__niche_z": 0.20715108412220323,
+    "b_mab_field__stromal_density": -0.5929363595862336,
+    "b_mab_field__dist_tumour_boundary": 0.10642080829494133,
+    "b_mab_field__niche_z": -0.21251604867041618,
+    "b_cell_field__b_mab_field": -0.02300437226134804,
+    "cut_density_pct_median": 0.8768258981444927,
+    "cut_share_top_density_decile": 0.42996742671009774,
+    "top_decile_share_on_cut": 0.5196850393700787
+   },
+   "section": {
+    "log_b_rel": 4.9689497872426465,
+    "b_cell_field_core": 180.7872851974248,
+    "b_mab_field_core": 4.513393304714332,
+    "stromal_density": 0.6290606171065892,
+    "dist_tumour_boundary": 853.4810352614891,
+    "niche_z": -36.36521607325267,
+    "frac_tumour": 0.2999210734017364,
+    "frac_stroma": 0.26479873717442776,
+    "frac_immune": 0.43528018942383584,
+    "n_spots": 2534,
+    "n_reachable": 2532
+   },
+   "cohort": "extension",
+   "patient": "MEL300_0019"
+  },
+  "MEL300_0022": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.5876486370507872,
+    "b_cell_field__dist_tumour_boundary": -0.11313878302144685,
+    "b_cell_field__niche_z": 0.4745031570243754,
+    "b_mab_field__stromal_density": -0.22382594172318093,
+    "b_mab_field__dist_tumour_boundary": -0.37277771046190283,
+    "b_mab_field__niche_z": -0.37587076153137183,
+    "b_cell_field__b_mab_field": 0.1804135036051072,
+    "cut_density_pct_median": 0.6186164433176385,
+    "cut_share_top_density_decile": 0.1356255969436485,
+    "top_decile_share_on_cut": 0.5126353790613718
+   },
+   "section": {
+    "log_b_rel": 2.51121046754764,
+    "b_cell_field_core": 10.309988695224435,
+    "b_mab_field_core": 9.328036937965308,
+    "stromal_density": 0.6016675214942548,
+    "dist_tumour_boundary": 157.68406801615455,
+    "niche_z": -57.31042815558051,
+    "frac_tumour": 0.3001448225923244,
+    "frac_stroma": 0.3783490224475018,
+    "frac_immune": 0.32150615496017376,
+    "n_spots": 2762,
+    "n_reachable": 2762
+   },
+   "cohort": "extension",
+   "patient": "MEL300_0022"
+  },
+  "MEL300_0113": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.8118258986872505,
+    "b_cell_field__dist_tumour_boundary": 0.18191720775008824,
+    "b_cell_field__niche_z": 0.7156655408143834,
+    "b_mab_field__stromal_density": 0.45887627529245467,
+    "b_mab_field__dist_tumour_boundary": -0.08155675490368351,
+    "b_mab_field__niche_z": 0.2954146357364498,
+    "b_cell_field__b_mab_field": 0.6232114937466507,
+    "cut_density_pct_median": 0.5795401220084467,
+    "cut_share_top_density_decile": 0.12192723697148476,
+    "top_decile_share_on_cut": 0.5794392523364486
+   },
+   "section": {
+    "log_b_rel": 1.830807995120366,
+    "b_cell_field_core": 4.934150526687185,
+    "b_mab_field_core": 4.688277718420778,
+    "stromal_density": 0.5882367251245003,
+    "dist_tumour_boundary": 136.2461195852576,
+    "niche_z": -34.646171938976046,
+    "frac_tumour": 0.300187617260788,
+    "frac_stroma": 0.4451219512195122,
+    "frac_immune": 0.25469043151969983,
+    "n_spots": 2132,
+    "n_reachable": 2108
+   },
+   "cohort": "extension",
+   "patient": "MEL300_0113"
+  },
+  "MEL300_0133": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.5170256771488864,
+    "b_cell_field__dist_tumour_boundary": 0.08922431879022608,
+    "b_cell_field__niche_z": 0.454471626398603,
+    "b_mab_field__stromal_density": -0.20932888833735766,
+    "b_mab_field__dist_tumour_boundary": 0.12791470945577682,
+    "b_mab_field__niche_z": -0.09955222807335933,
+    "b_cell_field__b_mab_field": 0.09465891841054633,
+    "cut_density_pct_median": 0.6256435400833538,
+    "cut_share_top_density_decile": 0.14906832298136646,
+    "top_decile_share_on_cut": 0.5294117647058824
+   },
+   "section": {
+    "log_b_rel": 2.295333824375576,
+    "b_cell_field_core": 8.525787625973797,
+    "b_mab_field_core": 2.7751513161793624,
+    "stromal_density": 0.5148701898492632,
+    "dist_tumour_boundary": 78.57142857142956,
+    "niche_z": -24.637861756291716,
+    "frac_tumour": 0.3,
+    "frac_stroma": 0.3637254901960784,
+    "frac_immune": 0.3362745098039216,
+    "n_spots": 4080,
+    "n_reachable": 4079
+   },
+   "cohort": "extension",
+   "patient": "MEL300_0133"
+  },
+  "MEL316_mel2": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.609729610406814,
+    "b_cell_field__dist_tumour_boundary": 0.3636185626639402,
+    "b_cell_field__niche_z": 0.5844863501416905,
+    "b_mab_field__stromal_density": -0.22635854958998775,
+    "b_mab_field__dist_tumour_boundary": -0.22295403973532227,
+    "b_mab_field__niche_z": -0.22038577509286253,
+    "b_cell_field__b_mab_field": 0.04028199853033916,
+    "cut_density_pct_median": 0.6432246998284734,
+    "cut_share_top_density_decile": 0.14726583649160802,
+    "top_decile_share_on_cut": 0.6650366748166259
+   },
+   "section": {
+    "log_b_rel": 2.1717357942105,
+    "b_cell_field_core": 5.500995713558367,
+    "b_mab_field_core": 5.129395180179003,
+    "stromal_density": 0.5417902245939702,
+    "dist_tumour_boundary": 84.86174845828319,
+    "niche_z": -41.568375558981735,
+    "frac_tumour": 0.3000979911807937,
+    "frac_stroma": 0.3988241058304753,
+    "frac_immune": 0.301077902988731,
+    "n_spots": 4082,
+    "n_reachable": 4082
+   },
+   "cohort": "extension",
+   "patient": "MEL316_mel2"
+  },
+  "MEL316_mel3": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.5492788764697283,
+    "b_cell_field__dist_tumour_boundary": 0.1791189269569137,
+    "b_cell_field__niche_z": 0.5426116135192061,
+    "b_mab_field__stromal_density": -0.6050446484861789,
+    "b_mab_field__dist_tumour_boundary": -0.08617924449752368,
+    "b_mab_field__niche_z": -0.4832156545976436,
+    "b_cell_field__b_mab_field": -0.22198374172412966,
+    "cut_density_pct_median": 0.7153284671532847,
+    "cut_share_top_density_decile": 0.17686692869174622,
+    "top_decile_share_on_cut": 0.6376518218623481
+   },
+   "section": {
+    "log_b_rel": 4.073362856248147,
+    "b_cell_field_core": 20.077690981145032,
+    "b_mab_field_core": 7.2963090700396425,
+    "stromal_density": 0.5303277144480779,
+    "dist_tumour_boundary": 84.7702277141051,
+    "niche_z": -23.468704377241455,
+    "frac_tumour": 0.3000202716399757,
+    "frac_stroma": 0.35110480437867425,
+    "frac_immune": 0.3488749239813501,
+    "n_spots": 4933,
+    "n_reachable": 4933
+   },
+   "cohort": "extension",
+   "patient": "MEL316_mel3"
+  },
+  "MEL320_WU1340": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.4774032423080062,
+    "b_cell_field__dist_tumour_boundary": 0.18397574096869582,
+    "b_cell_field__niche_z": 0.3665661516720761,
+    "b_mab_field__stromal_density": -0.014431068358724694,
+    "b_mab_field__dist_tumour_boundary": -0.1284652829763183,
+    "b_mab_field__niche_z": -0.08253831923828947,
+    "b_cell_field__b_mab_field": 0.32880304027662244,
+    "cut_density_pct_median": 0.7866880513231757,
+    "cut_share_top_density_decile": 0.2533589251439539,
+    "top_decile_share_on_cut": 0.7935871743486974
+   },
+   "section": {
+    "log_b_rel": 3.622694633549581,
+    "b_cell_field_core": 17.077203049268245,
+    "b_mab_field_core": 6.6910362157519065,
+    "stromal_density": 0.4759787567832702,
+    "dist_tumour_boundary": 269.5011453536676,
+    "niche_z": -85.5784203875731,
+    "frac_tumour": 0.3000601322910403,
+    "frac_stroma": 0.4147123672078573,
+    "frac_immune": 0.2852275005011024,
+    "n_spots": 4989,
+    "n_reachable": 4989
+   },
+   "cohort": "extension",
+   "patient": "MEL320_WU1340"
+  },
+  "MEL320_WU1373": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.3002524356497787,
+    "b_cell_field__dist_tumour_boundary": 0.31833030246050215,
+    "b_cell_field__niche_z": 0.4911057334935827,
+    "b_mab_field__stromal_density": -0.23245051194535843,
+    "b_mab_field__dist_tumour_boundary": 0.031473926123819926,
+    "b_mab_field__niche_z": 0.11070717625083312,
+    "b_cell_field__b_mab_field": 0.19211010268312073,
+    "cut_density_pct_median": 0.8359139784946237,
+    "cut_share_top_density_decile": 0.3347412882787751,
+    "top_decile_share_on_cut": 0.6802575107296137
+   },
+   "section": {
+    "log_b_rel": 3.926570686084967,
+    "b_cell_field_core": 19.74004644684792,
+    "b_mab_field_core": 4.267185711144345,
+    "stromal_density": 0.5020910439208548,
+    "dist_tumour_boundary": 137.44386609278294,
+    "niche_z": -55.48436477554453,
+    "frac_tumour": 0.3001505052676844,
+    "frac_stroma": 0.37927327456460974,
+    "frac_immune": 0.32057622016770587,
+    "n_spots": 4651,
+    "n_reachable": 4501
+   },
+   "cohort": "extension",
+   "patient": "MEL320_WU1373"
+  },
+  "MEL320_WU1384_1": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.4653560249162252,
+    "b_cell_field__dist_tumour_boundary": -0.20200533075408544,
+    "b_cell_field__niche_z": 0.36289480237044447,
+    "b_mab_field__stromal_density": -0.2697731801737626,
+    "b_mab_field__dist_tumour_boundary": -0.2571437960182613,
+    "b_mab_field__niche_z": -0.022139760294049075,
+    "b_cell_field__b_mab_field": 0.14801667877557712,
+    "cut_density_pct_median": 0.6685839782472287,
+    "cut_share_top_density_decile": 0.20114942528735633,
+    "top_decile_share_on_cut": 0.3653444676409186
+   },
+   "section": {
+    "log_b_rel": 2.2066795637662895,
+    "b_cell_field_core": 22.88787582901972,
+    "b_mab_field_core": 6.569239172191059,
+    "stromal_density": 0.5082583046528873,
+    "dist_tumour_boundary": 137.44386609278195,
+    "niche_z": -43.223707211448385,
+    "frac_tumour": 0.3000836470096194,
+    "frac_stroma": 0.38958594730238394,
+    "frac_immune": 0.31033040568799664,
+    "n_spots": 4782,
+    "n_reachable": 4782
+   },
+   "cohort": "extension",
+   "patient": "MEL320_WU1384"
+  },
+  "MEL320_WU1384_2": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.5314009266333387,
+    "b_cell_field__dist_tumour_boundary": -0.15094349755913603,
+    "b_cell_field__niche_z": 0.4838376355711954,
+    "b_mab_field__stromal_density": -0.25701082362858657,
+    "b_mab_field__dist_tumour_boundary": -0.22358931990888622,
+    "b_mab_field__niche_z": -0.0330592982393757,
+    "b_cell_field__b_mab_field": 0.1474528359125031,
+    "cut_density_pct_median": 0.7012035010940919,
+    "cut_share_top_density_decile": 0.27153558052434457,
+    "top_decile_share_on_cut": 0.6331877729257642
+   },
+   "section": {
+    "log_b_rel": 2.419828908013821,
+    "b_cell_field_core": 21.94921279745552,
+    "b_mab_field_core": 5.996951091163223,
+    "stromal_density": 0.517893111672344,
+    "dist_tumour_boundary": 82.52333935526228,
+    "niche_z": -33.45473533048708,
+    "frac_tumour": 0.3001531393568147,
+    "frac_stroma": 0.39378691752351785,
+    "frac_immune": 0.30605994311966744,
+    "n_spots": 4571,
+    "n_reachable": 4571
+   },
+   "cohort": "extension",
+   "patient": "MEL320_WU1384"
+  },
+  "MEL320_WU1609": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.6564015976469678,
+    "b_cell_field__dist_tumour_boundary": 0.1857059393784601,
+    "b_cell_field__niche_z": 0.5765571261365328,
+    "b_mab_field__stromal_density": -0.07483959481016866,
+    "b_mab_field__dist_tumour_boundary": 0.09799894675022794,
+    "b_mab_field__niche_z": -0.013818211478331824,
+    "b_cell_field__b_mab_field": 0.2128543942844348,
+    "cut_density_pct_median": 0.5871090617481957,
+    "cut_share_top_density_decile": 0.08580996232733361,
+    "top_decile_share_on_cut": 0.41082164328657317
+   },
+   "section": {
+    "log_b_rel": 2.0600259052946317,
+    "b_cell_field_core": 6.385078184034683,
+    "b_mab_field_core": 3.4543458792281565,
+    "stromal_density": 0.4932556275991916,
+    "dist_tumour_boundary": 77.48354005588575,
+    "niche_z": -31.428836808861373,
+    "frac_tumour": 0.3000601322910403,
+    "frac_stroma": 0.3706153537783123,
+    "frac_immune": 0.32932451393064743,
+    "n_spots": 4989,
+    "n_reachable": 4989
+   },
+   "cohort": "extension",
+   "patient": "MEL320_WU1609"
+  },
+  "MEL320_WU2130_1": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.6584310683895096,
+    "b_cell_field__dist_tumour_boundary": 0.08171511362828955,
+    "b_cell_field__niche_z": 0.6280097813207768,
+    "b_mab_field__stromal_density": 0.019481427338355617,
+    "b_mab_field__dist_tumour_boundary": -0.058469115729420026,
+    "b_mab_field__niche_z": 0.045450239507200264,
+    "b_cell_field__b_mab_field": 0.2460250056176225,
+    "cut_density_pct_median": 0.5303529411764706,
+    "cut_share_top_density_decile": 0.09983079526226735,
+    "top_decile_share_on_cut": 0.4154929577464789
+   },
+   "section": {
+    "log_b_rel": 1.9328196591298132,
+    "b_cell_field_core": 8.1413072795484,
+    "b_mab_field_core": 3.4074891746384326,
+    "stromal_density": 0.5394639147920626,
+    "dist_tumour_boundary": 78.8420340080749,
+    "niche_z": -15.891255656310538,
+    "frac_tumour": 0.3001646671371442,
+    "frac_stroma": 0.36932486473770876,
+    "frac_immune": 0.330510468125147,
+    "n_spots": 4251,
+    "n_reachable": 4249
+   },
+   "cohort": "extension",
+   "patient": "MEL320_WU2130"
+  },
+  "MEL320_WU2130_2": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.2900057723126461,
+    "b_cell_field__dist_tumour_boundary": -0.08375825536436343,
+    "b_cell_field__niche_z": 0.3330906476469736,
+    "b_mab_field__stromal_density": -0.3588861665210853,
+    "b_mab_field__dist_tumour_boundary": -0.1844473729421838,
+    "b_mab_field__niche_z": -0.0629054788440597,
+    "b_cell_field__b_mab_field": 0.28265146504002525,
+    "cut_density_pct_median": 0.8453580901856764,
+    "cut_share_top_density_decile": 0.34290271132376393,
+    "top_decile_share_on_cut": 0.5687830687830688
+   },
+   "section": {
+    "log_b_rel": 4.009171875565823,
+    "b_cell_field_core": 26.353607580353398,
+    "b_mab_field_core": 6.568882711119058,
+    "stromal_density": 0.5199319827130328,
+    "dist_tumour_boundary": 78.66958154982497,
+    "niche_z": -24.957638647839204,
+    "frac_tumour": 0.3001856271546009,
+    "frac_stroma": 0.37258021744895253,
+    "frac_immune": 0.32723415539644657,
+    "n_spots": 3771,
+    "n_reachable": 3763
+   },
+   "cohort": "extension",
+   "patient": "MEL320_WU2130"
+  },
+  "MEL320_WU2415": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.4649207445452792,
+    "b_cell_field__dist_tumour_boundary": 0.24745622136378664,
+    "b_cell_field__niche_z": 0.36599410126282517,
+    "b_mab_field__stromal_density": -0.15477392378613586,
+    "b_mab_field__dist_tumour_boundary": 0.0366653037523756,
+    "b_mab_field__niche_z": 0.04259750119835257,
+    "b_cell_field__b_mab_field": 0.22058482200210955,
+    "cut_density_pct_median": 0.6179775280898876,
+    "cut_share_top_density_decile": 0.1288153129849974,
+    "top_decile_share_on_cut": 0.5176715176715176
+   },
+   "section": {
+    "log_b_rel": 2.760949458868043,
+    "b_cell_field_core": 8.554298876201416,
+    "b_mab_field_core": 3.3042810398642186,
+    "stromal_density": 0.5142075948878334,
+    "dist_tumour_boundary": 135.46452581802197,
+    "niche_z": -62.03063618029261,
+    "frac_tumour": 0.29997919700436865,
+    "frac_stroma": 0.4081547742874974,
+    "frac_immune": 0.291866028708134,
+    "n_spots": 4807,
+    "n_reachable": 4807
+   },
+   "cohort": "extension",
+   "patient": "MEL320_WU2415"
+  },
+  "MEL320_WU3049": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.5923227403420456,
+    "b_cell_field__dist_tumour_boundary": 0.49194413050313507,
+    "b_cell_field__niche_z": 0.6910750583057971,
+    "b_mab_field__stromal_density": -0.38265593703618345,
+    "b_mab_field__dist_tumour_boundary": -0.5526176850410074,
+    "b_mab_field__niche_z": -0.44115889224616633,
+    "b_cell_field__b_mab_field": -0.023251499575857155,
+    "cut_density_pct_median": 0.6418121149897331,
+    "cut_share_top_density_decile": 0.15789473684210525,
+    "top_decile_share_on_cut": 0.2923076923076923
+   },
+   "section": {
+    "log_b_rel": 2.4861395684288667,
+    "b_cell_field_core": 12.339364738125386,
+    "b_mab_field_core": 12.89376147970135,
+    "stromal_density": 0.505848026609837,
+    "dist_tumour_boundary": 672.704050676015,
+    "niche_z": -95.57664263170717,
+    "frac_tumour": 0.2999743392353092,
+    "frac_stroma": 0.4459840903258917,
+    "frac_immune": 0.2540415704387991,
+    "n_spots": 3897,
+    "n_reachable": 3893
+   },
+   "cohort": "extension",
+   "patient": "MEL320_WU3049"
+  },
+  "MEL320_WU3244": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.713375212377236,
+    "b_cell_field__dist_tumour_boundary": -0.15893819630057804,
+    "b_cell_field__niche_z": 0.5135274842605793,
+    "b_mab_field__stromal_density": 0.370235363999126,
+    "b_mab_field__dist_tumour_boundary": -0.009471895553656908,
+    "b_mab_field__niche_z": 0.31934942643179776,
+    "b_cell_field__b_mab_field": 0.5383695453385449,
+    "cut_density_pct_median": 0.5206535141800246,
+    "cut_share_top_density_decile": 0.0899830220713073,
+    "top_decile_share_on_cut": 0.4353182751540041
+   },
+   "section": {
+    "log_b_rel": 1.4439141597030984,
+    "b_cell_field_core": 11.714986732556227,
+    "b_mab_field_core": 3.6590434643839087,
+    "stromal_density": 0.483135023494132,
+    "dist_tumour_boundary": 77.48354005588543,
+    "niche_z": -12.135781830362607,
+    "frac_tumour": 0.29997945346209165,
+    "frac_stroma": 0.31210191082802546,
+    "frac_immune": 0.3879186357098829,
+    "n_spots": 4867,
+    "n_reachable": 4867
+   },
+   "cohort": "extension",
+   "patient": "MEL320_WU3244"
+  },
+  "MEL320_YUADD": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.7933297210640307,
+    "b_cell_field__dist_tumour_boundary": 0.39474592656933466,
+    "b_cell_field__niche_z": 0.7894471147050569,
+    "b_mab_field__stromal_density": 0.26370888124895314,
+    "b_mab_field__dist_tumour_boundary": -0.019879075901248162,
+    "b_mab_field__niche_z": 0.337730450351202,
+    "b_cell_field__b_mab_field": 0.4671862539555223,
+    "cut_density_pct_median": 0.40228690228690234,
+    "cut_share_top_density_decile": 0.1702127659574468,
+    "top_decile_share_on_cut": 0.6530612244897959
+   },
+   "section": {
+    "log_b_rel": 1.2071851160698162,
+    "b_cell_field_core": 5.730155110738294,
+    "b_mab_field_core": 4.527577716153398,
+    "stromal_density": 0.5239881631010663,
+    "dist_tumour_boundary": 82.53033859648576,
+    "niche_z": -9.881258956606922,
+    "frac_tumour": 0.3008298755186722,
+    "frac_stroma": 0.3900414937759336,
+    "frac_immune": 0.3091286307053942,
+    "n_spots": 482,
+    "n_reachable": 479
+   },
+   "cohort": "extension",
+   "patient": "MEL320_YUADD"
+  },
+  "MEL320_YUALT": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.5052914450202107,
+    "b_cell_field__dist_tumour_boundary": 0.32034237229247886,
+    "b_cell_field__niche_z": 0.49704989694805046,
+    "b_mab_field__stromal_density": -0.3442077406148658,
+    "b_mab_field__dist_tumour_boundary": -0.42491214576885195,
+    "b_mab_field__niche_z": -0.3132989127163807,
+    "b_cell_field__b_mab_field": 0.2405291848727621,
+    "cut_density_pct_median": 0.6170568561872909,
+    "cut_share_top_density_decile": 0.04608294930875576,
+    "top_decile_share_on_cut": 0.08333333333333333
+   },
+   "section": {
+    "log_b_rel": 2.523800351036524,
+    "b_cell_field_core": 10.265689166582888,
+    "b_mab_field_core": 11.33350978643041,
+    "stromal_density": 0.4665061258617159,
+    "dist_tumour_boundary": 701.3953858919396,
+    "niche_z": -45.12220037937484,
+    "frac_tumour": 0.3000417885499373,
+    "frac_stroma": 0.39657333890514,
+    "frac_immune": 0.3033848725449227,
+    "n_spots": 2393,
+    "n_reachable": 2381
+   },
+   "cohort": "extension",
+   "patient": "MEL320_YUALT"
+  },
+  "MEL320_YUBOISE": {
+   "spot": {
+    "b_cell_field__stromal_density": -0.012036070870413041,
+    "b_cell_field__dist_tumour_boundary": -0.12195682575541991,
+    "b_cell_field__niche_z": -0.0383724196321451,
+    "b_mab_field__stromal_density": -0.1704637742032458,
+    "b_mab_field__dist_tumour_boundary": -0.2649620667327865,
+    "b_mab_field__niche_z": 0.08800574995242794,
+    "b_cell_field__b_mab_field": -0.01540175451381038,
+    "cut_density_pct_median": 0.8532608695652174,
+    "cut_share_top_density_decile": 0.29508196721311475,
+    "top_decile_share_on_cut": 0.4864864864864865
+   },
+   "section": {
+    "log_b_rel": 6.180302799154834,
+    "b_cell_field_core": 146.57456945218684,
+    "b_mab_field_core": 8.936390604331649,
+    "stromal_density": 0.47452046035805623,
+    "dist_tumour_boundary": 203.40385773888454,
+    "niche_z": -7.3683471187166365,
+    "frac_tumour": 0.3008130081300813,
+    "frac_stroma": 0.35772357723577236,
+    "frac_immune": 0.34146341463414637,
+    "n_spots": 369,
+    "n_reachable": 283
+   },
+   "cohort": "extension",
+   "patient": "MEL320_YUBOISE"
+  },
+  "MEL320_YUMAZO": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.5540651467182585,
+    "b_cell_field__dist_tumour_boundary": 0.16699817726598598,
+    "b_cell_field__niche_z": 0.5069677599941449,
+    "b_mab_field__stromal_density": 0.03477626495260213,
+    "b_mab_field__dist_tumour_boundary": 0.09323456974355805,
+    "b_mab_field__niche_z": 0.12460535681943545,
+    "b_cell_field__b_mab_field": 0.35117286016155946,
+    "cut_density_pct_median": 0.6580288870008496,
+    "cut_share_top_density_decile": 0.14953271028037382,
+    "top_decile_share_on_cut": 0.4745762711864407
+   },
+   "section": {
+    "log_b_rel": 2.762391870554931,
+    "b_cell_field_core": 12.139719273877102,
+    "b_mab_field_core": 3.527856507466111,
+    "stromal_density": 0.559859181274493,
+    "dist_tumour_boundary": 79.05368833942981,
+    "niche_z": -14.808670482754817,
+    "frac_tumour": 0.30021231422505307,
+    "frac_stroma": 0.39193205944798304,
+    "frac_immune": 0.3078556263269639,
+    "n_spots": 2355,
+    "n_reachable": 2252
+   },
+   "cohort": "extension",
+   "patient": "MEL320_YUMAZO"
+  },
+  "MEL320_YUSTE": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.49554060733130717,
+    "b_cell_field__dist_tumour_boundary": 0.11492833939842094,
+    "b_cell_field__niche_z": 0.4219417307124008,
+    "b_mab_field__stromal_density": -0.18433628656663553,
+    "b_mab_field__dist_tumour_boundary": -0.15333634035261642,
+    "b_mab_field__niche_z": -0.1457264966191712,
+    "b_cell_field__b_mab_field": 0.2977260527809051,
+    "cut_density_pct_median": 0.7453671928620453,
+    "cut_share_top_density_decile": 0.21148825065274152,
+    "top_decile_share_on_cut": 0.5547945205479452
+   },
+   "section": {
+    "log_b_rel": 4.573011728370153,
+    "b_cell_field_core": 19.155937111671946,
+    "b_mab_field_core": 4.649074167772583,
+    "stromal_density": 0.48301062379769355,
+    "dist_tumour_boundary": 137.51118659089622,
+    "niche_z": -25.22897424474241,
+    "frac_tumour": 0.3004115226337449,
+    "frac_stroma": 0.3710562414266118,
+    "frac_immune": 0.32853223593964337,
+    "n_spots": 1458,
+    "n_reachable": 1456
+   },
+   "cohort": "extension",
+   "patient": "MEL320_YUSTE"
+  },
+  "CSCC321_cut1": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.664033042194141,
+    "b_cell_field__dist_tumour_boundary": 0.517330680506103,
+    "b_cell_field__niche_z": 0.6390488098683795,
+    "b_mab_field__stromal_density": -0.13143918884974562,
+    "b_mab_field__dist_tumour_boundary": -0.1784419013028216,
+    "b_mab_field__niche_z": -0.1194330035646744,
+    "b_cell_field__b_mab_field": 0.21209807277334528,
+    "cut_density_pct_median": 0.583861874559549,
+    "cut_share_top_density_decile": 0.08675078864353312,
+    "top_decile_share_on_cut": 0.25821596244131456
+   },
+   "section": {
+    "log_b_rel": 2.8285459910188244,
+    "b_cell_field_core": 8.180571564376795,
+    "b_mab_field_core": 5.684583655578294,
+    "stromal_density": 0.4417534417534418,
+    "dist_tumour_boundary": 293.4590755140903,
+    "niche_z": -59.80015304319667,
+    "frac_tumour": 0.3001409112259277,
+    "frac_stroma": 0.35979333020197274,
+    "frac_immune": 0.3400657585720996,
+    "n_spots": 4258,
+    "n_reachable": 4251
+   },
+   "cohort": "extension",
+   "patient": "CSCC321_cut1"
+  },
+  "CSCC321_cut2": {
+   "spot": {
+    "b_cell_field__stromal_density": 0.6256115094320952,
+    "b_cell_field__dist_tumour_boundary": 0.3677049369112928,
+    "b_cell_field__niche_z": 0.5754349674711831,
+    "b_mab_field__stromal_density": -0.34949638868218913,
+    "b_mab_field__dist_tumour_boundary": -0.14690414440079932,
+    "b_mab_field__niche_z": -0.20629094347333282,
+    "b_cell_field__b_mab_field": 0.013591971977938263,
+    "cut_density_pct_median": 0.6988555078683834,
+    "cut_share_top_density_decile": 0.13580246913580246,
+    "top_decile_share_on_cut": 0.4976190476190476
+   },
+   "section": {
+    "log_b_rel": 3.0036848498077657,
+    "b_cell_field_core": 7.876416360029861,
+    "b_mab_field_core": 5.121382209335897,
+    "stromal_density": 0.46983926098709805,
+    "dist_tumour_boundary": 169.23719305974055,
+    "niche_z": -58.220962671036744,
+    "frac_tumour": 0.300119189511323,
+    "frac_stroma": 0.38974970202622167,
+    "frac_immune": 0.3101311084624553,
+    "n_spots": 4195,
+    "n_reachable": 4195
+   },
+   "cohort": "extension",
+   "patient": "CSCC321_cut2"
+  }
+ },
+ "spot_level": {
+  "b_cell_field__stromal_density": {
+   "extension": {
+    "n": 50,
+    "median": 0.5039591621552413,
+    "q25": 0.43141221438525307,
+    "q75": 0.6396442297512891,
+    "min": -0.012036070870413041,
+    "max": 0.896947960892421,
+    "median_abs": 0.5039591621552413
+   },
+   "all": {
+    "n": 50,
+    "median": 0.5039591621552413,
+    "q25": 0.43141221438525307,
+    "q75": 0.6396442297512891,
+    "min": -0.012036070870413041,
+    "max": 0.896947960892421,
+    "median_abs": 0.5039591621552413
+   }
+  },
+  "b_cell_field__dist_tumour_boundary": {
+   "extension": {
+    "n": 50,
+    "median": 0.09435222778569394,
+    "q25": -0.04472327414657195,
+    "q75": 0.27132742374830443,
+    "min": -0.5480938704062053,
+    "max": 0.517330680506103,
+    "median_abs": 0.18484084017357796
+   },
+   "all": {
+    "n": 50,
+    "median": 0.09435222778569394,
+    "q25": -0.04472327414657195,
+    "q75": 0.27132742374830443,
+    "min": -0.5480938704062053,
+    "max": 0.517330680506103,
+    "median_abs": 0.18484084017357796
+   }
+  },
+  "b_cell_field__niche_z": {
+   "extension": {
+    "n": 50,
+    "median": 0.4260582699854807,
+    "q25": 0.3206904610681597,
+    "q75": 0.5672291289831888,
+    "min": -0.0383724196321451,
+    "max": 0.7894471147050569,
+    "median_abs": 0.4260582699854807
+   },
+   "all": {
+    "n": 50,
+    "median": 0.4260582699854807,
+    "q25": 0.3206904610681597,
+    "q75": 0.5672291289831888,
+    "min": -0.0383724196321451,
+    "max": 0.7894471147050569,
+    "median_abs": 0.4260582699854807
+   }
+  },
+  "b_mab_field__stromal_density": {
+   "extension": {
+    "n": 50,
+    "median": -0.008536154033342914,
+    "q25": -0.20637271097927495,
+    "q75": 0.05079133072597927,
+    "min": -0.6050446484861789,
+    "max": 0.5179916251829553,
+    "median_abs": 0.14347778906952213
+   },
+   "all": {
+    "n": 50,
+    "median": -0.008536154033342914,
+    "q25": -0.20637271097927495,
+    "q75": 0.05079133072597927,
+    "min": -0.6050446484861789,
+    "max": 0.5179916251829553,
+    "median_abs": 0.14347778906952213
+   }
+  },
+  "b_mab_field__dist_tumour_boundary": {
+   "extension": {
+    "n": 50,
+    "median": -0.04281041771125288,
+    "q25": -0.18294600503234326,
+    "q75": 0.04064246061786155,
+    "min": -0.5962771060383069,
+    "max": 0.12791470945577682,
+    "median_abs": 0.0911701880301579
+   },
+   "all": {
+    "n": 50,
+    "median": -0.04281041771125288,
+    "q25": -0.18294600503234326,
+    "q75": 0.04064246061786155,
+    "min": -0.5962771060383069,
+    "max": 0.12791470945577682,
+    "median_abs": 0.0911701880301579
+   }
+  },
+  "b_mab_field__niche_z": {
+   "extension": {
+    "n": 50,
+    "median": -0.028328450799298733,
+    "q25": -0.09993856903918805,
+    "q75": 0.07100740677877176,
+    "min": -0.4832156545976436,
+    "max": 0.337730450351202,
+    "median_abs": 0.09377898901289364
+   },
+   "all": {
+    "n": 50,
+    "median": -0.028328450799298733,
+    "q25": -0.09993856903918805,
+    "q75": 0.07100740677877176,
+    "min": -0.4832156545976436,
+    "max": 0.337730450351202,
+    "median_abs": 0.09377898901289364
+   }
+  },
+  "b_cell_field__b_mab_field": {
+   "extension": {
+    "n": 50,
+    "median": 0.2591971977801837,
+    "q25": 0.19237252465281818,
+    "q75": 0.3176169552322623,
+    "min": -0.22198374172412966,
+    "max": 0.6232114937466507,
+    "median_abs": 0.2591971977801837
+   },
+   "all": {
+    "n": 50,
+    "median": 0.2591971977801837,
+    "q25": 0.19237252465281818,
+    "q75": 0.3176169552322623,
+    "min": -0.22198374172412966,
+    "max": 0.6232114937466507,
+    "median_abs": 0.2591971977801837
+   }
+  },
+  "cut_density_pct_median": {
+   "extension": {
+    "n": 50,
+    "median": 0.6249938581843841,
+    "q25": 0.5626540152557092,
+    "q75": 0.7109231138596791,
+    "min": 0.37871893594679734,
+    "max": 0.8768258981444927,
+    "median_abs": 0.6249938581843841
+   },
+   "all": {
+    "n": 50,
+    "median": 0.6249938581843841,
+    "q25": 0.5626540152557092,
+    "q75": 0.7109231138596791,
+    "min": 0.37871893594679734,
+    "max": 0.8768258981444927,
+    "median_abs": 0.6249938581843841
+   }
+  },
+  "cut_share_top_density_decile": {
+   "extension": {
+    "n": 50,
+    "median": 0.1361418555252104,
+    "q25": 0.11037346142636145,
+    "q75": 0.17543726047229805,
+    "min": 0.02254428341384863,
+    "max": 0.42996742671009774,
+    "median_abs": 0.1361418555252104
+   },
+   "all": {
+    "n": 50,
+    "median": 0.1361418555252104,
+    "q25": 0.11037346142636145,
+    "q75": 0.17543726047229805,
+    "min": 0.02254428341384863,
+    "max": 0.42996742671009774,
+    "median_abs": 0.1361418555252104
+   }
+  },
+  "top_decile_share_on_cut": {
+   "extension": {
+    "n": 50,
+    "median": 0.5151534483664447,
+    "q25": 0.4119894719015496,
+    "q75": 0.6381865403712474,
+    "min": 0.017391304347826087,
+    "max": 0.7973856209150327,
+    "median_abs": 0.5151534483664447
+   },
+   "all": {
+    "n": 50,
+    "median": 0.5151534483664447,
+    "q25": 0.4119894719015496,
+    "q75": 0.6381865403712474,
+    "min": 0.017391304347826087,
+    "max": 0.7973856209150327,
+    "median_abs": 0.5151534483664447
+   }
+  }
+ },
+ "section_level": {
+  "log_b_rel__stromal_density": {
+   "n_sections": 50,
+   "rho": -0.2587755102040816,
+   "p": 0.0695877677250015,
+   "n_patients": 43,
+   "rho_patient": -0.2629115070975536,
+   "p_patient": 0.08850538275664525
+  },
+  "log_b_rel__dist_tumour_boundary": {
+   "n_sections": 50,
+   "rho": 0.3471308523409364,
+   "p": 0.013517448976483378,
+   "n_patients": 43,
+   "rho_patient": 0.3524614919963757,
+   "p_patient": 0.020444941643938782
+  },
+  "log_b_rel__niche_z": {
+   "n_sections": 50,
+   "rho": -0.3388715486194478,
+   "p": 0.016071901785965466,
+   "n_patients": 43,
+   "rho_patient": -0.307762005436424,
+   "p_patient": 0.044676736574903335
+  },
+  "b_cell_field_core__stromal_density": {
+   "n_sections": 50,
+   "rho": 0.08408163265306122,
+   "p": 0.5615513980361979,
+   "n_patients": 43,
+   "rho_patient": 0.10132890365448505,
+   "p_patient": 0.5179259548823859
+  },
+  "b_cell_field_core__dist_tumour_boundary": {
+   "n_sections": 50,
+   "rho": 0.32600240096038413,
+   "p": 0.020866323406262894,
+   "n_patients": 43,
+   "rho_patient": 0.3147085472666868,
+   "p_patient": 0.039838140902323155
+  },
+  "b_cell_field_core__niche_z": {
+   "n_sections": 50,
+   "rho": 0.06929171668667466,
+   "p": 0.6325440312455956,
+   "n_patients": 43,
+   "rho_patient": 0.14965267290848686,
+   "p_patient": 0.3381487541009815
+  },
+  "b_mab_field_core__stromal_density": {
+   "n_sections": 50,
+   "rho": 0.03510204081632653,
+   "p": 0.8087758819260072,
+   "n_patients": 43,
+   "rho_patient": 0.029296285110238598,
+   "p_patient": 0.8520623824815314
+  },
+  "b_mab_field_core__dist_tumour_boundary": {
+   "n_sections": 50,
+   "rho": 0.5546698679471789,
+   "p": 2.9169181104145682e-05,
+   "n_patients": 43,
+   "rho_patient": 0.5703714889761402,
+   "p_patient": 6.519944393921861e-05
+  },
+  "b_mab_field_core__niche_z": {
+   "n_sections": 50,
+   "rho": -0.2051860744297719,
+   "p": 0.15287559475182982,
+   "n_patients": 43,
+   "rho_patient": -0.20869827846572034,
+   "p_patient": 0.1792580497982145
+  }
+ },
+ "settings": {
+  "q_malig": 0.7,
+  "n_perm": 1000,
+  "seed": 20261005,
+  "spot_density": "closed 1-hop graph neighbourhood mean of (ECM + CAF)/2",
+  "spot_distance": "signed Euclidean distance to the tumour compartment boundary (um)",
+  "spot_niche": "binomial z of stromal-neighbour count (p = section stromal fraction)",
+  "section_density": "mean (ECM + CAF)/2 over non-tumour spots adjacent to tumour",
+  "section_distance": "median distance from vessel spots to the nearest tumour spot (um)",
+  "section_niche": "tumour-stroma contact z vs 1,000 label permutations (Squidpy-style)",
+  "b_rel": "max flow with uniform capacity sigma(a) / max flow with matrix capacities"
+ },
+ "meta": {
+  "timestamp": "2026-10-06T01:57:20+00:00",
+  "config_path": "D:\\sparta\\configs\\default.yaml",
+  "seed": 0,
+  "python": "3.13.13",
+  "numpy": "2.5.2",
+  "scipy": "1.18.1",
+  "networkx": "3.6.1",
+  "module": "M52-simple-baselines-spearman",
+  "seconds": 35.2
+ }
+}

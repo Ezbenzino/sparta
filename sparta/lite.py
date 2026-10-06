@@ -40,6 +40,7 @@ from .signatures import SCORE_COLUMNS, get_gene_sets
 
 __all__ = ["clean_gene_names", "make_unique", "qc_filter", "normalize_log1p",
            "score_genes", "score_all", "rank_normalized",
+           "normalize_log1p_sparse", "score_genes_sparse", "score_all_sparse",
            "highly_variable_seurat", "scale_dense", "pca_arpack", "banksy_style_domains"]
 
 
@@ -139,6 +140,82 @@ def score_all(X: np.ndarray, var_names, tumor_type: str, hypoxia_genes=None,
             skipped.append((name, len(present), len(genes)))
             continue
         out[name] = score_genes(X, var_names, present, ctrl_size=ctrl_size, random_state=seed)
+    return out, skipped
+
+
+def normalize_log1p_sparse(counts, target_sum: float = 1e4):
+    """Sparse equivalent of :func:`normalize_log1p` for spots-by-genes CSR matrices."""
+    from scipy.sparse import diags
+
+    counts = counts.tocsr(copy=True).astype(np.float32)
+    total = np.asarray(counts.sum(axis=1)).ravel()
+    total[total == 0] = 1.0
+    scaled = diags(np.float32(target_sum / total)) @ counts
+    scaled.data = np.log1p(scaled.data)
+    return scaled.tocsr().astype(np.float32)
+
+
+def _sparse_row_mean(X, columns) -> np.ndarray:
+    """Return row-wise mean over selected sparse-matrix columns."""
+    subset = X[:, list(columns)]
+    return np.asarray(subset.sum(axis=1)).ravel() / max(len(columns), 1)
+
+
+def score_genes_sparse(X, var_names, selected_indices, *, ctrl_size: int = 50,
+                       n_bins: int = 25, random_state: int = 0) -> np.ndarray:
+    """Sparse score with selected matrix-column positions.
+
+    ``var_names`` must be unique and is used for expression-bin construction.
+    Duplicate gene symbols are handled by the caller passing every matching
+    column position.
+    """
+    np.random.seed(random_state)
+    var_names = pd.Index([str(v) for v in var_names])
+    selected_indices = list(dict.fromkeys(int(i) for i in selected_indices))
+    if len(selected_indices) == 0:
+        raise ValueError("No valid genes were passed for scoring.")
+    obs_avg = pd.Series(np.asarray(X.mean(axis=0)).ravel(), index=var_names)
+    obs_avg = obs_avg[np.isfinite(obs_avg)]
+    n_items = int(np.round(len(obs_avg) / (n_bins - 1)))
+    obs_cut = obs_avg.rank(method="min") // n_items
+    selected_positions = set(range(X.shape[1])).intersection(selected_indices)
+    control_positions: set[int] = set()
+    for cut in np.unique(obs_cut.iloc[list(selected_positions)]):
+        candidates = obs_cut[obs_cut == cut].index
+        positional = [var_names.get_loc(value) for value in candidates]
+        if ctrl_size < len(positional):
+            sampled = pd.Series(positional).sample(ctrl_size)
+            positional = sampled.tolist()
+        positional = [i for i in positional if i not in selected_positions]
+        control_positions.update(positional)
+    list_mean = _sparse_row_mean(X, selected_indices)
+    control_mean = (
+        _sparse_row_mean(X, list(control_positions))
+        if control_positions else np.zeros(X.shape[0])
+    )
+    return list_mean - control_mean
+
+
+def score_all_sparse(X, var_names, tumor_type: str, hypoxia_genes=None,
+                     min_genes: int = 2, ctrl_size: int = 50,
+                     seed: int = 0) -> tuple[dict, list]:
+    """Sparse equivalent of :func:`score_all`; handles duplicate gene symbols."""
+    original_names = [str(v) for v in var_names]
+    unique_names = pd.Index(make_unique(original_names))
+    sets = get_gene_sets(tumor_type, hypoxia_genes)
+    out, skipped = {}, []
+    for name, genes in sets.items():
+        gene_set = set(genes)
+        present_indices = [
+            i for i, gene in enumerate(original_names) if gene in gene_set
+        ]
+        if len(present_indices) < min_genes:
+            skipped.append((name, len(present_indices), len(genes)))
+            continue
+        out[name] = score_genes_sparse(
+            X, unique_names, present_indices, ctrl_size=ctrl_size,
+            random_state=seed,
+        )
     return out, skipped
 
 

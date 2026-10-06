@@ -32,6 +32,8 @@ in run_38 (simulated ground truth) and run_47 (measured CD8+ T cells).
 """
 from __future__ import annotations
 
+import argparse
+import csv
 import json
 import sys
 import time
@@ -94,7 +96,7 @@ def spot_niche_z(A, is_stroma):
     return (k - deg * p) / sd
 
 
-def section(sid, P, cfg):
+def section(sid, P, cfg, n_perm: int = N_PERM):
     A, D, source, sink, vessel, _ = load_graph(P.graph(sid))
     A = sp.csr_matrix(A)
     nodes = load_nodes(P.interim / f"{sid}.nodes.npz")
@@ -141,24 +143,41 @@ def section(sid, P, cfg):
         b_mab_field_core=float(np.nanmedian(f_mab[sink])),
         stromal_density=float(np.mean(0.5 * (S["ecm"] + S["caf"])[peri])) if peri.any() else float("nan"),
         dist_tumour_boundary=float(np.median(ves_d)),
-        niche_z=float(contact_enrichment_z(A, tum, is_str, n_perm=N_PERM, seed=SEED)),
+        niche_z=float(contact_enrichment_z(A, tum, is_str, n_perm=n_perm, seed=SEED)),
         frac_tumour=float(tum.mean()), frac_stroma=float(is_str.mean()), frac_immune=float((lab == 2).mean()),
         n_spots=int(A.shape[0]), n_reachable=int(reach.sum()))
     return dict(spot=spot, section=sec)
 
 
+def extension_order() -> list[str]:
+    """Return extension section IDs from the master ledger."""
+    ledger = ROOT / "data" / "ledger.csv"
+    with ledger.open(encoding="utf-8", newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    return [row["slide_id"] for row in rows if row.get("status") == "extension"]
+
+
 def main():
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--slides", nargs="*", default=None)
+    ap.add_argument("--out", default="simple_baselines_spearman.json")
+    ap.add_argument("--n-perm", type=int, default=N_PERM)
+    args = ap.parse_args()
+
     from isdata import EXTERNAL_ORDER, PRIMARY_ORDER, REPLICATION_ORDER
     cfg = load_config(None)
     cfg["paths"]["root"] = str(ROOT)
     P = Paths(cfg)
     pmap = patient_map(P)
-    cohorts = {**{s: "primary" for s in PRIMARY_ORDER}, **{s: "external" for s in EXTERNAL_ORDER},
-               **{s: "replication" for s in REPLICATION_ORDER}}
+    if args.slides:
+        cohorts = {sid: "extension" for sid in args.slides}
+    else:
+        cohorts = {**{s: "primary" for s in PRIMARY_ORDER}, **{s: "external" for s in EXTERNAL_ORDER},
+                   **{s: "replication" for s in REPLICATION_ORDER}}
     t0 = time.time()
     per = {}
     for sid, coh in cohorts.items():
-        r = section(sid, P, cfg)
+        r = section(sid, P, cfg, n_perm=args.n_perm)
         r.update(cohort=coh, patient=pmap.get(sid, sid))
         per[sid] = r
         s = r["spot"]
@@ -171,7 +190,7 @@ def main():
     def dist_summary(keys):
         out = {}
         for k in keys:
-            for coh in ("primary", "external", "replication", "all"):
+            for coh in ("primary", "external", "replication", "extension", "all"):
                 v = np.array([per[s]["spot"][k] for s in per if coh == "all" or per[s]["cohort"] == coh], float)
                 v = v[np.isfinite(v)]
                 if len(v):
@@ -214,7 +233,7 @@ def main():
                              section_niche="tumour-stroma contact z vs 1,000 label permutations (Squidpy-style)",
                              b_rel="max flow with uniform capacity sigma(a) / max flow with matrix capacities"),
                meta=stamp_run(cfg, {"module": "M52-simple-baselines-spearman", "seconds": round(time.time() - t0, 1)}))
-    save_json(P.validation("simple_baselines_spearman.json"), out)
+    save_json(P.validation(args.out), out)
     print(json.dumps({k: v.get("all") for k, v in spot_sum.items()}, indent=1))
     print(json.dumps(sec_sum, indent=1))
 
