@@ -352,117 +352,20 @@ def fig5_counterfactuals():
 
 # ══════════════════════════════════════════════════════════════════════════
 def graphical_abstract():
-    """Landscape graphical abstract with readable parallel transport paths."""
-    fig = plt.figure(figsize=(13.28, 5.31), dpi=300, facecolor=SURFACE)
-    ax = fig.add_axes([0, 0, 1, 1])
-    ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.axis("off")
+    """Delegate to the canonical graphics-led builder.
 
-    fig.text(0.035, 0.94, "SPARTA  |  SPATIAL GRAPH TRANSPORT",
-             fontsize=10, color=MUTED, weight="bold", ha="left", va="top")
-    fig.text(0.035, 0.865,
-             "Two delivery barriers, two transport operators, one tissue graph",
-             fontsize=23, color=INK, weight="bold", ha="left", va="top")
+    The landscape version that used to live here was superseded on 2026-10-06 by
+    scripts/is_figures/graphical_abstract.py (13.0 x 5.2 cm, 2.5:1, graphics-led;
+    writes results/figures/graphical_abstract.{pdf,png,tif}). Keeping a second
+    implementation here would silently overwrite that file whenever run_20 is re-run.
+    """
+    import importlib.util
 
-    cards = [
-        (0.035, 0.14, 0.225, 0.60),
-        (0.32, 0.48, 0.405, 0.26),
-        (0.32, 0.14, 0.405, 0.26),
-        (0.785, 0.14, 0.18, 0.60),
-    ]
-    for x, y, w, h in cards:
-        ax.add_patch(FancyBboxPatch(
-            (x, y), w, h, boxstyle="round,pad=0.012,rounding_size=0.018",
-            fc="white", ec="#dedcd6", lw=1.0, transform=ax.transAxes, zorder=0))
-    for x, y, w, h, color in (
-        (0.32, 0.48, 0.405, 0.26, CELL),
-        (0.32, 0.14, 0.405, 0.26, MAB),
-    ):
-        ax.add_patch(FancyBboxPatch(
-            (x, y), w, h, boxstyle="round,pad=0.012,rounding_size=0.018",
-            fc="none", ec=color, lw=1.8, transform=ax.transAxes, zorder=1))
-
-    # Input card: a compact spatial graph with source, stroma and tumour nodes.
-    ax.text(0.052, 0.692, "ONE SPATIAL GRAPH", transform=ax.transAxes,
-            fontsize=11, color=INK, weight="bold", ha="left", va="center")
-    ax.text(0.052, 0.645, "spots + expression signatures", transform=ax.transAxes,
-            fontsize=9, color=INK2, ha="left", va="center")
-    nodes = np.array([
-        [0.075, 0.49], [0.105, 0.56], [0.13, 0.45], [0.16, 0.59],
-        [0.19, 0.50], [0.22, 0.43], [0.22, 0.60], [0.17, 0.38],
-    ])
-    edges = [(0,1),(0,2),(1,2),(1,3),(2,4),(3,4),(3,6),(4,5),(4,6),(4,7),(5,7)]
-    for i, j in edges:
-        ax.plot([nodes[i,0], nodes[j,0]], [nodes[i,1], nodes[j,1]],
-                transform=ax.transAxes, color="#dedcd6", lw=1.0, zorder=2)
-    node_cols = [CELL, CELL, NEUTRAL, NEUTRAL, NEUTRAL, MAB, MAB, NEUTRAL]
-    ax.scatter(nodes[:,0], nodes[:,1], transform=ax.transAxes, s=90,
-               c=node_cols, edgecolors="white", linewidths=1.0, zorder=3)
-    ax.scatter([0.06, 0.13, 0.20], [0.325]*3, transform=ax.transAxes,
-               s=28, c=[CELL, NEUTRAL, MAB], marker="o", zorder=3)
-    ax.text(0.072, 0.325, "entry", transform=ax.transAxes,
-            fontsize=8, color=INK2, va="center")
-    ax.text(0.142, 0.325, "matrix", transform=ax.transAxes,
-            fontsize=8, color=INK2, va="center")
-    ax.text(0.212, 0.325, "tumour", transform=ax.transAxes,
-            fontsize=8, color=INK2, va="center")
-    ax.text(0.052, 0.225, "ECM  ·  CAF  ·  crosslinking", transform=ax.transAxes,
-            fontsize=8.6, color=INK2, ha="left", va="center")
-
-    # Parallel operator cards.
-    ax.text(0.345, 0.686, "CELL MIGRATION  ·  ~10 µm", transform=ax.transAxes,
-            fontsize=10, color=CELL, weight="bold", ha="left", va="center")
-    ax.text(0.345, 0.605, r"$B_{cell}=1/\mathrm{maxflow}$",
-            transform=ax.transAxes, fontsize=19, color=INK, ha="left", va="center")
-    ax.text(0.345, 0.535, "ECM/CAF-weighted source–sink minimum cut",
-            transform=ax.transAxes, fontsize=9, color=INK2, ha="left", va="center")
-
-    ax.text(0.345, 0.346, "ANTIBODY DIFFUSION  ·  IgG ~5.5 nm", transform=ax.transAxes,
-            fontsize=10, color=MAB, weight="bold", ha="left", va="center")
-    ax.text(0.345, 0.265, r"$B_{mAb}=-\log\phi$",
-            transform=ax.transAxes, fontsize=19, color=INK, ha="left", va="center")
-    ax.text(0.345, 0.195, "Screened diffusion–absorption + size exclusion",
-            transform=ax.transAxes, fontsize=9, color=INK2, ha="left", va="center")
-
-    # Arrows route each modality through the same measured substrate.
-    ax.add_patch(FancyArrowPatch((0.265, 0.58), (0.315, 0.61),
-                 transform=ax.transAxes, arrowstyle="-|>", mutation_scale=13,
-                 color=CELL, lw=1.8, zorder=4))
-    ax.add_patch(FancyArrowPatch((0.265, 0.34), (0.315, 0.30),
-                 transform=ax.transAxes, arrowstyle="-|>", mutation_scale=13,
-                 color=MAB, lw=1.8, zorder=4))
-    ax.add_patch(FancyArrowPatch((0.73, 0.61), (0.78, 0.61),
-                 transform=ax.transAxes, arrowstyle="-|>", mutation_scale=13,
-                 color=CELL, lw=1.8, zorder=4))
-    ax.add_patch(FancyArrowPatch((0.73, 0.30), (0.78, 0.30),
-                 transform=ax.transAxes, arrowstyle="-|>", mutation_scale=13,
-                 color=MAB, lw=1.8, zorder=4))
-
-    # Evidence panel. Keep the cohort size visible and limit the interpretation.
-    ax.text(0.807, 0.692, "COHORT EVIDENCE", transform=ax.transAxes,
-            fontsize=10.5, color=INK, weight="bold", ha="left", va="center")
-    ax.text(0.807, 0.635, "19 sections  ·  7 patients", transform=ax.transAxes,
-            fontsize=9, color=INK2, ha="left", va="center")
-    ax.plot([0.807, 0.942], [0.59, 0.59], transform=ax.transAxes,
-            color="#dedcd6", lw=1.0)
-    ax.text(0.807, 0.535, "18/19", transform=ax.transAxes,
-            fontsize=16, color=CELL, weight="bold", ha="left", va="center")
-    ax.text(0.807, 0.493, "sections show positive\nbarrier-field coupling",
-            transform=ax.transAxes, fontsize=8.4, color=INK2,
-            ha="left", va="top", linespacing=1.2)
-    ax.text(0.807, 0.382, "12/15", transform=ax.transAxes,
-            fontsize=16, color=CELL, weight="bold", ha="left", va="center")
-    ax.text(0.807, 0.34, "cSCC sections retain significant\ncoupling after shared-input removal",
-            transform=ax.transAxes, fontsize=8.1, color=INK2,
-            ha="left", va="top", linespacing=1.2)
-    ax.text(0.807, 0.205, "Computational evidence;\nno response labels or\nintervention data.",
-            transform=ax.transAxes, fontsize=7.6, color=MUTED,
-            ha="left", va="bottom", linespacing=1.15)
-
-    for ext in ("png", "pdf"):
-        p = FIG_DIR / f"graphical_abstract.{ext}"
-        fig.savefig(p, dpi=300, facecolor=SURFACE)
-        print(f"  saved {p}")
-    plt.close(fig)
+    path = Path(__file__).resolve().parent / 'is_figures' / 'graphical_abstract.py'
+    spec = importlib.util.spec_from_file_location('_sparta_graphical_abstract', path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    module.main()
 
 
 # ══════════════════════════════════════════════════════════════════════════

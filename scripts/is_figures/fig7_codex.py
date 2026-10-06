@@ -110,7 +110,7 @@ def main():
 
     fig = plt.figure(figsize=(S.FULL_W, 128 * S.MM))
     gs = fig.add_gridspec(2, 3, width_ratios=[1.0, 1.0, 1.05], height_ratios=[1.22, 1.0],
-                          wspace=0.42, hspace=0.48, left=0.03, right=0.985, top=0.95, bottom=0.08)
+                          wspace=0.42, hspace=0.48, left=0.27, right=0.985, top=0.95, bottom=0.08)
     ax_hi = fig.add_subplot(gs[0, 0])
     ax_lo = fig.add_subplot(gs[0, 1])
     axb = fig.add_subplot(gs[0, 2])

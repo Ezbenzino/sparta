@@ -46,3 +46,13 @@ Treatment before sampling is not reported.
 Replication is declared if the pooled replication-cohort association is positive with a 95% CI
 excluding zero; agreement with the primary cohort's construction-null share is reported
 descriptively. Every number is reported whatever its direction.
+
+## Post-plan note
+
+The pooled primary-plus-replication secondary analysis in item 3 was specified as 11 patients
+(7 primary + 4 replication) when this plan was written. During the study the primary-cohort
+melanoma ledger was corrected from one patient to two (MEL01/MEL04 patient A; MEL02/MEL03
+patient B; evidence in `docs/melanoma_mapping_correction.md`), so the primary cohort contains
+eight patients and the pooled analysis reported in the manuscript covers 12 patients. No
+section-level measurement changed, and the pre-specified replication criterion above, which
+concerns the replication cohort alone, is unaffected.

@@ -140,7 +140,8 @@ anonymity during double-blind review.
 de-identified data; no new samples or participants were involved.
 
 **Data availability** Primary data are available from the Gene Expression Omnibus under accessions GSE144239 and
-GSE250636; external sections are 10x Genomics public datasets [27, 28]. The replication cohort is available from the
+GSE250636; the 2026 extension cohort is available under accessions GSE200278, GSE289745, GSE300445, GSE316760,
+GSE320041 and GSE321832; external sections are 10x Genomics public datasets [27, 28]. The replication cohort is available from the
 publishers of the original study [@thrane2018] (https://www.spatialresearch.org), and the CODEX single-cell table from
 Mendeley Data [@schurch2020data] (images: The Cancer Imaging Archive, https://doi.org/10.7937/TCIA.2020.FQN0-0326).
 Derived node tables, graph files and all per-section and per-core result files are included in the anonymised archive

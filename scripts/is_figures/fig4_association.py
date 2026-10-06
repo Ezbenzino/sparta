@@ -38,10 +38,10 @@ def main():
     ep = ext["per_slide"]
     led = ledger()
 
-    fig = plt.figure(figsize=(S.FULL_W, 160 * S.MM))
+    fig = plt.figure(figsize=(S.FULL_W, 165 * S.MM))
     gs = fig.add_gridspec(2, 2, width_ratios=[1.18, 1.0], height_ratios=[1.45, 1.0],
-                          wspace=0.48, hspace=0.48, left=0.09, right=0.985,
-                          top=0.955, bottom=0.20)
+                          wspace=0.48, hspace=0.48, left=0.16, right=0.90,
+                          top=0.955, bottom=0.30)
     ax = fig.add_subplot(gs[:, 0])
     axb = fig.add_subplot(gs[0, 1])
     axc = fig.add_subplot(gs[1, 1])
@@ -84,9 +84,11 @@ def main():
 
     rng = np.random.default_rng(20261005)
     yticks, ylabels = [], []
+    wrapped = {"Extension primary melanoma": "Extension primary\nmelanoma",
+               "Extension metastatic melanoma": "Extension metastatic\nmelanoma"}
     for y, (label, records) in enumerate(groups):
         yticks.append(y)
-        ylabels.append(f"{label} (n={len(records)})")
+        ylabels.append(f"{wrapped.get(label, label)}\n(n={len(records)})")
         jitter = rng.permutation(np.linspace(-0.32, 0.32, len(records)))
         for dy, record in zip(jitter, records):
             filled = record["q"] < 0.05

@@ -52,6 +52,7 @@ INCLUDE = [
     ("docs", "replication_melanoma_protocol.md"),
     ("results/counterfactual", "*.json"),
     ("results/figures/is", "*.pdf"),
+    ("results/figures", "graphical_abstract.pdf"),
     ("results/figures/is/supplement", "*.pdf"),
     (".", "requirements.txt"),
     (".", "pyproject.toml"),
@@ -65,11 +66,11 @@ LICENSE_HOLDER = re.compile(r"(?im)^copyright \(c\) .*$")
 
 README = """# SPARTA: anonymised code and results archive (Online Resource 3)
 
-This archive accompanies the manuscript "SPARTA: graph transport operators and structural null
-models for immune-cell and IgG-transport barriers in spatial omics", submitted to
+This archive accompanies the manuscript "SPARTA: graph structural operators and null
+models for characterizing spatial tissue architecture in spatial omics", submitted to
 *Interdisciplinary Sciences: Computational Life Sciences*. Author names, affiliations and
 repository links have been removed for double-blind review. The software is released under the
-MIT licence (LICENSE). Version 2.2.0.
+MIT licence (LICENSE). Version 2.2.2.
 
 Raw data are not redistributed. They are public: GEO GSE144239 (cSCC), GSE250636 (melanoma), the
 10x Genomics Visium datasets Human Breast Cancer Block A Sections 1 and 2 and Human Lymph Node

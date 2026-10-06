@@ -31,7 +31,7 @@ SPARTA —— SPAtial Resistance to Therapeutic Agents
       不需要 scanpy。scanpy 只在处理真实 AnnData 时用到。
 """
 
-__version__ = "2.2.0"
+__version__ = "2.2.2"
 
 
 # --------------------------------------------------------------------------

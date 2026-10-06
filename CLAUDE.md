@@ -73,7 +73,7 @@ sparta/
 | M17 `run_17_sensitivity` | `{sid}.scored.h5ad` + `.graph.npz` | `results/validation/bmab_sensitivity.json`（多切片）+ 逐片热图 |
 | M18 `run_18_table1` | `data/ledger.csv` + `admission.json` | `docs/table1_sections.md`（队列概况表） |
 | M19 `run_19_runtime` | `{sid}.graph.npz` | `results/validation/runtime_benchmark.json`（SPARTA vs BANKSY vs Squidpy） |
-| M20 `run_20_pending_figures` | 各汇总 JSON（不重算） | `results/figures/fig{3,4,5}_*.png/.pdf` + `graphical_abstract.png/.pdf` |
+| M20 `run_20_pending_figures` | 各汇总 JSON（不重算） | `results/figures/fig{3,4,5}_*.png/.pdf`；图形摘要改由 `scripts/is_figures/graphical_abstract.py` 生成 `results/figures/graphical_abstract.{pdf,png,tif}`（13×5.2 cm，2.5:1，图形为主），run_20 只转调该脚本、不再自带实现 |
 | M21 `run_21_mesh_stats` | `{sid}.scored.h5ad` + `.graph.npz` | `results/validation/mesh_stats.json`（网孔尺寸排除统计，backs 60–65% claim） |
 | M47 `run_47_codex_validation` | CODEX 单细胞表 + `docs/codex_validation_protocol.md` | `results/validation/codex_validation.json` + `codex_cores.csv`（实测 CD8⁺ 位置的外部验证） |
 | M48 `run_48_replication_cohort` | Thrane 2018 计数 zip | 复现队列的 `{sid}.nodes/graph/barrier/mincut/admission`、`replication_melanoma.json`（`--validate` 写 `lite_scoring_equivalence.json`） |

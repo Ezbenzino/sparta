@@ -123,6 +123,16 @@ def panel(ax, letter, x=-0.12, y=1.04, fig=None):
 def save(fig, out_dir: Path, name: str, tiff=True, eps=True):
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
+    # Guard against silent overflow of the Springer canvas: bbox_inches="tight" grows the page if any
+    # artist (e.g. a long row label) spills outside the figure, which would violate the 84/174 mm rule.
+    try:
+        fig.canvas.draw()
+        bb = fig.get_tightbbox(fig.canvas.get_renderer())
+        if bb.width > FULL_W + 1e-6 or bb.height > MAX_H + 1e-6:
+            print(f"[warn] {name}: rendered {bb.width / MM:.1f} x {bb.height / MM:.1f} mm "
+                  f"exceeds the {FULL_W / MM:.0f} x {MAX_H / MM:.0f} mm canvas")
+    except Exception as exc:  # never let a size check break figure generation
+        print(f"[warn] {name}: size check skipped ({exc})")
     fig.savefig(out_dir / f"{name}.pdf", bbox_inches="tight", pad_inches=0.01)
     if eps:
         fig.savefig(out_dir / f"{name}.eps", bbox_inches="tight", pad_inches=0.01)

@@ -1,6 +1,6 @@
 ---
 title: "Online Resource 1: supplementary methods, tables and figures"
-subtitle: "SPARTA: graph transport operators and structural null models for immune-cell and IgG-transport barriers in spatial omics"
+subtitle: "SPARTA: graph structural operators and null models for characterizing spatial tissue architecture in spatial omics"
 ---
 
 This document accompanies the main text. Section, equation, table and reference numbers without the prefix S refer to the main text. All numbers are generated from the archived result files (Online Resource 3); per-section values are also given in Online Resource 2.
