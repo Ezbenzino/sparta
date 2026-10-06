@@ -392,7 +392,7 @@
   },
   {
    "section": "MEL01",
-   "patient": "MEL_PtB",
+   "patient": "MEL_PtA",
    "cancer_type": "melanoma",
    "platform": "visium",
    "accession": "GSM7983359",
@@ -470,7 +470,7 @@
   },
   {
    "section": "MEL04",
-   "patient": "MEL_PtB",
+   "patient": "MEL_PtA",
    "cancer_type": "melanoma",
    "platform": "visium",
    "accession": "GSM7983366",
@@ -583,11 +583,11 @@
   "max_stranded_section": "MEL02"
  },
  "meta": {
-  "timestamp": "2026-10-04T17:37:02+00:00",
-  "config_path": "/home/claude/sparta/configs/default.yaml",
+  "timestamp": "2026-10-05T15:14:16+00:00",
+  "config_path": "D:\\sparta\\configs\\default.yaml",
   "seed": 0,
-  "python": "3.13.16",
-  "numpy": "2.5.3",
+  "python": "3.13.13",
+  "numpy": "2.5.2",
   "scipy": "1.18.1",
   "networkx": "3.6.1",
   "module": "M40-graph-coverage"

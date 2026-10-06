@@ -14,7 +14,7 @@ Output:
 
 Why (CMPB readiness review, item 4; IS submission)
 --------------------------------------------------
-Nineteen sections come from seven people (four melanoma sections from one person).
+Nineteen sections come from eight people (four melanoma sections from two people).
 Section-level BH tests answer "is there spatial alignment in this section?", not
 "is the association positive across patients?".  This script answers the second
 question three ways, from weakest to strongest assumptions:
@@ -47,22 +47,29 @@ from sparta.io_ import Paths, load_config, load_json, patient_map, save_json, st
 # statistics helpers
 # --------------------------------------------------------------------------
 def sign_flip_exact(patient_means: np.ndarray) -> dict:
-    """Exact one- and two-sided sign-flip test of mean(patient_means) == 0.
+    """Exact sign-flip test of patient-level effects.
 
-    Under H0 (symmetric distribution of patient effects about zero) every
-    assignment of signs to the J patient means is equally likely.  With J
-    patients there are 2^J assignments, so the smallest attainable one-sided
-    p-value is 2^-J (1/128 for J = 7).
+    For small J, enumerate all 2^J magnitude-weighted sign assignments. For
+    larger J, use the exact binomial distribution of the number of positive
+    patient effects; this avoids materialising 2^J assignments.
     """
     m = np.asarray(patient_means, float)
     J = len(m)
     obs = m.mean()
-    flips = np.array(list(itertools.product([-1.0, 1.0], repeat=J)))
-    null = (flips * np.abs(m)).mean(axis=1)
-    p_one = float(np.mean(null >= obs - 1e-15))
-    p_two = float(np.mean(np.abs(null) >= abs(obs) - 1e-15))
-    return dict(J=J, mean_of_patient_means=float(obs), n_positive=int((m > 0).sum()),
-                p_one_sided=p_one, p_two_sided=p_two, min_attainable_p=float(2.0 ** -J))
+    n_positive = int((m > 0).sum())
+    if J <= 20:
+        flips = np.array(list(itertools.product([-1.0, 1.0], repeat=J)))
+        null = (flips * np.abs(m)).mean(axis=1)
+        p_one = float(np.mean(null >= obs - 1e-15))
+        p_two = float(np.mean(np.abs(null) >= abs(obs) - 1e-15))
+        method = "exact enumeration of magnitude-weighted sign flips"
+    else:
+        p_one = float(stats.binomtest(n_positive, J, alternative="greater").pvalue)
+        p_two = float(stats.binomtest(n_positive, J).pvalue)
+        method = "exact binomial sign test on number of positive patient effects"
+    return dict(J=J, mean_of_patient_means=float(obs), n_positive=n_positive,
+                p_one_sided=p_one, p_two_sided=p_two, method=method,
+                min_attainable_p=float(2.0 ** -J))
 
 
 def _nested_reml(y, groups, v_known, X=None, fit_section_var=True):

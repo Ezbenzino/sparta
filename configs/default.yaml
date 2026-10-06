@@ -61,7 +61,8 @@ admission_overrides:
   # 与本队列一并按同一决定保留。C7（治疗状态）是布尔准入项，无法用阈值覆盖，
   # 豁免 = 登记决定 + 在稿件 Limitations 披露局限。
   mel_gse250636:
-    reason: "GSE250636 为 2024 年 Visium 的黑色素瘤颅外转移灶切片（单患者 MEL_PtB，4 片）。
+    reason: "GSE250636 为 2024 年 Visium 的黑色素瘤颅外转移灶切片（MEL_PtA 与 MEL_PtB 两患者，共 4 片；
+             MEL01/MEL04 属患者 A，MEL02/MEL03 属患者 B）。
              队列级豁免：C7 治疗状态在 GEO 无标注，按队列登记豁免并保留在分析中，
              局限已写入稿件 Limitations（治疗状态未知，屏障结构可能已改变）。
              MEL02（840 spots < 默认 1000）与 MEL04（中位 1488 UMI < 默认 1500）

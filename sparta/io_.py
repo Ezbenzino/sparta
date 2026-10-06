@@ -197,17 +197,18 @@ def admitted_slides(P, cancer: str | None = None) -> list[str]:
 def patient_map(P) -> dict:
     """切片 ID -> 患者 ID。
 
-    **为什么这个函数很重要。** 同一个患者的多张切片（技术重复、相邻切面、
-    同一肿瘤的不同区域）不是独立样本。把它们当 n 个独立观测做统计，
-    是把伪重复（pseudo-replication）当样本量，审稿人一查 GEO 元数据就会发现。
+    Patient-level aggregation is required because repeated sections from the
+    same patient (technical replicates, adjacent faces or different deposits)
+    are not independent samples. Treating every section as an independent
+    observation is pseudo-replication and is readily detected from GEO metadata.
 
-    2026-08-27 查 GEO 才发现：本项目的 8 张切片实际来自 **3 个患者**——
-    CSCC01/02 = GSE144239 的 P4 两个重复，CSCC03/04 = P6 两个重复，
-    MEL01–04 = GSE250636 同一位患者（Patient B）的四处颅外转移灶。
-    所有"n=8"的陈述都必须同时给出患者数。
+    As of 2026-10-05, the primary cohort contains 19 sections from 8 patients.
+    The cSCC sections map to CSCC_P2, CSCC_P4, CSCC_P5, CSCC_P6, CSCC_P9 and
+    CSCC_P10; MEL01/MEL04 map to MEL_PtA, and MEL02/MEL03 map to MEL_PtB.
 
-    台账里没有 patient 列时，退化为"每张切片自成一个患者"并打印告警——
-    不要静默假装它们独立。
+    If the ledger lacks a patient column, this function falls back to treating
+    each section as its own patient and prints a warning rather than silently
+    assuming independence.
     """
     rows = load_ledger(P)
     if not rows:

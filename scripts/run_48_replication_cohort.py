@@ -19,8 +19,9 @@ Outputs:
 
 Why
 ---
-The primary cohort has one melanoma patient. This cohort adds four, processed with the locked
-pipeline and parameters, as a separate family that is never pooled into the primary numbers.
+The primary cohort has two melanoma patients among its four melanoma sections. This
+cohort adds four patients, processed with the locked pipeline and parameters, as a
+separate family that is never pooled into the primary numbers.
 Scanpy is not needed: ``sparta/lite.py`` re-implements M1/M2 and ``--validate`` shows that it
 reproduces the archived scores of primary first-generation sections.
 
@@ -392,12 +393,18 @@ def statistics(cfg, sids):
         ablated=analyse(vals("ablated_rho"), {s: per[s]["ablated_null_sd"] for s in sids_ok}, pmap,
                         "replication: shared ECM term ablated"),
     )
-    # secondary: pooled with the primary cohort (11 patients)
+    # secondary: combined with the primary cohort in an explicitly labelled analysis
     prim = load_json(P.validation("spatial_null_check.json"))["per_slide"]
+    primary_patients = {pmap[s] for s in prim}
+    replication_patients = {per[s]["patient"] for s in sids_ok}
     pooled_vals = {**{s: r["real_rho_partial"] for s, r in prim.items()}, **vals("real_rho_partial")}
     pooled_sds = {**{s: r["null_std"] for s, r in prim.items()}, **sds}
-    patient["pooled_primary_plus_replication"] = analyse(pooled_vals, pooled_sds, pmap,
-                                                         "primary (7 patients) + replication (4 patients)")
+    patient["pooled_primary_plus_replication"] = analyse(
+        pooled_vals,
+        pooled_sds,
+        pmap,
+        f"primary ({len(primary_patients)} patients) + replication ({len(replication_patients)} patients)",
+    )
     rho = np.array([per[s]["real_rho_partial"] for s in sids_ok])
     summary = dict(
         n_sections=len(sids_ok), n_patients=len({per[s]["patient"] for s in sids_ok}),
@@ -480,7 +487,7 @@ def main():
           f"positive, sign-flip p={pa['sign_flip']['p_one_sided']:.4f}; pooled {pa['nested_model']['mean']:+.3f} "
           f"CI {pa['nested_model']['ci95']}")
     pp = patient["pooled_primary_plus_replication"]
-    print(f"pooled 11 patients: {pp['nested_model']['mean']:+.3f} CI {pp['nested_model']['ci95']} "
+    print(f"pooled {pp['n_patients']} patients: {pp['nested_model']['mean']:+.3f} CI {pp['nested_model']['ci95']} "
           f"sign-flip p={pp['sign_flip']['p_one_sided']:.5f} ({pp['sign_flip']['n_positive']}/{pp['n_patients']})")
     print(f"construction share median {s['median_share_construction']:.2f}; excess median "
           f"{s['median_excess']:+.3f}; replication declared: {s['replication_declared']}")
